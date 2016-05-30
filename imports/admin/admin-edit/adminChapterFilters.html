@@ -1,0 +1,45 @@
+<template name='adminChapterFilters'>
+	<form class='newParagraph'>
+		<label for="paragraph">Paragraaf</label>
+		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
+		<input type="submit">
+	</form>
+
+	<section class="addFilter">
+		<h2>Voeg een filter toe</h2>
+		<ul>
+			{{#each filters}}
+			<li class='filter'>{{name}}</li>
+			{{/each}}
+			{{> Template.dynamic template=whichOne}}
+			
+		</ul>
+	</section>
+				
+</template>
+
+<template name='weather'>
+	<h3>weather</h3>
+	<form class="addVarWeather">
+		<label for="degrees">Graden</label>
+		<input type="radio" name='type' value='degrees' id='degrees'>
+		<label for="word">Verwoord</label>
+		<input type="radio" name='type' value='word' id='word'>
+
+		<input type="submit">
+	</form>
+</template>
+
+<template name='date'>
+	<h3>date</h3>
+	<form class="addVarDate">
+		<label for="day">Dag</label>
+		<input type="radio" name='type' value='day' id='day'>
+		<label for="part">Dagdeel</label>
+		<input type="radio" name='type' value='part' id='part'>
+		<label for="month">Maand</label>
+		<input type="radio" name='type' value='month' id='month'>
+
+		<input type="submit">
+	</form>
+</template>

@@ -1,0 +1,23 @@
+<template name='story'>
+	{{#with chapter}}
+	<article>
+		<header>
+			<h1>{{title}}</h1>
+			<h2>{{realTime date}}</h2>
+		</header>
+<p>
+	{{#each content}}
+		
+			
+		
+		{{#if istext}}
+				<span id='{{_id._str}}' class='{{isDone}}'>{{text}}</span>
+			{{else}}
+			<span>{{vars}}</span>
+			{{/if}}
+			
+	{{/each}}
+</p>
+	</article>
+	{{/with}}
+</template>

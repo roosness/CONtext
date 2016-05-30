@@ -1,0 +1,14 @@
+<template name='layout'>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href='https://fonts.googleapis.com/css?family=Istok+Web:400,700|Libre+Baskerville:400,700' rel='stylesheet' type='text/css'>
+	</head>
+
+	<header>{{> Template.dynamic template=header}}</header>
+
+	<main>
+		{{> Template.dynamic template=main}}
+	</main>
+
+	{{> Template.dynamic template=overlay}}
+</template>

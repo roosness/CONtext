@@ -1,0 +1,21 @@
+<template name='admin'>
+
+	<p>Klik op een van de onderstaande hoofdstukken om deze te weizigen/nieuwe paragraven toe te voegen, of gebruik het formulier om een nieuw hoofdstuk te maken.</p>
+	<ol class='storyList'>
+		{{#each chapters}}
+			<li>
+				<a href="/admin/{{_id}}">
+				<span>H{{number}}</span>
+				<p>{{title}}</p>
+				<time>{{realTime date}}</time>
+				</a>
+			</li>		
+		{{/each}}
+	</ol>
+	<form class="newChapter">
+		<label for="title">Titel</label>
+		<input type="text" id='title'>
+		<input type="submit">
+	</form>
+</template>
+

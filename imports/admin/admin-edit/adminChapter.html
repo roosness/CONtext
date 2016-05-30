@@ -1,0 +1,24 @@
+<template name='adminChapter'>
+	
+	<article>
+		{{time}}
+		{{#with chapter}}
+			<header>
+				<h1>H{{number}}: {{title}}</h1>
+				<h2>{{date}}</h2>
+			</header>
+
+		{{#each content}}
+			{{#if istext}}
+				<span>{{text}}</span>
+			{{else}}
+			<span>{{vars}}</span>
+			{{/if}}
+		{{/each}}
+		{{/with}}
+	</article>
+
+	<aside class="admin-filters">
+		{{> adminChapterFilters}}
+	</aside>
+</template>

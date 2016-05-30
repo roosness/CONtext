@@ -1,0 +1,46 @@
+<template name='loginRegister'>
+    <section class="login-wrapper active">
+        {{> login}}
+    </section>
+    <section class="register-wrapper">
+        {{> register}}
+    </section>
+</template>
+
+<template name="register">
+    <span class="register message hide">
+    blac
+    </span>
+    <form class="register">
+       
+        <input placeholder='Email' type="email" name="email" id='email' class='register'>
+        
+        <input placeholder="Password" type="password" name="password" id='password' class='register'>
+        <input type="submit" value="Register">
+    </form>
+
+    <a href="#" id='login'>Login to an excisting account.</a>
+</template>
+
+<template name='loginlogout'>
+	{{#if currentUser}}
+		<li><a href="#" class='logout'>Logout</a></li>
+	{{else}}
+		<li> <a href="#">Register</a></li>
+		<li> <a href="#">login</a></li>
+	{{/if}}
+</template>
+
+<template name="login">
+    
+        <span class="login message hide">
+    blac
+    </span>
+    <form class="login">
+        <input placeholder='Email' type="email" name="email" id='email' class='login'>
+        <input placeholder="Password" type="password" name="password" id='password' class='login'>
+        <input type="submit" value="Login">
+    </form>
+    <a href="#" id='register'>Create a new account.</a>
+    
+</template>

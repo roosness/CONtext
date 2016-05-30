@@ -1,0 +1,86 @@
+.loginRegister-wrapper {
+  position: relative;
+}
+.loginRegister-wrapper .login-wrapper, .loginRegister-wrapper .register-wrapper {
+  height: 100%;
+  position: absolute;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+  padding: 2em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.loginRegister-wrapper .login-wrapper.active, .loginRegister-wrapper .register-wrapper.active {
+  width: 100vw;
+  opacity: 1;
+  top: 0;
+}
+.loginRegister-wrapper .login-wrapper > *:not(form), .loginRegister-wrapper .register-wrapper > *:not(form) {
+  flex-basis: 1em;
+}
+.loginRegister-wrapper .login-wrapper {
+  left: 0;
+}
+.loginRegister-wrapper .register-wrapper {
+  right: 0;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em auto;
+  max-width: 80vw;
+  text-align: left;
+}
+form input {
+  font-size: 1em;
+}
+form input::-webkit-input-placeholder {
+  text-transform: uppercase;
+}
+form input[type='email'], form input[type='password'] {
+  border: none;
+  flex: 65%;
+  padding: .7em;
+  max-width: 80vw;
+  margin-top: .5em;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(96, 125, 139, 0.2);
+}
+form input[type='submit'] {
+  flex: 100%;
+  margin: 2em auto;
+  padding: .5em;
+  background: #607d8b;
+  color: white;
+  border: none;
+}
+
+a#register, a#login {
+  color: #607d8b;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+}
+
+.message {
+  background: rgba(96, 125, 139, 0.2);
+  padding: .5em;
+  opacity: 1;
+  max-height: 1em;
+  display: block;
+  transition: opacity .3s ease-in-out;
+}
+
+.slideOut {
+  transform: translateX(-100vw);
+}
+
+/*# sourceMappingURL=login.css.map */
