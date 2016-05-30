@@ -1,10 +1,12 @@
 # CONtext
 
-##Concept Beschrijving
 CONtext is een onderdeel van een onderzoek naar online identiteit.
 In CONtext wordt de lezer een verhaal voorgeschoteld dat langzaam de identiteit van de lezer overneemt. Zal de lezer zich hier in herkennen? Of is zijn online identiteit dusdanig anders van de realiteit dat hij of zij zichzelf er niet in terug vindt. Naast dat de identiteit van de lezer wordt gebruikt, zal de context van de lezer ook terug komen in het verhaal. Denk hierbij aan locatie, weer, tijd en dag van de week. 
 
 In CONtext is het voor de opdrachtgever mogelijk om nieuwe verhalen toe te voegen, de gebruikte data aan te passen, of oudere verhalen te wijzigen.
+
+De eerste demo is live te zien op [deze url](http://178.62.237.237/)
+Let op! Dit is de eerste live demo, en werkt dus grotendeels niet....
 
 ###Feature List
 De feature list is opgedeeld in verschillende fases. Dit zijn de fases waarin ik prototypes ga opleveren, die deze features dan bevatten
