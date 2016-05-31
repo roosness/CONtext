@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 Template.loginRegister.onCreated(function () {
 	
 })
@@ -5,13 +7,26 @@ Template.loginRegister.helpers({
 	
 })
 Template.register.events({
+	'click #facebook-register': function(event) {
+        Meteor.loginWithFacebook({
+        	// requestPermissions: ['user_friends', 'public_profile', 'email']
+        }, function(err){
+            if (err) {
+                throw new Meteor.Error("Facebook login failed");
+            }
+            else {
+            	FlowRouter.redirect('/stories')
+            }
+             
+        });
+    },
 	'click #login' : function (e) {
 		e.preventDefault();
 		var loginWrapper = document.querySelector('.login-wrapper');
 		var registerWrapper = document.querySelector('.register-wrapper');
 
 		loginWrapper.classList.add('active');
-		registerWrapper.classList.remove('active')
+		registerWrapper.classList.remove('active');
 		
 
 	},
@@ -49,9 +64,26 @@ Template.loginlogout.events({
 })
 
 
+
+
 Template.login.events({
+	'click #facebook-login': function(event) {
+        Meteor.loginWithFacebook({
+        	// requestPermissions: ['user_friends', 'public_profile', 'email']
+        }, function(err){
+            if (err) {
+                throw new Meteor.Error("Facebook login failed");
+            }
+            else {
+            	FlowRouter.redirect('/stories')
+            }
+             
+        });
+            
+    },
 	'click #register' : function (e) {
 		e.preventDefault();
+		console.log('go to register')
 		var loginWrapper = document.querySelector('.login-wrapper');
 		var registerWrapper = document.querySelector('.register-wrapper');
 

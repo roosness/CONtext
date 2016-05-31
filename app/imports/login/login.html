@@ -8,9 +8,10 @@
 </template>
 
 <template name="register">
-    <span class="register message hide">
-    blac
-    </span>
+    
+
+    <button id="facebook-register" class="social-login"><img src="/icons/facebook-logo.svg" alt="">  Register with Facebook</button>
+    
     <form class="register">
        
         <input placeholder='Email' type="email" name="email" id='email' class='register'>
@@ -18,7 +19,7 @@
         <input placeholder="Password" type="password" name="password" id='password' class='register'>
         <input type="submit" value="Register">
     </form>
-
+    <span class="register message hide">blac </span>
     <a href="#" id='login'>Login to an excisting account.</a>
 </template>
 
@@ -33,14 +34,17 @@
 
 <template name="login">
     
-        <span class="login message hide">
-    blac
-    </span>
+        
+
+        <button id="facebook-login" class="social-login"><img src="/icons/facebook-logo.svg" alt=""> Login with Facebook</button>
     <form class="login">
         <input placeholder='Email' type="email" name="email" id='email' class='login'>
         <input placeholder="Password" type="password" name="password" id='password' class='login'>
         <input type="submit" value="Login">
     </form>
+    <span class="login message hide">blac </span>
     <a href="#" id='register'>Create a new account.</a>
     
 </template>
+
+

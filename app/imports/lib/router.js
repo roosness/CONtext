@@ -2,7 +2,9 @@ BlazeLayout.setRoot('body');
 
 FlowRouter.route('/', {
   name: 'start',
-  
+  subscriptions () {
+    this.register('getUserData', Meteor.subscribe('getUserData'));
+  },
   action() {
 
     BlazeLayout.render( 'layout', {overlay: 'start'});
@@ -12,6 +14,7 @@ FlowRouter.route('/stories', {
   name: 'stories',
   subscriptions () {
     this.register('Chapters', Meteor.subscribe('Chapters'));
+    this.register('getUserData', Meteor.subscribe('getUserData'));
   },
   action() {
 

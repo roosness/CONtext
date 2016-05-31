@@ -14,10 +14,6 @@ Template.story.helpers({
 	istext () {
 		
 		if(this.type === 'p') {
-			// var id =  this._id._str;
-			// var item = document.getElementById(id);
-			// console.log(its)
-
 			return true;
 		}
 		else {
@@ -63,13 +59,13 @@ Template.story.helpers({
 			}
 			else if(this.text === 'part') {
 
-				var curHr = date.getMinutes();
+				var curHr = date.getHours();
 
-				if(curHr<10){
+				if(curHr<12){
 			      return ("ochtend")
 				}else if(curHr<18){
 			      return ("middag")
-				}else if(curHr<52){
+				}else if(curHr<23){
 			      return ("avond")
 				}else {
 				return('nacht')
