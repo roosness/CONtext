@@ -34,3 +34,4 @@ De feature list is opgedeeld in verschillende fases. Dit zijn de fases waarin ik
 ####fase 3
 - de lezer kan swipen tussen verschillende verhalen
 - de data van de persoonlijkheidstest wordt verwerkt in de verhalen
+- downloadlink om de verhalen met default waardes als pdf te downloaden
