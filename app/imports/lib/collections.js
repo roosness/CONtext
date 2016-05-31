@@ -11,6 +11,10 @@ if(Meteor.isServer) {
 	Meteor.publish('Dataset', function() {
 		return Dataset.find({});
 	});
+	Meteor.publish("getUserData", function () {
+    return Meteor.users.find({_id: this.userId});
+});
+
 	
 }
 
