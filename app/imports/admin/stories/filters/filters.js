@@ -1,5 +1,5 @@
-import { Chapters, Dataset } from '../../lib/collections.js';
-Template.adminChapterFilters.helpers({
+import { Chapters, Dataset } from '../../../lib/collections.js';
+Template.filters.helpers({
 	filters() {
 
 		return Dataset.find({})
@@ -13,7 +13,13 @@ Template.adminChapterFilters.helpers({
 	}
 })
 
-Template.adminChapterFilters.events( {
+Template.filters.events( {
+	'click #storySettings': function (e) {
+		e.preventDefault();
+		var target = document.querySelector('form.settings');
+		console.log(target);
+		target.classList.toggle('active');
+	},
 	'click .filter': function (e) {
 		var links = document.querySelectorAll('.filter');
 		console.log(this)

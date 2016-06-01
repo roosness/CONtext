@@ -1,13 +1,13 @@
-import { Chapters, Dataset } from '../lib/collections.js';
-Template.admin.onRendered (function(){
+import { Chapters, Dataset } from '../../lib/collections.js';
+Template.adminStories.onRendered (function(){
 	
 })
-Template.admin.helpers ({
+Template.adminStories.helpers ({
 	chapters () {
 		return Chapters.find({}, {sort: {date: -1}})
 	}
 })
-Template.admin.events({
+Template.adminStories.events({
 	'submit .newChapter' : function (event) {
 		event.preventDefault();
 		console.log((Chapters.find({}).count() )+ 1)
