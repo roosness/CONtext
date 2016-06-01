@@ -1,29 +1,34 @@
 <template name='filters'>
-	<h1>filters</h1>
+	<h2>Edit: {{chapterTitle}}</h2>
+	<a href="#" id='storySettings'><img src="/icons/gear_grey.svg" alt="instellingen"></a>
 	{{> storySettings}}
 
-	<a href="#" id='storySettings'>algemene instellingen</a>
+	
 	<form class='newParagraph'>
-		<label for="paragraph">Paragraaf</label>
+		<header>
+			<label for="paragraph">Paragraaf</label>
+		</header>
 		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
 		<input type="submit">
 	</form>
-
+	
 	<section class="addFilter">
-		<h2>Voeg een filter toe</h2>
+		<header><span>Data filters</span></header>
 		<ul>
 			{{#each filters}}
-			<li class='filter'>{{name}}</li>
+			<li class='filter'><span>{{name}}</span></li>
 			{{/each}}
-			{{> Template.dynamic template=whichOne}}
+			
 			
 		</ul>
 	</section>
-				
+	<section class="filter">
+		{{> Template.dynamic template=whichOne}}
+	</section>			
 </template>
 
 <template name='weather'>
-	<h3>weather</h3>
+	<header><span>weather</span></header>
 	<form class="addVarWeather">
 		<label for="degrees">Graden</label>
 		<input type="radio" name='type' value='degrees' id='degrees'>
@@ -35,7 +40,7 @@
 </template>
 
 <template name='date'>
-	<h3>date</h3>
+	<header><span>date</span></header>
 	<form class="addVarDate">
 		<label for="day">Dag</label>
 		<input type="radio" name='type' value='day' id='day'>
@@ -50,7 +55,7 @@
 
 <template name='storySettings'>
 	
-	<form class="settings">
+	<form class="storySettings">
 		<fieldset>
 			<label for  ="title">Nieuwe titel</label>
 			<input type ="text" id='title'>

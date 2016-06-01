@@ -1,5 +1,9 @@
 import { Chapters, Dataset } from '../../../lib/collections.js';
 Template.filters.helpers({
+	chapterTitle() {
+		var a = Chapters.findOne({_id: FlowRouter.getParam("chapterId")});
+		return a.title
+	},
 	filters() {
 
 		return Dataset.find({})

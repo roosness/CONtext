@@ -1,0 +1,39 @@
+main.admin {
+	
+	display:flex;
+	flex-wrap:wrap;
+
+	
+	aside {
+		flex: 35%;
+		margin: 0 0;
+		height:100vh;
+		padding: 0 0;
+		box-sizing:border-box;
+		overflow:scroll;
+		
+		border-left:1px solid #EBEBEB;
+		& > h2 {
+				margin: 0 0;
+				color:#c2c2c2;
+				font-size:1.6em;
+				padding:.5em;
+				text-align:center;
+				font-style: italic;
+				font-weight: lighter;
+
+		}
+
+
+	}
+	.filters-wrapper {
+		flex: 60%;
+		padding:1em 2em;
+		box-sizing:border-box;
+		margin: 0 0;
+		background: #F8F8F8;
+		
+		
+	}
+
+}

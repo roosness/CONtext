@@ -10,10 +10,29 @@
 <template name='headerAdmin'>
 	<nav class='admin'>
 		<ul>
-			<li class='{{isActiveRoute "admin"}}'><a href="/admin"><img src="/icons/home_white.svg" alt="Home"></a></li>
-			<li class='{{isActiveRoute name='admin-stories'}}'><a href="/admin/stories"><img src="/icons/menu.svg" alt="overzicht"></a></li>
-			<li class='{{isActiveRoute name='admin-stats'}}'><a href="/admin/stats"><img src="/icons/arrow_white.svg" alt="Stats"></a></li>
-			<li class='{{isActiveRoute name='admin-settings'}}'><a href="/admin/settings"><img src="/icons/gear_white.svg" alt="instellingen"></a></li>
+			<li class='{{isActiveRoute "admin"}}'>
+				<a href="/admin">
+					<span>Admin</span>
+					<img src="/icons/home_white.svg" alt="Home">
+				</a>
+			</li>
+			<li class='{{isActiveRoute name='admin-stories'}}'>
+				<a href="/admin/stories">
+					<span>overzicht</span>
+					<img src="/icons/menu.svg" alt="overzicht">
+				</a>
+			</li>
+			<li class='{{isActiveRoute name='admin-stats'}}'>	<a href="/admin/stats">
+					<span>statistieken</span>
+					<img src="/icons/arrow_white.svg" alt="Stats">
+				</a>
+			</li>
+			<li class='{{isActiveRoute name='admin-settings'}}'>
+				<a href="/admin/settings">
+					<span>instellingen</span>
+					<img src="/icons/gear_white.svg" alt="instellingen">
+				</a>
+			</li>
 		</ul>
 	</nav>
 </template>
