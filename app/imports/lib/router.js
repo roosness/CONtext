@@ -7,6 +7,7 @@ var adminRouters = FlowRouter.group({
   subscriptions () {
     this.register('Chapters', Meteor.subscribe('Chapters'));
     this.register('Dataset', Meteor.subscribe('Dataset'));
+    this.register('getUserData', Meteor.subscribe('getUserData'));
   },
    triggersEnter: [function(context, redirect) {
     

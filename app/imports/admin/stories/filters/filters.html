@@ -1,7 +1,86 @@
 <template name='filters'>
-	<h2>Edit: {{chapterTitle}}</h2>
+	<a href="#" id='storySettings'><img src="/icons/gear_white.svg" alt="instellingen">Algemene instellingen</a>
+	
+		{{> storySettings}}
+		
+	
+	<section class="filters active ">
+		{{#with chapter}}
+			<ul>
+				<li class='showFilter'>
+					<span>Weer API <img src="/icons/next.svg" alt=""></span>
+					
+						{{> weather}}
+					
+				</li>
+				<li>
+					<span>Date<img src="/icons/next.svg" alt=""></span>
+					<section id="showDate">
+						{{> date}}
+					</section>
+				</li>
+				{{#if useUser}}
+					<li>
+					<span>Gebruiker<img src="/icons/next.svg" alt=""></span>
+					<section id="showGender">
+						{{> user}}
+					</section>
+				</li>
+				{{/if}}
+			</ul>
+		{{/with}}
+	</section>
+</template>
+
+<template name='weather'>
+	<form class="addVarWeather">
+		
+		<input type="radio" name='type' value='degrees' id='degrees'>
+		<label for="degrees">Graden</label>
+		
+		<input type="radio" name='type' value='word' id='word'>
+		<label for="word">Verwoord</label>
+
+		<input type="submit">
+	</form>
+</template>
+<template name='date'>
+	<form class="addVarDate">
+		
+		<input type="radio" name='type' value='day' id='day'>
+		<label for="day">Dag</label>
+		
+		<input type="radio" name='type' value='part' id='part'>
+		<label for="part">Dagdeel</label>
+		
+		<input type="radio" name='type' value='month' id='month'>
+		<label for="month">Maand</label>
+		<input type="submit">
+	</form>
+</template>
+
+<template name='user'>
+	<form class="addVarUser">
+		
+		<!-- <input type="radio" name='type' value='geslacht' id='geslacht'>
+		<label for="geslacht">Geslacht</label> -->
+	
+		<input type="radio" name='type' value='naam' id='naam'>
+		<label for="naam">Naam</label>
+		
+		<input type="radio" name='type' value='leeftijd' id='leeftijd'>
+		<label for="leeftijd">leeftijd</label>
+		
+		
+		<input type="radio" name='type' value='Burgelijke' id='Burgelijke'>
+		<label for="Burgelijke">Burgelijke staat</label>
+		<input type="submit">
+	</form>
+</template>
+<!-- <template name='filters'>
+	<h2>Edit: </h2>
 	<a href="#" id='storySettings'><img src="/icons/gear_grey.svg" alt="instellingen"></a>
-	{{> storySettings}}
+	
 
 	
 	<form class='newParagraph'>
@@ -27,17 +106,7 @@
 	</section>			
 </template>
 
-<template name='weather'>
-	<header><span>weather</span></header>
-	<form class="addVarWeather">
-		<label for="degrees">Graden</label>
-		<input type="radio" name='type' value='degrees' id='degrees'>
-		<label for="word">Verwoord</label>
-		<input type="radio" name='type' value='word' id='word'>
 
-		<input type="submit">
-	</form>
-</template>
 
 <template name='date'>
 	<header><span>date</span></header>
@@ -51,57 +120,5 @@
 
 		<input type="submit">
 	</form>
-</template>
+</template> -->
 
-<template name='storySettings'>
-	
-	<form class="storySettings">
-		<fieldset>
-			<label for  ="title">Nieuwe titel</label>
-			<input type ="text" id='title'>
-			
-			<label for  ="forTesting">Voor testen:</label>
-			<input type ="checkbox" id='forTesting'>
-			
-			<label for  ="useUsername">Wil je de naam van de lezer gebruiken?</label>
-			<input type ="checkbox" id='useUsername'>
-			
-			<label for  ="useGender">Wil je het geslacht van de lezer gebruiken?</label>
-			<input type ="checkbox" id='useGender'>
-		</fieldset>
-		
-		<fieldset class='useUsername'>
-			<p>Gebruik de naam voor:</p>
-			<label for  ="hoofdpersoon">De hoofdpersoon</label>
-			<input type ="radio" name='character' id='hoofdpersoon' value='hoofdpersoon'>
-			<label for  ="anders">Anders(?)</label>
-			<input type ="radio" name='character' id='anders' value='anders'>
-
-			<label for="format">Formaat naam</label>
-			<select  id="format">
-				<option value ="voornaam">Voornaam</option>
-				<option value ="achternaam">Achternaam</option>
-				<option value ="voorAchter">Voornaam + Achternaam</option>
-				<option value ="voorletterAchter">Voorletter + Achternaam</option>
-				<option value ="voorletter">Voorletter</option>
-			</select>
-		</fieldset>
-		<fieldset class='useGender'>
-			<p>Gebruik het geslacht voor:</p>
-			<label for  ="hoofdpersoon">De hoofdpersoon</label>
-			<input type ="radio" name='genderCharacter' id='hoofdpersoon' value='hoofdpersoon'>
-			<label for  ="anders">Anders(?)</label>
-			<input type ="radio" name='genderCharacter' id='anders' value='anders'>
-
-			<p>Welk geslacht?</p>
-			<label for  ="normal">Geslacht van Gebruiker</label>
-			<input type ="radio" name='genderFormat' id='normal' value='normal'>
-			<label for  ="Tegengesteld">Tegengesteld</label>
-			<input type ="radio" name='genderFormat' id='Tegengesteld' value='Tegengesteld'>	
-		</fieldset>
-		
-		
-<input type="submit">
-		
-	</form>
-</template>

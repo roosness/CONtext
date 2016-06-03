@@ -1,4 +1,4 @@
-import { Dataset, Chapters } from '../lib/collections.js';
+import { Dataset, Chapters, getUserData } from '../lib/collections.js';
 
 Template.story.onRendered(function () {
 	
@@ -40,15 +40,29 @@ Template.story.helpers({
 	},
 	vars () {
 		if(this.type === 'weather') {
-
-			Meteor.call('getWeather',this.text, function (err, res) {
+			
+			if(this.text === 'word') {
+			
+				Meteor.call('getWeather',this.text, function (err, res) {
+					
 				Meteor.call('calcWeather', res.weather[0].id, this.text, function (err, res) {
 					Session.set('weatherWord', res)
 				})
 				
 			});
+				return Session.get('weatherWord');
+			}
+			else if(this.text === 'degrees') {
+				
+				Meteor.call('getWeather',this.text, function (err, res) {
+				Session.set('weatherDeg', res.main.temp)
+				
+			});
+				return Session.get('weatherDeg');
+			}
 			
-			return Session.get('weatherWord');
+			
+			
 		}
 		else if (this.type === 'date') {
 			var date   = new Date(TimeSync.serverTime());
@@ -76,6 +90,45 @@ Template.story.helpers({
 				return date.toLocaleDateString('nl-NL', { month: 'long'});
 			}
 			
+		}
+		if(this.type === 'user') {
+			// console.log(this.text)
+			var settings = Template.parentData(1).settings
+			 if(this.text === 'naam') {
+			 	var text;
+			 	
+			 	console.log(settings.name.format)
+			 	var userInfo = Meteor.user().services.facebook;
+			 	console.log(userInfo.first_name + ' ' + userInfo.last_name)
+			 	switch(settings.name.format) {
+			 		case 'v':
+			 			text = userInfo.first_name;
+			 			break;
+			 		case 'a':
+			 			text = userInfo.last_name;
+			 			break;
+			 		case 'v+a':
+						text = userInfo.first_name + ' ' + userInfo.last_name;
+						break;
+			 		case 'vl+a':
+				 		text = userInfo.first_name.charAt(0) + '. ' + userInfo.last_name;
+			 			break;
+			 		case 'vl':
+				 		text = userInfo.first_name.charAt(0) + '.';
+			 			break;
+			 		default: 
+			 			text = 'naam';
+			 	}
+			 	return text
+
+
+
+
+
+
+
+				
+			}
 		}
 	},
 })

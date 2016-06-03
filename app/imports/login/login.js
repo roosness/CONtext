@@ -9,7 +9,9 @@ Template.loginRegister.helpers({
 Template.register.events({
 	'click #facebook-register': function(event) {
         Meteor.loginWithFacebook({
-        	// requestPermissions: ['user_friends', 'public_profile', 'email']
+        	requestPermissions: ['email', 'user_friends', 'user_location', 'user_events', 
+            'friends_events', 'friends_location', 'friends_about_me',
+            'user_status', 'friends_status', 'read_friendlists'],
         }, function(err){
             if (err) {
                 throw new Meteor.Error("Facebook login failed");

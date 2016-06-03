@@ -50,17 +50,11 @@ import '../imports/admin/stories/stories.css'
 import '../imports/admin/stories/stories.html'
 import '../imports/admin/stories/stories.js'
 
-// import '../imports/admin/admin-edit/adminChapter.html'
-// import '../imports/admin/admin-edit/adminChapter.js'
-// import '../imports/admin/admin-edit/adminChapter.css'
 
-// import '../imports/admin/admin-edit/adminChapterFilters.html'
-// import '../imports/admin/admin-edit/adminChapterFilters.css'
-// import '../imports/admin/admin-edit/adminChapterFilters.js'
+import '../imports/admin/stories/storySettings/storySettings.html'
+import '../imports/admin/stories/storySettings/storySettings.css'
+import '../imports/admin/stories/storySettings/storySettings.js'
 
-// import '../imports/admin/admin-edit/storySettings.html'
-// import '../imports/admin/admin-edit/storySettings.css'
-// import '../imports/admin/admin-edit/storySettings.js'
 
 import '../imports/login/login.html'
 import '../imports/login/login.css'

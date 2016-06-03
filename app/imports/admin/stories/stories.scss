@@ -1,0 +1,24 @@
+.newChapter {
+	
+	max-width:100%;
+	margin:1em;
+	box-sizing:border-box;
+	justify-content:space-between;
+	display:block;
+
+	& > * {
+		
+	}
+	label {
+		padding:.5em;
+	}
+	input[type='text'] {
+		flex:60%;
+		padding:.5em;
+		width:75%;
+		font-size: 1em;
+	}
+	input[type='submit'] {
+		
+	}
+}

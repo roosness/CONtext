@@ -10,12 +10,26 @@ Template.adminStories.helpers ({
 Template.adminStories.events({
 	'submit .newChapter' : function (event) {
 		event.preventDefault();
-		console.log((Chapters.find({}).count() )+ 1)
+		console.log((Chapters.find({}).count() )+ 1);
+		var settings = {
+			forTests : false,
+			useName: false,
+			useGender: false,
+			name : {
+				for: '',
+				format: ''
+			},
+			gender : {
+				for: '',
+				reversed: '',
+			}
+		}
 		Chapters.insert({
 			number: (Chapters.find({}).count() )+ 1,
 			title: event.target.title.value.trim(),
 			date: new Date(),
-			content: []
+			content: [],
+			settings: settings,
 		})
 	}
 })

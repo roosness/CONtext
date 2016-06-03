@@ -1,5 +1,8 @@
+import { Dataset, Chapters } from '../lib/collections.js';
+
 if(Meteor.isServer) {
 	Meteor.methods({
+	
 	returnVars: function (item) {
 		return 'ba'
 	},
@@ -12,6 +15,7 @@ if(Meteor.isServer) {
 			
 			
 			return data;
+
 			
 			
 		}
