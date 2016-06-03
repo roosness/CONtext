@@ -1,5 +1,7 @@
 import { Chapters, Dataset } from '../lib/collections.js';
-
+Template.admin.onRendered (function(){
+	
+})
 Template.admin.helpers ({
 	chapters () {
 		return Chapters.find({}, {sort: {date: -1}})

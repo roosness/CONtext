@@ -1,6 +1,11 @@
 $darkblue: #364d63;
 $darkgrey: RGBA(44, 62, 80, 1.00);
-
+html {
+  height:100%;
+}
+body {
+  height:100%;
+}
 
 body, html {
   background:white;
@@ -11,6 +16,7 @@ body, html {
   line-height:1.45;
   color:#333; 
   width:100%;
+  
   font-family: 'Istok Web', sans-serif;
   box-sizing:border-box;
 }
@@ -19,6 +25,7 @@ body {
 }
 article p, article h1 {
   font-family: 'Libre Baskerville', serif;
+
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: inherit;
@@ -39,16 +46,14 @@ h4 {font-size: 1.333em;}
 nav ul {
   margin: 0 0;
 }
-aside {
-  position:absolute;
-  right:0;
-  top:0;
-  width:15em;
-  background:lightgrey;
-  height:100%;
-  padding:.2em;
-}
+
 main { 
+  margin: 0 0;
+}
+main.admin {
+  margin-left:3.5em;
+  box-sizing:border-box;
+  
 }
 .message.hide {
   opacity:0;

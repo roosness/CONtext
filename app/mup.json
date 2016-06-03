@@ -4,7 +4,7 @@
     {
       "host": "178.62.237.237",
       "username": "root",
-      // "password": "password",
+      "password": "password",
       // or pem file (ssh based authentication)
       // WARNING: Keys protected by a passphrase are not supported
       "pem": "~/.ssh/id_rsa",
@@ -19,7 +19,7 @@
   "setupMongo": true,
 
   // Application name (no spaces).
-  "appName": "context",
+  "appName": "meteor",
 
   // Location of app (local directory). This can reference '~' as the users home directory.
   // i.e., "app": "~/Meteor/my-app",

@@ -1,0 +1,124 @@
+<template name='filters'>
+	<a href="#" id='storySettings'><img src="/icons/gear_white.svg" alt="instellingen">Algemene instellingen</a>
+	
+		{{> storySettings}}
+		
+	
+	<section class="filters active ">
+		{{#with chapter}}
+			<ul>
+				<li class='showFilter'>
+					<span>Weer API <img src="/icons/next.svg" alt=""></span>
+					
+						{{> weather}}
+					
+				</li>
+				<li>
+					<span>Date<img src="/icons/next.svg" alt=""></span>
+					<section id="showDate">
+						{{> date}}
+					</section>
+				</li>
+				{{#if useUser}}
+					<li>
+					<span>Gebruiker<img src="/icons/next.svg" alt=""></span>
+					<section id="showGender">
+						{{> user}}
+					</section>
+				</li>
+				{{/if}}
+			</ul>
+		{{/with}}
+	</section>
+</template>
+
+<template name='weather'>
+	<form class="addVarWeather">
+		
+		<input type="radio" name='type' value='degrees' id='degrees'>
+		<label for="degrees">Graden</label>
+		
+		<input type="radio" name='type' value='word' id='word'>
+		<label for="word">Verwoord</label>
+
+		<input type="submit">
+	</form>
+</template>
+<template name='date'>
+	<form class="addVarDate">
+		
+		<input type="radio" name='type' value='day' id='day'>
+		<label for="day">Dag</label>
+		
+		<input type="radio" name='type' value='part' id='part'>
+		<label for="part">Dagdeel</label>
+		
+		<input type="radio" name='type' value='month' id='month'>
+		<label for="month">Maand</label>
+		<input type="submit">
+	</form>
+</template>
+
+<template name='user'>
+	<form class="addVarUser">
+		
+		<!-- <input type="radio" name='type' value='geslacht' id='geslacht'>
+		<label for="geslacht">Geslacht</label> -->
+	
+		<input type="radio" name='type' value='naam' id='naam'>
+		<label for="naam">Naam</label>
+		
+		<input type="radio" name='type' value='leeftijd' id='leeftijd'>
+		<label for="leeftijd">leeftijd</label>
+		
+		
+		<input type="radio" name='type' value='Burgelijke' id='Burgelijke'>
+		<label for="Burgelijke">Burgelijke staat</label>
+		<input type="submit">
+	</form>
+</template>
+<!-- <template name='filters'>
+	<h2>Edit: </h2>
+	<a href="#" id='storySettings'><img src="/icons/gear_grey.svg" alt="instellingen"></a>
+	
+
+	
+	<form class='newParagraph'>
+		<header>
+			<label for="paragraph">Paragraaf</label>
+		</header>
+		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
+		<input type="submit">
+	</form>
+	
+	<section class="addFilter">
+		<header><span>Data filters</span></header>
+		<ul>
+			{{#each filters}}
+			<li class='filter'><span>{{name}}</span></li>
+			{{/each}}
+			
+			
+		</ul>
+	</section>
+	<section class="filter">
+		{{> Template.dynamic template=whichOne}}
+	</section>			
+</template>
+
+
+
+<template name='date'>
+	<header><span>date</span></header>
+	<form class="addVarDate">
+		<label for="day">Dag</label>
+		<input type="radio" name='type' value='day' id='day'>
+		<label for="part">Dagdeel</label>
+		<input type="radio" name='type' value='part' id='part'>
+		<label for="month">Maand</label>
+		<input type="radio" name='type' value='month' id='month'>
+
+		<input type="submit">
+	</form>
+</template> -->
+

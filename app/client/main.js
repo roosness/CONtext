@@ -30,13 +30,31 @@ import '../imports/admin/admin.html'
 import '../imports/admin/admin.css'
 import '../imports/admin/admin.js'
 
-import '../imports/admin/admin-edit/adminChapter.html'
-import '../imports/admin/admin-edit/adminChapter.js'
-import '../imports/admin/admin-edit/adminChapter.css'
+import '../imports/admin/settings/settings.html'
+import '../imports/admin/settings/settings.js'
+import '../imports/admin/settings/settings.css'
 
-import '../imports/admin/admin-edit/adminChapterFilters.html'
-import '../imports/admin/admin-edit/adminChapterFilters.css'
-import '../imports/admin/admin-edit/adminChapterFilters.js'
+import '../imports/admin/stats/stats.html'
+import '../imports/admin/stats/stats.css'
+import '../imports/admin/stats/stats.js'
+
+import '../imports/admin/stories/filters/filters.html'
+import '../imports/admin/stories/filters/filters.css'
+import '../imports/admin/stories/filters/filters.js'
+
+import '../imports/admin/stories/story/story.html'
+import '../imports/admin/stories/story/story.css'
+import '../imports/admin/stories/story/story.js'
+
+import '../imports/admin/stories/stories.css'
+import '../imports/admin/stories/stories.html'
+import '../imports/admin/stories/stories.js'
+
+
+import '../imports/admin/stories/storySettings/storySettings.html'
+import '../imports/admin/stories/storySettings/storySettings.css'
+import '../imports/admin/stories/storySettings/storySettings.js'
+
 
 import '../imports/login/login.html'
 import '../imports/login/login.css'

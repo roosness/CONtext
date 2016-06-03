@@ -1,8 +1,8 @@
 // 00356B
 article {
 	header {
-		background: linear-gradient(45deg, #879fab 0%,#607d8b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		color:white;
+		// background: linear-gradient(45deg, #879fab 0%,#607d8b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		color:#00356B;
 		padding:2em 1em ;
 		position:relative;
 		margin-bottom:3em;
@@ -29,7 +29,8 @@ article {
 			background:red;
 			content:'-';
 			opacity:0;
-			width:100vw;
+			width:100%;
+
 			max-width: 100%;
 			display:block;
 		}
