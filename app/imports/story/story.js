@@ -2,7 +2,12 @@ import { Dataset, Chapters, getUserData } from '../lib/collections.js';
 
 Template.story.onRendered(function () {
 	
-	
+	Meteor.call('fb_me', function(err, res) {
+	      if (!err) {
+	      	console.log(res.data)
+	      }
+	       
+	    });
 })
 
 
@@ -92,29 +97,36 @@ Template.story.helpers({
 			
 		}
 		if(this.type === 'user') {
-			// console.log(this.text)
+			
 			var settings = Template.parentData(1).settings
 			 if(this.text === 'naam') {
 			 	var text;
+
+
+			 	Meteor.call('fb_me', ',first_name,last_name', function (err, res) {
+
+			 		Session.set('user_name_first', res.data.first_name);
+			 		Session.set('user_name_last', res.data.last_name)
+			 	})
 			 	
-			 	console.log(settings.name.format)
-			 	var userInfo = Meteor.user().services.facebook;
-			 	console.log(userInfo.first_name + ' ' + userInfo.last_name)
 			 	switch(settings.name.format) {
 			 		case 'v':
-			 			text = userInfo.first_name;
+			 			text = Session.get('user_name_first')
 			 			break;
 			 		case 'a':
-			 			text = userInfo.last_name;
+			 			text = Session.get('user_name_last')
 			 			break;
 			 		case 'v+a':
-						text = userInfo.first_name + ' ' + userInfo.last_name;
+						text = Session.get('user_name_first') + ' ' + Session.get('user_name_last');
 						break;
 			 		case 'vl+a':
-				 		text = userInfo.first_name.charAt(0) + '. ' + userInfo.last_name;
+			 			var name = Session.get('user_name_first')
+				 		text = name.charAt(0) + '. ' + Session.get('user_name_last');
 			 			break;
 			 		case 'vl':
-				 		text = userInfo.first_name.charAt(0) + '.';
+			 		var name = Session.get('user_name_first');
+
+				 		text = name.charAt(0) + '.';
 			 			break;
 			 		default: 
 			 			text = 'naam';

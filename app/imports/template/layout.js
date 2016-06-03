@@ -1,7 +1,7 @@
 Template.layout.helpers({
 	isAdmin() {
-	
-		if(FlowRouter.current().route.group.name === 'admin') {
+		
+		if(FlowRouter.current().route.group) {
 			return 'admin'
 		}
 		else {
