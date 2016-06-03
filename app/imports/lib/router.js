@@ -1,6 +1,33 @@
 BlazeLayout.setRoot('body');
 
+var exposed = FlowRouter.group({});
 
+var loggedIn = FlowRouter.group({
+  triggersEnter: [
+    function() {
+      var route;
+      if (!(Meteor.loggingIn() || Meteor.userId())) {
+        route = FlowRouter.current();
+        if (route.route.name !== 'login') {
+          Session.set('redirectAfterLogin', route.path);
+        }
+        return FlowRouter.go('login');
+      }
+    }
+  ]
+})
+
+
+var admin = loggedIn.group({
+  prefix:'/admin',
+    triggersEnter: [
+      function () {
+        
+        if(!(Roles.userIsInRole || Meteor.user() : ['admin']))
+          FlowRouter.go('/admins')
+      }
+    ]
+})
 var adminRouters = FlowRouter.group({
   prefix:'/admin',
   name: 'admin',
@@ -14,7 +41,60 @@ var adminRouters = FlowRouter.group({
   }]
 })
 
-adminRouters.route('/', {
+loggedIn.route('/', {
+  name: 'start',
+  subscriptions () {
+    this.register('getUserData', Meteor.subscribe('getUserData'));
+  },
+  action() {
+
+    BlazeLayout.render( 'layout', {overlay: 'start'});
+  }
+});
+exposed.route('/login', {
+  name:'login',
+  action() {
+    BlazeLayout.render( 'layout', {overlay: 'start'});
+  }
+})
+
+loggedIn.route('/user', {
+  name: 'start',
+  subscriptions () {
+    this.register('getUserData', Meteor.subscribe('getUserData'));
+  },
+  action() {
+
+    BlazeLayout.render( 'layout', {overlay: 'start'});
+  }
+});
+
+loggedIn.route('/stories', {
+  name: 'stories',
+  subscriptions () {
+    this.register('Chapters', Meteor.subscribe('Chapters'));
+    this.register('getUserData', Meteor.subscribe('getUserData'));
+  },
+  action() {
+
+    BlazeLayout.render( 'layout', {header: 'header', main: 'stories'});
+  }
+});
+loggedIn.route('/stories/:chapterId', {
+  name: 'story',
+  subscriptions () {
+    this.register('Dataset', Meteor.subscribe('Dataset'))
+    this.register('Chapters', Meteor.subscribe('Chapters'));
+  },
+  action() {
+
+    BlazeLayout.render( 'layout', {header: 'header', main: 'story'});
+  }
+});
+
+
+
+admin.route('/', {
   name: 'admin',
   action() {
     BlazeLayout.render('layout', {header: 'headerAdmin', main: 'admin'});
@@ -84,46 +164,3 @@ adminRouters.route('/stories/:chapterId', {
 
 
 
-FlowRouter.route('/', {
-  name: 'start',
-  subscriptions () {
-    this.register('getUserData', Meteor.subscribe('getUserData'));
-  },
-  action() {
-
-    BlazeLayout.render( 'layout', {overlay: 'start'});
-  }
-});
-FlowRouter.route('/user', {
-  name: 'start',
-  subscriptions () {
-    this.register('getUserData', Meteor.subscribe('getUserData'));
-  },
-  action() {
-
-    BlazeLayout.render( 'layout', {overlay: 'start'});
-  }
-});
-
-FlowRouter.route('/stories', {
-  name: 'stories',
-  subscriptions () {
-    this.register('Chapters', Meteor.subscribe('Chapters'));
-    this.register('getUserData', Meteor.subscribe('getUserData'));
-  },
-  action() {
-
-    BlazeLayout.render( 'layout', {header: 'header', main: 'stories'});
-  }
-});
-FlowRouter.route('/stories/:chapterId', {
-  name: 'story',
-  subscriptions () {
-    this.register('Dataset', Meteor.subscribe('Dataset'))
-    this.register('Chapters', Meteor.subscribe('Chapters'));
-  },
-  action() {
-
-    BlazeLayout.render( 'layout', {header: 'header', main: 'story'});
-  }
-});

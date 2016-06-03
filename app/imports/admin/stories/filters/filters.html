@@ -7,7 +7,7 @@
 	<section class="filters active ">
 		{{#with chapter}}
 			<ul>
-				<li class='showFilter'>
+				<li class=''>
 					<span>Weer API <img src="/icons/next.svg" alt=""></span>
 					
 						{{> weather}}
@@ -29,6 +29,14 @@
 				{{/if}}
 			</ul>
 		{{/with}}
+		<form class='newParagraph'>
+		<header>
+			<label for="paragraph">Nieuwe Paragraaf</label>
+		</header>
+		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
+		<input type="submit">
+	</form>
+	
 	</section>
 </template>
 
@@ -83,13 +91,6 @@
 	
 
 	
-	<form class='newParagraph'>
-		<header>
-			<label for="paragraph">Paragraaf</label>
-		</header>
-		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
-		<input type="submit">
-	</form>
 	
 	<section class="addFilter">
 		<header><span>Data filters</span></header>

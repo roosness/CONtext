@@ -91,7 +91,10 @@
 					}
 
 				}
-
+				
+				input[type='submit'] {
+					margin: 0 0;
+				}
 				input[type='radio'] {
 				display: none;
 					&:checked + label {
@@ -102,6 +105,32 @@
 				}
 				
 
+			}
+		}
+		.newParagraph {
+			display: block;
+			background:white;
+			
+			margin: 0 0;
+			box-sizing:border-box;
+			position:relative;
+			text-align: center;
+
+			header {
+				background:#607d8b;
+				color:white;
+				width:100%;
+				margin: 0 0;
+				padding:.5em 1em;
+				display:block;
+				text-align: center;
+
+			}
+			textarea {
+				width:95%;
+				margin:1em 0;
+				box-sizing:border-box !important;
+				border:1px solid #ebebeb;
 			}
 		}
 	}

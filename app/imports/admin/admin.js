@@ -1,10 +1,14 @@
 import { Chapters, Dataset } from '../lib/collections.js';
 Template.admin.onRendered (function(){
-	
+	console.log(Roles.userIsInRole())
 })
 Template.admin.helpers ({
 	chapters () {
 		return Chapters.find({}, {sort: {date: -1}})
+	},
+	users () {
+		console.log(Meteor.users.find({}))
+		return Meteor.users.find({})
 	}
 })
 Template.admin.events({

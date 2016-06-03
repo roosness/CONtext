@@ -1,5 +1,33 @@
 <template name='admin'>
-<h1>welkom bj admin!</h1>
+<h1>welkom bij admin!</h1>
+
+<form class='addToTest'>
+	<p>Selecteer de onderstaande gebruikers om te activeren als testpersonen</p>
+	{{#each users}}
+		
+		<input type="checkbox" id='{{_id}}'>
+		<label for="{{_id}}">{{profile.name}} : {{_id}}</label>
+		<br>
+
+	{{/each}}
+	<input type="submit">
+</form>
+<form class="testSettings">
+	<ul>
+		{{#each users}}
+		<li id='{{_id}}'>
+			<span>{{profile.name}} : {{_id}}</span>
+			{{#each chapters}}
+			
+			<input type="checkbox" id='{{_id}}'>
+			<label for="{{_id}}">{{title}}</label>
+			<br>
+			{{/each}}
+		</li>
+		{{/each}}
+	</ul>
+</form>
+
 <!-- 
 
 	<p>Klik op een van de onderstaande hoofdstukken om deze te weizigen/nieuwe paragraven toe te voegen, of gebruik het formulier om een nieuw hoofdstuk te maken.</p>
