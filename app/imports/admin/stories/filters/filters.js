@@ -1,14 +1,36 @@
 import { Chapters, Dataset } from '../../../lib/collections.js';
 Template.filters.helpers({
 	chapter() {
+
 		return Chapters.findOne({_id: FlowRouter.getParam("chapterId")})
 	},
+	
 	useUser() {
 		if(this.settings.useName || this.settings.useName ) {
 			return true
 		}
 		else {
 			return false
+		}
+	}
+})
+
+Template.person.helpers({
+	formatNames() {
+		var format = ["---", "v", "a", "v+a", "vl+a", "vl"];
+		return format
+	},
+	words() {
+		var words = ['zijn','hij', 'man', 'mannen', 'jongen', 'jongens']
+		return words
+	},
+	selectedFormat () {
+		console.log(this.settings.name.format)
+		return this.settings.name.format;
+	},
+	isSelected (select) {
+		if(select === Chapters.findOne({_id: FlowRouter.getParam("chapterId")}).settings.name.format) {
+			return 'selected'
 		}
 	}
 })
@@ -146,7 +168,13 @@ Template.weather.events({
 	}
 })
 
- Template.user.events({
+ Template.person.events({
+ 	'change select': function (e) {
+ 		console.log('change');
+ 		console.log(e.currentTarget, e.currentTarget.parent, )
+ 		e.currentTarget.parentNode.classList.add('active')
+ 		
+ 	},
  	'submit form' : function (e) {
  		e.preventDefault();
 		var chapterId = FlowRouter.getParam("chapterId");
