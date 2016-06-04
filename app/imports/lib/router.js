@@ -19,6 +19,7 @@ var loggedIn = FlowRouter.group({
 
 
 var admin = loggedIn.group({
+  name:'admin',
   prefix:'/admin',
     triggersEnter: [
       function () {
@@ -100,28 +101,28 @@ admin.route('/', {
     BlazeLayout.render('layout', {header: 'headerAdmin', main: 'admin'});
   }
 })
-adminRouters.route('/settings', {
+admin.route('/settings', {
   name: 'admin-settings',
   action() {
     BlazeLayout.render('layout', {header: 'headerAdmin', main: 'admin-settings'});
   }
 })
 
-adminRouters.route('/stats', {
+admin.route('/stats', {
   name: 'admin-stats',
   action() {
     BlazeLayout.render('layout', {header: 'headerAdmin', main: 'admin-stats'});
   }
 })
 
-adminRouters.route('/stories', {
+admin.route('/stories', {
   name: 'admin-stories',
   action() {
     BlazeLayout.render('layout', {header: 'headerAdmin', main: 'adminStories'});
   }
 })
 
-adminRouters.route('/stories/:chapterId', {
+admin.route('/stories/:chapterId', {
   name: 'admin',
   action() {
     BlazeLayout.render('layout', {header: 'headerAdmin', main: 'adminStory'});

@@ -96,7 +96,7 @@ Template.story.helpers({
 			}
 			
 		}
-		if(this.type === 'user') {
+		else if(this.type === 'user') {
 			
 			var settings = Template.parentData(1).settings
 			 if(this.text === 'naam') {
@@ -131,15 +131,81 @@ Template.story.helpers({
 			 		default: 
 			 			text = 'naam';
 			 	}
-			 	return text
-
-
-
-
-
-
-
+			 	return text	
+			}
+			else if(this.text === 'Muziek') {
+				console.log('start')
 				
+				 Meteor.call('fb_me', ',music', function (err, res) {
+					if(err) {
+						console.log(err)
+					}
+					else {
+						
+						Session.set('music',res.data.music.data[0].name)
+					}
+				})
+				return Session.get('music')
+			}
+			else if(this.text === 'device') {
+				console.log('start')
+				
+				 Meteor.call('fb_me', ',devices', function (err, res) {
+					if(err) {
+						console.log(err)
+					}
+					else {
+						
+						Session.set('device',res.data.devices[0].os)
+					}
+				})
+				return Session.get('device')
+			}
+			else if(this.text === 'Werkplek') {
+				console.log('start')
+				
+				 Meteor.call('fb_me', ',work', function (err, res) {
+					if(err) {
+						console.log(err)
+					}
+					else {
+						
+						Session.set('work',res.data.work[0].employer.name)
+					}
+				})
+				return Session.get('work')
+			}
+			else if(this.text === 'studie') {
+				console.log('start')
+				
+				//  Meteor.call('fb_me', ',education', function (err, res) {
+				// 	if(err) {
+				// 		console.log(err)
+				// 	}
+				// 	else {
+						
+				// 		// Session.set('education', res.data.education[0].school.name)
+				// 		var array = res.data.education;
+				// 		for(var i = 0;i < array.length;i++) {
+				// 			if(res.data.education[i].type = 'College') {
+				// 				Session.set('education', res.data.education[i].school.name)
+				// 			}
+
+				// 		}
+				// 		// Session.set('studie',res)
+				// 	}
+				// })
+				// return Session.get('education');
+			}
+			else if(this.text === 'ams') {
+				Meteor.call('fb_me', ',likes', function(err, res) {
+					if(err) {
+						console.log(err)
+					}
+					else {
+						console.log(res)
+					}
+				})
 			}
 		}
 	},

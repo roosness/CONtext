@@ -1,6 +1,18 @@
 import { Chapters, Dataset } from '../lib/collections.js';
 Template.admin.onRendered (function(){
 	console.log(Roles.userIsInRole())
+	console.log(FlowRouter.current().route.group)
+	if(FlowRouter.current().route.group) {
+			if(FlowRouter.current().route.group.name === 'admin') {
+				console.log('admin')
+				return 'admin'
+			}
+			
+		}
+		else {
+			return'bla'
+		}
+		
 })
 Template.admin.helpers ({
 	chapters () {
@@ -21,5 +33,9 @@ Template.admin.events({
 			date: new Date(),
 			content: []
 		})
+	},
+	'submit .addToTest': function (event) {
+		event.preventDefault();
+		
 	}
 })

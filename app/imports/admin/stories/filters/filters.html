@@ -27,6 +27,73 @@
 					</section>
 				</li>
 				{{/if}}
+				<li>
+					<span>Tijd <img src="/icons/next.svg" alt=""></span>
+					{{> date}}
+				</li>
+				<li>
+					<span>het weer <img src="/icons/next.svg" alt=""></span>
+					{{> weather}}
+				</li>
+
+				
+
+				tijd
+					uur + minuten
+					dag v de week
+					maand
+					dagdeel
+					anders
+
+				weer
+					weer verwoord
+					tempratuur
+					regen/droog
+					anders
+
+				hoofdpersoon	
+					geslacht
+					naam + naamformaat
+					leeftijd
+					burgelijke staat
+					opleiding
+					anders
+
+				locatie
+					huidige locatie
+					acceleratie
+					locatie geschiedenis
+					woonadres (straat+ woonplaats)
+					werkadres(straat plus woonplaats)
+					relatie adres
+					anders
+				
+				device
+
+				slaapgedrag
+					hoe lang
+					wanneer naar bed
+					waneer op
+					pwaaliteit
+
+				beweeg gedrag
+					stappenteller
+					hartslag
+
+				computer gebruik	
+					welke programmas
+					browser history
+					social networking (?)
+
+				karakter
+					gelukkig
+					waar
+					wanneer
+					met wie
+					apply magic sauce
+		
+
+
 			</ul>
 		{{/with}}
 		<form class='newParagraph'>
@@ -76,12 +143,21 @@
 		<input type="radio" name='type' value='naam' id='naam'>
 		<label for="naam">Naam</label>
 		
-		<input type="radio" name='type' value='leeftijd' id='leeftijd'>
-		<label for="leeftijd">leeftijd</label>
+		<input type="radio" name='type' value='Werkplek' id='Werkplek'>
+		<label for="Werkplek">Werkplek</label>
 		
 		
-		<input type="radio" name='type' value='Burgelijke' id='Burgelijke'>
-		<label for="Burgelijke">Burgelijke staat</label>
+		<input type="radio" name='type' value='Muziek' id='Muziek'>
+		<label for="Muziek">Muziek</label>
+
+		<input type="radio" name='type' value='device' id='device'>
+		<label for="device">Device</label>
+
+		<input type="radio" name='type' value='studie' id='studie'>
+		<label for="studie">studie</label>
+
+		<input type="radio" name='type' value='ams' id='ams'>
+		<label for="ams">ams</label>
 		<input type="submit">
 	</form>
 </template>

@@ -63,6 +63,7 @@ if(Meteor.isServer) {
 		
 	},
 	fb_me: function(fields) {
+		console.log('field' + fields)
 	    var user = Meteor.users.findOne(this.userId);
 	    //note: I don't have access to a meteor project hooked up to the FB API
 	    //so where the access token is stored in a user object may differ,
