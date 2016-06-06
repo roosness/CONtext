@@ -65,12 +65,13 @@ if(Meteor.isServer) {
 	fb_me: function(fields) {
 		console.log('field' + fields)
 	    var user = Meteor.users.findOne(this.userId);
+	    
 	    //note: I don't have access to a meteor project hooked up to the FB API
 	    //so where the access token is stored in a user object may differ,
 	    //I got this from an old project. Try logging user here to find it
 	    //if this doesn't work
 	    var accessToken = user.services.facebook.accessToken;
-
+	    console.log(accessToken)
 	    if (!user || !accessToken)
 	      throw new Meteor.Error(500, "Not a valid Facebook user logged in");
 

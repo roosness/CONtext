@@ -1,8 +1,17 @@
 import { Chapters, Dataset } from '../../../lib/collections.js';
+Template.filters.onCreated(function () {
+	var self = this;
+
+	self.autorun(function () {
+		var id = FlowRouter.getParam('id');
+		self.subscribe('singleChapter', id);
+	})
+})
+
 Template.filters.helpers({
 	chapter() {
 
-		return Chapters.findOne({_id: FlowRouter.getParam("chapterId")})
+		return Chapters.findOne({})
 	},
 	
 	useUser() {
@@ -29,7 +38,10 @@ Template.person.helpers({
 		return this.settings.name.format;
 	},
 	isSelected (select) {
-		if(select === Chapters.findOne({_id: FlowRouter.getParam("chapterId")}).settings.name.format) {
+		
+		
+		if(select === Chapters.findOne({}).settings.nameFormat) {
+			console.log('selected')
 			return 'selected'
 		}
 	}
@@ -45,7 +57,7 @@ Template.filters.events({
 		console.log(e.currentTarget);
 		var links = document.querySelectorAll('.filters li');
 		for(var i = 0; i< links.length; i++) {
-			console.log(links[i])
+			
 			if(links[i]== e.currentTarget.parentNode) {
 				links[i].classList.toggle('showFilter');
 			}
@@ -57,16 +69,17 @@ Template.filters.events({
 	},
 	'submit .newParagraph' : function (e) {
 		e.preventDefault();
-
-		var chapterId = FlowRouter.getParam("chapterId");
+		console.log(this)
+		var chapterId = FlowRouter.getParam("id");
 		
-		var a = Chapters.findOne({_id: FlowRouter.getParam("chapterId")});
+		var a = Chapters.find().fetch()[0];
+		console.log(a)
 		
 		var lastItem = a.content[a.content.length -1];
 		console.log(lastItem)
 		
 		if(lastItem === undefined) {
-
+			console.log('undefined!')
 			Chapters.update(chapterId, {
 				$addToSet: {
 					content: {
@@ -133,7 +146,7 @@ Template.filters.events({
 Template.weather.events({
 	'submit .addVarWeather' : function (e) {
 		e.preventDefault();
-		var chapterId = FlowRouter.getParam("chapterId");
+		var chapterId = FlowRouter.getParam("id");
 		var selected = e.currentTarget.type.value;
 		Chapters.update(chapterId, {
 			$addToSet: {
@@ -152,7 +165,7 @@ Template.weather.events({
  Template.date.events({
 	'submit .addVarDate' : function (e) {
 		e.preventDefault();
-		var chapterId = FlowRouter.getParam("chapterId");
+		var chapterId = FlowRouter.getParam("id");
 		var selected = e.currentTarget.type.value;
 
 		Chapters.update(chapterId, {
@@ -177,7 +190,7 @@ Template.weather.events({
  	},
  	'submit form' : function (e) {
  		e.preventDefault();
-		var chapterId = FlowRouter.getParam("chapterId");
+		var chapterId = FlowRouter.getParam("id");
 		var selected = e.currentTarget.type.value;
 
 		Chapters.update(chapterId, {

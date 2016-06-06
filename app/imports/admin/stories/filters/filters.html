@@ -4,8 +4,9 @@
 		{{> storySettings}}
 		
 	
-	<section class="filters active ">
-		{{#with chapter}}
+	{{#if Template.subscriptionsReady}}
+<section class="filters active ">
+		
 			<ul>
 				
 				<li>
@@ -17,7 +18,7 @@
 					{{> weather}}
 				</li>
 				
-				<li class='showFilter'>
+				<li>
 					<span>Hoofdpersoon <img src="/icons/next.svg" alt=""></span>
 					{{> person}}
 				</li>
@@ -49,7 +50,7 @@
 					{{> character}}
 				</li>
 			</ul>
-		{{/with}}
+		
 		<form class='newParagraph'>
 		<header>
 			<label for="paragraph">Nieuwe Paragraaf</label>
@@ -59,6 +60,9 @@
 	</form>
 	
 	</section>
+	{{else}}
+	<p>loading...</p>
+	{{/if}}
 </template>
  
  <template name='location'>

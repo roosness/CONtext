@@ -1,18 +1,83 @@
 <template name='admin'>
-<h1>welkom bij admin!</h1>
+<header><h1>welkom bij admin!</h1></header>
+	{{#if Template.subscriptionsReady}}
 
-<form class='addToTest'>
-	<p>Selecteer de onderstaande gebruikers om te activeren als testpersonen</p>
-	{{#each users}}
-		
-		<input type="checkbox" id='{{_id}}'>
-		<label for="{{_id}}">{{profile.name}} : {{_id}}</label>
-		<br>
 
-	{{/each}}
+
+<ul class='tabs'>
+	<li id='setupTest' class='{{isActiveTab "setupTest"}}'>Test</li>
+	<li id='testHistory' class='{{isActiveTab "testHistory"}}'>Geschiedenis</li>
+	<li id='testSession' class='{{isActiveTab "testSession"}}'>start test sessie</li>
+</ul>
+<section class="templateSelected">
+	{{> UI.dynamic template=whichOne }}
+</section>
+
+{{/if}}
+
+</template>
+
+<template name='setupTest'>
+{{#if Template.subscriptionsReady}}
+	<form class='setupTest'>
+
+	
+	<label for="testTitle">Titel van de test</label>
+	<input type="text" id='testTitle'>
+
+	<label for="date">Datum van de test</label>
+	<input type="date" id='date'>
+	
+	
+	<textarea name="description" placeholder='beschrijving test' id="" cols="30" rows="10"></textarea>
+	
+	<label for="amountOfChapters">Aantal verhalen dat elk testpersoon gaat lezen.</label>
+	<input type="number" id='amountOfChapters' value='0'>
+	
+
+	<section class="selectUserStory">
+		<h2>Selecteer de testers</h2>
+		<ul>
+			{{#each users}}
+			<li>
+				<input type="checkbox" class='userlist' id='{{_id}}'>
+		<label for="{{_id}}" class='top'>{{profile.name}}</label>
+			<div class="selects {{_id}}">
+				{{#each numbers}}
+				<label for="chapterSelect">{{this}}<sup>e</sup> verhaal</label>
+				<select  id='chapterSelect' class='{{../_id}}'>
+				{{#each chapters}}
+					<option value="{{title}}">{{title}}</option>
+				{{/each}}
+			</select>
+			{{/each}}
+			</div>
+			</li>
+			
+			{{/each}}
+		</ul>
+	
+
+	</section>
+
 	<input type="submit">
 </form>
-<form class="testSettings">
+{{/if}}
+</template>
+
+
+<template name='testSession'>
+	<button>start de test!</button>
+</template>
+<template name='testHistory'>
+	<ul>
+		{{#each tests}}
+			<li>{{test.title}}{{test.date}}</li>
+		{{/each}}
+	</ul>
+</template>
+<template name='blue'>2</template>
+<!-- <form class="testSettings">
 	<ul>
 		{{#each users}}
 		<li id='{{_id}}'>
@@ -27,7 +92,16 @@
 		{{/each}}
 	</ul>
 </form>
+<form class='configTestUsers'>
+	{{#each users}}
+		
+		<input type="checkbox" class='userlist' id='{{_id}}'>
+		<label for="{{_id}}">{{profile.name}}</label>
+		<select name="" id=""></select>
+		
 
+	{{/each}}
+</form> -->
 <!-- 
 
 	<p>Klik op een van de onderstaande hoofdstukken om deze te weizigen/nieuwe paragraven toe te voegen, of gebruik het formulier om een nieuw hoofdstuk te maken.</p>
@@ -47,5 +121,5 @@
 		<input type="text" id='title'>
 		<input type="submit">
 	</form> -->
-</template>
+
 

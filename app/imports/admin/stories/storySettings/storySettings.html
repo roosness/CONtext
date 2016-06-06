@@ -1,66 +1,38 @@
 <template name='storySettings'>
-	
+	{{#with chapter}}
 	<form class="storySettings ">
 		<section>
-			<label for  ="title">Nieuwe titel</label>
-			<input type ="text" id='title'>
+			<label for  ="title" >Nieuwe titel</label>
+			<input type ="text" id='title' placeholder='{{title}}'>
 			
 			
-			<input type ="checkbox" id='forTesting'>
+			<input type ="checkbox" id='forTesting' {{checked 'forTests'}}>
 			<label for  ="forTesting">
 			Gebruik dit verhaal voor tests</label>
 
-			
-			<input type ="checkbox" id='useUsername'>
-			<label for  ="useUsername">
-			Gebruik de naam van de lezer</label>
-			
-			
-			<input type ="checkbox" id='useGender'>
-			<label for  ="useGender">
-			Gebruik het geslacht van de lezer</label>
-		</section>
-		
-		<section class='useUsername'>
-			<p>Gebruik de naam voor:</p>
-			
-			<input type ="radio" name='character' id='hoofdpersoonNaam' value='hoofdpersoonNaam'>
-			<label for  ="hoofdpersoonNaam">De hoofdpersoon</label>
 
-			<input type ="radio" name='character' id='anders' value='anders'>
-			<label for  ="anders">Anders(?)</label>
-			
 			<label for="format">Formaat naam</label>
 			<select  id="format">
-				<option value ="">----</option>
-				<option value ="v">Voornaam</option>
-				<option value ="a">Achternaam</option>
-				<option value ="v+a">Voornaam + Achternaam</option>
-				<option value ="vl+a">Voorletter + Achternaam</option>
-				<option value ="vl">Voorletter</option>
+				{{#each formatNames}}
+					<option value="{{this}}" {{isSelected this}}>{{this}}</option>
+				{{/each}}
 			</select>
-		</section>
-		<section class='useGender'>
-			<p>Gebruik het geslacht voor:</p>
-			
-			<input type ="radio" name='gender' id='hoofdpersoonGeslacht' value='hoofdpersoonGeslacht'>
-			<label for  ="hoofdpersoonGeslacht">De hoofdpersoon</label>
-			
-			<input type ="radio" name='gender' id='andersGeslacht' value='andersGeslacht'>
-			<label for  ="andersGeslacht">Anders(?)</label>
 
 			<p>Welk geslacht?</p>
 			
-			<input type ="radio" name='genderFormat' id='normal' value='false'>
+			<input type ="radio" name='genderFormat' id='normal' value='false' {{checked 'genderReversed' false}}>
 			<label for  ="normal">Geslacht van Gebruiker</label>
 
-			<input type ="radio" name='genderFormat' id='Tegengesteld' value='true'>	
+			<input type ="radio" name='genderFormat' id='Tegengesteld' value='true' {{checked 'genderReversed' true}}>	
 
 			<label for  ="Tegengesteld">Tegengesteld</label>
 		</section>
 		
 		
-<input type="submit">
+		
+		
+	<input type="submit">
 		
 	</form>
+	{{/with}}
 </template>

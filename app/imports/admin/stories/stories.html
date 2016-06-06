@@ -1,20 +1,23 @@
 <template name='adminStories'>
-	<ol class='storyList'>
+	
 	<h2>Nieuw hoofdstuk toevoegen</h2>
 	<form class="newChapter">
 		<label for="title">Titel</label>
 		<input type="text" id='title'>
 		<input type="submit">
 	</form> 
+	<ol class='storyListAdmin'>
 		{{#each chapters}}
 			<li>
+				
 				<a href="/admin/stories/{{_id}}">
-				<span>H{{number}}</span>
-				<p>{{title}}</p>
-				<time>{{realTime date}}</time>
+				{{title}}
 				</a>
+				<a href="#" class='delete' id={{_id}}><img src="/icons/garbage.svg" alt="delete"></a>
+				
 			</li>		
 		{{/each}}
 	</ol>
 	
 </template>
+

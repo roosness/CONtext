@@ -1,70 +1,67 @@
 .storySettings {
 	background:#f5f5f5;
 	margin: 0 0;
-	
 	padding:1em;
-
 	section {
-		display: none;
 		background:white;
+		display:flex;
 		margin:.5em 0;
-		
-		
 		border:1px solid #ebebeb;
-		background:white;
-
 		justify-content: space-between;
 		align-items:flex-start;
 		box-sizing:border-box;
 		flex-wrap: wrap;
 		padding:1em;
-		
-		&.active {
-			display:flex;
+		p {
+			flex:100%;
+			margin: 0 0;
+			text-align:center;
+			margin:1.5em 0 .5em;
 		}
-		&:first-of-type {
-			display:flex;
-			label {
+		label {
 				flex: 92%;
-				
 			}
-			input[type='checkbox'] {
+		select {
+			flex:30%;
+			margin:.3em;
+			font-size:1em;
+		}
+		label[for='format'] {
+			flex:10%;
+				margin:.3em;
+		}
+		input[type='checkbox'] {
 				flex:5%;
-				
 				box-sizing:border-box;
+				margin-bottom:2em;
 			}
 			input[type='text'] {
 				flex:100%;
 				margin:.5em 0 1.5em;
+				&::-webkit-input-placeholder {
+					text-transform: none;
+				}
 			}
-		}
-		p {
-			flex:100%;
-			margin: 0 0;
-			
-		}
-		input[type='radio'] {
+			input[type='radio'] {
 			display: none;
-			
 			& + label  {
 				background:white;
 				display:inline-block;
 				flex:40%;
 				margin:.7em 0 1.5em;
-
 				height: 7em;
 				display: flex;
 				justify-content: center;
 				align-items:center;
 				box-sizing:border-box;
+				text-align:center;
 				border:1px solid #ebebeb;
 				transition:all .2s ease-in-out;
-				
 				&:nth-of-type(even) {
-					margin-left:.5em;
+					margin-right:.5em;
 				}
 				&:nth-of-type(odd) {
-					margin-right:.5em;
+					margin-left:.5em;
 				}
 			}
 			&:checked + label {
@@ -75,161 +72,5 @@
 		select{ 
 			font-size:1em;
 		}
-		& > * {
-			
-		}
-		
 	}
-
 }
-
-// .storySettings {
-// 	background:#f5f5f5;
-// 	margin: 0 0;
-// 	padding: 0 0;
-
-// 	display:block;
-// 	fieldset:not(.useUsername) {
-// 		display: none;
-// 	}
-// 	.useUsername {
-// 		margin : 0 0;
-// 		 display: -webkit-flex;
-//    display: flex;
-//    -webkit-flex-direction: row;
-//    flex-direction: row;
-//    padding: 0 0;
-//       flex-flow: row nowrap;
-// 		& > * {
-// 			border:1px solid red !important;
-// 		}
-		
-// 		label {
-// 			background:white;
-					
-// 					  flex:30%;
-// 					display: flex;
-// 					justify-content: center;
-// 					align-items:center;
-// 					box-sizing:border-box;
-// 					border:1px solid #ebebeb;
-// 					transition:all .2s ease-in-out;
-// 					margin:.5em;
-					
-			
-
-// 		}
-
-// 		input[type='radio'] {
-// 		display: none;
-// 			&:checked + label {
-// 				color:white;
-// 				background:RGBA(138, 194, 73, 1.00);
-				
-// 			}
-// 		}
-		
-
-// 			}
-// }
-
-// // .settings {
-// // 	background:#607d8b;
-// // 	margin: 0 0;
-// // 	padding: 0 0;
-
-// // 	.storySettings {
-
-// // 		padding:1em;
-
-// // 		fieldset {
-// // 			background:white;
-// // 			padding:1.5em 1em;
-// // 			border:none;
-// // 			width:100%;
-// // 			margin:.5em 0;
-			
-// // 			input {
-// // 				font-size: 1em;
-// // 			}
-// // 			input[type='text'] {
-// // 				width:100%;
-// // 				margin:.5em 0; 
-// // 				padding:.5em 1em;
-// // 				box-sizing:border-box;
-// // 				font-size: 1em;
-// // 			}
-// // 			input[type='checkbox'] {
-// // 				margin:.5em;
-// // 				margin-top:1em;
-				
-// // 			}
-// // 			label {
-
-// // 				// width:90%;
-// // 				display:inline-block;
-// // 			}
-			
-// // 		}
-// // 		.useUsername {
-// // 			border:1px solid red;
-// // 			display:flex;
-// // 			justify-content: space-around;
-// // 			align-items:flex-start;
-// // 			box-sizing:border-box;
-// // 			flex-wrap:nowrap;
-// // 			flex-direction: column;
-
-// // 			padding: 0 0;
-// // 			margin: 0 0;
-// // 			& > * {
-// // 				border:1px solid green;
-// // 			}
-			
-
-// // 			input[type='radio'] {
-// // 				display: none;
-			
-// // 				& + label {
-// // 					flex:40%;
-					
-// // 					background:white;
-					
-// // 					// border:1px solid #ebebeb;
-// // 					transition:all .2s ease-in-out;
-					
-// // 					&:nth-of-type(even) {
-// // 						margin-left:.5em;
-// // 					}
-// // 					&:nth-of-type(odd) {
-// // 						margin-right:.5em;
-// // 					}
-// // 				}
-// // 				&:checked + label {
-// // 					color:white;
-// // 					background:RGBA(138, 194, 73, 1.00);
-					
-// // 				}
-			
-// // 			}
-// // 			select {
-
-// // 				& + label {
-// // 					flex:20%;
-// // 				}
-// // 			}
-// // 		}
-
-// // 		fieldset:not(:first-of-type) {
-// // 			// display:none;
-
-// // 			&.active {
-// // 				display: block;
-// // 			}
-// // 		}
-		
-// // 	}
-// // 	&.active {
-// // 		height:100%;
-// // 	}
-// // }

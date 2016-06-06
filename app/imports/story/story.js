@@ -1,21 +1,27 @@
 import { Dataset, Chapters, getUserData } from '../lib/collections.js';
 
-Template.story.onRendered(function () {
-	
-	Meteor.call('fb_me', function(err, res) {
-	      if (!err) {
-	      	console.log(res.data)
-	      }
-	       
-	    });
-})
+Template.story.onCreated(function () {
+	var self = this;
 
+	self.autorun(function () {
+		var id = FlowRouter.getParam('id');
+		
+		self.subscribe('singleChapter', id);
+	})
+
+})
+Template.story.helpers({
+ 	chapter() {
+ 		return Chapters.findOne()
+ 	}
+});
 
 Template.story.helpers({
-	chapter() {
-		console.log(FlowRouter.getParam("chapterId"))
-		return Chapters.findOne({_id: FlowRouter.getParam("chapterId")})
+	story() {
+		console.log(this)
+		return 'b;a'
 	},
+
 	istext () {
 		
 		if(this.type === 'p') {
@@ -97,19 +103,20 @@ Template.story.helpers({
 			
 		}
 		else if(this.type === 'user') {
+			var settings = Chapters.find().fetch()[0].settings;
 			
-			var settings = Template.parentData(1).settings
+			
 			 if(this.text === 'naam') {
 			 	var text;
 
 
 			 	Meteor.call('fb_me', ',first_name,last_name', function (err, res) {
-
+			 		console.log(res.data.first_name)
 			 		Session.set('user_name_first', res.data.first_name);
 			 		Session.set('user_name_last', res.data.last_name)
 			 	})
 			 	
-			 	switch(settings.name.format) {
+			 	switch(settings.nameFormat) {
 			 		case 'v':
 			 			text = Session.get('user_name_first')
 			 			break;
@@ -141,7 +148,7 @@ Template.story.helpers({
 						console.log(err)
 					}
 					else {
-						
+						console.log(res)
 						Session.set('music',res.data.music.data[0].name)
 					}
 				})
