@@ -14,7 +14,7 @@
 	{{#each chapter.content}}
 		
 		{{#if istext}}
-				<span id='{{_id._str}}' class='{{isDone}} par'>{{text}}</span>
+				<p id='{{_id._str}}' class='{{isDone}} par'>{{text}}</p>
 		{{else}}
 		{{#if isDate}}
 			<span id='{{_id._str}}'>{{formatDate this.text}}</span>

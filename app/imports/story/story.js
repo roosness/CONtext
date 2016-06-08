@@ -11,7 +11,7 @@ Template.story.onCreated(function () {
 })
 
 Template.story.events({
-	'click  article span ': function (e) {
+	'click  article span, click article p p': function (e) {
 		if(Session.get('editing') === 'deleting') {
 			
 			e.currentTarget.classList.add('aboutToBeDeleted');
@@ -24,7 +24,22 @@ Template.story.events({
 			Session.set('aboutToBeDeleted', array);
 		}
 		
-	}	
+	},
+	'click .par' : function (e)	 {
+		if(Session.get('editing') === 'editing') {
+
+			e.currentTarget.classList.add('aboutToBeEdited');
+			var array = Session.get('aboutToBeEdited') || [];
+			
+			
+			if(array.indexOf(e.currentTarget.id) < 0) {
+				array.push(e.currentTarget.id);
+			}
+			e.currentTarget.contentEditable = true;
+			Session.set('aboutToBeEdited', array);
+
+		}
+	}
 })
 
 var getData = function () {
@@ -286,11 +301,12 @@ Template.story.helpers({
  	},
 	isDone() {
 		if(this.type === 'p') {
+			console.log(this.newPar)
 			if(this.newPar) {
-			return 'connect'
+			return 'newPar'
 		}
 		else {
-			return 'newPar'
+			return 'connect'
 		}
 		}
 		else {

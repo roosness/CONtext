@@ -15,39 +15,70 @@ Template.editing.events({
 		document.querySelector('.admin-edit-story-wrapper').classList.add(e.currentTarget.id);
 		Session.set('editing', e.currentTarget.id);
 	},
+
 	'click #discard':function (e) {
 		e.preventDefault();
 		document.querySelector('.admin-edit-story-wrapper').classList.remove('editing', 'deleting');
 		Session.set('editing', false);
-
-		var selected = document.querySelectorAll('.aboutToBeDeleted');
-		for(var i = 0; i < selected.length; i++) {
-			console.log(selected[i]);
-			selected[i].classList.remove('aboutToBeDeleted')
-
+		var allText  = document.querySelectorAll('article p p');
+		console.log(allText.length)
+		for(var i = 0; i < allText.length; i++) {
+			console.log(i)
+			console.log(allText[i]); 
+			allText[i].contentEditable = false
 		}
+
+		removeCLass(['aboutToBeDeleted'])
+		Template.story.render.apply()
+		
 		delete Session.keys.aboutToBeDeleted
 
 	},
 	'click #save': function (e) {
 		e.preventDefault();
 		document.querySelector('.admin-edit-story-wrapper').classList.remove('editing', 'deleting');
-		Session.set('editing', false);
+		;
+		var allText  = document.querySelectorAll('article p p');
+		console.log(allText)
+		for(var i = 0; i < allText.length; i++) {console.log(allText[i]); allText[i].contentEditable = false}
 
 		if(confirm("Zeker weten dat je dit wilt toepassen?") == true) {
-			Meteor.call('removeContent', FlowRouter.getParam("id"), Session.get('aboutToBeDeleted'));
+			if(Session.get('editing') === 'deleting') {
+				Meteor.call('removeContent', FlowRouter.getParam("id"), Session.get('aboutToBeDeleted'));
+
+			} else if(Session.get('editing') === 'editing') {
+				var newContent = [];
+				var session = Session.get('aboutToBeEdited');
+				for(var i = 0; i<session.length;i++) {
+					newContent.push(document.getElementById(session[i]).innerHTML)
+				}
+				Meteor.call('updateContent', FlowRouter.getParam("id"), Session.get('aboutToBeEdited'), newContent)
+			}
+			
 		}
 		else {
-			var selected = document.querySelectorAll('.aboutToBeDeleted');
-			for(var i = 0; i < selected.length; i++) {
-				console.log(selected[i]);
-				selected[i].classList.remove('aboutToBeDeleted')
-			 
+		
 		}
-			}
+		removeCLass(['editing', 'deleting'])
+		
+		
+		delete Session.keys.aboutToBeDeleted, delete Session.keys.aboutToBeEdited
+		Session.set('editing', false)
 	}
 	
 })
+
+var removeCLass = function (classname) {
+	
+	for(var i = 0; i<classname.length;i++) {
+		var selected = document.querySelectorAll('.' + classname[i]);
+			for(var x = 0; x < selected.length; x++) {
+				console.log(selected[x]);
+				selected[x].classList.remove(classname[i])
+			 
+			}
+	}
+}
 Template.editing.helpers({
 	isEditing() {
 		return Session.get('editing')
@@ -121,53 +152,17 @@ Template.filters.events({
 		
 		var lastItem = a.content[a.content.length -1];
 		console.log(lastItem)
-		
-		if(lastItem === undefined) {
-			console.log('undefined!')
-			Chapters.update(chapterId, {
-				$addToSet: {
-					content: {
-						 _id: new Meteor.Collection.ObjectID(),
-						text: e.target.paragraph.value.trim(),
-						type: 'p',
-						date: new Date(),
-						newPar: newParagraph
-					}
-				}
-			})
-
-
-			
+		var newParagraph = false;
+		if(lastItem.type.toString() === undefined || lastItem.type.toString() !== 'p') {
+			newParagraph = false;
 		}
-		else { 
-			console.log(lastItem.type);
-			var a = lastItem.type.toString();
-			console.log(a);
-			if(!(a === 'p')) {
-			console.log('newParagraph === true;')
-			var newParagraph = true;
-			console.log(newParagraph)
-			Chapters.update(chapterId, {
-			$addToSet: {
-				content: {
-					 _id: new Meteor.Collection.ObjectID(),
-					text: e.target.paragraph.value.trim(),
-					type: 'p',
-					date: new Date(),
-					newPar: newParagraph
-				}
-			}
-		})
-		}
-
 		else {
-			console.log('new paragraph = false');
-			var newParagraph = false;
-			console.log(newParagraph)
-			Chapters.update(chapterId, {
+			newParagraph = true;
+		}
+		Chapters.update(chapterId,  {
 			$addToSet: {
 				content: {
-					 _id: new Meteor.Collection.ObjectID(),
+					_id: new Meteor.Collection.ObjectID(),
 					text: e.target.paragraph.value.trim(),
 					type: 'p',
 					date: new Date(),
@@ -175,10 +170,6 @@ Template.filters.events({
 				}
 			}
 		})
-
-
-		}
-		}
 		
 		
 		

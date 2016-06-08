@@ -2,7 +2,7 @@ ul.editList {
 	list-style:none;
 	padding: 0 0;
 	position:absolute;
-	top:.5em;
+	top:0em;
 	right:.5em;
 	z-index:2;
 	li {
@@ -13,7 +13,7 @@ ul.editList {
 		 	box-sizing:border-box;
 			padding:.5em 1em;
 			border-radius:20px;
-			background:#8b6068;
+			background:#ca2140;
 			color:white;
 			transition:all .2s ease-in-out;
 			z-index:5;
@@ -28,15 +28,24 @@ ul.editList {
 		}
 	}
 }
-.deleting article p span:hover{
+.deleting article p *:hover{
 	 text-decoration: line-through;
 }
-.editing article .par:hover {
-	border:2px solid #607d8b;
-	transform:scale(1.1);
-	padding:.2em;
-	 
+.deleting article p * {
+	text-decoration: line-through;
 }
+.editing article p.par:hover {
+	background:#f5f5f5;
+	text-decoration:underline;
+	
+}
+.editing .aboutToBeEdited {
+	background:#f5f5f5;
+	display:inline-block;
+	text-decoration:none;
+
+}
+
 .admin-edit-story-wrapper aside {
 	position:relative;
 	background:#f5f5f5;

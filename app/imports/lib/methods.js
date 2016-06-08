@@ -2,9 +2,13 @@ import { Dataset, Chapters } from '../lib/collections.js';
 if(Meteor.isServer) {
 	Meteor.methods({
 	removeContent : function (chapterId, arrayIDs) {
-		console.log('--------------------------------')
 		for(var i = 0; i < arrayIDs.length; i++) {
 			Chapters.update({_id: chapterId}, {$pull: {"content": {"_id": new Mongo.ObjectID(arrayIDs[i])} }})
+		}
+	},
+	updateContent : function (chapterId, arrayIDs, newContent) {
+		for(var i = 0; i < arrayIDs.length; i++) {
+			Chapters.update({"content._id": new Mongo.ObjectID(arrayIDs[i])}, {$set: {"content.$.text": newContent[i] }})
 		}
 	},
 	returnVars: function (item) {
@@ -19,22 +23,15 @@ if(Meteor.isServer) {
 		}
 	},
 	getLocation: function (ll) {
-		
 		var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + ll.latitude + ',' + ll.longitude + '&key=AIzaSyDGUP3zJPdET5sFcnCliWZjFTS0hsX2zYw';
 		console.log(url)
 		var result = HTTP.call('GET', url, {})
 		var data = JSON.parse(result.content)
 		return data
-
-		
 	},
 	fb_me: function(fields) {
 		console.log('field' + fields)
 	    var user = Meteor.users.findOne(this.userId);
-	    //note: I don't have access to a meteor project hooked up to the FB API
-	    //so where the access token is stored in a user object may differ,
-	    //I got this from an old project. Try logging user here to find it
-	    //if this doesn't work
 	    var accessToken = user.services.facebook.accessToken;
 	    console.log(accessToken)
 	    if (!user || !accessToken)
@@ -49,7 +46,6 @@ if(Meteor.isServer) {
 	var accessToken = user.services.facebook.accessToken;
 	var url = "https://graph.facebook.com/" + fbId + "/" + edge;
 	console.log(url)
-
 	if (!user || !accessToken) {
 		throw new Meteor.Error(500, "Not a valid Facebook user logged in");
 	} else {
