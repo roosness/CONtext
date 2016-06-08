@@ -1,37 +1,48 @@
 import { Chapters, Dataset } from '../../../lib/collections.js';
+Template.storySettings.onCreated(function () {
+	var self = this;
 
-
+	self.autorun(function () {
+		var id = FlowRouter.getParam('id');
+		
+		self.subscribe('singleChapter', id);
+		self.subscribe('Tests');
+	})
+})
+Template.storySettings.helpers({
+	chapter() {
+		return Chapters.findOne({})
+	},
+	checked (item, reverse) {
+		
+		if(item === 'genderReversed' && Chapters.findOne({}).settings.genderReversed === reverse) {
+			return 'checked'
+		}
+		if(this.settings.forTests) {
+			return 'checked'
+		}
+	},
+	formatNames() {
+		var format = ["v", "a", "v+a", "vl+a", "vl"];
+		return format
+	},
+	isSelected (select) {
+		if(select === Chapters.findOne({}).settings.nameFormat) {
+			return 'selected'
+		}
+	}
+})
 Template.storySettings.events({
-	'click #useUsername': function (e) {
-		console.log(e.currentTarget.checked	);
-		if(e.currentTarget.checked) {
-			document.querySelector('.useUsername').classList.add('active')
-		}
-		else {
-			document.querySelector('.useUsername').classList.remove('active')
-		}
-		
-	},
-	'click #useGender': function (e) {
-		console.log(e.currentTarget.checked	);
-		if(e.currentTarget.checked) {
-			document.querySelector('.useGender').classList.add('active')
-		}
-		else {
-			document.querySelector('.useGender').classList.remove('active')
-		}
-		
-	},
 	'submit form': function (e) {
 		e.preventDefault();
-		console.log(e.currentTarget)
 		
-		var chapterId = FlowRouter.getParam("chapterId");
-		console.log(this)
-		// chapterId = new Meteor.Collection.ObjectID(chapterId)
+		
+		var chapterId = FlowRouter.getParam("id");
+		
 		var newTitle = document.querySelector('input#title').value;
 		console.log(newTitle.length);
 		if(newTitle.length > 0) {
+			console.log('go')
 			Chapters.update(chapterId, {
 				$set: {
 					title: newTitle
@@ -42,28 +53,21 @@ Template.storySettings.events({
 		
 		var selectBox = document.getElementById("format");
 		
-		
+		console.log(selectBox.options[selectBox.selectedIndex].value|| '')
 
-		var settings = {
+		var newSettings = {
 			forTests : document.getElementById('forTesting').checked,
-			useName: document.getElementById('useUsername').checked,
-			useGender: document.getElementById('useGender').checked,
-			name : {
-				for: checkArray(document.querySelectorAll('input[name=character]')) || '',
-				format: selectBox.options[selectBox.selectedIndex].value|| ''
-			},
-			gender : {
-				for: checkArray(document.querySelectorAll('input[name=gender]'))|| '',
-				reversed: checkArray(document.querySelectorAll('input[name=genderFormat]'))|| ''
-			}
+			nameFormat: selectBox.options[selectBox.selectedIndex].value|| '',
+			genderReversed: checkArray(document.querySelectorAll('input[name=genderFormat]'))|| ''
+			
 		}
 		Chapters.update(chapterId, {
 				$set: {
-					settings: settings
+					settings: newSettings
 				}
 			})
-
-		console.log(settings)
+		
+		console.log(newSettings)
 		e.currentTarget.reset();
 		document.querySelector('.storySettings').classList.remove('active');
 		document.querySelector('.filters').classList.add('active');

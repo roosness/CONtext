@@ -1,21 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 
-export const Chapters = new Mongo.Collection('Chapters');
-export const Dataset = new Mongo.Collection('Dataset');
+export var Chapters = new Mongo.Collection('Chapters');
+export var Dataset = new Mongo.Collection('Dataset');
+export var Tests = new Mongo.Collection('Tests');
+export var Filters = new Mongo.Collection('Filters');
 
-
-if(Meteor.isServer) {
-	Meteor.publish('Chapters', function() {
-		return Chapters.find({});
-	});
-
-	Meteor.publish('Dataset', function() {
-		return Dataset.find({});
-	});
-	Meteor.publish("getUserData", function () {
-    return Meteor.users.find({_id: this.userId});
-});
-
-	
-}
 

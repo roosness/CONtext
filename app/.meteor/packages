@@ -19,10 +19,11 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 
 insecure                # Allow all DB writes from clients (for prototyping)
-autopublish
+
 kadira:flow-router
 kadira:blaze-layout
 http
+easy:search
 session
 meteortoys:allthings
 mizzao:timesync
@@ -32,3 +33,4 @@ zimme:active-route
 accounts-facebook
 service-configuration
 alanning:roles
+mirrorcell:geolocation-plus

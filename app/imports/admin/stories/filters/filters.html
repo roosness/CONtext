@@ -4,31 +4,61 @@
 		{{> storySettings}}
 		
 	
-	<section class="filters active ">
-		{{#with chapter}}
+	{{#if Template.subscriptionsReady}}
+<section class="filters active ">
+		
 			<ul>
-				<li class=''>
-					<span>Weer API <img src="/icons/next.svg" alt=""></span>
-					
-						{{> weather}}
-					
+				
+				<li>
+					<span>Tijd <img src="/icons/next.svg" alt=""></span>
+					{{> date}}
 				</li>
 				<li>
-					<span>Date<img src="/icons/next.svg" alt=""></span>
-					<section id="showDate">
-						{{> date}}
-					</section>
+					<span>het weer <img src="/icons/next.svg" alt=""></span>
+					{{> weather}}
 				</li>
-				{{#if useUser}}
-					<li>
-					<span>Gebruiker<img src="/icons/next.svg" alt=""></span>
-					<section id="showGender">
-						{{> user}}
-					</section>
+				
+				<li>
+					<span>Hoofdpersoon <img src="/icons/next.svg" alt=""></span>
+					{{> person}}
 				</li>
-				{{/if}}
+				<li>
+					<span>Locatie <img src="/icons/next.svg" alt=""></span>
+					{{> location}}
+				</li>
+				<li>
+					<span>Familie <img src="/icons/next.svg" alt=""></span>
+					{{> family}}
+				</li>
+				<li>
+					<span>Likes <img src="/icons/next.svg" alt=""></span>
+					{{> likes}}
+				</li>
+				<li>
+					<span>Overig <img src="/icons/next.svg" alt=""></span>
+					{{> other}}
+				</li>
+
+				<li>
+					<span>Slaapgedrag <img src="/icons/next.svg" alt=""></span>
+					{{> sleep}}
+				</li>
+				
+				<li>
+					<span>Beweeg gedrag <img src="/icons/next.svg" alt=""></span>
+					{{> movement}}
+				</li>
+
+				<li>
+					<span>Computer gebruik <img src="/icons/next.svg" alt=""></span>
+					{{> computer}}
+				</li>
+				<li>
+					<span>Karakter<img src="/icons/next.svg" alt=""></span>
+					{{> character}}
+				</li>
 			</ul>
-		{{/with}}
+		
 		<form class='newParagraph'>
 		<header>
 			<label for="paragraph">Nieuwe Paragraaf</label>
@@ -38,28 +68,70 @@
 	</form>
 	
 	</section>
+	{{else}}
+	<p>loading...</p>
+	{{/if}}
 </template>
+ 
+ <template name='location'>
+ 	<form class="addVarLoaction">
+		<input type ="radio" name='type' value='userLocation' id='userLocation'>
+		<label for  ="userLocation">Gebruikers locatie</label>
+ 		
+
+		<!-- <input type="radio" name='type' value='workLocation' id='workLocation'>
+		<label for="workLocation">Werk locatie</label>
+
+		<input type="radio" name='type' value='liveLocation' id='liveLocation'>
+		<label for="liveLocation">Woon locatie</label>
+
+		<input type="radio" name='type' value='relatieLocatie' id='relatieLocatie'>
+		<label for="workLocation">relatie locatie</label> -->
+
+		<input type="submit">
+ 	</form>
+ </template>
+ <template name='other'>
+ 	<form class="addVarOther">
+ 		<input type="radio" name='type' value='devices' id='devices'>
+		<label for="devices">device OS</label>
+
+		<input type="submit">
+ 	</form>
+ </template>
+ <template name='sleep'></template>
+ <template name='character'></template>
+ <template name='computer'></template>
+ <template name='movement'></template>
 
 <template name='weather'>
 	<form class="addVarWeather">
-		
 		<input type="radio" name='type' value='degrees' id='degrees'>
-		<label for="degrees">Graden</label>
+		<label for="degrees">Tempratuur</label>
 		
 		<input type="radio" name='type' value='word' id='word'>
-		<label for="word">Verwoord</label>
+		<label for="word">in woorden</label>
 
 		<input type="submit">
 	</form>
 </template>
 <template name='date'>
 	<form class="addVarDate">
-		
+	
+		<input type="radio" name='type' value='hour' id='hour'>
+		<label for="hour">Uur</label>
+
+		<input type="radio" name='type' value='minute' id='minute'>
+		<label for="minute">Minuten</label>
+
 		<input type="radio" name='type' value='day' id='day'>
 		<label for="day">Dag</label>
 		
 		<input type="radio" name='type' value='part' id='part'>
 		<label for="part">Dagdeel</label>
+
+		<input type="radio" name='type' value='day_part' id='day_part'>
+		<label for="day_part">Dagdeel + dag</label>
 		
 		<input type="radio" name='type' value='month' id='month'>
 		<label for="month">Maand</label>
@@ -67,68 +139,107 @@
 	</form>
 </template>
 
-<template name='user'>
+<template name='person'>
 	<form class="addVarUser">
-		
-		<!-- <input type="radio" name='type' value='geslacht' id='geslacht'>
-		<label for="geslacht">Geslacht</label> -->
 	
-		<input type="radio" name='type' value='naam' id='naam'>
+		<input type="radio" name='type' value='name' id='naam'>
 		<label for="naam">Naam</label>
+		<section class="formatName">
+			<label class='forSelect' for="format">Formaat naam</label>
+		<select  id="format" class='selecter'>
+				{{#each formatNames}}
+					<option value="{{this}}" >{{this}}</option>
+				{{/each}}
+		</select>
 		
-		<input type="radio" name='type' value='Werkplek' id='Werkplek'>
+		</section>
+
+		<section class="geslachtWord">
+			<label for="geslachtWord" class='forSelect'>geslacht woord</label>
+			<select id="geslachtWord">
+				{{#each words}}
+					<option value="{{this}}">{{this}}</option>
+				{{/each}}
+			</select>
+		</section>
+		<!-- <section class="formatGeslacht">
+			<label class='forSelect' for="formatGeslacht">geslacht woord</label>
+			<select  id="geslachtWoord">
+				{{#each geslachtWords}}
+					<option value="{{this}}" >{{this}}</option>
+				{{/each}}
+		</select>
+ -->
+		<input type="radio" name='type' value='work' id='Werkplek'>
 		<label for="Werkplek">Werkplek</label>
 		
 		
-		<input type="radio" name='type' value='Muziek' id='Muziek'>
-		<label for="Muziek">Muziek</label>
+	
 
-		<input type="radio" name='type' value='device' id='device'>
-		<label for="device">Device</label>
+		<input type="radio" name='type' value='education' id='studie'>
+		<label for="studie">opleiding</label>
 
-		<input type="radio" name='type' value='studie' id='studie'>
-		<label for="studie">studie</label>
+		<input type="radio" name='type' value='relationship_status' id='relationship_status'>
+		<label for="relationship_status">burgelijke staat</label>
+		
+		<input type="radio" name='type' value='significant_other' id='significant_other'>
+		<label for="significant_other">partner</label>
 
-		<input type="radio" name='type' value='ams' id='ams'>
-		<label for="ams">ams</label>
+
+		
 		<input type="submit">
 	</form>
 </template>
-<!-- <template name='filters'>
-	<h2>Edit: </h2>
-	<a href="#" id='storySettings'><img src="/icons/gear_grey.svg" alt="instellingen"></a>
-	
 
-	
-	
-	<section class="addFilter">
-		<header><span>Data filters</span></header>
-		<ul>
-			{{#each filters}}
-			<li class='filter'><span>{{name}}</span></li>
-			{{/each}}
-			
-			
-		</ul>
-	</section>
-	<section class="filter">
-		{{> Template.dynamic template=whichOne}}
-	</section>			
+<template name='likes'>
+		<form class="addVarLikes">
+			<input type="radio" name='type' value='music' id='Muziek'>
+			<label for="Muziek">Muziek</label>
+
+			<input type="radio" name='type' value='religion' id='religion'>
+			<label for="religion">Religie</label>
+
+			<input type="radio" name='type' value='political' id='political'>
+			<label for="political">Politieke Partij</label>
+
+			<input type="radio" name='type' value='favorite_athletes' id='favorite_athletes'>
+			<label for="favorite_athletes">Favoriete atleet</label>
+
+			<input type="radio" name='type' value='favorite_teams' id='favorite_teams'>
+			<label for="favorite_teams">Favoriete team</label>
+
+			<input type="submit">
+		</form>
+</template>
+<template name='family'>
+		<form class="addVarFamily">
+			<input type="radio" name='type' value='brother' id='brother'>
+			<label for="brother">Broer</label>
+
+			<input type="radio" name='type' value='sister' id='sister'>
+			<label for="sister">Zus</label>
+
+			<input type="radio" name='type' value='mother' id='mother'>
+			<label for="mother">Moeder</label>
+
+			<input type="radio" name='type' value='father' id='father'>
+			<label for="father">Vader</label>
+
+			<input type="submit">
+		</form>
 </template>
 
+<template name='editing'>
+<ul class="editList">
+	{{#if isEditing}}
+	
+	<li><a href ="#"  id='save' class="editButton during">Wijzigingen opslaan</a></li>
+	<li><a href ="#" id='discard' class="editButton during">Wijzigingen ongedaanmaken</a></li>
+	{{else}}
+	<li><a href ="#" id='deleting' class="editButton">Start met verwijderen</a></li>
+	<li><a href ="#" id='editing' class="editButton">Start met bewerken</a></li>
+	{{/if}}
+</ul>
 
-
-<template name='date'>
-	<header><span>date</span></header>
-	<form class="addVarDate">
-		<label for="day">Dag</label>
-		<input type="radio" name='type' value='day' id='day'>
-		<label for="part">Dagdeel</label>
-		<input type="radio" name='type' value='part' id='part'>
-		<label for="month">Maand</label>
-		<input type="radio" name='type' value='month' id='month'>
-
-		<input type="submit">
-	</form>
-</template> -->
-
+	
+</template>

@@ -1,23 +1,36 @@
 <template name='story'>
-	{{#with chapter}}
+
+
+{{#if Template.subscriptionsReady}}
 	<article>
+	{{#if isAdmin}}
+	{{> editing}}
+{{/if}}
 		<header>
-			<h1>{{title}}</h1>
-			<h2>{{realTime date}}</h2>
+			<h1>{{chapter.title}}</h1>
+			<h2>{{timeAgo}}</h2>
 		</header>
 <p>
-	{{#each content}}
-		
-			
+	{{#each chapter.content}}
 		
 		{{#if istext}}
-				<span id='{{_id._str}}' class='{{isDone}}'>{{text}}</span>
-			{{else}}
-			<span>{{vars}}</span>
-			{{/if}}
-			
+				<span id='{{_id._str}}' class='{{isDone}} par'>{{text}}</span>
+		{{else}}
+		{{#if isDate}}
+			<span id='{{_id._str}}'>{{formatDate this.text}}</span>
+		{{else}}
+		<span id='{{_id._str}}'>{{getVar this.text}}</span>
+		{{/if}}
+		{{/if}}
 	{{/each}}
+		
 </p>
 	</article>
-	{{/with}}
+	
+
+
+{{/if}}
+	
+
+	
 </template>

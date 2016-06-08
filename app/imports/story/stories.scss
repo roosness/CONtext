@@ -2,6 +2,7 @@
 	list-style:none;
 	padding: 0 1em;
 	width:100%;
+	box-sizing:border-box;
 	
 	li {
 		a {
@@ -11,14 +12,7 @@
 		color:#666666;
 		box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.15);
 		text-decoration: none;
-		span {
-			flex:15%;
-			display:flex;
-			justify-content: center;
-			align-items: center;
-			background:#607d8b;
-			color:white;
-		}
+		
 		p {
 			padding:1em;
 			flex:80%;

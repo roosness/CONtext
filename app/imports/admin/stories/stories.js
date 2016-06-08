@@ -1,6 +1,10 @@
 import { Chapters, Dataset } from '../../lib/collections.js';
-Template.adminStories.onRendered (function(){
-	
+Template.adminStories.onCreated (function(){
+	var self = this;
+
+	self.autorun(function () {
+		self.subscribe('Chapters')
+	})
 })
 Template.adminStories.helpers ({
 	chapters () {
@@ -13,16 +17,8 @@ Template.adminStories.events({
 		console.log((Chapters.find({}).count() )+ 1);
 		var settings = {
 			forTests : false,
-			useName: false,
-			useGender: false,
-			name : {
-				for: '',
-				format: ''
-			},
-			gender : {
-				for: '',
-				reversed: '',
-			}
+			nameFormat: '',
+			genderReversed: false
 		}
 		Chapters.insert({
 			number: (Chapters.find({}).count() )+ 1,
@@ -30,6 +26,12 @@ Template.adminStories.events({
 			date: new Date(),
 			content: [],
 			settings: settings,
+			usedData: [],
 		})
+	},
+	'click .delete' : function (e) {
+		e.preventDefault();
+		console.log(e.currentTarget.id);
+		Chapters.remove(e.currentTarget.id)
 	}
 })

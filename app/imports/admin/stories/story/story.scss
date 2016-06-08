@@ -8,9 +8,8 @@ main.admin {
 		position:relative;
 		box-sizing:border-box;
 
-
+		
 		article {
-			
 			flex:50%
 
 		}
@@ -20,6 +19,7 @@ main.admin {
 			position:relative;
 			text-align: center;
 			overflow:hidden;
+			max-width: 30em;
 			.storySettings {
 				top:2.2em;
 

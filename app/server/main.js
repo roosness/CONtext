@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
-import '../imports/lib/collections.js'
+import { Chapters, Tests, Filters } from '../imports/lib/collections.js'
 
 import '../imports/lib/methods.js'
 
@@ -10,7 +10,35 @@ ServiceConfiguration.configurations.remove({
  
 ServiceConfiguration.configurations.insert({
     service: 'facebook',
-    appId: '1710895075837437',
-    secret: 'f3a7c7f8efc060601d5de386ecbdb904',
+    appId: '1713199082273703',
+    secret: '53f58b34d62a2e6c4b536f6de1c8b44b',
 
+});
+
+
+Meteor.publish('Chapters', function() {
+	return Chapters.find({});
+});
+
+Meteor.publish('singleChapter', function(id) {
+	return Chapters.find({_id: id})
+});
+
+Meteor.publish('Filters', function () {
+	return Filters.find({})
+})
+
+Meteor.publish('userList', function(id) {
+	return Meteor.users.find({}, {profile:1});
+})
+
+Meteor.publish('Tests', function () {
+	return Tests.find({});
+})
+
+Meteor.publish('Dataset', function() {
+	return Dataset.find({});
+});
+Meteor.publish("getUserData", function () {
+	return Meteor.users.find({_id: this.userId});
 });

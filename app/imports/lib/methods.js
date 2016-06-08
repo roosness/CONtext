@@ -1,65 +1,31 @@
 import { Dataset, Chapters } from '../lib/collections.js';
-
 if(Meteor.isServer) {
 	Meteor.methods({
-	
+	removeContent : function (chapterId, arrayIDs) {
+		console.log('--------------------------------')
+		for(var i = 0; i < arrayIDs.length; i++) {
+			Chapters.update({_id: chapterId}, {$pull: {"content": {"_id": new Mongo.ObjectID(arrayIDs[i])} }})
+		}
+	},
 	returnVars: function (item) {
 		return 'ba'
 	},
-	getWeather: function (type) {
-		
+	getWeather: function () {
 		var url = 'http://api.openweathermap.org/data/2.5/weather?q=AMSTERDAM&APPID=d03214818693dafe62dc570f3889ace5';
 		var result = Meteor.http.call('GET', url) 
 		if(result.statusCode == 200) {
 			var data = JSON.parse(result.content);
-			
-			
-			return data;
-
-			
-			
+			return data
 		}
-		
-	
 	},
-	getDate: function (type, date) {
+	getLocation: function (ll) {
 		
-		
+		var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + ll.latitude + ',' + ll.longitude + '&key=AIzaSyDGUP3zJPdET5sFcnCliWZjFTS0hsX2zYw';
+		console.log(url)
+		var result = HTTP.call('GET', url, {})
+		var data = JSON.parse(result.content)
+		return data
 
-	},
-	calcWeather: function (data, type) {
-		console.log('start')
-		
-		var ids = data.toString().split('');
-		
-		var text;
-		switch(ids[0]) {
-			
-			case "2":
-				text = 'bliksemstorm';
-				break;
-			case "3":
-				text = 'druilerige';
-				break;
-			case "5":
-				text = 'regenachtige';
-				break;
-			case "6":
-				text = 'besneeuwde';
-				break;
-			case "7":
-				text = 'zonnige';
-				break;
-			case "8":
-				text = 'mistige';
-				break;
-		}
-		console.log(type)
-		if(type === 'word') {
-			console.log(type)
-			Session.set('weatherWord', text )
-		}
-		return text
 		
 	},
 	fb_me: function(fields) {
@@ -70,15 +36,26 @@ if(Meteor.isServer) {
 	    //I got this from an old project. Try logging user here to find it
 	    //if this doesn't work
 	    var accessToken = user.services.facebook.accessToken;
-
+	    console.log(accessToken)
 	    if (!user || !accessToken)
 	      throw new Meteor.Error(500, "Not a valid Facebook user logged in");
-
-	    return HTTP.get("https://graph.facebook.com/me?fields=id,name"+ fields+ '', {
+	    return HTTP.get("https://graph.facebook.com/me?fields=id"+ fields+ '', {
 	      params: {access_token: accessToken}});
+  },
+  fb_edges: function (userId, edge) {
+  	console.log(userId, edge);
+	var user = Meteor.users.findOne(this.userId);
+	var fbId = user.services.facebook.id;
+	var accessToken = user.services.facebook.accessToken;
+	var url = "https://graph.facebook.com/" + fbId + "/" + edge;
+	console.log(url)
+
+	if (!user || !accessToken) {
+		throw new Meteor.Error(500, "Not a valid Facebook user logged in");
+	} else {
+		 return HTTP.get("https://graph.facebook.com/" + fbId + "/" + edge , {
+	      params: {access_token: accessToken}});
+	}
   }
-
 })
-
-
 }

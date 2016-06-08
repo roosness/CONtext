@@ -1,8 +1,4 @@
 Template.start.onCreated(function () {
-	
-	if(Meteor.userId()){
-		FlowRouter.redirect('/stories')
-	};
 
 })
 Template.start.events({
