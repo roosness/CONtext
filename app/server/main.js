@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
-import { Chapters, Tests } from '../imports/lib/collections.js'
+import { Chapters, Tests, Filters } from '../imports/lib/collections.js'
 
 import '../imports/lib/methods.js'
 
@@ -23,6 +23,10 @@ Meteor.publish('Chapters', function() {
 Meteor.publish('singleChapter', function(id) {
 	return Chapters.find({_id: id})
 });
+
+Meteor.publish('Filters', function () {
+	return Filters.find({})
+})
 
 Meteor.publish('userList', function(id) {
 	return Meteor.users.find({}, {profile:1});

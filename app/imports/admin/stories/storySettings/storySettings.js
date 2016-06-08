@@ -14,7 +14,7 @@ Template.storySettings.helpers({
 		return Chapters.findOne({})
 	},
 	checked (item, reverse) {
-		console.log(item, reverse)
+		
 		if(item === 'genderReversed' && Chapters.findOne({}).settings.genderReversed === reverse) {
 			return 'checked'
 		}
@@ -23,12 +23,11 @@ Template.storySettings.helpers({
 		}
 	},
 	formatNames() {
-		var format = ["---", "v", "a", "v+a", "vl+a", "vl"];
+		var format = ["v", "a", "v+a", "vl+a", "vl"];
 		return format
 	},
 	isSelected (select) {
 		if(select === Chapters.findOne({}).settings.nameFormat) {
-			console.log('selected')
 			return 'selected'
 		}
 	}

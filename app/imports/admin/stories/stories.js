@@ -26,6 +26,7 @@ Template.adminStories.events({
 			date: new Date(),
 			content: [],
 			settings: settings,
+			usedData: [],
 		})
 	},
 	'click .delete' : function (e) {
