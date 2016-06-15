@@ -52,6 +52,7 @@ launch-screen@1.0.11
 livedata@1.0.18
 localstorage@1.0.9
 logging@1.0.12
+matteodem:server-session@0.4.2
 meteor@1.1.14
 meteor-base@1.0.4
 meteortoys:allthings@3.0.0
@@ -80,6 +81,7 @@ modules@0.6.1
 modules-runtime@0.6.3
 mongo@1.1.7
 mongo-id@1.0.4
+mongo-livedata@1.0.12
 msavin:jetsetter@2.0.0
 msavin:mongol@2.0.1
 npm-bcrypt@0.8.5

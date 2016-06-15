@@ -1,6 +1,24 @@
 import { Dataset, Chapters } from '../lib/collections.js';
 if(Meteor.isServer) {
 	Meteor.methods({
+	startTest_user: function (userId, active) {
+		Meteor.users.update({_id: userId}, {
+			$set: {
+				
+				"profile.testActive": active,
+				
+			}
+		})
+	},
+	userTest: function (userId, tester, active, object) {
+		Meteor.users.update({_id: userId}, {
+			$set: {
+				"profile.tester":tester,
+				"profile.testActive": active,
+				"profile.orderChapter": object
+			}
+		})
+	},
 	removeContent : function (chapterId, arrayIDs) {
 		for(var i = 0; i < arrayIDs.length; i++) {
 			Chapters.update({_id: chapterId}, {$pull: {"content": {"_id": new Mongo.ObjectID(arrayIDs[i])} }})

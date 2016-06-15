@@ -3,7 +3,7 @@
 Template.registerHelper( 'realTime', (time) => {
 	var time = new Date();
 	var date = new Date(time);
-		return date.toLocaleDateString('nl-NL', {  month: 'long', day: 'numeric', second: 'numeric' })
+		return date.toLocaleDateString('nl-NL', {  month: 'long', day: 'numeric'})
 });
 
 Template.registerHelper('selected', function(option, value){
@@ -77,8 +77,5 @@ Template.registerHelper('getVar', function (type, text, format) {
 		return result
 	}
 
-
-	
-
-
 })
+

@@ -1,5 +1,8 @@
 BlazeLayout.setRoot('body');
-var exposed = FlowRouter.group({});
+
+var exposed = FlowRouter.group({
+ 
+});
 var loggedIn = FlowRouter.group({
   triggersEnter: [
     function() {
@@ -20,10 +23,12 @@ var admin = loggedIn.group({
     triggersEnter: [
       function () {
         if(!(Roles.userIsInRole || Meteor.user() : ['admin']))
-          FlowRouter.go('/admins')
+          FlowRouter.go('/admin')
       }
     ]
 })
+
+
 var adminRouters = FlowRouter.group({
   prefix:'/admin',
   name: 'admin',
@@ -41,9 +46,9 @@ exposed.route('/login', {
   }
 })
 loggedIn.route('/user', {
-  name: 'start',
+  name: 'user',
   action() {
-    BlazeLayout.render( 'layout', {overlay: 'start'});
+    BlazeLayout.render( 'layout', {main: 'user', header: 'header'});
   }
 });
 loggedIn.route('/stories', {

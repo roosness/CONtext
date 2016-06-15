@@ -42,3 +42,4 @@ Meteor.publish('Dataset', function() {
 Meteor.publish("getUserData", function () {
 	return Meteor.users.find({_id: this.userId});
 });
+

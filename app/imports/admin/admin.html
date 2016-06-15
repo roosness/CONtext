@@ -1,1 +1,94 @@
-<template name='admin'></template>
+<template name='admin'>
+<header><h1>welkom bij admin!</h1></header>
+	{{#if Template.subscriptionsReady}}
+
+
+
+<ul class='tabs'>
+	<li id='testConfig' class='{{isActiveTab "testConfig"}}'>Test configureren</li>
+	<li id='testSession' class='{{isActiveTab "testSession"}}'>start test sessie</li>
+	<li id='testplan' class='{{isActiveTab "testplan"}}'>testplan</li>
+
+</ul>
+<section class="templateSelected">
+	{{> UI.dynamic template=whichOne }}
+</section>
+
+{{/if}}
+
+</template>
+<template name='testplan'>
+	<section class="testplan">
+		{{#with test}}
+
+	<p>Aantal verhalen dat er gelezen gaan worden: {{numberOfChapters}}</p>
+	<p>De lezers en leesvolgorde:</p>
+
+	<ul>
+		{{#each testusers}}
+			<li>
+				{{userName}}
+				<ul>
+					{{#each order}}
+						<li><span>{{index @index}}<sup>e</sup></span>{{title}}</li>
+					{{/each}}
+				</ul>
+			</li>
+		{{/each}}
+	</ul>
+
+	{{/with}}
+	</section>
+</template>
+<template name='testConfig'>
+<h2>testconfig</h2>
+	<form class='testConfig'>
+
+		{{#with test}}
+		
+		
+		<label for="amountOfChapters">Aantal verhalen dat elk testpersoon gaat lezen:</label>
+	<input type="number" id='amountOfChapters' value='{{numberOfChapters}}'>
+	<ul class='userlist'>
+		{{#each user}}
+			<li>
+				<input type="checkbox" id='{{_id}}' class="{{profile.name}}" {{isSelected _id}}>
+				<label for="{{_id}}" class='name'>{{profile.name}}</label>
+
+				<div class="selects {{_id}}">
+					{{#each numbers}}
+						<label for="chapterSelect">{{this}}<sup>e</sup> verhaal</label>
+						<select  id='chapterSelect' class='{{../_id}}'>
+							{{#let rowIndex=@index}}
+								{{#each chapters}}
+								<option value="{{_id}}-{{title}}" id='{{title}}'>{{title}}</option>
+							{{/each}}
+							{{/let}}
+						</select>
+					{{/each}}
+				</div>
+			</li>
+		{{/each}}
+	</ul>	
+	{{/with}}
+	<input type="submit">
+	</form>
+</template>
+
+<template name='testSession'>
+	<p>druk op start om het testen te beginnen</p>
+	<button>Start</button>
+</template>
+
+
+<!-- 
+<ul>
+			{{#each users}}
+			<li>
+				<input type="checkbox" class='userlist' id='{{_id}}'>
+			<label for="{{_id}}" class='top'>{{profile.name}}</label>
+			
+			</li>
+			
+			{{/each}}
+		</ul> -->

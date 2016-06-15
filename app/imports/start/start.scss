@@ -20,11 +20,13 @@ padding: 0 0;
 				transition-delay: .5s;
 		h1 {
 			margin: 0 0;
-			flex:30%;
+			flex:0%;
 			text-align:left;
-			margin: 0 0;
+			
 			padding:.5em;
-			display:inline-block;
+			max-width: 10em;
+			display:inline;
+			margin: 0 auto;
 		}
 		p.writer {
 			margin: 0 0;

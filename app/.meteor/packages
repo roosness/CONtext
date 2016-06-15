@@ -34,3 +34,4 @@ accounts-facebook
 service-configuration
 alanning:roles
 mirrorcell:geolocation-plus
+matteodem:server-session
