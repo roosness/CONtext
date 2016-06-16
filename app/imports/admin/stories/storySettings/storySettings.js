@@ -26,6 +26,7 @@ Template.storySettings.helpers({
 		var format = ["v", "a", "v+a", "vl+a", "vl"];
 		return format
 	},
+	
 	isSelected (select) {
 		if(select === Chapters.findOne({}).settings.nameFormat) {
 			return 'selected'

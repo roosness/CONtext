@@ -2,48 +2,16 @@
     <section class="login-wrapper active">
         {{> login}}
     </section>
-    <section class="register-wrapper">
-        {{> register}}
-    </section>
+  
 </template>
 
-<template name="register">
-    
 
-    <button id="facebook-register" class="social-login"><img src="/icons/facebook-logo.svg" alt="">  Register with Facebook</button>
-    
-    <form class="register">
-       
-        <input placeholder='Email' type="email" name="email" id='email' class='register'>
-        
-        <input placeholder="Password" type="password" name="password" id='password' class='register'>
-        <input type="submit" value="Register">
-    </form>
-    <span class="register message hide">blac </span>
-    <a href="#" id='login'>Login to an excisting account.</a>
-</template>
-
-<template name='loginlogout'>
-	{{#if currentUser}}
-		<li><a href="#" class='logout'>Logout</a></li>
-	{{else}}
-		<li> <a href="#">Register</a></li>
-		<li> <a href="#">login</a></li>
-	{{/if}}
-</template>
 
 <template name="login">
     
         
 
         <button id="facebook-login" class="social-login"><img src="/icons/facebook-logo.svg" alt=""> Login with Facebook</button>
-    <form class="login">
-        <input placeholder='Email' type="email" name="email" id='email' class='login'>
-        <input placeholder="Password" type="password" name="password" id='password' class='login'>
-        <input type="submit" value="Login">
-    </form>
-    <span class="login message hide">blac </span>
-    <a href="#" id='register'>Create a new account.</a>
     
 </template>
 

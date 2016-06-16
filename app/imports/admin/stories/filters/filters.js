@@ -150,15 +150,21 @@ Template.filters.events({
 		var a = Chapters.find().fetch()[0];
 		console.log(a)
 		
-		var lastItem = a.content[a.content.length -1];
-		console.log(lastItem)
-		var newParagraph = false;
-		if(lastItem.type.toString() === undefined || lastItem.type.toString() !== 'p') {
-			newParagraph = false;
+		
+		if(a.content.lenght > 0) {
+			var lastItem = a.content[a.content.length -1];
+			console.log(lastItem)
+			var newParagraph = false;
+			if(lastItem.type.toString() === undefined || lastItem.type.toString() !== 'p') {
+				newParagraph = false;
+			}
+			else {
+				newParagraph = true;
+			}
+		} else {
+			newParagraph = true
 		}
-		else {
-			newParagraph = true;
-		}
+		
 		Chapters.update(chapterId,  {
 			$addToSet: {
 				content: {

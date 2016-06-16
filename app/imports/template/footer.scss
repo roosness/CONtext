@@ -1,0 +1,23 @@
+.testButton {
+	margin-top:5em;
+}
+
+.test_done_wrapper {
+	
+	height:100%;
+	box-sizing:border-box;
+	width:100%;
+	position:absolute;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	flex-wrap:wrap;
+	flex-direction:column;
+
+	& > * {
+		
+		margin:0 0 ;
+		display: block;
+	}
+
+}
