@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
-import { Chapters, Tests, Filters } from '../imports/lib/collections.js'
+import { Chapters, Tests, Filters, Userdata } from '../imports/lib/collections.js'
 
 import '../imports/lib/methods.js'
 
@@ -15,7 +15,9 @@ ServiceConfiguration.configurations.insert({
 
 });
 
-
+Meteor.publish('Userdata', function () {
+	return Userdata.find({})
+})
 Meteor.publish('Chapters', function() {
 	return Chapters.find({});
 });
