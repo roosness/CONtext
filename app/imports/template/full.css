@@ -398,74 +398,82 @@ ul.tabs {
   margin: 0 1em;
   background: #f5f5f5;
   z-index: 1;
-  padding: 1em; }
-  /* line 52, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+  padding: 1em;
+  text-align: left; }
+  /* line 54, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
   .templateSelected button {
     padding: 0.5em 1em;
     font-size: 1em;
-    margin: 0 auto;
-    background: white; }
-  /* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+    margin: 0.5em; }
+  /* line 61, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
   .templateSelected h2 {
     margin: 0 0; }
-  /* line 61, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+  /* line 64, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
   .templateSelected form {
     margin: 1em 0;
     display: block; }
-    /* line 65, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+    /* line 68, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
     .templateSelected form label {
       display: inline-block; }
-    /* line 68, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+    /* line 71, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
     .templateSelected form input[type='number'] {
       width: 3em;
       margin: 0 1em;
       text-align: center;
       display: inline-block; }
-    /* line 74, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+    /* line 78, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+    .templateSelected form input[type='checkbox']:checked ~ div {
+      display: inline-block; }
+    /* line 83, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
     .templateSelected form ul {
       list-style: none;
       padding: 0 0;
       margin: 0 0; }
-      /* line 78, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+      /* line 87, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
       .templateSelected form ul li {
         padding: 0.5em 1em; }
-        /* line 81, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+        /* line 90, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
         .templateSelected form ul li:nth-of-type(odd) {
           background: white; }
-        /* line 84, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+        /* line 93, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
         .templateSelected form ul li .selects {
-          display: inline-block;
+          display: none;
           float: right; }
-          /* line 87, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+          /* line 96, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
           .templateSelected form ul li .selects select {
             font-size: 1em; }
 
-/* line 96, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+/* line 105, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
 .testplan {
   padding: 1em; }
-  /* line 98, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+  /* line 107, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
   .testplan > ul {
     list-style: none;
     padding: 0 0; }
-    /* line 101, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+    /* line 110, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
     .testplan > ul > li {
       padding: 0.5em;
       box-sizing: border-box; }
-      /* line 105, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+      /* line 114, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
       .testplan > ul > li:nth-of-type(odd) {
         background: white; }
-      /* line 108, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+      /* line 117, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
       .testplan > ul > li ul {
         list-style: none;
         padding: 0 0;
         margin: 0 0;
         margin-top: -0.2em;
         float: right; }
-        /* line 115, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+        /* line 124, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
         .testplan > ul > li ul li {
           margin: 0 0;
+          transition: 0.2s ease-in-out;
+          border-bottom: 3px solid rgba(2, 2, 2, 0);
           display: inline-block; }
-          /* line 120, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+          /* line 130, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
+          .testplan > ul > li ul li.currentRead {
+            border-bottom: 3px solid #607d8b; }
+          /* line 134, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
           .testplan > ul > li ul li span {
             font-weight: 700;
             padding: 0 1em; }
@@ -831,7 +839,7 @@ main.admin .admin-edit-story-wrapper {
 button.social-login {
   font-size: 1em;
   border: 1px solid #607d8b;
-  background: #607d8b;
+  background: #607d8b !important;
   color: white;
   box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.15);
   display: block;
@@ -845,7 +853,23 @@ button.social-login {
     padding: 0 0;
     float: left;
     margin: 0 0.5em; }
-  /* line 31, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
-  button.social-login:hover {
-    color: #607d8b;
-    background: white; }
+
+/* line 1, /Users/Schuurmans/GitHub/CONtext/app/imports/template/footer */
+.testButton {
+  margin-top: 5em; }
+
+/* line 5, /Users/Schuurmans/GitHub/CONtext/app/imports/template/footer */
+.test_done_wrapper {
+  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column; }
+  /* line 17, /Users/Schuurmans/GitHub/CONtext/app/imports/template/footer */
+  .test_done_wrapper > * {
+    margin: 0 0;
+    display: block; }

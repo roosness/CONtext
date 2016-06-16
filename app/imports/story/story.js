@@ -174,48 +174,48 @@ var getWeatherData = function (weatherArray) {
 var getFacebookData = function (searchArray) {
 	var searchField = ',' + searchArray.toString();
 	
-	 Meteor.call('fb_me', searchField, function (err, res) {
-			if(err) {
-				console.log(err)
-			}
+	 // Meteor.call('fb_me', searchField, function (err, res) {
+		// 	if(err) {
+		// 		console.log(err)
+		// 	}
 			
-			else {
+		// 	else {
 				
-				if(searchArray.indexOf('music') >= 0) {
-					Session.set('music',res.data.music.data[0].name)
-				}
-				if(searchArray.indexOf('religion') >= 0) {
-					Session.set('religion',res.data.religion)
-				}
-				if(searchArray.indexOf('political') >= 0) {
-					Session.set('political',res.data.political)
-				}
-				if(searchArray.indexOf('favorite_athletes') >= 0) {
-					Session.set('favorite_athletes',res.data.favorite_athletes[0].name)
-				}
-				if(searchArray.indexOf('favorite_athletes') >= 0) {
-					Session.set('favorite_athletes',res.data.favorite_athletes[0].name)
-				}
-				if(searchArray.indexOf('devices') >= 0) {
-					Session.set('devices',res.data.devices[0].os)
-				}
-				if (searchArray.indexOf('education') >= 0) {
-					Session.set('education', res.data.education[res.data.education.length - 1].school.name)
-				}
-				if( searchArray.indexOf('work')  >= 0) {
-					Session.set('work', res.data.work[0].employer.name)
-				}
-				if(searchArray.indexOf('first_name,last_name') >= 0) {
-					formatNameObj(res.data.first_name, res.data.last_name)
-				}
-				if(searchArray.indexOf('relationship_status') >= 0) {
-					Session.set('relationship_status', res.data.relationship_status)
-				}
-				if(searchArray.indexOf('significant_other') >= 0) {
-					Session.set('significant_other', res.data.significant_other.name)
-				}
-			}
-		})
+		// 		if(searchArray.indexOf('music') >= 0) {
+		// 			Session.set('music',res.data.music.data[0].name)
+		// 		}
+		// 		if(searchArray.indexOf('religion') >= 0) {
+		// 			Session.set('religion',res.data.religion)
+		// 		}
+		// 		if(searchArray.indexOf('political') >= 0) {
+		// 			Session.set('political',res.data.political)
+		// 		}
+		// 		if(searchArray.indexOf('favorite_athletes') >= 0) {
+		// 			Session.set('favorite_athletes',res.data.favorite_athletes[0].name)
+		// 		}
+		// 		if(searchArray.indexOf('favorite_athletes') >= 0) {
+		// 			Session.set('favorite_athletes',res.data.favorite_athletes[0].name)
+		// 		}
+		// 		if(searchArray.indexOf('devices') >= 0) {
+		// 			Session.set('devices',res.data.devices[0].os)
+		// 		}
+		// 		if (searchArray.indexOf('education') >= 0) {
+		// 			Session.set('education', res.data.education[res.data.education.length - 1].school.name)
+		// 		}
+		// 		if( searchArray.indexOf('work')  >= 0) {
+		// 			Session.set('work', res.data.work[0].employer.name)
+		// 		}
+		// 		if(searchArray.indexOf('first_name,last_name') >= 0) {
+		// 			formatNameObj(res.data.first_name, res.data.last_name)
+		// 		}
+		// 		if(searchArray.indexOf('relationship_status') >= 0) {
+		// 			Session.set('relationship_status', res.data.relationship_status)
+		// 		}
+		// 		if(searchArray.indexOf('significant_other') >= 0) {
+		// 			Session.set('significant_other', res.data.significant_other.name)
+		// 		}
+		// 	}
+		// })
 }
 var formatNameObj = function (first, last) {
 	var obj = {
@@ -301,7 +301,7 @@ Template.story.helpers({
  	},
 	isDone() {
 		if(this.type === 'p') {
-			console.log(this.newPar)
+			
 			if(this.newPar) {
 			return 'newPar'
 		}

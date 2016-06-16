@@ -5,20 +5,25 @@ Template.admin.onCreated(function () {
 	
 	self.autorun(function () {
 		self.subscribe('getUserData');
-		self.subscribe('Tests');
+		self.subscribe('Tests', {
+			onReady: function () { 
+				var num = Tests.find().fetch()[0].numberOfChapters
+				Session.set('amountOfChapters', Tests.find().fetch()[0].numberOfChapters);
+
+			}
+		});
 		self.subscribe('Chapters');
 		self.subscribe('userList')
 	})
 })
-Template.admin.onRendered(function () {
-	Session.set('amountOfChapters', 1)
-})
+
 Template.admin.events({
 	'click .tabs li' : function (e) {
 		Session.set('selectedTab', e.currentTarget.id)
 	}
 })
 Template.admin.helpers({
+	
 	isActiveTab() {
 		return Session.get('selectedTab')
 	},
@@ -118,12 +123,12 @@ Template.testConfig.events({
 				console.log(selectedStories)
 				testusers.push({
 					userName: names[i].innerHTML,
+					userTestActive: false,
 					userid: inputs[i].id,
+					currentStory: 0,
 					order: selectedStories
 				})
-				Meteor.call('userTest', inputs[i].id, true, false, selectedStories, function (err, res) {
-					console.log(err, res)
-				} )
+				Meteor.call('userTest', inputs[i].id, true, false, selectedStories, 0)
 				
 				
 			}
@@ -133,22 +138,77 @@ Template.testConfig.events({
 		
 		Tests.update({_id: id}, {
 			"numberOfChapters": Number(number),
-			"testusers": testusers
+			"testusers": testusers,
+			"isActive": false
 		})
+
+		Session.set('selectedTab', 'testSession');
+	}
+})
+Template.testSession.helpers({
+	isActiveButton(id) {
+		var test = Tests.find().fetch()[0];
+		var text;
+		for(var i = 0; i < test.testusers.length;i++) {
+			
+			if((test.testusers[i].userid === id) && (test.testusers[i].userTestActive === true)) {
+				text = 'stop'
+			}
+			else {
+				text = 'start'
+			}
+		}
+		return text
+	},
+	test() {
+
+		return Tests.find().fetch()[0]
+	},
+	index(number) {
+		return number + 1;
 	}
 })
 
+// var id = new Meteor.Collection.ObjectID('575805a3a16c63aebdcf8576');
+// 	Meteor.call('stopTest_user', Meteor.userId(), false, 0);
+// 	Meteor.call('stopTest_test', id, Meteor.userId(), false, 0);
 Template.testSession.events({
 	'click button': function (e) {
 		e.preventDefault();
-		var testingUsers = [];
+
+
 		var testUsersObj = Tests.find().fetch()[0].testusers;
+		
+		var userid = e.currentTarget.id;
+		var active;
+		for(var i = 0; i < testUsersObj.length; i++) {
 
-		for(var i = 0;i<testUsersObj.length;i++) {
-			console.log(testUsersObj[i].userid);
-			Meteor.call('startTest_user', testUsersObj[i].userid, true)
-
+			if(testUsersObj[i].userid === userid) {
+				console.log(testUsersObj[i].userTestActive)
+				active = !(testUsersObj[i].userTestActive) 
+				
+			}
 		}
+			var id = new Meteor.Collection.ObjectID('575805a3a16c63aebdcf8576');
+		console.log(active)	
+		var number = 0;
+		if(active === false) {
+			console.log('stop de test')
+			Meteor.call('startTest_user', userid, active, number)
+			Meteor.call('startTest_test', id, userid, active, number)
+			
+		}
+		else {
+			console.log('start de test')
+			Meteor.call('startTest_user', userid, active, number)
+			Meteor.call('startTest_test', id, userid, active, number)
+		}
+		
+	
+	
+
+		
+
 
 
 	}
