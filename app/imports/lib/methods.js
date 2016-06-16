@@ -1,4 +1,4 @@
-import { Dataset, Chapters, Tests } from '../lib/collections.js';
+import { Dataset, Chapters, Tests, Userdata } from '../lib/collections.js';
 if(Meteor.isServer) {
 	Meteor.methods({
 
@@ -96,6 +96,9 @@ if(Meteor.isServer) {
 		var result = HTTP.call('GET', url, {})
 		var data = JSON.parse(result.content)
 		return data
+	},
+	insertUserData: function(obj) {
+		Userdata.insert(obj)
 	},
 	fb_me: function(fields) {
 		
