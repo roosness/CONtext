@@ -7,6 +7,7 @@ var exposed = FlowRouter.group({
   function () {
     console.log('exposed');
     var route ;
+
     console.log(Meteor.loggingIn())
    if (!(Meteor.loggingIn() || Meteor.userId())) {
 
@@ -25,7 +26,8 @@ var exposed = FlowRouter.group({
 var loggedIn = FlowRouter.group({
   triggersEnter: [
     function() {
-      
+      Meteor.subscribe('getUserData');
+      Meteor.subscribe('Userdata');
       var route;
       if (!(Meteor.loggingIn() || Meteor.userId())) {
         route = FlowRouter.current();

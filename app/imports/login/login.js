@@ -52,11 +52,16 @@ Template.login.events({
                 throw new Meteor.Error("Facebook login failed");
             }
             else {
-            	FlowRouter.redirect('/stories')
+                FlowRouter.redirect('/stories')
             }
              
         });
     },
 	
 });
-
+// Meteor.call('fb_me', searchField, function (err, res) {
+//         //  if(err) {
+//         //      console.log(err)
+//         //  }
+            
+//         //  else {
