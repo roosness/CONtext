@@ -1,3 +1,4 @@
+import { Dataset, Chapters, Userdata } from '../lib/collections.js';
 
 BlazeLayout.setRoot('body');
 
@@ -26,8 +27,9 @@ var exposed = FlowRouter.group({
 var loggedIn = FlowRouter.group({
   triggersEnter: [
     function() {
-      Meteor.subscribe('getUserData');
-      Meteor.subscribe('Userdata');
+      
+      
+      
       var route;
       if (!(Meteor.loggingIn() || Meteor.userId())) {
         route = FlowRouter.current();
@@ -44,6 +46,7 @@ var admin = loggedIn.group({
   prefix:'/admin',
     triggersEnter: [
       function () {
+        
         if(!(Roles.userIsInRole || Meteor.user() : ['admin']))
           FlowRouter.go('/admin')
       }

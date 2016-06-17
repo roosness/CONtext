@@ -14,12 +14,13 @@
 	{{#each chapter.content}}
 		
 		{{#if istext}}
-				<p id='{{_id._str}}' class='{{isDone}} par'>{{text}}</p>
+				<p id='{{_id._str}}' class='{{isDone}} par'>{{content}}</p>
 		{{else}}
 		{{#if isDate}}
 			<span id='{{_id._str}}'>{{formatDate this.text}}</span>
 		{{else}}
-		<span id='{{_id._str}}'>{{getVar this.text}}</span>
+		<span id='{{_id._str}}'>{{getVar this}}</span>
+		
 		{{/if}}
 		{{/if}}
 	{{/each}}
