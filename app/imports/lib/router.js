@@ -112,9 +112,9 @@ admin.route('/', {
   }
 })
 admin.route('/settings', {
-  name: 'admin-settings',
+  name: 'adminSettings',
   action() {
-    BlazeLayout.render('layout', {header: 'headerAdmin', main: 'admin-settings'});
+    BlazeLayout.render('layout', {header: 'headerAdmin', main: 'adminSettings'});
   }
 })
 admin.route('/stats', {

@@ -1,3 +1,22 @@
-<template name='admin-settings'>
+<template name='adminSettings'>
 	<h1>admin settings</h1>
+	<ul>
+		{{#each item}}
+			<li>
+				<span>{{fallbacks.category}}</span> : 
+				<span>{{fallbacks.fallback}}</span> :
+				<span>{{fallbacks.subcategory}}</span>
+			</li>
+		{{/each}}
+	</ul>
+
+	<form class='addFallback'>
+		<h1>Fallbacks toevoegen (weghalen wanneer klaar)</h1>
+		<select name="selectCategory" id="">
+			<option value="Family">Family</option>
+		</select>
+		<input type="text" name='subcategory' id='subcategory' placeholder='subcategory'>
+		<input type="text" name='fallback' id='fallback' placeholder="fallback">
+		<input type="submit">
+	</form>
 </template>

@@ -1,4 +1,4 @@
-import { Chapters, Dataset, Filters } from '../../../lib/collections.js';
+import { Chapters, Dataset, Filters, Fallbacks } from '../../../lib/collections.js';
 Template.filters.onCreated(function () {
 	var self = this;
 	Session.clear();
@@ -6,9 +6,11 @@ Template.filters.onCreated(function () {
 	self.autorun(function () {
 		var id = FlowRouter.getParam('id');
 		self.subscribe('singleChapter', id);
-		self.subscribe('Filters')
+		self.subscribe('Filters');
+		self.subscribe('Fallbacks');
 	})
 })
+
 var removeCLass = function (classname) {
 	
 	for(var i = 0; i<classname.length;i++) {
