@@ -16,8 +16,11 @@
 		{{#if istext}}
 				<p id='{{_id._str}}' class='{{isDone}} par'>{{content}}</p>
 		{{else}}
+		{{#if isBreak this.source}}
+		<p class='break'></p>
+		{{/if}}
 		{{#if isDate}}
-			<span id='{{_id._str}}'>{{formatDate this.text}}</span>
+			<span id='{{_id._str}}'>{{formatDate this.subcategory}}</span>
 		{{else}}
 		<span id='{{_id._str}}'>{{getVar this}}</span>
 		

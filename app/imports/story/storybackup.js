@@ -231,9 +231,13 @@ var formatNameObj = function (first, last) {
 Template.registerHelper('formatDate', function(type){
 	
 	var date   = new Date(TimeSync.serverTime('', 2000));
+	console.log(date)
 	var curHr = date.getHours();
 	var part;
 	switch(type) {
+		case 'year':
+			return date.getYear();
+			break;
 		case 'minute':
 			return date.getMinutes();
 			break;

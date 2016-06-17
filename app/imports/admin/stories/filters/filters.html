@@ -5,6 +5,7 @@
 		
 	
 	{{#if Template.subscriptionsReady}}
+
 <section class="filters active ">
 		
 			<ul>
@@ -61,12 +62,12 @@
 		
 		<form class='newParagraph'>
 		<header>
-			<label for="paragraph">Nieuwe Paragraaf</label>
+			<label for="paragraph">Nieuwe tekst invoegen</label>
 		</header>
 		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
 		<input type="submit">
 	</form>
-	
+	<button class='startNewPar'>Nieuwe paragraaf starten</button>
 	</section>
 	{{else}}
 	<p>loading...</p>
@@ -74,26 +75,24 @@
 </template>
  
  <template name='location'>
- 	<form class="addVarLoaction">
-		<input type ="radio" name='type' value='userLocation' id='userLocation'>
-		<label for  ="userLocation">Gebruikers locatie</label>
+ 	<form class="location" id='location'>
+		<input type ="radio" name='location' value='userLocation' id='userLocation'>
+		<label for  ="userLocation">RT locatie</label>
  		
 
-		<!-- <input type="radio" name='type' value='workLocation' id='workLocation'>
-		<label for="workLocation">Werk locatie</label>
+		<input type="radio" name='location' value='bornLocation' id='bornLocation'>
+		<label for="bornLocation">Geboorteplaats</label>
 
-		<input type="radio" name='type' value='liveLocation' id='liveLocation'>
-		<label for="liveLocation">Woon locatie</label>
+		<input type="radio" name='location' value='houseLocation' id='houseLocation'>
+		<label for="houseLocation">Woon locatie</label>
 
-		<input type="radio" name='type' value='relatieLocatie' id='relatieLocatie'>
-		<label for="workLocation">relatie locatie</label> -->
-
+		
 		<input type="submit">
  	</form>
  </template>
  <template name='other'>
- 	<form class="addVarOther">
- 		<input type="radio" name='type' value='devices' id='devices'>
+ 	<form class="facebook" id='other'>
+ 		<input type="radio" name='other' value='devices' id='devices'>
 		<label for="devices">device OS</label>
 
 		<input type="submit">
@@ -105,44 +104,53 @@
  <template name='movement'></template>
 
 <template name='weather'>
-	<form class="addVarWeather">
-		<input type="radio" name='type' value='degrees' id='degrees'>
+	<form class="weather" id='weather'>
+		<input type="radio" name='weather' value='degrees' id='degrees'>
 		<label for="degrees">Tempratuur</label>
 		
-		<input type="radio" name='type' value='word' id='word'>
+		<input type="radio" name='weather' value='word' id='word'>
 		<label for="word">in woorden</label>
+
+		<input type="radio" name='weather' value='worde' id='worde'>
+		<label for="worde">in woorden + 'e'</label>
 
 		<input type="submit">
 	</form>
 </template>
 <template name='date'>
-	<form class="addVarDate">
+	<form class="date" id='date'>
 	
-		<input type="radio" name='type' value='hour' id='hour'>
+		<input type="radio" name='date' value='hour' id='hour'>
 		<label for="hour">Uur</label>
 
-		<input type="radio" name='type' value='minute' id='minute'>
+		<input type="radio" name='date' value='minute' id='minute'>
 		<label for="minute">Minuten</label>
 
-		<input type="radio" name='type' value='day' id='day'>
+		<input type="radio" name='date' value='day' id='day'>
 		<label for="day">Dag</label>
 		
-		<input type="radio" name='type' value='part' id='part'>
+		<input type="radio" name='date' value='part' id='part'>
 		<label for="part">Dagdeel</label>
 
-		<input type="radio" name='type' value='day_part' id='day_part'>
+		<input type="radio" name='date' value='day_part' id='day_part'>
 		<label for="day_part">Dagdeel + dag</label>
 		
-		<input type="radio" name='type' value='month' id='month'>
+		<input type="radio" name='date' value='month' id='month'>
 		<label for="month">Maand</label>
+
+		<input type="radio" name='date' value='year' id='year'>
+		<label for="year">Jaar</label>
+
+		<input type="radio" name='date' value='24' id='24'>
+		<label for="24">24uurs klok</label>
 		<input type="submit">
 	</form>
 </template>
 
 <template name='person'>
-	<form class="addVarUser">
+	<form class="user" id='user'>
 	
-		<input type="radio" name='type' value='name' id='naam'>
+		<input type="radio" name='user' value='name' id='naam'>
 		<label for="naam">Naam</label>
 		<section class="formatName">
 			<label class='forSelect' for="format">Formaat naam</label>
@@ -170,19 +178,25 @@
 				{{/each}}
 		</select>
  -->
-		<input type="radio" name='type' value='work' id='Werkplek'>
+		<input type="radio" name='user' value='work' id='Werkplek'>
 		<label for="Werkplek">Werkplek</label>
 		
+		<input type="radio" name='user' value='birthday' id='birthday'>
+		<label for="birthday">Verjaardag</label>
+
+		<input type="radio" name='user' value='interested_in' id='interested_in'>
+		<label for="interested_in">Geinteresseerd in</label>
 		
+
 	
 
-		<input type="radio" name='type' value='education' id='studie'>
+		<input type="radio" name='user' value='education' id='studie'>
 		<label for="studie">opleiding</label>
 
-		<input type="radio" name='type' value='relationship_status' id='relationship_status'>
+		<input type="radio" name='user' value='relationship_status' id='relationship_status'>
 		<label for="relationship_status">burgelijke staat</label>
 		
-		<input type="radio" name='type' value='significant_other' id='significant_other'>
+		<input type="radio" name='user' value='significant_other' id='significant_other'>
 		<label for="significant_other">partner</label>
 
 

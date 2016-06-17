@@ -353,9 +353,15 @@ article {
       transition: all 0.2s ease-in-out; }
     /* line 47, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p .aboutToBeDeleted {
+      text-decoration: line-through; }
+    /* line 53, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    article > p .aboutToBeEdited {
       background: #f5f5f5;
-      border: 1px solid #EBEBEB;
       color: #7f7f7f; }
+
+/* line 61, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+p.break {
+  display: block; }
 
 /* line 1, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
 .addToTest {

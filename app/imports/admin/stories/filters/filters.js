@@ -31,19 +31,61 @@ var submitFilter = function (source, fallback, isstatic, istext, category, subca
 			category: category,
 			subcategory: subcategory,
 			content: content,
-			inObject: inObject
+			inObject: inObject,
+			 _id: new Meteor.Collection.ObjectID(),
 		}
 		console.log(obj)
 	Chapters.update(chapterId, {
-			$addToSet: {
+			$push: {
 				
 				content: obj
 			}
 		})
 }
-
+Template.person.helpers({
+	formatNames() {
+		var format = [, "v", "a", "v+a", "vl+a", "vl"];
+		return format
+	},
+	words() {
+		var words = ['zijn','hij', 'man', 'mannen', 'jongen', 'jongens']
+		return words
+	},
+	selectedFormat () {
+		console.log(this.settings.name.format)
+		return this.settings.name.format;
+	},
+	isSelected (select) {
+		
+		
+		if(select === Chapters.findOne({}).settings.nameFormat) {
+			return 'selected'
+		}
+	}
+})
 
 Template.filters.events({
+	'click .startNewPar' : function (e) {
+		var chapterId = FlowRouter.getParam("id");
+
+		var obj = {
+				source: 'break',
+				fallback: null,
+				isstatic: null,
+				istext: null,
+				category: null,
+				subcategory: null,
+				content: null,
+				inObject: null
+			}
+			console.log(obj)
+		Chapters.update(chapterId, {
+				$push: {
+					
+					content: obj
+				}
+			})
+	},
 	'click #storySettings' : function (e) {
 		e.preventDefault();
 		document.querySelector('.storySettings').classList.toggle('active');
@@ -70,25 +112,45 @@ Template.filters.events({
 	},
 	'submit form.facebook' : function (e) {
 		e.preventDefault();
-		var objArray = ['music'];
-		var inObject;
-		if(objArray.indexOf(e.currentTarget[e.currentTarget.id].value) > -1) {
-			inObject === true
-		} else {
-			inObject === false;
-		}
+		var objArray = ['music', 'favorite_athletes', 'favorite_teams'];
+		
+		var inObject = objArray.indexOf(e.currentTarget[e.currentTarget.id].value) > -1;
 		
 		submitFilter(e.currentTarget.classList[0], 'fallback', true, false, e.currentTarget.id, e.currentTarget[e.currentTarget.id].value, null, inObject)
 		e.currentTarget.reset();
+	},
+	'submit form.user' : function (e) {
+		e.preventDefault();
+		var selected = e.currentTarget.user.value;
+		
+		if(selected === 'name') {
+			var format = document.querySelector(".selecter").value;
+			
+		}
+		submitFilter(e.currentTarget.classList[0], 'fallback', true, false, e.currentTarget[e.currentTarget.id].value, format, null, false)
+		
+		e.currentTarget.reset();
+		
+	},
+	'submit form.date': function (e) {
+		e.preventDefault();
+		submitFilter(e.currentTarget.classList[0], 'fallback', false, false, 'date' , e.currentTarget[e.currentTarget.id].value, null, false)
+	},
+	'submit form.weather': function (e) {
+		e.preventDefault();
+		submitFilter(e.currentTarget.classList[0], 'fallback', false, false, e.currentTarget[e.currentTarget.id].value , null, null, false)
+	},
+	'submit form.location' : function (e) {
+		e.preventDefault();
+		submitFilter(e.currentTarget.classList[0], 'fallback', false, false, e.currentTarget[e.currentTarget.id].value , null, null, false)
 	}
 });
-
 
 
 Template.editing.events({
 	'click #deleting, click #editing':function (e) {
 		e.preventDefault();
-		document.querySelector('.admin-edit-story-wrapper').classList.add(e.currentTarget.id);
+		// document.querySelector('.admin-edit-story-wrapper').classList.add(e.currentTarget.id);
 		Session.set('editing', e.currentTarget.id);
 	},
 
@@ -104,7 +166,7 @@ Template.editing.events({
 			allText[i].contentEditable = false
 		}
 
-		removeCLass(['aboutToBeDeleted'])
+		removeCLass(['editing', 'deleting', 'aboutToBeDeleted', 'aboutToBeEdited'])
 		Template.story.render.apply()
 		
 		delete Session.keys.aboutToBeDeleted
@@ -135,7 +197,7 @@ Template.editing.events({
 		else {
 		
 		}
-		removeCLass(['editing', 'deleting'])
+		removeCLass(['editing', 'deleting', 'aboutToBeDeleted', 'aboutToBeEdited'])
 		
 		
 		delete Session.keys.aboutToBeDeleted, delete Session.keys.aboutToBeEdited
