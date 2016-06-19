@@ -24,8 +24,10 @@ var removeCLass = function (classname) {
 }
 var submitFilter = function (source, fallback, isstatic, istext, category, subcategory, content, inObject ) {
 	var chapterId = FlowRouter.getParam("id");
-
+	var number = document.querySelectorAll('article p').length + 1;
+	console.log(number)
 	var obj = {
+			order: number,
 			source: source,
 			fallback: fallback,
 			isstatic: isstatic,
@@ -109,6 +111,7 @@ Template.filters.events({
 	},
 	'submit .newParagraph' : function (e) {
 		e.preventDefault();
+	
 		submitFilter('admin', 'fallback', true, true, e.currentTarget.classList[0], null, e.target.paragraph.value.trim(), false )
 		e.currentTarget.reset();
 	},
@@ -153,7 +156,7 @@ Template.filters.events({
 
 
 Template.editing.events({
-	'click #deleting, click #editing':function (e) {
+	'click #deleting, click #editing, click #move':function (e) {
 		e.preventDefault();
 		// document.querySelector('.admin-edit-story-wrapper').classList.add(e.currentTarget.id);
 		Session.set('editing', e.currentTarget.id);

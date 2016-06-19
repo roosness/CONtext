@@ -11,7 +11,7 @@ Template.story.onCreated(function () {
 	})
 
 Template.story.events({
-	'click  article span, click article p p': function (e) {
+	'click  .story p': function (e) {
 		if(Session.get('editing') === 'deleting') {
 			
 			
@@ -30,7 +30,7 @@ Template.story.events({
 		}
 		
 	},
-	'click .par' : function (e)	 {
+	'click .story p' : function (e)	 {
 		if(Session.get('editing') === 'editing') {
 
 			e.currentTarget.classList.add('aboutToBeEdited');
