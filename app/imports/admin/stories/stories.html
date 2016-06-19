@@ -6,7 +6,40 @@
 		<input type="text" id='title'>
 		<input type="submit">
 	</form> 
-	<ol class='storyListAdmin'>
+	
+	<ol class="storyListAdmin">
+		{{#each uniqueChapters}}
+			{{#if hasDuplicates}}
+			<li>
+				<h3>{{title}}</h3>
+				
+					<ul>
+						<li><a href="/admin/stories/{{_id}}">{{title}} <span>{orginele}</span>
+						<a href="#" class='delete original' id={{_id}}><img src="/icons/garbage.svg" alt="delete"></a>
+						</a></li>
+						{{#each duplicate}}
+							<li><a href="/admin/stories/{{id}}">{{title}}
+							<a href="#" class='delete' id={{id}},{{../_id}}><img src="/icons/garbage.svg" alt="delete"></a>
+							</a></li>
+						{{/each}}
+					</ul>
+				
+				</li>
+				{{else}}
+				<li class='single'>
+					<a href="/admin/stories/{{_id}}">
+						<h3>{{title}}</h3>
+						
+					</a>
+				<a href="#" class='delete original' id={{_id}}><img src="/icons/garbage.svg" alt="delete"></a>
+				</li>
+			{{/if}}
+		{{/each}}
+	</ol>
+	
+</template>
+<!-- 
+<ol class='storyListAdmin'>
 		{{#each chapters}}
 			<li>
 				
@@ -17,7 +50,4 @@
 				
 			</li>		
 		{{/each}}
-	</ol>
-	
-</template>
-
+	</ol> -->

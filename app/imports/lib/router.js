@@ -94,13 +94,13 @@ loggedIn.route('/user', {
   }
 });
 loggedIn.route('/stories', {
-  name: 'stories',
+  name: 'admin-stories',
   action() {
     BlazeLayout.render( 'layout', {header: 'header', main: 'stories'});
   }
 });
 loggedIn.route('/stories/:id', {
-  name: 'story',
+  name: 'admin-stories',
   action() {
     BlazeLayout.render( 'layout', {header: 'header', main: 'story'});
   }

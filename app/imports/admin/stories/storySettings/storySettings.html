@@ -1,6 +1,15 @@
 <template name='storySettings'>
 	{{#with chapter}}
-	<form class="storySettings ">
+	
+	<form class="storySettings">
+	{{#if canDuplicate}}
+		<button id='openDuplicate'>dupliceer artikel</button>
+		<section class="popup">
+			{{> popupDuplicate}}
+		</section>
+	{{else}}
+	<p>Wil je dit verhaal kopieren? Ga dan terug naar het orginele verhaal.</p>
+	{{/if}}
 		<section>
 			<label for  ="title" >Nieuwe titel</label>
 			<input type ="text" id='title' placeholder='{{title}}'>
@@ -31,4 +40,16 @@
 		
 	</form>
 	{{/with}}
+</template>
+
+<template name='popupDuplicate'>
+	<header>
+		<h3>Creeer een duplicaat</h3>
+		<a href="#" id='closeDuplicate'><img src="/icons/cancel.svg" alt=""></a>
+	</header>
+	<form class='duplicate'>
+		<label for="newTitle">Nieuwe titel:</label>
+		<input type="text" name='title'>
+		<input type="submit">
+	</form>
 </template>

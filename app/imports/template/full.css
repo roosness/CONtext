@@ -84,90 +84,6 @@ nav.admin {
         nav.admin ul li a:hover img {
           transform: scale(1.2); }
 
-/* line 3, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-html {
-  height: 100%; }
-
-/* line 6, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-body {
-  height: 100%; }
-
-/* line 10, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-body, html {
-  background: white;
-  padding: 0 0;
-  margin: 0 0;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.45;
-  color: #333;
-  width: 100%;
-  font-family: 'Istok Web', sans-serif;
-  box-sizing: border-box; }
-
-/* line 23, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-body {
-  position: relative; }
-
-/* line 26, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-article p, article h1 {
-  font-family: 'Libre Baskerville', serif; }
-
-/* line 30, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: inherit;
-  line-height: 1.2; }
-
-/* line 34, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-h1, h2, h3, h4 {
-  margin: 1.414em 0 0.5em;
-  font-weight: inherit;
-  line-height: 1.2; }
-
-/* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-h1 {
-  margin-top: 0;
-  font-size: 3.157em; }
-
-/* line 43, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-h2 {
-  font-size: 2.369em; }
-
-/* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-h3 {
-  font-size: 1.777em; }
-
-/* line 45, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-h4 {
-  font-size: 1.333em; }
-
-/* line 46, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-nav ul {
-  margin: 0 0; }
-
-/* line 50, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-main {
-  margin: 0 0; }
-
-/* line 53, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-main.admin {
-  margin-left: 3.5em;
-  box-sizing: border-box; }
-
-/* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-input[type='submit'] {
-  background: #607d8b;
-  font-size: 1em;
-  padding: 0.5em 1em;
-  color: white;
-  border-radius: 3px;
-  box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.15);
-  border: none; }
-
-/* line 67, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
-.message.hide {
-  opacity: 0; }
-
 /* line 1, /Users/Schuurmans/GitHub/CONtext/app/imports/user/user */
 .user-wrapper {
   display: flex;
@@ -792,7 +708,6 @@ main.admin .admin-edit-story-wrapper {
     padding: 0.5em; }
   /* line 12, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
   .newChapter input[type='text'] {
-    flex: 60%;
     padding: 0.5em;
     width: 75%;
     font-size: 1em; }
@@ -803,36 +718,64 @@ main.admin .admin-edit-story-wrapper {
   padding: 0 1em;
   width: 100%;
   box-sizing: border-box; }
-  /* line 27, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
-  .storyListAdmin li {
-    display: flex;
-    padding: 0 0;
-    margin: 1em 0;
+  /* line 25, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
+  .storyListAdmin h3 {
+    margin: 0 0; }
+  /* line 28, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
+  .storyListAdmin .delete {
+    padding-left: 0.5em;
+    background: #607d8b;
+    display: inline-block;
+    position: relative;
+    padding: 0.5em;
+    width: 4em;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%; }
+    /* line 41, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
+    .storyListAdmin .delete img {
+      height: 100%; }
+  /* line 46, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
+  .storyListAdmin > li {
     background: white;
     box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.15);
-    border: 1px solid #EBEBEB; }
-    /* line 34, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
-    .storyListAdmin li a {
-      width: 90%;
+    border: 1px solid #EBEBEB;
+    padding: 0.5em 1em;
+    margin: 0.5em 0; }
+    /* line 53, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
+    .storyListAdmin > li.single {
+      position: relative; }
+      /* line 56, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
+      .storyListAdmin > li.single a {
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+        height: 2em; }
+    /* line 64, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
+    .storyListAdmin > li ul {
+      list-style: none;
+      padding: 0 0;
       margin: 0 0;
-      text-decoration: none;
-      color: #666666;
-      display: inline-block;
-      padding: 0.5em;
-      padding-left: 2em; }
-      /* line 42, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
-      .storyListAdmin li a.delete {
-        flex: 10%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-left: 0.5em;
-        background: #607d8b; }
-        /* line 49, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
-        .storyListAdmin li a.delete img {
-          margin: 0 0;
-          max-width: 1em;
-          width: 100%; }
+      margin-left: 2em;
+      margin-top: 1em; }
+      /* line 70, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
+      .storyListAdmin > li ul span {
+        color: #898989;
+        padding-left: 2em;
+        font-size: 0.7em; }
+      /* line 75, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
+      .storyListAdmin > li ul li a {
+        margin-bottom: 0.5em;
+        border-bottom: 1px solid #EBEBEB;
+        background: #f5f5f5;
+        display: block;
+        padding: 0.5em 1em;
+        position: relative;
+        box-sizing: border-box;
+        text-decoration: none;
+        color: black; }
 
 /* line 1, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/storySettings/storySettings */
 .storySettings {
@@ -911,6 +854,33 @@ main.admin .admin-edit-story-wrapper {
     .storySettings section select {
       font-size: 1em; }
 
+/* line 79, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/storySettings/storySettings */
+section.popup form {
+  height: 80%;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  padding: 1em 0.5em;
+  text-align: left; }
+  /* line 86, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/storySettings/storySettings */
+  section.popup form label {
+    display: block;
+    margin: 0.5em 0;
+    text-align: left; }
+  /* line 91, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/storySettings/storySettings */
+  section.popup form input[type='text'] {
+    font-size: 1em;
+    width: 80%;
+    padding: 0.2em 0.5em;
+    margin: 0 0;
+    text-align: left;
+    margin-left: 0; }
+  /* line 99, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/storySettings/storySettings */
+  section.popup form input[type='submit'] {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em; }
+
 /* line 1, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
 .login-wrapper {
   position: relative; }
@@ -953,3 +923,125 @@ button.social-login {
   .test_done_wrapper > * {
     margin: 0 0;
     display: block; }
+
+/* line 3, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+html {
+  height: 100%; }
+
+/* line 6, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+body {
+  height: 100%; }
+
+/* line 10, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+body, html {
+  background: white;
+  padding: 0 0;
+  margin: 0 0;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
+  width: 100%;
+  font-family: 'Istok Web', sans-serif;
+  box-sizing: border-box; }
+
+/* line 23, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+body {
+  position: relative; }
+
+/* line 26, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+article p, article h1 {
+  font-family: 'Libre Baskerville', serif; }
+
+/* line 30, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+  line-height: 1.2; }
+
+/* line 34, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2; }
+
+/* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+h1 {
+  margin-top: 0;
+  font-size: 3.157em; }
+
+/* line 43, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+h2 {
+  font-size: 2.369em; }
+
+/* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+h3 {
+  font-size: 1.777em; }
+
+/* line 45, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+h4 {
+  font-size: 1.333em; }
+
+/* line 46, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+nav ul {
+  margin: 0 0; }
+
+/* line 50, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+main {
+  margin: 0 0; }
+
+/* line 53, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+main.admin {
+  margin-left: 3.5em;
+  box-sizing: border-box; }
+
+/* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+input[type='submit'] {
+  background: #607d8b;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.15);
+  border: none; }
+
+/* line 67, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+.message.hide {
+  opacity: 0; }
+
+/* line 71, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+section.popup {
+  display: none;
+  background: white;
+  position: fixed;
+  width: 50vw;
+  border: none;
+  height: 30vw;
+  box-sizing: border-box;
+  z-index: 9;
+  top: 50%;
+  left: 45%;
+  margin-top: -25vw;
+  margin-left: -15vw;
+  padding: 0 0;
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.8); }
+  /* line 87, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+  section.popup.active {
+    display: block; }
+  /* line 90, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+  section.popup header {
+    background: #607d8b;
+    width: 100%;
+    padding: 0.7em;
+    text-align: left;
+    box-sizing: border-box; }
+    /* line 98, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+    section.popup header h3 {
+      margin: 0 0;
+      color: white;
+      display: inline-block;
+      font-size: 1.2em; }
+    /* line 105, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+    section.popup header img {
+      max-height: 1em;
+      display: inline-block;
+      float: right; }

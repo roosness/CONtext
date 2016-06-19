@@ -1,7 +1,6 @@
 import { Chapters, Dataset } from '../../../lib/collections.js';
 Template.storySettings.onCreated(function () {
 	var self = this;
-
 	self.autorun(function () {
 		var id = FlowRouter.getParam('id');
 		
@@ -12,6 +11,10 @@ Template.storySettings.onCreated(function () {
 Template.storySettings.helpers({
 	chapter() {
 		return Chapters.findOne({})
+	},
+	canDuplicate() {
+		
+		return !this.duplicateFrom
 	},
 	checked (item, reverse) {
 		
@@ -36,6 +39,21 @@ Template.storySettings.helpers({
 	}
 })
 Template.storySettings.events({
+	'click #openDuplicate': function (e) {
+		e.preventDefault();
+		var popup = document.querySelector('.popup');
+		if(popup.classList.contains('active') ){
+			popup.classList.remove('active');
+
+		} else {
+			popup.classList.add('active');
+		}
+	},
+	'click #closeDuplicate': function (e) {
+		e.preventDefault();
+		var popup = document.querySelector('.popup');
+		popup.classList.remove('active');
+	},
 	'submit form': function (e) {
 		e.preventDefault();
 		
@@ -92,3 +110,42 @@ var checkArray = function (array) {
 	console.log(value)
 	return JSON.parse(value);
 }
+Template.popupDuplicate.events({
+	'submit form': function (e) {
+		e.preventDefault();
+		var duplicateId = FlowRouter.getParam('id');
+		var duplicateContent= Chapters.find().fetch()[0].content;
+		var duplicateTitle = Chapters.find().fetch()[0].title;
+		var id= new Meteor.Collection.ObjectID()._str;
+		var settings = {
+			forTests : false,
+			nameFormat: '',
+			genderReversed: false
+		}
+		Chapters.update(duplicateId, {
+			$set : {
+				duplicated: true
+			},
+			$push: {
+				duplicatedStories: {
+					title: event.target.title.value.trim(),
+					id: id
+				}
+			}
+		})
+		Chapters.insert({
+			_id: id,
+			number: (Chapters.find({}).count() )+ 1,
+			title: event.target.title.value.trim(),
+			date: new Date(),
+			content: duplicateContent,
+			settings: settings,
+			usedData: [],
+			duplicated: false,
+			duplicateFrom: duplicateId,
+			duplicateTitle: duplicateTitle,
+		})
+
+		FlowRouter.go('/admin/stories')
+	}
+});
