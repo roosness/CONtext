@@ -2,7 +2,7 @@
 
 
 {{#if Template.subscriptionsReady}}
-	<article>
+	<article class='story'>
 	{{#if isAdmin}}
 	{{> editing}}
 {{/if}}
@@ -10,25 +10,25 @@
 			<h1>{{chapter.title}}</h1>
 			<h2>{{timeAgo}}</h2>
 		</header>
-<p>
+
 	{{#each chapter.content}}
 		
 		{{#if istext}}
-				<p id='{{_id._str}}' class='{{isDone}} par'>{{content}}</p>
+				<p id='{{_id._str}}' draggable='true' class='{{isDone}} par'>{{content}}</p>
 		{{else}}
 		{{#if isBreak this.source}}
-		<p class='break'></p>
+		<br>
 		{{/if}}
 		{{#if isDate}}
-			<span id='{{_id._str}}'>{{formatDate this.subcategory}}</span>
+			<p id='{{_id._str}}'>{{formatDate this.subcategory}}</p>
 		{{else}}
-		<span id='{{_id._str}}'>{{getVar this}}</span>
+		<p id='{{_id._str}}'>{{getVar this}}</p>
 		
 		{{/if}}
 		{{/if}}
 	{{/each}}
 		
-</p>
+
 	</article>
 	
 {{else}}

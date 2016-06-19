@@ -5,6 +5,7 @@ article {
 		// background: linear-gradient(45deg, #879fab 0%,#607d8b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		color:#00356B;
 		padding:2em 1em ;
+		clear: both;
 		position:relative;
 		margin-bottom:3em;
 		h1 {
@@ -19,7 +20,7 @@ article {
 	& > p {
 	
 		padding:0 1em;
-		&:first-letter {
+		&:first-of-type:first-letter {
 			float: left; 
 			font-size: 75px; 
 			line-height: 60px; 
@@ -27,30 +28,18 @@ article {
 			padding-right: 8px; 
 			padding-left: 3px;
 		}
-		& > p {
-				display: inline;
-				
-				&.newPar:not(:first-of-type)::before {
-					background:red;
-					content:'-';
-					opacity:0;
-					width:100%;
-
-					max-width: 100%;
-					display:block;
-				}
-		}
+		
 		
 		span {
 			transition:all .2s ease-in-out;
 		}
-		.aboutToBeDeleted {
+		&.aboutToBeDeleted {
 			// background: #f5f5f5;
 			// border:1px solid #EBEBEB;
 			// color:#7f7f7f
 			text-decoration: line-through;
 		}
-		.aboutToBeEdited {
+		&.aboutToBeEdited {
 			background: #f5f5f5;
 			
 			color:#7f7f7f

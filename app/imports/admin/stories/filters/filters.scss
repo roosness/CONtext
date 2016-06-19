@@ -1,9 +1,8 @@
 ul.editList {
 	list-style:none;
 	padding: 0 0;
-	position:absolute;
-	top:0em;
-	right:.5em;
+	float:right;
+	margin:.5em;
 	z-index:2;
 	li {
 		display: inline-block;
