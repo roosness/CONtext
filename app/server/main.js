@@ -48,10 +48,10 @@ Meteor.publish("getUserData", function () {
 	return Meteor.users.find({_id: this.userId});
 });
 
-
+console.log(Fallbacks.find().count())
 if(Fallbacks.find().count() === 0) {
 	
-Fallbacks.insert([{ 
+var data = [{ 
     "category": "Family",
     "fallback": "Dirk Deloreis",
     "subcategory": "brother"
@@ -102,11 +102,6 @@ Fallbacks.insert([{
     "subcategory": "devices"
 },
 { 
-    "category": "other",
-    "fallback": "Android",
-    "subcategory": "devices"
-},
-{ 
     "category": "location",
     "fallback": "Almkerk",
     "subcategory": "hometown"
@@ -150,8 +145,10 @@ Fallbacks.insert([{
     "category": "user",
     "fallback": "Frans Fransman",
     "subcategory": "significant_other"
+}]
+for(var i = 0; i < data.length; i++) {
+    Fallbacks.insert(data[i]);
 }
-])
 } else {
 	
 }

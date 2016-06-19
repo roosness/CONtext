@@ -55,6 +55,15 @@ main.admin {
   box-sizing:border-box;
   
 }
+input[type='submit'] {
+  background:#607d8b;
+  font-size:1em;
+  padding:.5em 1em;
+  color:white;
+  border-radius:3px;
+  box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.15);
+  border:none;
+}
 .message.hide {
   opacity:0;
 }

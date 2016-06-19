@@ -1,22 +1,33 @@
 <template name='adminSettings'>
-	<h1>admin settings</h1>
-	<ul>
-		{{#each item}}
-			<li>
+	<header>
+		<h1>Data fallback settings</h1>
+		<!-- <span id='changeAdminSettings'><img src="/icons/gear_white.svg" alt="">wijzigen</span> -->
+	</header>
+	<form class='dataList'>
+		<ul >
+		{{#each categories}}
+			<!-- <li>
 				<span>{{fallbacks.category}}</span> : 
 				<span>{{fallbacks.fallback}}</span> :
 				<span>{{fallbacks.subcategory}}</span>
+			</li> -->
+			<li><span>{{this}}</span>
+			<ul>
+				{{#each item this}}
+					<li class='dataListItem'>
+						
+						<span id='subcategory'>{{subcategory}}</span> 
+						<input type="text" placeholder="{{fallback}}" id={{_id}}>
+						
+					</li>
+				{{/each}}
+			</ul>
 			</li>
 		{{/each}}
-	</ul>
-
-	<form class='addFallback'>
-		<h1>Fallbacks toevoegen (weghalen wanneer klaar)</h1>
-		<select name="selectCategory" id="">
-			<option value="Family">Family</option>
-		</select>
-		<input type="text" name='subcategory' id='subcategory' placeholder='subcategory'>
-		<input type="text" name='fallback' id='fallback' placeholder="fallback">
+		</ul>
 		<input type="submit">
+	
 	</form>
+
+	
 </template>

@@ -1,6 +1,18 @@
-import { Dataset, Chapters, Tests, Userdata } from '../lib/collections.js';
+import { Dataset, Chapters, Tests, Userdata, Fallbacks } from '../lib/collections.js';
 if(Meteor.isServer) {
 	Meteor.methods({
+		updateSettings: function (id) {
+			console.log('++++++++++' + id)
+
+			var ids = Mongo.ObjectID('nsfNRaqaCSio3No3a');
+			console.log(ids, id)
+			Fallbacks.update(ids, {
+				$set: {
+					fallback: 'distie'
+				}
+			})
+			
+		},
 		facebook: function (obj, datablock) {
 		
 		var result;

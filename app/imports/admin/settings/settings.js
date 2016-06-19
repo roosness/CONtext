@@ -9,25 +9,48 @@ Template.adminSettings.onCreated(function () {
 })
 
 Template.adminSettings.helpers({
-	item() {
-		return Fallbacks.find()
+	item(cat) {
+		return Fallbacks.find({category: cat})
+	},
+	categories() {
+		var array = [];
+		var fallbacks = Fallbacks.find().fetch();
+		for(var i = 0; i < fallbacks.length; i++) {
+			if(array.indexOf(fallbacks[i].category) < 0) {
+				array.push(fallbacks[i].category)
+			}
+		}
+
+		return array;
 	}
 })
 
 Template.adminSettings.events({
 	'submit form':function (e) {
 		e.preventDefault();
-		var fallbacks = {};
-		fallbacks.category = e.currentTarget.selectCategory.value 
-		fallbacks.fallback = e.currentTarget.fallback.value
-		fallbacks.subcategory = e.currentTarget.subcategory.value
-		console.log(fallbacks)
+		var array = [];
+		var inputs = document.querySelectorAll('.dataListItem input[type="text"]');
 		
-		var fallbacksId = new Meteor.Collection.ObjectID('576414812de8ee597672950a');
-		Fallbacks.insert({
-			fallbacks
-		})
+		for(var i = 0; i < inputs.length; i++) {
+			if(inputs[i].value) {
+				array.push(inputs[i]);
 
+			}
+		}
+		for(var i = 0; i < array.length; i++) {
+			Fallbacks.update({_id:array[i].id}, {
+				$set: {
+					fallback: array[i].value
+				}
+			})
+		
+		};
+		
+		
+		
+		e.currentTarget.reset();
+		
 	}
+
 })
 
