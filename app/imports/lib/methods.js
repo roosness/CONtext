@@ -1,6 +1,49 @@
-import { Dataset, Chapters, Tests, Userdata } from '../lib/collections.js';
+import { Dataset, Chapters, Tests, Userdata, Fallbacks } from '../lib/collections.js';
 if(Meteor.isServer) {
 	Meteor.methods({
+		updateSettings: function (id) {
+			console.log('++++++++++' + id)
+
+			var ids = Mongo.ObjectID('nsfNRaqaCSio3No3a');
+			console.log(ids, id)
+			Fallbacks.update(ids, {
+				$set: {
+					fallback: 'distie'
+				}
+			})
+			
+		},
+		facebook: function (obj, datablock) {
+		
+		var result;
+		switch(obj.category) {
+			case 'family':
+				var famObj = datablock.family.data;
+				result = findValueInObj(obj.subcategory, famObj, "relationship");
+				return result.name
+			case 'likes': 
+			
+				if(obj.inObject) {
+					if(obj.subcategory === 'music') {
+						result  = datablock[obj.subcategory].data[0].name;
+					}
+					else {
+						result = datablock[obj.subcategory][0].name
+					}
+				}
+				else {
+					result = datablock[obj.subcategory]
+				}
+				break;
+			case 'other':
+				result =  datablock[obj.subcategory][0].os
+				break;
+			default:
+				console.log('something else')
+		}
+		return result
+	},
+
 
 	stopTest_user: function (userid, active, number) {
 		Meteor.users.update({_id: userid}, {
@@ -125,4 +168,14 @@ if(Meteor.isServer) {
 	}
   }
 })
+}
+
+var findValueInObj = function(value, obj, objParam) {
+	
+	for(var i = 0; i < obj.length; i++) {
+		
+		if(obj[i][objParam] === value) {
+			return obj[i]
+		}
+	}
 }

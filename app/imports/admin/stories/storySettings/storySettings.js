@@ -15,10 +15,12 @@ Template.storySettings.helpers({
 	},
 	checked (item, reverse) {
 		
-		if(item === 'genderReversed' && Chapters.findOne({}).settings.genderReversed === reverse) {
+		if(item = 'genderReversed' && Chapters.find().fetch()[0].settings.genderReversed === reverse) {
+			
 			return 'checked'
 		}
 		if(this.settings.forTests) {
+			
 			return 'checked'
 		}
 	},
@@ -52,14 +54,14 @@ Template.storySettings.events({
 		}
 		
 		
+		
 		var selectBox = document.getElementById("format");
 		
 		console.log(selectBox.options[selectBox.selectedIndex].value|| '')
 
 		var newSettings = {
-			forTests : document.getElementById('forTesting').checked,
 			nameFormat: selectBox.options[selectBox.selectedIndex].value|| '',
-			genderReversed: checkArray(document.querySelectorAll('input[name=genderFormat]'))|| ''
+			genderReversed: checkArray(document.querySelectorAll('input[name=genderFormat]'))
 			
 		}
 		Chapters.update(chapterId, {
@@ -79,11 +81,14 @@ Template.storySettings.events({
 
 var checkArray = function (array) {
 	var value;
+	console.log(array)
 		for (var i = 0; i < array.length; i++) {
 		    if (array[i].type === 'radio' && array[i].checked) {
-		        // get value, set checked flag or do whatever you need to
+		        console.log(i, array[i].value)
 		        value = array[i].value;       
+
 		    }
 		}
-	return value;
+	console.log(value)
+	return JSON.parse(value);
 }

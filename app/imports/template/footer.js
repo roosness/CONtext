@@ -43,3 +43,6 @@ Template.test_done.onRendered(function(){
 	
 
 })
+
+var tester = function (){ 
+console.log('test')}
