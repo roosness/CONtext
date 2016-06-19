@@ -124,12 +124,15 @@ Template.filters.events({
 	'submit form.user' : function (e) {
 		e.preventDefault();
 		var selected = e.currentTarget.user.value;
-		
+		var format;
 		if(selected === 'name') {
-			var format = document.querySelector(".selecter").value;
-			
+
+			format = document.querySelector(".selecter").value;
+		} else {
+			format = e.currentTarget[e.currentTarget.id].value
 		}
-		submitFilter(e.currentTarget.classList[0], 'fallback', true, false, e.currentTarget[e.currentTarget.id].value, format, null, false)
+		console.log(format)
+		submitFilter(e.currentTarget.classList[0], 'fallback', true, false, e.currentTarget.classList[0], format, null, false)
 		
 		e.currentTarget.reset();
 		
@@ -143,8 +146,8 @@ Template.filters.events({
 		submitFilter(e.currentTarget.classList[0], 'fallback', false, false, e.currentTarget[e.currentTarget.id].value , null, null, false)
 	},
 	'submit form.location' : function (e) {
-		e.preventDefault();
-		submitFilter(e.currentTarget.classList[0], 'fallback', false, false, e.currentTarget[e.currentTarget.id].value , null, null, false)
+		e.preventDefault();console.log(e.currentTarget[e.currentTarget.id].value)
+		submitFilter(e.currentTarget.classList[0], 'fallback', false, false, e.currentTarget.classList[0] , e.currentTarget[e.currentTarget.id].value, null, false)
 	}
 });
 

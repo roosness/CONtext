@@ -30,3 +30,4 @@ Template.adminSettings.events({
 
 	}
 })
+

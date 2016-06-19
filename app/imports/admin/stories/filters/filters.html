@@ -70,7 +70,7 @@
 	<button class='startNewPar'>Nieuwe paragraaf starten</button>
 	</section>
 	{{else}}
-	<p>loading...</p>
+	<img src="/loading.svg" alt="">
 	{{/if}}
 </template>
  
@@ -80,8 +80,8 @@
 		<label for  ="userLocation">RT locatie</label>
  		
 
-		<input type="radio" name='location' value='bornLocation' id='bornLocation'>
-		<label for="bornLocation">Geboorteplaats</label>
+		<input type="radio" name='location' value='hometown' id='hometown'>
+		<label for="hometown">Geboorteplaats</label>
 
 		<input type="radio" name='location' value='houseLocation' id='houseLocation'>
 		<label for="houseLocation">Woon locatie</label>

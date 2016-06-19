@@ -14,13 +14,13 @@ Template.storySettings.helpers({
 		return Chapters.findOne({})
 	},
 	checked (item, reverse) {
-		console.log(Chapters.find().fetch()[0].settings.genderReversed === reverse)
+		
 		if(item = 'genderReversed' && Chapters.find().fetch()[0].settings.genderReversed === reverse) {
-			console.log('checked')
+			
 			return 'checked'
 		}
 		if(this.settings.forTests) {
-			console.log('checked')
+			
 			return 'checked'
 		}
 	},

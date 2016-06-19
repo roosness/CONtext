@@ -1,11 +1,11 @@
-import { Dataset, Chapters, Userdata } from '../lib/collections.js';
+import { Dataset, Chapters, Userdata, Fallbacks } from '../lib/collections.js';
 Template.story.onCreated(function () {
 	var self = this;
 	
 	self.autorun(function () {
 		var id = FlowRouter.getParam('id');
 		self.subscribe('singleChapter', id);
-		self.subscribe('Userdata');
+		self.subscribe('Userdata', Meteor.userId());
       });
 
 	})
@@ -100,6 +100,39 @@ Template.registerHelper('formatDate', function(type){
 			break;
 	}
 });
+var findValueInObj = function(value, obj, objParam) {
+	var result = false;
+	for(var i = 0; i < obj.length; i++) {
+		
+		if(obj[i][objParam] === value) {
+			result = obj[i]
+		} 
+	}
+	console.log(result)
+	return result
+}
+var fallbackNeeded2 = function (obj, datablock, datablockParam, string, field) {
+	if(datablock[datablockParam] === undefined) {
+		return getFallback(obj)
+	} else {
+		var result = findValueInObj(obj.subcategory, datablock[datablockParam].data, string)
+		if(result) {
+			return result[field]
+		} else {
+			return getFallback(obj)
+		}
+		
+	}
+}
+var fallbackNeeded = function (obj, datablock) {
+	
+	if(datablock[obj.subcategory] === undefined) {
+		return false
+	} else {
+		return true
+	}
+}
+
 var source = {
 	datablock: function () {
 		var  a ;
@@ -110,79 +143,79 @@ var source = {
 	},
 	facebook: function (obj) {
 		var datablock = source.datablock();
+		
 		// console.log(datablock, obj)
-		var result;
+		var result = null;
+		
 		switch(obj.category) {
 			case 'family':
-				var famObj = datablock.family.data;
-				result = findValueInObj(obj.subcategory, famObj, "relationship").name
+				return fallbackNeeded2(obj, datablock, obj.category, 'name', 'name');
+				
 				break;
 			case 'likes': 
 			
 				if(obj.inObject) {
 					if(obj.subcategory === 'music') {
-						result  = datablock[obj.subcategory].data[0].name;
+						return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory].data[0].name : getFallback(obj);
 					}
 					else {
-						result = datablock[obj.subcategory][0].name
+						return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory][0].name : getFallback(obj);
 					}
 				}
 				else {
-					result = datablock[obj.subcategory]
+					return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory] : getFallback(obj);
 				}
 				break;
 			case 'other':
-				result =  datablock[obj.subcategory][0].os
+				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory][0].os : getFallback(obj);
 				break;
 			default:
 				console.log('something else')
 		}
-		return result
+		
+		
 	},
 	user: function (obj) {
 		var datablock = source.datablock();
 		
 		var result;
-		switch(obj.category) {
-			case 'name': 
-
-				result = formatNameObj(datablock.first_name, datablock.last_name, obj.subcategory);
-				
-				break;
+		switch(obj.subcategory) {
+			
 			case 'work':
-				result = datablock[obj.category][0].employer.name;
+				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory][0].employer.name : getFallback(obj);
 				break;
 			case 'education':
-				result = datablock[obj.category].slice(-1)[0].school.name;
+				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory].slice(-1)[0].school.name : getFallback(obj);
 				break;
 			case 'relationship_status':
-				result  = datablock[obj.category];
+				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory] : getFallback(obj);
+				
 				break;
 			case 'significant_other':
-				result = datablock[obj.category].name;
+				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory].name : getFallback(obj);
+				
 				break;
 			case 'interested_in':
-			
-				result  = datablock[obj.category][0];
+				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory][0] : getFallback(obj);
 				break;
 			case 'birthday':
-				
-				result = new Date(datablock[obj.category]).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long'});
-
+				var a = (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory] : getFallback(obj);
+				return new Date(a).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long'});
 				break;
 				
 			default:
-				console.log('something else')
+				return formatNameObj(datablock.first_name, datablock.last_name, obj.subcategory);
+				
 		}
 		return result
 	},
 	weather: function (obj) {
-		console.log(obj)
+
 		Meteor.call('getWeather', function (err, res) {
 			if( err) {
 				console.log(err)
 			} else {
-				console.log(res);
+				
 				var holder = {};
 				holder.degrees = Math.floor(res.main.temp - 273.15);
 
@@ -224,36 +257,49 @@ var source = {
 		return Session.get('weather')[obj.category]
 	},
 	location: function (obj) {
+
 		var datablock = source.datablock();
-		switch(obj.category) {
+		switch(obj.subcategory) {
+
 			case 'userLocation':
+
 				Location.startWatching(function(pos){
 	  	
 				   Meteor.call('getLocation',pos,  function (err, res) {
 				   	Session.set('userLocation', res.results[0].address_components[3].short_name);
 				   })
 				}, function(err){
+					var fallback = Fallbacks.find({subcategory: obj.subcategory}).fetch()[0].fallback;
+					Session.set('userLocation', fallback )
 				   console.log("Oops! There was an error", err);
 				});
 				return Session.get('userLocation')
 			case 'houseLocation': 
-				return datablock.location.name.split(',')[0];
+				return (fallbackNeeded(obj, datablock)) ? datablock.location.name.split(',')[0] : getFallback(obj);
+			
 				break;
-			case 'bornLocation':
-				return datablock.hometown.name.split(',')[0]
+			case 'hometown':
+				return (fallbackNeeded(obj, datablock)) ? datablock.hometown.name.split(',')[0] : getFallback(obj);
+				
 			
 		}
 	}
 }
 
-var findValueInObj = function(value, obj, objParam) {
-	
-	for(var i = 0; i < obj.length; i++) {
-		
-		if(obj[i][objParam] === value) {
-			return obj[i]
+
+var checkUndefined = function(array) {
+	for(var i =0;i<array.length;i++) {
+		if(array[i] === undefined) {
+			return true;
 		}
 	}
+}
+var getFallback = function(obj, result) {
+	
+		var fallbacks = Fallbacks.find({subcategory: obj.subcategory}).fetch()[0];
+		
+		return fallbacks.fallback
+	
 }
 var formatNameObj = function (first, last, format) {
 	var obj = {
@@ -278,7 +324,6 @@ Template.story.helpers({
 		return this.istext
 	},
 	chapter() {
-		console.log(this)
  		return Chapters.findOne()
  	},
  	isDate() {
@@ -287,7 +332,7 @@ Template.story.helpers({
  		}
  	},
  	getVar(obj) {
- 		
+ 		var result
  		switch(obj.source) {
  			case 'facebook':
 	 			return source.facebook(obj);
@@ -307,4 +352,4 @@ Template.story.helpers({
  	}
  	
 })
-    
+
