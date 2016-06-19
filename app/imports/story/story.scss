@@ -1,6 +1,7 @@
 // 00356B
 article {
 	position:relative;
+	padding:0 1em;
 	header {
 		// background: linear-gradient(45deg, #879fab 0%,#607d8b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		color:#00356B;
@@ -19,7 +20,7 @@ article {
 	}
 	& > p {
 	
-		padding:0 1em;
+		display: inline;
 		&:first-of-type:first-letter {
 			float: left; 
 			font-size: 75px; 
@@ -47,6 +48,43 @@ article {
 	}
 }	
 
-p.break {
-	display:block;
+// br {
+// 	display:block;
+// 	clear:both
+// }
+
+.movingAround {
+		background:#607d8b;
+		color:white;
+		
+		list-style: none;
+		display: inline-block;
+		padding: 0 0;
+		float:left;
+		li {
+			font-size: 2em;
+			display: block;
+			border:1px solid white;
+			text-align: center;
+			width:2em;
+			padding:.5em;
+			box-sizing: border-box;
+			a {
+				display: block;
+				
+				text-align: center;
+				width:100%;
+
+				&.up {
+					img{
+						transform: rotate(180deg);
+					}
+				}
+				
+			}
+			img {
+				width:100%;
+			}
+		}
+	
 }

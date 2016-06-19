@@ -11,19 +11,36 @@
 			<h2>{{timeAgo}}</h2>
 		</header>
 
-	{{#each chapter.content}}
+	{{#each chaptercontent}}
 		
 		{{#if istext}}
-				<p id='{{_id._str}}' draggable='true' class='{{isDone}} par'>{{content}}</p>
+				{{#if isMovingAround}}
+				<ul class="movingAround">
+						{{> movingAround data=this id=this._id._str}}
+					</ul>
+				{{/if}}
+				<p id='{{_id._str}}' class='{{isDone}} par'>{{content}}</p>
+				
 		{{else}}
 		{{#if isBreak this.source}}
 		<br>
 		{{/if}}
 		{{#if isDate}}
+			{{#if isMovingAround}}
+				<ul class="movingAround">
+						{{> movingAround data=this id=this._id._str}}
+					</ul>
+				{{/if}}
 			<p id='{{_id._str}}'>{{formatDate this.subcategory}}</p>
+			
 		{{else}}
+		{{#if isMovingAround}}
+				<ul class="movingAround">
+						{{> movingAround data=this id=this._id._str}}
+					</ul>
+				{{/if}}
 		<p id='{{_id._str}}'>{{getVar this}}</p>
-		
+			
 		{{/if}}
 		{{/if}}
 	{{/each}}
@@ -37,5 +54,17 @@
 {{/if}}
 	
 
+	
+</template>
+
+<template name='movingAround'>
+	
+		<li>
+		<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
+		</li>
+		<li>{{data.order}}</li>
+		<li>
+		<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a></li>
+	
 	
 </template>

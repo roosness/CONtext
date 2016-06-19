@@ -71,8 +71,9 @@ Template.person.helpers({
 Template.filters.events({
 	'click .startNewPar' : function (e) {
 		var chapterId = FlowRouter.getParam("id");
-
+		var number = document.querySelectorAll('article p').length + 1;
 		var obj = {
+				order: number,
 				source: 'break',
 				fallback: null,
 				isstatic: null,

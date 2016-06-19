@@ -30,6 +30,24 @@ Template.story.events({
 		}
 		
 	},
+	'dragstart .story p': function (e){
+		console.log('dragstart!');
+		e.currentTarget.style.opacity = '.5'
+	},
+	'dragenter .story p': function (e){
+		console.log('dragenter!');
+		
+	},
+	'dragover .story p': function (e){
+		console.log('dragover!');
+		console.log(e.dataTransfer)
+		e.dataTransfer.dropEffect = 'move'; 
+		
+	},
+	'dragleave .story p': function (e){
+		console.log('dragleave!');
+		
+	},
 	'click .story p' : function (e)	 {
 		if(Session.get('editing') === 'editing') {
 
@@ -326,9 +344,22 @@ Template.story.helpers({
 	chapter() {
  		return Chapters.findOne()
  	},
+ 	chaptercontent() {
+ 		var contents = Chapters.findOne().content
+ 		var a =  _.sortBy(contents, function (content) { return content.order});
+ 		console.log(a);
+ 		return a
+ 	},
  	isDate() {
  		if(this.source === 'date') {
  			return true 
+ 		}
+ 	},
+ 	isMovingAround() {
+ 		if(Session.get('editing') === 'move') {
+ 			return true
+ 		} else {
+ 			return false
  		}
  	},
  	getVar(obj) {
@@ -351,5 +382,43 @@ Template.story.helpers({
  		}
  	}
  	
+})
+
+Template.movingAround.events({
+	'click  li a' : function (e) {
+		e.preventDefault();
+		console.log(e.currentTarget.id)
+		var id = FlowRouter.getParam('id');
+		var number = this.data.order;
+		var contents = Chapters.find().fetch()[0].content
+		var array = [];
+		if(e.currentTarget.classList.contains('up') && number > 1) {
+			console.log('up' );
+			for(var i = 0; i < contents.length; i++) {
+				console.log(contents[i].order, (number - 1))
+
+				if(contents[i].order === (number - 1)) {
+					Meteor.call('changeOrder', contents[i]._id._str, id, number);
+				}
+			}
+			number--
+
+		} else if(e.currentTarget.classList.contains('down') && number < contents.length) {
+			console.log('down');
+			for(var i = 0; i < contents.length; i++) {
+				console.log(contents[i].order, (number + 1))
+
+				if(contents[i].order === (number + 1)) {
+					Meteor.call('changeOrder', contents[i]._id._str, id, number);
+				}
+			}
+			number++
+		}
+		console.log(number)
+		Meteor.call('changeOrder', e.currentTarget.id, id, number);
+
+		
+		
+	}
 })
 
