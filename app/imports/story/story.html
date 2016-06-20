@@ -14,32 +14,36 @@
 	{{#each chaptercontent}}
 		
 		{{#if istext}}
+				<p id='{{_id._str}}' class='{{isDone}} par'>{{content}}
 				{{#if isMovingAround}}
-				<ul class="movingAround">
+				<ul class="movingAround" id={{_id._str}}>
 						{{> movingAround data=this id=this._id._str}}
 					</ul>
 				{{/if}}
-				<p id='{{_id._str}}' class='{{isDone}} par'>{{content}}</p>
+				</p>
 				
 		{{else}}
 		{{#if isBreak this.source}}
-		<br>
+		<br/>
 		{{/if}}
 		{{#if isDate}}
-			{{#if isMovingAround}}
-				<ul class="movingAround">
-						{{> movingAround data=this id=this._id._str}}
-					</ul>
-				{{/if}}
-			<p id='{{_id._str}}'>{{formatDate this.subcategory}}</p>
 			
-		{{else}}
-		{{#if isMovingAround}}
-				<ul class="movingAround">
+			<p id='{{_id._str}}'>{{formatDate this.subcategory}}
+			{{#if isMovingAround}}
+				<ul class="movingAround" id={{_id._str}}>
 						{{> movingAround data=this id=this._id._str}}
 					</ul>
 				{{/if}}
-		<p id='{{_id._str}}'>{{getVar this}}</p>
+				</p>
+		{{/if}}
+		{{#if getVar this}}
+		
+		<p id='{{_id._str}} getvar'>{{getVar this}}
+		{{#if isMovingAround}}
+				<ul class="movingAround" id={{_id._str}}>
+						{{> movingAround data=this id=this._id._str}}
+					</ul>
+				{{/if}}</p>
 			
 		{{/if}}
 		{{/if}}
@@ -59,11 +63,11 @@
 
 <template name='movingAround'>
 	
-		<li>
+		<li class='up'>
 		<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
 		</li>
-		<li>{{data.order}}</li>
-		<li>
+		<li id='number'>{{data.order}}</li>
+		<li class='down'>
 		<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a></li>
 	
 	

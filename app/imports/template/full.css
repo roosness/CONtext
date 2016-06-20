@@ -254,56 +254,67 @@ article {
       margin: 0 0;
       font-size: 1em;
       color: #e1e7ea; }
-  /* line 21, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  /* line 22, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   article > p {
-    display: inline; }
-    /* line 24, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-    article > p:first-of-type:first-letter {
-      float: left;
-      font-size: 75px;
-      line-height: 60px;
-      padding-top: 4px;
-      padding-right: 8px;
-      padding-left: 3px; }
-    /* line 34, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    display: inline;
+    position: relative; }
+    /* line 26, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    article > p:first-of-type {
+      display: inline-block; }
+      /* line 28, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+      article > p:first-of-type::first-letter {
+        float: left;
+        font-size: 75px;
+        line-height: 60px;
+        padding-top: 4px;
+        padding-right: 8px;
+        padding-left: 3px; }
+    /* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p span {
       transition: all 0.2s ease-in-out; }
-    /* line 37, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 42, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p.aboutToBeDeleted {
       text-decoration: line-through; }
-    /* line 43, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 48, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p.aboutToBeEdited {
       background: #f5f5f5;
       color: #7f7f7f; }
 
-/* line 56, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+/* line 55, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+br {
+  display: block;
+  margin: 10px 0;
+  content: ' '; }
+
+/* line 61, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
 .movingAround {
-  background: #607d8b;
-  color: white;
-  list-style: none;
-  display: inline-block;
+  position: absolute;
+  top: 0;
   padding: 0 0;
-  float: left; }
-  /* line 64, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  list-style: none;
+  background: #607d8b;
+  right: 50%;
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.25); }
+  /* line 71, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   .movingAround li {
-    font-size: 2em;
-    display: block;
-    border: 1px solid white;
-    text-align: center;
-    width: 2em;
+    display: inline-block;
     padding: 0.5em;
-    box-sizing: border-box; }
-    /* line 72, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-    .movingAround li a {
-      display: block;
-      text-align: center;
-      width: 100%; }
-      /* line 79, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-      .movingAround li a.up img {
-        transform: rotate(180deg); }
+    float: left;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Istok Web', sans-serif; }
     /* line 85, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-    .movingAround li img {
-      width: 100%; }
+    .movingAround li.up img {
+      transform: rotate(90deg); }
+    /* line 90, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    .movingAround li.down img {
+      transform: rotate(-90deg); }
+  /* line 95, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  .movingAround img {
+    max-width: 1em; }
 
 /* line 1, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
 .addToTest {

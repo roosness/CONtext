@@ -2,7 +2,7 @@ import { Chapters, Dataset, Filters, Fallbacks } from '../../../lib/collections.
 Template.filters.onCreated(function () {
 	var self = this;
 	Session.clear();
-	Session.set('editing', false)
+	// Session.set('editing', false)
 	self.autorun(function () {
 		var id = FlowRouter.getParam('id');
 		self.subscribe('singleChapter', id);
@@ -81,6 +81,7 @@ Template.filters.events({
 				category: null,
 				subcategory: null,
 				content: null,
+				 _id: new Meteor.Collection.ObjectID(),
 				inObject: null
 			}
 			console.log(obj)

@@ -1,7 +1,6 @@
 import { Dataset, Chapters, Userdata, Fallbacks } from '../lib/collections.js';
 Template.story.onCreated(function () {
 	var self = this;
-	
 	self.autorun(function () {
 		var id = FlowRouter.getParam('id');
 		self.subscribe('singleChapter', id);
@@ -12,6 +11,7 @@ Template.story.onCreated(function () {
 
 Template.story.events({
 	'click  .story p': function (e) {
+		console.log('ckuc!')
 		if(Session.get('editing') === 'deleting') {
 			
 			
@@ -27,29 +27,7 @@ Template.story.events({
 			}
 			console.log(array)
 			Session.set('aboutToBeDeleted', array);
-		}
-		
-	},
-	'dragstart .story p': function (e){
-		console.log('dragstart!');
-		e.currentTarget.style.opacity = '.5'
-	},
-	'dragenter .story p': function (e){
-		console.log('dragenter!');
-		
-	},
-	'dragover .story p': function (e){
-		console.log('dragover!');
-		console.log(e.dataTransfer)
-		e.dataTransfer.dropEffect = 'move'; 
-		
-	},
-	'dragleave .story p': function (e){
-		console.log('dragleave!');
-		
-	},
-	'click .story p' : function (e)	 {
-		if(Session.get('editing') === 'editing') {
+		}  else if(Session.get('editing') === 'editing') {
 
 			e.currentTarget.classList.add('aboutToBeEdited');
 			var array = Session.get('aboutToBeEdited') || [];
@@ -62,7 +40,9 @@ Template.story.events({
 			Session.set('aboutToBeEdited', array);
 
 		}
-	}
+		
+	},
+	
 })
 
 
@@ -359,9 +339,10 @@ Template.story.helpers({
  		if(Session.get('editing') === 'move') {
  			return true
  		} else {
- 			return false
+ 			return true
  		}
  	},
+ 	
  	getVar(obj) {
  		var result
  		switch(obj.source) {
@@ -378,7 +359,7 @@ Template.story.helpers({
 	 			return source.location(obj);
 	 			break;
 	 		default:
-	 			console.log('something else') 
+	 			return false
  		}
  	}
  	
@@ -409,6 +390,7 @@ Template.movingAround.events({
 				console.log(contents[i].order, (number + 1))
 
 				if(contents[i].order === (number + 1)) {
+
 					Meteor.call('changeOrder', contents[i]._id._str, id, number);
 				}
 			}
