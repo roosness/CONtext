@@ -19,9 +19,9 @@ Accounts.onLogin(function(user){
     var result =  HTTP.get("https://graph.facebook.com/me?fields=" + fields + "", {params: {access_token: accessToken}});
     var data = result.data;
     data._id = Meteor.userId();
-    console.log(Meteor.userId, data._id)
+    
     if(Userdata.find({_id: Meteor.userId()}).fetch()[0]) {
-    	console.log('zit er al in!' + Meteor.userId())
+    	
     	Userdata.update({_id:Meteor.userId()},data)
     }	
     else {

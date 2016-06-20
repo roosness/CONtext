@@ -48,7 +48,7 @@ Meteor.publish("getUserData", function () {
 	return Meteor.users.find({_id: this.userId});
 });
 
-console.log(Fallbacks.find().count())
+
 if(Fallbacks.find().count() === 0) {
 	
 var data = [{ 

@@ -1,7 +1,6 @@
 import { Dataset, Chapters, Userdata, Fallbacks } from '../lib/collections.js';
 Template.story.onCreated(function () {
 	var self = this;
-	
 	self.autorun(function () {
 		var id = FlowRouter.getParam('id');
 		self.subscribe('singleChapter', id);
@@ -12,6 +11,7 @@ Template.story.onCreated(function () {
 
 Template.story.events({
 	'click  .story p': function (e) {
+		console.log('ckuc!')
 		if(Session.get('editing') === 'deleting') {
 			
 			
@@ -27,11 +27,7 @@ Template.story.events({
 			}
 			console.log(array)
 			Session.set('aboutToBeDeleted', array);
-		}
-		
-	},
-	'click .story p' : function (e)	 {
-		if(Session.get('editing') === 'editing') {
+		}  else if(Session.get('editing') === 'editing') {
 
 			e.currentTarget.classList.add('aboutToBeEdited');
 			var array = Session.get('aboutToBeEdited') || [];
@@ -44,7 +40,9 @@ Template.story.events({
 			Session.set('aboutToBeEdited', array);
 
 		}
-	}
+		
+	},
+	
 })
 
 
@@ -326,11 +324,25 @@ Template.story.helpers({
 	chapter() {
  		return Chapters.findOne()
  	},
+ 	chaptercontent() {
+ 		var contents = Chapters.findOne().content
+ 		var a =  _.sortBy(contents, function (content) { return content.order});
+ 		console.log(a);
+ 		return a
+ 	},
  	isDate() {
  		if(this.source === 'date') {
  			return true 
  		}
  	},
+ 	isMovingAround() {
+ 		if(Session.get('editing') === 'move') {
+ 			return true
+ 		} else {
+ 			return true
+ 		}
+ 	},
+ 	
  	getVar(obj) {
  		var result
  		switch(obj.source) {
@@ -347,9 +359,48 @@ Template.story.helpers({
 	 			return source.location(obj);
 	 			break;
 	 		default:
-	 			console.log('something else') 
+	 			return false
  		}
  	}
  	
+})
+
+Template.movingAround.events({
+	'click  li a' : function (e) {
+		e.preventDefault();
+		console.log(e.currentTarget.id)
+		var id = FlowRouter.getParam('id');
+		var number = this.data.order;
+		var contents = Chapters.find().fetch()[0].content
+		var array = [];
+		if(e.currentTarget.classList.contains('up') && number > 1) {
+			console.log('up' );
+			for(var i = 0; i < contents.length; i++) {
+				console.log(contents[i].order, (number - 1))
+
+				if(contents[i].order === (number - 1)) {
+					Meteor.call('changeOrder', contents[i]._id._str, id, number);
+				}
+			}
+			number--
+
+		} else if(e.currentTarget.classList.contains('down') && number < contents.length) {
+			console.log('down');
+			for(var i = 0; i < contents.length; i++) {
+				console.log(contents[i].order, (number + 1))
+
+				if(contents[i].order === (number + 1)) {
+
+					Meteor.call('changeOrder', contents[i]._id._str, id, number);
+				}
+			}
+			number++
+		}
+		console.log(number)
+		Meteor.call('changeOrder', e.currentTarget.id, id, number);
+
+		
+		
+	}
 })
 
