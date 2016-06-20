@@ -34,12 +34,7 @@
 				
 		{{else}}
 		{{#if isBreak this.source}}
-		<br id="{{_id._str}}" />
-		{{#if isMovingAround}}
-				<ul class="movingAround" id={{_id._str}}>
-						{{> movingAround data=this id=this._id._str}}
-					</ul>
-				{{/if}}
+		<br/>
 		{{/if}}
 		{{#if isDate}}
 			

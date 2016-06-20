@@ -242,19 +242,19 @@ article {
   /* line 5, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   article header {
     color: #00356B;
-    padding: 1em 0em;
+    padding: 2em 1em;
     clear: both;
     position: relative;
     margin-bottom: 3em; }
-    /* line 11, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 12, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article header h1 {
       margin: 0 0; }
-    /* line 14, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 15, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article header h2 {
       margin: 0 0;
       font-size: 1em;
       color: #e1e7ea; }
-  /* line 20, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  /* line 21, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   article h4 {
     position: relative;
     display: block; }
@@ -265,7 +265,7 @@ article {
     position: relative; }
     /* line 29, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p:first-of-type {
-      display: inline; }
+      display: inline-block; }
       /* line 31, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
       article > p:first-of-type::first-letter {
         float: left;
@@ -280,18 +280,16 @@ article {
     /* line 45, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p.aboutToBeDeleted {
       text-decoration: line-through; }
-    /* line 48, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 51, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p.aboutToBeEdited {
       background: #f5f5f5;
       color: #7f7f7f; }
 
-/* line 55, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+/* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
 br {
   display: block;
-  font-size: 1em;
-  height: 1em;
-  content: ' ';
-  position: relative; }
+  margin: 10px 0;
+  content: ' '; }
 
 /* line 64, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
 .movingAround {
@@ -324,22 +322,6 @@ br {
   /* line 101, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   .movingAround img {
     max-width: 1em; }
-
-/* line 107, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-br.aboutToBeDeleted, h4.aboutToBeDeleted, p.aboutToBeDeleted {
-  text-decoration: line-through; }
-/* line 110, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-br.aboutToBeEdited, h4.aboutToBeEdited, p.aboutToBeEdited {
-  background: #f5f5f5;
-  color: #7f7f7f; }
-
-/* line 117, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-br.aboutToBeDeleted {
-  background: #ebebeb; }
-/* line 120, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-br.aboutToBeEdited {
-  background: #f5f5f5;
-  color: #7f7f7f; }
 
 /* line 1, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin */
 .addToTest {
@@ -715,38 +697,32 @@ main.admin .admin-edit-story-wrapper {
   /* line 12, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
   main.admin .admin-edit-story-wrapper article {
     flex: 50%; }
-  /* line 17, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
-  main.admin .admin-edit-story-wrapper br {
-    border-top: 2px solid #ebebeb;
-    width: 5em; }
-  /* line 21, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+  /* line 16, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
   main.admin .admin-edit-story-wrapper aside {
     flex: 50%;
     position: relative;
     text-align: center;
     overflow: hidden;
     max-width: 30em; }
-    /* line 29, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    /* line 23, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
     main.admin .admin-edit-story-wrapper aside .storySettings {
       top: 2.2em;
       left: -100%; }
-      /* line 34, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+      /* line 27, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
       main.admin .admin-edit-story-wrapper aside .storySettings.active {
         left: 0; }
-    /* line 38, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    /* line 31, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
     main.admin .admin-edit-story-wrapper aside .filters {
       top: 2.2em;
-      right: -100%;
-      height: 100%;
-      background: white; }
-      /* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+      right: -100%; }
+      /* line 35, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
       main.admin .admin-edit-story-wrapper aside .filters.active {
         right: 0; }
-    /* line 48, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    /* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
     main.admin .admin-edit-story-wrapper aside #storySettings {
       top: 0;
       height: 2.2em; }
-    /* line 52, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    /* line 43, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
     main.admin .admin-edit-story-wrapper aside .storySettings, main.admin .admin-edit-story-wrapper aside .filters, main.admin .admin-edit-story-wrapper aside #storySettings {
       position: absolute;
       width: 100%;

@@ -79,7 +79,6 @@ if(Meteor.isServer) {
 	},
 	removeContent : function (chapterId, arrayIDs) {
 		for(var i = 0; i < arrayIDs.length; i++) {
-			
 			Chapters.update({_id: chapterId}, {$pull: {"content": {"_id": new Mongo.ObjectID(arrayIDs[i])} }})
 		}
 	},

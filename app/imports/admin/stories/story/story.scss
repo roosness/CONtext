@@ -10,13 +10,8 @@ main.admin {
 
 		
 		article {
-			flex:50%;
-			
+			flex:50%
 
-		}
-		br {
-			border-top:2px solid #ebebeb;
-			width:5em;
 		}
 		aside {
 			
@@ -25,10 +20,8 @@ main.admin {
 			text-align: center;
 			overflow:hidden;
 			max-width: 30em;
-			
 			.storySettings {
 				top:2.2em;
-				
 
 				left:-100%;
 				&.active {
@@ -39,8 +32,6 @@ main.admin {
 				
 				top:2.2em;
 				right:-100%;
-				height:100%;
-				background:white;
 				&.active {
 					right:0;
 				}
