@@ -273,11 +273,7 @@ var source = {
 				});
 				return Session.get('userLocation')
 			case 'houseLocation': 
-<<<<<<< HEAD
-				obj.subcategory = 'location';
-				
-=======
->>>>>>> parent of 013a3e6... failed commit....
+
 				return (fallbackNeeded(obj, datablock)) ? datablock.location.name.split(',')[0] : getFallback(obj);
 			
 				break;
