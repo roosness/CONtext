@@ -10,7 +10,7 @@ Template.story.onCreated(function () {
 	})
 
 Template.story.events({
-	'click  .story p': function (e) {
+	'click  .story p, click .story h4, click .story br': function (e) {
 		console.log('ckuc!')
 		if(Session.get('editing') === 'deleting') {
 			
@@ -58,7 +58,7 @@ Template.registerHelper('formatDate', function(type){
 			break;
 		case 'year':
 
-			return date.toLocaleDateString('nl-NL', { year: 'numeric'})
+			return date.getFullYear();
 			break;
 		case 'minute':
 			return date.getMinutes();
@@ -67,7 +67,8 @@ Template.registerHelper('formatDate', function(type){
 			return curHr;
 			break;
 		case 'month':
-			return date.toLocaleDateString('nl-NL', { month: 'long'});
+			var months = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'october', 'november', 'december' ]
+			return months[date.getMonth()];
 			break;
 		case 'part':
 			if(curHr < 12) {
@@ -82,7 +83,8 @@ Template.registerHelper('formatDate', function(type){
 			return part
 			break;
 		case 'day':
-			return date.toLocaleDateString('nl-NL', { weekday: 'long'});
+			var weekday = ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"]
+			return weekday[date.getDay()];
 			break;
 		case 'day_part':
 			if(curHr < 12) {
@@ -94,7 +96,9 @@ Template.registerHelper('formatDate', function(type){
 				} else {
 					part = "nacht"
 				}
-				return  date.toLocaleDateString('nl-NL', { weekday: 'long'}) + part
+				var weekday = ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"]
+				
+				return  weekday[date.getDay()] + part
 			break;
 	}
 });
@@ -106,7 +110,7 @@ var findValueInObj = function(value, obj, objParam) {
 			result = obj[i]
 		} 
 	}
-	console.log(result)
+	
 	return result
 }
 var fallbackNeeded2 = function (obj, datablock, datablockParam, string, field) {
@@ -339,7 +343,7 @@ Template.story.helpers({
  		if(Session.get('editing') === 'move') {
  			return true
  		} else {
- 			return true
+ 			return false
  		}
  	}, 
  	isHeading() {

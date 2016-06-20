@@ -24,7 +24,7 @@ var removeCLass = function (classname) {
 }
 var submitFilter = function (source, fallback, isstatic, istext, category, subcategory, content, inObject ) {
 	var chapterId = FlowRouter.getParam("id");
-	var number = document.querySelectorAll('article p').length + 1;
+	var number = document.querySelectorAll('article p').length + 1 + document.querySelectorAll('article h4').length + document.querySelectorAll('article br').length;
 	console.log(number)
 	var obj = {
 			order: number,
@@ -72,6 +72,8 @@ Template.filters.events({
 	'click .startNewPar' : function (e) {
 		var chapterId = FlowRouter.getParam("id");
 		var number = document.querySelectorAll('article p').length + 1;
+		var lastItem = Chapters.find({'content.order': number});
+		// if(lastItem.source !=== 'break') {}
 		var obj = {
 				order: number,
 				source: 'break',
