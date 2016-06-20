@@ -5,7 +5,6 @@ Template.story.onCreated(function () {
 		var id = FlowRouter.getParam('id');
 		self.subscribe('singleChapter', id);
 		self.subscribe('Userdata', Meteor.userId());
-		
       });
 
 	})
@@ -124,7 +123,7 @@ var fallbackNeeded2 = function (obj, datablock, datablockParam, string, field) {
 	}
 }
 var fallbackNeeded = function (obj, datablock) {
-	console.log(datablock)
+	
 	if(datablock[obj.subcategory] === undefined) {
 		return false
 	} else {
@@ -199,10 +198,7 @@ var source = {
 				break;
 			case 'birthday':
 				var a = (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory] : getFallback(obj);
-				var date = new Date(a);
-				var months = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'october', 'november', 'december' ]
-
-				return date.getDate() + ' '+ months[date.getMonth()]
+				return new Date(a).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long'});
 				break;
 				
 			default:
@@ -278,7 +274,7 @@ var source = {
 				return Session.get('userLocation')
 			case 'houseLocation': 
 				obj.subcategory = 'location';
-				console.log()
+				
 				return (fallbackNeeded(obj, datablock)) ? datablock.location.name.split(',')[0] : getFallback(obj);
 			
 				break;
@@ -298,10 +294,10 @@ var checkUndefined = function(array) {
 		}
 	}
 }
-var getFallback = function(obj) {
-		console.log(obj)
+var getFallback = function(obj, result) {
+	
 		var fallbacks = Fallbacks.find({subcategory: obj.subcategory}).fetch()[0];
-		console.log(fallbacks)
+		
 		return fallbacks.fallback
 	
 }
@@ -333,6 +329,7 @@ Template.story.helpers({
  	chaptercontent() {
  		var contents = Chapters.findOne().content
  		var a =  _.sortBy(contents, function (content) { return content.order});
+ 		console.log(a);
  		return a
  	},
  	isDate() {
