@@ -254,14 +254,19 @@ article {
       margin: 0 0;
       font-size: 1em;
       color: #e1e7ea; }
-  /* line 22, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  /* line 21, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  article h4 {
+    position: relative;
+    display: block; }
+  /* line 25, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   article > p {
+    max-width: 30em;
     display: inline;
     position: relative; }
-    /* line 26, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 29, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p:first-of-type {
       display: inline-block; }
-      /* line 28, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+      /* line 31, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
       article > p:first-of-type::first-letter {
         float: left;
         font-size: 75px;
@@ -269,33 +274,35 @@ article {
         padding-top: 4px;
         padding-right: 8px;
         padding-left: 3px; }
-    /* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 42, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p span {
       transition: all 0.2s ease-in-out; }
-    /* line 42, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 45, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p.aboutToBeDeleted {
       text-decoration: line-through; }
-    /* line 48, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 51, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article > p.aboutToBeEdited {
       background: #f5f5f5;
       color: #7f7f7f; }
 
-/* line 55, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+/* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
 br {
   display: block;
   margin: 10px 0;
   content: ' '; }
 
-/* line 61, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+/* line 64, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
 .movingAround {
   position: absolute;
   top: 0;
+  right: 0;
+  font-size: 1em;
   padding: 0 0;
   list-style: none;
   background: #607d8b;
-  right: 50%;
+  margin: 0 0;
   box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.25); }
-  /* line 71, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  /* line 77, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   .movingAround li {
     display: inline-block;
     padding: 0.5em;
@@ -306,13 +313,13 @@ br {
     align-items: center;
     color: white;
     font-family: 'Istok Web', sans-serif; }
-    /* line 85, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 91, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     .movingAround li.up img {
       transform: rotate(90deg); }
-    /* line 90, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 96, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     .movingAround li.down img {
       transform: rotate(-90deg); }
-  /* line 95, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  /* line 101, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   .movingAround img {
     max-width: 1em; }
 
@@ -655,7 +662,7 @@ ul.editList {
           color: white;
           background: RGBA(138, 194, 73, 1); }
   /* line 160, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
-  .admin-edit-story-wrapper aside .filters .newParagraph {
+  .admin-edit-story-wrapper aside .filters .newParagraph, .admin-edit-story-wrapper aside .filters .newHeading {
     display: block;
     background: white;
     margin: 0 0;
@@ -663,7 +670,7 @@ ul.editList {
     position: relative;
     text-align: center; }
     /* line 167, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
-    .admin-edit-story-wrapper aside .filters .newParagraph header {
+    .admin-edit-story-wrapper aside .filters .newParagraph header, .admin-edit-story-wrapper aside .filters .newHeading header {
       background: #607d8b;
       color: white;
       width: 100%;
@@ -672,7 +679,7 @@ ul.editList {
       display: block;
       text-align: center; }
     /* line 176, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
-    .admin-edit-story-wrapper aside .filters .newParagraph textarea {
+    .admin-edit-story-wrapper aside .filters .newParagraph textarea, .admin-edit-story-wrapper aside .filters .newHeading textarea {
       width: 95%;
       margin: 1em 0;
       box-sizing: border-box !important;

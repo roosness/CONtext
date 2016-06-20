@@ -117,6 +117,11 @@ Template.filters.events({
 		submitFilter('admin', 'fallback', true, true, e.currentTarget.classList[0], null, e.target.paragraph.value.trim(), false )
 		e.currentTarget.reset();
 	},
+	'submit .newHeading' : function (e) {
+		e.preventDefault();
+		submitFilter('admin', 'fallback', true, true, e.currentTarget.classList[0], null, e.target.subkop.value.trim(), false )
+		e.currentTarget.reset();
+	},
 	'submit form.facebook' : function (e) {
 		e.preventDefault();
 		var objArray = ['music', 'favorite_athletes', 'favorite_teams'];

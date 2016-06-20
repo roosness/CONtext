@@ -59,15 +59,22 @@
 					{{> character}}
 				</li>
 			</ul>
-		
-		<form class='newParagraph'>
+	<button class='startNewPar'>Nieuwe paragraaf starten</button>
+	<form class='newParagraph'>
 		<header>
-			<label for="paragraph">Nieuwe tekst invoegen</label>
+			<label for="paragraph">Nieuwe tekst toevoegen</label>
 		</header>
 		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
 		<input type="submit">
 	</form>
-	<button class='startNewPar'>Nieuwe paragraaf starten</button>
+	<form class='newHeading'>
+		<header>
+			<label for="paragraph">Subkop toevoegen</label>
+		</header>
+		<textarea name="subkop" id="subkop" cols="30" rows="4"></textarea>
+		<input type="submit">
+	</form>
+	
 	</section>
 	{{else}}
 	<img src="/loading.svg" alt="">

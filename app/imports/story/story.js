@@ -341,6 +341,13 @@ Template.story.helpers({
  		} else {
  			return true
  		}
+ 	}, 
+ 	isHeading() {
+ 		if(this.category === 'newHeading') {
+ 			return true
+ 		} else {
+ 			return false
+ 		}
  	},
  	
  	getVar(obj) {

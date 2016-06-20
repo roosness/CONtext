@@ -14,6 +14,15 @@
 	{{#each chaptercontent}}
 		
 		{{#if istext}}
+				{{#if isHeading}}
+					<h4 id='{{_id._str}}' class='{{isDone}} par'>{{content}}
+				{{#if isMovingAround}}
+				<ul class="movingAround" id={{_id._str}}>
+						{{> movingAround data=this id=this._id._str}}
+					</ul>
+				{{/if}}
+				</h4>
+				{{else}}
 				<p id='{{_id._str}}' class='{{isDone}} par'>{{content}}
 				{{#if isMovingAround}}
 				<ul class="movingAround" id={{_id._str}}>
@@ -21,6 +30,7 @@
 					</ul>
 				{{/if}}
 				</p>
+				{{/if}}
 				
 		{{else}}
 		{{#if isBreak this.source}}

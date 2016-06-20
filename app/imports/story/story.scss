@@ -18,9 +18,12 @@ article {
 			color: #e1e7ea;
 		}
 	}
-	
+	h4 {
+		position:relative;
+		display: block;
+	}
 	& > p {
-		
+		max-width: 30em;
 		display: inline;
 		position:relative;
 		&:first-of-type {
@@ -62,10 +65,13 @@ br {
 	
 	position:absolute;
 	top:0;
+	right:0;
+	font-size:1em;
 	padding: 0 0;
 	list-style:none;
 	background:#607d8b;
-	right:50%;
+	margin: 0 0;
+
 	box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.25);
 
 	li {
