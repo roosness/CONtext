@@ -277,7 +277,8 @@ var source = {
 				});
 				return Session.get('userLocation')
 			case 'houseLocation': 
-
+				obj.subcategory = 'location';
+				console.log()
 				return (fallbackNeeded(obj, datablock)) ? datablock.location.name.split(',')[0] : getFallback(obj);
 			
 				break;
