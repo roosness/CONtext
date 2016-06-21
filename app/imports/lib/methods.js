@@ -1,16 +1,6 @@
 import { Dataset, Chapters, Tests, Userdata, Fallbacks } from '../lib/collections.js';
 if(Meteor.isServer) {
 	Meteor.methods({
-	changeOrder: function (contentid, chapterid, number) {
-		
-
-		Chapters.update({_id: chapterid, "content._id": new Meteor.Collection.ObjectID(contentid)}, {
-			$set : {
-				"content.$.order": number
-			}
-		})
-		return Chapters
-	},
 	changeOrders: function (contentids, chapterid) {
 		
 		for(var i = 0; i < contentids.length; i++) {
@@ -20,6 +10,16 @@ if(Meteor.isServer) {
 				}
 			})
 		}
+	},
+
+	changeOrder: function(contentId, chapterId, number) {
+		console.log(contentId, chapterId, number)
+		
+		Chapters.update({_id: chapterId, "content._id": new Meteor.Collection.ObjectID(contentId)}, {
+			$set: {
+				"content.$.order": number
+			}
+		})
 	},
 	stopTest_user: function (userid, active, number) {
 		Meteor.users.update({_id: userid}, {

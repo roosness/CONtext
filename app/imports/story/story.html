@@ -9,45 +9,167 @@
 			<h2>{{timeAgo}}</h2>
 		</header>
 
-	{{#each chaptercontent}}
-		
+	<section>
+		{{#each chaptercontent}}
+		{{#if istext}}
+			{{#if isHeading}}
+				{{#if isMovingAround this._id._str}}
+					<ul class='movingAround' id={{_id._str}}>
+						<li class='up'>
+							<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
+						</li>
+						<h4 id='{{_id._str}}' contenteditable="{{editable}}" class='{{isDone}} par'>{{content}}</h4>
+						
+						<li class='down'>
+							<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a>
+						</li>
+					</ul>
+					{{else}} <!-- else ismovingaround -->
+						<h4 id='{{_id._str}}' contenteditable="{{editable}}" class='{{isDone}} par'>{{content}}</h4>
+					{{/if}} <!-- end ismovingaround -->
+			{{else}} <!-- else isheading -->
+				{{#if isMovingAround this._id._str}}
+					<ul class='movingAround' id={{_id._str}}>
+						<li class='up'>
+							<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
+						</li>
+						<p id='{{_id._str}}' class='{{isDone}}' contenteditable="{{editable}}" >{{content}}</p>
+						
+						<li class='down'>
+							<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a>
+						</li>
+					</ul>
+					{{else}} <!-- else ismovingaround -->
+						<p id='{{_id._str}}' class='{{isDone}}' contenteditable="{{editable}}" >{{content}}</p>
+					{{/if}} <!-- end ismovingaround -->
+			{{/if}} <!-- end isheading -->
+		{{else}} <!-- else istext -->
+			{{#if isBreak}}
+				{{#if isMovingAround this._id._str}}
+					<ul class='movingAround' id={{_id._str}}>
+						<li class='up'>
+							<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
+						</li>
+						<br id='{{_id._str}}' />
+						<li class='down'>
+							<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a>
+						</li>
+					</ul>
+				{{else}} <!-- else ismovingaround -->
+						<br id='{{_id._str}}' />
+				{{/if}} <!-- end ismovingaround -->
+			{{/if}} <!-- end isbreak -->
+			{{#if isDate}}
+				{{#if isMovingAround this._id._str}}
+					<ul class='movingAround' id={{_id._str}}>
+						<li class='up'>
+							<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
+						</li>
+						<p id='{{_id._str}}'>{{formatDate this.subcategory}}</p>
+						<li class='down'>
+							<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a>
+						</li>
+					</ul>
+				{{else}} <!-- else ismovingaround -->
+					<p id='{{_id._str}}'>{{formatDate this.subcategory}}</p>
+				{{/if}} <!-- end ismovingaround -->
+			{{/if}} <!-- end isdate -->
+			{{#if getVar}}
+				{{#if isMovingAround this._id._str}}
+					<ul class='movingAround' id={{_id._str}}>
+						<li class='up'>
+							<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
+						</li>
+						<p id='{{_id._str}}'>{{getVar this}}</p>
+						<li class='down'>
+							<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a>
+						</li>
+					</ul>
+				{{else}} <!-- else ismovingaround -->
+					<p id='{{_id._str}}'>{{getVar this}}</p>
+				{{/if}} <!-- end ismovingaround -->
+			{{/if}} <!-- end getvar -->
+		{{/if}} <!-- end istext -->
+		<!-- 
 		{{#if istext}}
 				{{#if isHeading}}
-					<h4 id='{{_id._str}}' contenteditable="{{editable}}" class='{{isDone}} par'>{{content}}
-				
-				</h4>
+					{{#if isMovingAround}}
+					<ul class='movingAround'>
+						<li class='up'>
+							<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
+						</li>
+						<li>
+							<h4 id='{{_id._str}}' contenteditable="{{editable}}" class='{{isDone}} par'>{{content}}</h4>
+						</li>
+						<li class='down'>
+							<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a>
+						</li>
+					</ul>
+					{{else}}
+						<h4 id='{{_id._str}}' contenteditable="{{editable}}" class='{{isDone}} par'>{{content}}</h4>
+					{{/if}}
 				{{else}}
-				<p id='{{_id._str}}' class='{{isDone}}' contenteditable="{{editable}}" >{{content}}
-				
-				</p>
+					{{#if isMovingAround}}
+					<ul class='movingAround'>
+						<li class='up'>
+							<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
+						</li>
+						<li>
+							<p id='{{_id._str}}' class='{{isDone}}' contenteditable="{{editable}}" >{{content}}</p>
+						</li>
+						<li class='down'>
+							<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a>
+						</li>
+					</ul>
+					{{else}}
+						<p id='{{_id._str}}' class='{{isDone}}' contenteditable="{{editable}}" >{{content}}</p>
+					{{/if}}
 				{{/if}}
 				
 		{{else}}
 		{{#if isBreak this.source}}
-		<br id='{{_id._str}}' />
+		<ul class="movingAround " id={{_id._str}}>
+						{{> movingAround data=this id=this._id._str}}
+					</ul>
+		<br id='{{_id._str}}' />{{order}}
 		{{/if}}
 		{{#if isDate}}
-			
-			<p id='{{_id._str}}'>{{formatDate this.subcategory}}
 			{{#if isMovingAround}}
-				<ul class="movingAround" id={{_id._str}}>
-						{{> movingAround data=this id=this._id._str}}
-					</ul>
-				{{/if}}
-				</p>
-		{{/if}}
+				<ul class='movingAround'>
+					<li class='up'>
+						<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
+					</li>
+					<li>
+						<p id='{{_id._str}}'>{{formatDate this.subcategory}}</p>
+					</li>
+					<li class='down'>
+						<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a>
+					</li>
+				</ul>
+			{{else}}
+				<p id='{{_id._str}}'>{{formatDate this.subcategory}}</p>
+			{{/if}}
 		{{#if getVar this}}
-		
-		<p id='{{_id._str}}'>{{getVar this}}
-		{{#if isMovingAround}}
-				<ul class="movingAround" id={{_id._str}}>
-						{{> movingAround data=this id=this._id._str}}
-					</ul>
-				{{/if}}</p>
-			
+			{{#if isMovingAround}}
+				<ul class='movingAround'>
+					<li class='up'>
+						<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
+					</li>
+					<li>
+						<p id='{{_id._str}}'>{{getVar this}}</p>
+					</li>
+					<li class='down'>
+						<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a>
+					</li>
+				</ul>
+			{{else}}
+				<p id='{{_id._str}}'>{{getVar this}}</p>
+			{{/if}}
+		{{/if}}	
 		{{/if}}
-		{{/if}}
+		{{/if}} -->
 	{{/each}}
+	</section>
 		
 
 	</article>
@@ -63,9 +185,7 @@
 
 <template name='movingAround'>
 	
-		<li class='up'>
-		<a href="#" class='up' id={{id}}><img src="/icons/next_white.svg" alt="up"></a>
-		</li>
+		
 		<li id='number'>{{data.order}}</li>
 		<li class='down'>
 		<a href="#" class='down' id={{id}}><img src="/icons/next_white.svg" alt="down"></a></li>

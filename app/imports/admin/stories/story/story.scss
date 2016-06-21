@@ -98,3 +98,127 @@ ul.editList {
 		}
 	}
 }
+.movingAround {
+	font-size:1em;
+	padding: 0 0;
+	list-style:none;
+	margin: 0 0;
+	display: inline-block;
+	
+	p {
+		float:left;
+		display: inline-block;
+		padding: 0 0;
+		margin: 0 0;
+	}
+	li {
+		float:left;
+		display: inline-block;
+		border:none;
+		padding: 0 0;
+		margin: 0 0;
+		font-family: 'Istok Web', sans-serif;
+		background:#607d8b;	
+		padding:.2em;
+		&.up {
+			margin-left:.2em;
+			img {
+				transform: rotate(90deg);
+				
+			}
+		}
+		&.down {
+			margin-right:.2em;
+			img {
+				transform: rotate(-90deg);
+				
+			}
+		}
+	}
+
+	img {
+		max-width: 1.2em;
+	}
+}
+// .movingAround {
+// 	font-size:1em;
+// 	padding: 0 0;
+// 	list-style:none;
+// 	background:#607d8b;
+// 	margin: 0 0;
+// 	display:none;
+
+// 	box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.25);
+// 	&.move {
+// 			display:inline-block;
+// 	}
+// 	li {
+// 		float:left;
+// 		display: inline-block;
+// 		padding:.5em;
+// 		border:none;
+// 		display: flex;
+// 		justify-content: center;
+// 		align-items:center;
+// 		color:white;
+// 		font-family: 'Istok Web', sans-serif;
+		
+		
+		
+// 		&.up {
+// 			img {
+// 				transform: rotate(90deg)
+// 			}
+// 		}
+// 		&.down {
+// 			img {
+// 				transform: rotate(-90deg)
+// 			}
+// 		}
+// 	}
+// 	img {
+// 		max-width: 1em;
+// 	}
+// }
+
+// // .movingAround {
+// // 	&.move {
+// // 		display: block;
+// // 	}
+	
+// // 	font-size:1em;
+// // 	padding: 0 0;
+// // 	list-style:none;
+// // 	background:#607d8b;
+// // 	margin: 0 0;
+// // 	display:none;
+// // 	box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.25);
+
+// // 	li {
+// // 		display: inline-block;
+// // 		padding:.5em;
+// // 		float:left;
+// // 		border:none;
+// // 		display: flex;
+// // 		justify-content: center;
+// // 		align-items:center;
+// // 		color:white;
+// // 		font-family: 'Istok Web', sans-serif;
+		
+		
+		
+// // 		&.up {
+// // 			img {
+// // 				transform: rotate(90deg)
+// // 			}
+// // 		}
+// // 		&.down {
+// // 			img {
+// // 				transform: rotate(-90deg)
+// // 			}
+// // 		}
+// // 	}
+// // 	img {
+// // 		max-width: 1em;
+// // 	}
+// // }

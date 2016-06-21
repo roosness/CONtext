@@ -55,9 +55,12 @@ Template.adminStory.events ({
 			console.log(arr)
 			Session.set(sessionName, arr)
 			
+		} else if(Session.get('editing') === 'move') {
+			Session.set('movingBlock', e.currentTarget.id)
 		}
 	},
 	'keydown .story p, keydown .story h4':function (e) {
+		var allItems = document.querySelectorAll
 		e.currentTarget.classList.add(Session.get('editing'));
 	}
 })
@@ -81,11 +84,13 @@ Template.editing.events({
 Template.popupConfirm.events({
 	'click button': function (e) {
 		e.preventDefault();
+		cleanUp();
 		var id = FlowRouter.getParam("id");
 		if(JSON.parse(e.currentTarget.value) && Session.get('editing') === 'deleting') {
 			Meteor.call('removeContent', id, Session.get('deletingArray'), function () {	
 			});
 			removeAllSession();
+
 		} else if(JSON.parse(e.currentTarget.value) && Session.get('editing') === 'editing') { 
 			var editedItems = document.getElementsByClassName(Session.get('editing'));
 			console.log(editedItems)
@@ -107,6 +112,65 @@ Template.popupConfirm.events({
 			
 	}
 });
+
+Template.adminStory.events({
+	'click  .story .movingAround li' : function (e) {
+		e.preventDefault();
+
+		var id = FlowRouter.getParam('id');
+		var number = this.order;
+		var contents = Chapters.find().fetch()[0].content
+		var array = [];
+		if(e.currentTarget.classList.contains('up') && number > 1) {
+			console.log('up' );
+			for(var i = 0; i < contents.length; i++) {
+				console.log(contents[i].order, (number - 1))
+
+				if(contents[i].order === (number - 1)) {
+					Meteor.call('changeOrder', contents[i]._id._str, id, number);
+				}
+			}
+			number--
+
+		} else if(e.currentTarget.classList.contains('down') && number < contents.length) {
+			console.log('down');
+			for(var i = 0; i < contents.length; i++) {
+				console.log(contents[i].order, (number + 1))
+
+				if(contents[i].order === (number + 1)) {
+
+					Meteor.call('changeOrder', contents[i]._id._str, id, number);
+				}
+			}
+			number++
+		}
+		console.log(id,  e.currentTarget.id , number)
+		
+		Meteor.call('changeOrder', e.currentTarget.parentNode.id, id, number);
+
+		
+		
+	}
+})
+
+
+var cleanUp = function () {
+	console.log('lets get some cleaning goin"!')
+	var id = FlowRouter.getParam("id");
+	var contents = Chapters.findOne().content
+	var dataset =  _.sortBy(contents, function (content) { return content.order});
+	var arr = [];
+	for(var i = 0; i < dataset.length; i++) {
+		if(dataset[i].content === '' || dataset[i].content === ' ') {
+			arr.push(dataset[i]._id._str)
+		}
+	}
+	var childeren = document.querySelectorAll('.story section p').length + document.querySelectorAll('.story section br').length + document.querySelectorAll('.story section h4').length;
+	console.log(childeren);
+	for(var i = 0; i < childeren ;i++) {
+		Meteor.call('changeOrder', dataset[i]._id._str, id, i + 1)
+	}
+}
 var discardChanges = function() {
 	
 	var sessionName = Session.get('editing') + 'Array';
@@ -130,4 +194,13 @@ var itemInArray = function (array, item) {
 		return false
 	} 
 	
+}
+var removeCLass = function (classname) {
+	for(var i = 0; i<classname.length;i++) {
+		var selected = document.querySelectorAll('.' + classname[i]);
+			for(var x = 0; x < selected.length; x++) {
+				selected[x].classList.remove(classname[i])
+			 
+			}
+	}
 }

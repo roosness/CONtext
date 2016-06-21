@@ -23,7 +23,7 @@ article {
 		position:relative;
 		display: block;
 	}
-	& > p {
+	section > p {
 		max-width: 30em;
 		display: inline;
 		position:relative;
@@ -40,47 +40,4 @@ br {
    
    content: ' ';
 }
-.move .movingAround {
-	display:block;
-}
-.movingAround {
-	
-	position:absolute;
-	top:0;
-	right:0;
-	font-size:1em;
-	padding: 0 0;
-	list-style:none;
-	background:#607d8b;
-	margin: 0 0;
-	display:none;
-	box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.25);
 
-	li {
-		display: inline-block;
-		padding:.5em;
-		float:left;
-		border:none;
-		display: flex;
-		justify-content: center;
-		align-items:center;
-		color:white;
-		font-family: 'Istok Web', sans-serif;
-		
-		
-		
-		&.up {
-			img {
-				transform: rotate(90deg)
-			}
-		}
-		&.down {
-			img {
-				transform: rotate(-90deg)
-			}
-		}
-	}
-	img {
-		max-width: 1em;
-	}
-}

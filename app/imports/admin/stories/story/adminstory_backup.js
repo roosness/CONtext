@@ -101,7 +101,7 @@ Template.editing.events({
 		
 		// delete Session.keys.aboutToBeDeleted;
 		// delete Session.keys.aboutToBeEdited;
-		
+		cleanUp();
 		Session.set('editing', false);
 		
 	}
@@ -137,16 +137,7 @@ var updateOrder= function () {
 	// }) 
 }
 
-var removeCLass = function (classname) {
-	
-	for(var i = 0; i<classname.length;i++) {
-		var selected = document.querySelectorAll('.' + classname[i]);
-			for(var x = 0; x < selected.length; x++) {
-				selected[x].classList.remove(classname[i])
-			 
-			}
-	}
-}
+
 
 
 Template.editing.helpers({

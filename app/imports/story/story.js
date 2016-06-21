@@ -286,12 +286,11 @@ var formatNameObj = function (first, last, format) {
 	return obj[format]
 };
 Template.story.helpers({
-	isBreak (source) {
-		if(source === 'break') {
-			return true;
-		} else {return false}
+	isBreak () {
+		return (this.source === 'break') ? true : false
 	},
 	istext () {
+		
 		return this.istext
 	},
 	chapter() {
@@ -307,35 +306,31 @@ Template.story.helpers({
  			return true 
  		}
  	},
- 	isMovingAround() {
- 		if(Session.get('editing') === 'move') {
- 			return true
- 		} else {
- 			return true
- 		}
- 	}, 
- 	isHeading() {
- 		if(this.category === 'newHeading') {
+ 	isMovingAround(id) {
+ 		if(Session.get('movingBlock') === id) {
  			return true
  		} else {
  			return false
  		}
+ 	}, 
+ 	isHeading() {
+ 		return (this.category === 'newHeading') ? true : false
  	},
  	
- 	getVar(obj) {
+ 	getVar() {
  		var result
- 		switch(obj.source) {
+ 		switch(this.source) {
  			case 'facebook':
-	 			return source.facebook(obj);
+	 			return source.facebook(this);
 	 			break;
 	 		case 'user':
-	 			return source.user(obj);
+	 			return source.user(this);
 	 			break;
 	 		case 'weather':
-	 			return source.weather(obj);
+	 			return source.weather(this);
 	 			break;
 	 		case 'location':
-	 			return source.location(obj);
+	 			return source.location(this);
 	 			break;
 	 		default:
 	 			return false
@@ -344,42 +339,5 @@ Template.story.helpers({
  	
 })
 
-Template.movingAround.events({
-	'click  li a' : function (e) {
-		e.preventDefault();
-		console.log(e.currentTarget.id)
-		var id = FlowRouter.getParam('id');
-		var number = this.data.order;
-		var contents = Chapters.find().fetch()[0].content
-		var array = [];
-		if(e.currentTarget.classList.contains('up') && number > 1) {
-			console.log('up' );
-			for(var i = 0; i < contents.length; i++) {
-				console.log(contents[i].order, (number - 1))
 
-				if(contents[i].order === (number - 1)) {
-					Meteor.call('changeOrder', contents[i]._id._str, id, number);
-				}
-			}
-			number--
-
-		} else if(e.currentTarget.classList.contains('down') && number < contents.length) {
-			console.log('down');
-			for(var i = 0; i < contents.length; i++) {
-				console.log(contents[i].order, (number + 1))
-
-				if(contents[i].order === (number + 1)) {
-
-					Meteor.call('changeOrder', contents[i]._id._str, id, number);
-				}
-			}
-			number++
-		}
-		console.log(number)
-		Meteor.call('changeOrder', e.currentTarget.id, id, number);
-
-		
-		
-	}
-})
 
