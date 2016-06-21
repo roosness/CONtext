@@ -27,6 +27,11 @@ article p, article h1 {
   font-family: 'Libre Baskerville', serif;
 
 }
+article {
+  padding:1em;
+  max-width: 30em;
+  margin:0 auto;
+}
 h1, h2, h3, h4, h5, h6 {
   font-weight: inherit;
   line-height: 1.2;
@@ -107,5 +112,27 @@ section.popup {
       display: inline-block;
       float:right;
     }
+  }
+}
+
+input {
+  font-size: 1em;
+}
+
+.waiting-wrapper {
+  background:white;
+  z-index: 10;
+  opacity: .9;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  img {
+    opacity: 1;
+    padding:1em;
   }
 }

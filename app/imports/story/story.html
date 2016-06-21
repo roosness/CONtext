@@ -3,9 +3,7 @@
 
 {{#if Template.subscriptionsReady}}
 	<article class='story'>
-	{{#if isAdmin}}
-	{{> editing}}
-{{/if}}
+	
 		<header>
 			<h1>{{chapter.title}}</h1>
 			<h2>{{timeAgo}}</h2>
@@ -15,26 +13,18 @@
 		
 		{{#if istext}}
 				{{#if isHeading}}
-					<h4 id='{{_id._str}}' class='{{isDone}} par'>{{content}}
-				{{#if isMovingAround}}
-				<ul class="movingAround" id={{_id._str}}>
-						{{> movingAround data=this id=this._id._str}}
-					</ul>
-				{{/if}}
+					<h4 id='{{_id._str}}' contenteditable="{{editable}}" class='{{isDone}} par'>{{content}}
+				
 				</h4>
 				{{else}}
-				<p id='{{_id._str}}' class='{{isDone}} par'>{{content}}
-				{{#if isMovingAround}}
-				<ul class="movingAround" id={{_id._str}}>
-						{{> movingAround data=this id=this._id._str}}
-					</ul>
-				{{/if}}
+				<p id='{{_id._str}}' class='{{isDone}}' contenteditable="{{editable}}" >{{content}}
+				
 				</p>
 				{{/if}}
 				
 		{{else}}
 		{{#if isBreak this.source}}
-		<br/>
+		<br id='{{_id._str}}' />
 		{{/if}}
 		{{#if isDate}}
 			
@@ -48,7 +38,7 @@
 		{{/if}}
 		{{#if getVar this}}
 		
-		<p id='{{_id._str}} getvar'>{{getVar this}}
+		<p id='{{_id._str}}'>{{getVar this}}
 		{{#if isMovingAround}}
 				<ul class="movingAround" id={{_id._str}}>
 						{{> movingAround data=this id=this._id._str}}
@@ -63,7 +53,7 @@
 	</article>
 	
 {{else}}
-<img src="/waiting.svg" alt="">
+{{> waiting}}
 
 {{/if}}
 	

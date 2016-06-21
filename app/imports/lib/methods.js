@@ -2,13 +2,24 @@ import { Dataset, Chapters, Tests, Userdata, Fallbacks } from '../lib/collection
 if(Meteor.isServer) {
 	Meteor.methods({
 	changeOrder: function (contentid, chapterid, number) {
-		console.log('++++++++' + contentid + chapterid);
+		
 
 		Chapters.update({_id: chapterid, "content._id": new Meteor.Collection.ObjectID(contentid)}, {
 			$set : {
 				"content.$.order": number
 			}
 		})
+		return Chapters
+	},
+	changeOrders: function (contentids, chapterid) {
+		
+		for(var i = 0; i < contentids.length; i++) {
+			Chapters.update({_id: chapterid, "content._id": new Meteor.Collection.ObjectID(contentids[i].id)}, {
+				$set : {
+					"content.$.order": i
+				}
+			})
+		}
 	},
 	stopTest_user: function (userid, active, number) {
 		Meteor.users.update({_id: userid}, {
@@ -21,7 +32,7 @@ if(Meteor.isServer) {
 		})
 	},
 	stopTest_test: function(testid, userid, active, number) {
-		console.log('testid', testid, userid, active, number);
+		
 		Tests.update({_id: testid, "testusers.userid": userid}, {
 			$set: {
 				"testusers.$.userTestActive": active
@@ -52,7 +63,7 @@ if(Meteor.isServer) {
 		})
 	},
 	userTest_currentStory_test: function (testid, userid, currentNumber) {
-		console.log("testid, userid, currentNumber" + testid, userid, currentNumber)
+		
 		Tests.update({_id: testid, "testusers.userid": userid}, {
 			$set: {
 				"testusers.$.currentStory": currentNumber
@@ -78,14 +89,18 @@ if(Meteor.isServer) {
 		})
 	},
 	removeContent : function (chapterId, arrayIDs) {
+		
 		for(var i = 0; i < arrayIDs.length; i++) {
 			Chapters.update({_id: chapterId}, {$pull: {"content": {"_id": new Mongo.ObjectID(arrayIDs[i])} }})
 		}
 	},
-	updateContent : function (chapterId, arrayIDs, newContent) {
-		for(var i = 0; i < arrayIDs.length; i++) {
-			Chapters.update({"content._id": new Mongo.ObjectID(arrayIDs[i])}, {$set: {"content.$.text": newContent[i] }})
-		}
+	updateContent : function (chapterId, id, content) {
+		console.log(chapterId, content, id)
+
+			
+			Chapters.update({"_id":chapterId, "content._id": new Mongo.ObjectID(id)}, {
+				$set: {"content.$.content": content }})
+		
 	},
 	returnVars: function (item) {
 		return 'ba'

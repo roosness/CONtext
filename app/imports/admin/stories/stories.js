@@ -7,6 +7,13 @@ Template.adminStories.onCreated (function(){
 	})
 })
 Template.adminStories.helpers ({
+	hasStories() {
+		if(Chapters.find().count() > 0) {
+			return true
+		} else {
+			return false
+		}
+	},
 	chapters () {
 		return Chapters.find({}, {sort: {date: -1}})
 	},

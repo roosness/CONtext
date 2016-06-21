@@ -1,4 +1,7 @@
 <template name='filters'>
+	{{#if isEditing}}
+	<div class="editingOverlay"></div>
+	{{else}}
 	<a href="#" id='storySettings'><img src="/icons/gear_white.svg" alt="instellingen">Algemene instellingen</a>
 	
 		{{> storySettings}}
@@ -39,21 +42,6 @@
 					<span>Overig <img src="/icons/next.svg" alt=""></span>
 					{{> other}}
 				</li>
-
-				<li>
-					<span>Slaapgedrag <img src="/icons/next.svg" alt=""></span>
-					{{> sleep}}
-				</li>
-				
-				<li>
-					<span>Beweeg gedrag <img src="/icons/next.svg" alt=""></span>
-					{{> movement}}
-				</li>
-
-				<li>
-					<span>Computer gebruik <img src="/icons/next.svg" alt=""></span>
-					{{> computer}}
-				</li>
 				<li>
 					<span>Karakter<img src="/icons/next.svg" alt=""></span>
 					{{> character}}
@@ -79,6 +67,8 @@
 	{{else}}
 	<img src="/loading.svg" alt="">
 	{{/if}}
+
+	{{/if}}
 </template>
  
  <template name='location'>
@@ -90,8 +80,8 @@
 		<input type="radio" name='location' value='hometown' id='hometown'>
 		<label for="hometown">Geboorteplaats</label>
 
-		<input type="radio" name='location' value='houseLocation' id='houseLocation'>
-		<label for="houseLocation">Woon locatie</label>
+		<input type="radio" name='location' value='location' id='locationH'>
+		<label for="locationH">Woon locatie</label>
 
 		
 		<input type="submit">
@@ -163,7 +153,7 @@
 			<label class='forSelect' for="format">Formaat naam</label>
 		<select  id="format" class='selecter'>
 				{{#each formatNames}}
-					<option value="{{this}}" >{{this}}</option>
+					<option value="{{this}}" {{isSelected this}} >{{this}}</option>
 				{{/each}}
 		</select>
 		
@@ -250,18 +240,4 @@
 		</form>
 </template>
 
-<template name='editing'>
-<ul class="editList">
-	{{#if isEditing}}
-	
-	<li><a href ="#"  id='save' class="editButton during">Wijzigingen opslaan</a></li>
-	<li><a href ="#" id='discard' class="editButton during">Wijzigingen ongedaanmaken</a></li>
-	{{else}}
-	<li><a href ="#" id='deleting' class="editButton">Start met verwijderen</a></li>
-	<li><a href ="#" id='editing' class="editButton">Start met bewerken</a></li>
-	<li><a href ="#" id='move' class="editButton">Variabelen verplaatsen</a></li>
-	{{/if}}
-</ul>
 
-	
-</template>

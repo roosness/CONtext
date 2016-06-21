@@ -238,60 +238,47 @@ nav.admin {
 /* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
 article {
   position: relative;
-  padding: 0 1em; }
-  /* line 5, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  padding: 0 1em;
+  clear: both; }
+  /* line 6, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   article header {
     color: #00356B;
-    padding: 2em 1em;
+    padding: 1em 0em;
     clear: both;
     position: relative;
     margin-bottom: 3em; }
-    /* line 12, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 13, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article header h1 {
       margin: 0 0; }
-    /* line 15, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 16, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     article header h2 {
       margin: 0 0;
       font-size: 1em;
       color: #e1e7ea; }
-  /* line 21, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  /* line 22, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   article h4 {
     position: relative;
     display: block; }
-  /* line 25, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  /* line 26, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   article > p {
     max-width: 30em;
     display: inline;
-    position: relative; }
-    /* line 29, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-    article > p:first-of-type {
-      display: inline-block; }
-      /* line 31, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-      article > p:first-of-type::first-letter {
-        float: left;
-        font-size: 75px;
-        line-height: 60px;
-        padding-top: 4px;
-        padding-right: 8px;
-        padding-left: 3px; }
-    /* line 42, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-    article > p span {
-      transition: all 0.2s ease-in-out; }
-    /* line 45, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-    article > p.aboutToBeDeleted {
-      text-decoration: line-through; }
-    /* line 51, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
-    article > p.aboutToBeEdited {
-      background: #f5f5f5;
-      color: #7f7f7f; }
+    position: relative;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out; }
 
-/* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+/* line 36, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
 br {
   display: block;
-  margin: 10px 0;
+  height: 1em;
+  max-width: 10em;
   content: ' '; }
 
-/* line 64, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+/* line 43, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+.move .movingAround {
+  display: block; }
+
+/* line 46, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
 .movingAround {
   position: absolute;
   top: 0;
@@ -301,8 +288,9 @@ br {
   list-style: none;
   background: #607d8b;
   margin: 0 0;
+  display: none;
   box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.25); }
-  /* line 77, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  /* line 59, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   .movingAround li {
     display: inline-block;
     padding: 0.5em;
@@ -313,13 +301,13 @@ br {
     align-items: center;
     color: white;
     font-family: 'Istok Web', sans-serif; }
-    /* line 91, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 73, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     .movingAround li.up img {
       transform: rotate(90deg); }
-    /* line 96, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+    /* line 78, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
     .movingAround li.down img {
       transform: rotate(-90deg); }
-  /* line 101, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
+  /* line 83, /Users/Schuurmans/GitHub/CONtext/app/imports/story/story */
   .movingAround img {
     max-width: 1em; }
 
@@ -508,59 +496,36 @@ ul.tabs {
               color: black;
               text-transform: uppercase; }
 
-/* line 1, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
-ul.editList {
-  list-style: none;
-  padding: 0 0;
-  float: right;
-  margin: 0.5em;
-  z-index: 2; }
-  /* line 7, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
-  ul.editList li {
-    display: inline-block; }
-    /* line 10, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
-    ul.editList li a {
-      display: block;
-      box-sizing: border-box;
-      padding: 0.5em 1em;
-      border-radius: 20px;
-      background: #ca2140;
-      color: white;
-      transition: all 0.2s ease-in-out;
-      z-index: 5;
-      border: 1px solid rgba(0, 0, 0, 0);
-      text-decoration: none; }
-      /* line 22, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
-      ul.editList li a.during {
-        background: #f5f5f5;
-        border: 1px solid #EBEBEB;
-        color: grey; }
-
-/* line 30, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+/* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
 .deleting article p *:hover {
   text-decoration: line-through; }
 
-/* line 33, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+/* line 5, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
 .deleting article p * {
   text-decoration: line-through; }
 
-/* line 36, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+/* line 8, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
 .editing article p.par:hover {
   background: #f5f5f5;
   text-decoration: underline; }
 
-/* line 41, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+/* line 13, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
 .editing .aboutToBeEdited {
   background: #f5f5f5;
   display: inline-block;
   text-decoration: none; }
 
-/* line 48, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+/* line 20, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
 .admin-edit-story-wrapper aside {
   position: relative;
   background: #f5f5f5;
-  border-left: 1px solid #EBEBEB; }
-  /* line 52, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+  border-left: 1px solid #EBEBEB;
+  position: relative;
+  float: left;
+  width: 170px;
+  top: 0px;
+  bottom: 0px; }
+  /* line 29, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
   .admin-edit-story-wrapper aside #storySettings {
     background: #607d8b;
     text-decoration: none;
@@ -568,17 +533,17 @@ ul.editList {
     padding: 0.5em 1em;
     display: block;
     height: 1em; }
-    /* line 59, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+    /* line 36, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
     .admin-edit-story-wrapper aside #storySettings img {
       width: 1em;
       margin-right: 1em;
       vertical-align: middle; }
-  /* line 66, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+  /* line 43, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
   .admin-edit-story-wrapper aside .filters ul {
     list-style: none;
     padding: 0 0;
     margin: 0 0; }
-    /* line 71, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+    /* line 48, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
     .admin-edit-story-wrapper aside .filters ul li span {
       display: block;
       background: white;
@@ -586,20 +551,20 @@ ul.editList {
       padding: 0.5em 2em;
       color: #939393;
       position: relative; }
-    /* line 79, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+    /* line 56, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
     .admin-edit-story-wrapper aside .filters ul li img {
       width: 1em;
       transition: all 0.2s ease-in-out;
       float: right;
       margin-top: 0.5em; }
-    /* line 86, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+    /* line 63, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
     .admin-edit-story-wrapper aside .filters ul li.showFilter form {
       max-height: 800px;
       padding: 0.5em; }
-    /* line 90, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+    /* line 67, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
     .admin-edit-story-wrapper aside .filters ul li.showFilter img {
       transform: rotate(180deg); }
-    /* line 95, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+    /* line 72, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
     .admin-edit-story-wrapper aside .filters ul form {
       display: flex;
       margin: 0 0;
@@ -611,7 +576,7 @@ ul.editList {
       flex-wrap: wrap;
       width: 100%;
       box-sizing: border-box; }
-      /* line 107, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+      /* line 84, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
       .admin-edit-story-wrapper aside .filters ul form label:not(.forSelect), .admin-edit-story-wrapper aside .filters ul form section {
         width: 49%;
         height: 100px;
@@ -626,42 +591,42 @@ ul.editList {
         box-sizing: border-box;
         border: 1px solid #ebebeb;
         transition: all 0.2s ease-in-out; }
-      /* line 123, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+      /* line 100, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
       .admin-edit-story-wrapper aside .filters ul form section {
         display: block;
         padding: 0.7em; }
-        /* line 126, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+        /* line 103, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
         .admin-edit-story-wrapper aside .filters ul form section label, .admin-edit-story-wrapper aside .filters ul form section select {
           text-align: center;
           margin: 1em 0;
           display: block;
           width: 100%;
           font-size: 1em; }
-        /* line 133, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+        /* line 110, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
         .admin-edit-story-wrapper aside .filters ul form section.active {
           border: 2px solid RGBA(138, 194, 73, 1) !important; }
-      /* line 137, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+      /* line 114, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
       .admin-edit-story-wrapper aside .filters ul form label::last-of-type:nth-of-type(odd) {
         margin-left: 2%;
         margin-right: 2%;
         align-self: flex-start; }
-      /* line 142, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+      /* line 119, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
       .admin-edit-story-wrapper aside .filters ul form select:onfocus {
         background: black; }
-      /* line 145, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+      /* line 122, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
       .admin-edit-story-wrapper aside .filters ul form input[type='submit'] {
         margin: 0 0; }
-      /* line 148, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+      /* line 125, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
       .admin-edit-story-wrapper aside .filters ul form input[type='radio'] {
         display: none; }
-        /* line 150, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+        /* line 127, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
         .admin-edit-story-wrapper aside .filters ul form input[type='radio']#naam:checked ~ section:first-of-type {
           border: 2px solid RGBA(138, 194, 73, 1) !important; }
-        /* line 153, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+        /* line 130, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
         .admin-edit-story-wrapper aside .filters ul form input[type='radio']:checked + label, .admin-edit-story-wrapper aside .filters ul form input[type='radio'] .geslachtWord {
           color: white;
           background: RGBA(138, 194, 73, 1); }
-  /* line 160, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+  /* line 137, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
   .admin-edit-story-wrapper aside .filters .newParagraph, .admin-edit-story-wrapper aside .filters .newHeading {
     display: block;
     background: white;
@@ -669,7 +634,7 @@ ul.editList {
     box-sizing: border-box;
     position: relative;
     text-align: center; }
-    /* line 167, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+    /* line 144, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
     .admin-edit-story-wrapper aside .filters .newParagraph header, .admin-edit-story-wrapper aside .filters .newHeading header {
       background: #607d8b;
       color: white;
@@ -678,7 +643,7 @@ ul.editList {
       padding: 0.5em 1em;
       display: block;
       text-align: center; }
-    /* line 176, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
+    /* line 153, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/filters/filters */
     .admin-edit-story-wrapper aside .filters .newParagraph textarea, .admin-edit-story-wrapper aside .filters .newHeading textarea {
       width: 95%;
       margin: 1em 0;
@@ -687,47 +652,96 @@ ul.editList {
 
 /* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
 main.admin .admin-edit-story-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
   min-height: 10em;
   height: 100%;
+  padding-right: 30em;
   position: relative;
   box-sizing: border-box; }
-  /* line 12, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+  /* line 9, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
   main.admin .admin-edit-story-wrapper article {
     flex: 50%; }
-  /* line 16, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    /* line 12, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    main.admin .admin-edit-story-wrapper article h4.deleting, main.admin .admin-edit-story-wrapper article p.deleting {
+      text-decoration: line-through; }
+    /* line 15, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    main.admin .admin-edit-story-wrapper article h4.editing, main.admin .admin-edit-story-wrapper article p.editing {
+      background: #f5f5f5;
+      color: #7f7f7f; }
+    /* line 20, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    main.admin .admin-edit-story-wrapper article br {
+      border: 2px solid #bababa;
+      margin: 0 auto;
+      padding-top: 0.5em; }
+      /* line 24, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+      main.admin .admin-edit-story-wrapper article br.deleting {
+        background: #bababa; }
+  /* line 29, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
   main.admin .admin-edit-story-wrapper aside {
-    flex: 50%;
-    position: relative;
+    top: 0;
+    right: 0;
     text-align: center;
-    overflow: hidden;
-    max-width: 30em; }
-    /* line 23, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    overflow-x: hidden;
+    width: 30em;
+    position: fixed; }
+    /* line 36, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
     main.admin .admin-edit-story-wrapper aside .storySettings {
       top: 2.2em;
       left: -100%; }
-      /* line 27, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+      /* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
       main.admin .admin-edit-story-wrapper aside .storySettings.active {
         left: 0; }
-    /* line 31, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    /* line 43, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
     main.admin .admin-edit-story-wrapper aside .filters {
       top: 2.2em;
       right: -100%; }
-      /* line 35, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+      /* line 46, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
       main.admin .admin-edit-story-wrapper aside .filters.active {
         right: 0; }
-    /* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    /* line 50, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
     main.admin .admin-edit-story-wrapper aside #storySettings {
       top: 0;
       height: 2.2em; }
-    /* line 43, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    /* line 54, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
     main.admin .admin-edit-story-wrapper aside .storySettings, main.admin .admin-edit-story-wrapper aside .filters, main.admin .admin-edit-story-wrapper aside #storySettings {
       position: absolute;
       width: 100%;
       box-sizing: border-box;
       transition: all 0.2s ease-in-out; }
+
+/* line 64, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+.popup.confirm section {
+  padding: 1em; }
+
+/* line 68, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+ul.editList {
+  list-style: none;
+  padding: 0 0;
+  margin: 0.5em;
+  margin-bottom: 2em;
+  z-index: 2;
+  clear: both;
+  display: inline-block;
+  float: right; }
+  /* line 78, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+  ul.editList li {
+    display: inline-block; }
+    /* line 81, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+    ul.editList li a {
+      display: block;
+      box-sizing: border-box;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      background: #ca2140;
+      color: white;
+      transition: all 0.2s ease-in-out;
+      z-index: 5;
+      border: 1px solid rgba(0, 0, 0, 0);
+      text-decoration: none; }
+      /* line 93, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/story/story */
+      ul.editList li a.during {
+        background: #f5f5f5;
+        border: 1px solid #EBEBEB;
+        color: grey; }
 
 /* line 1, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/stories/stories */
 .newChapter {
@@ -987,47 +1001,53 @@ article p, article h1 {
   font-family: 'Libre Baskerville', serif; }
 
 /* line 30, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+article {
+  padding: 1em;
+  max-width: 30em;
+  margin: 0 auto; }
+
+/* line 35, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 h1, h2, h3, h4, h5, h6 {
   font-weight: inherit;
   line-height: 1.2; }
 
-/* line 34, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 h1, h2, h3, h4 {
   margin: 1.414em 0 0.5em;
   font-weight: inherit;
   line-height: 1.2; }
 
-/* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 h1 {
   margin-top: 0;
   font-size: 3.157em; }
 
-/* line 43, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 48, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 h2 {
   font-size: 2.369em; }
 
-/* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 49, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 h3 {
   font-size: 1.777em; }
 
-/* line 45, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 50, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 h4 {
   font-size: 1.333em; }
 
-/* line 46, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 51, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 nav ul {
   margin: 0 0; }
 
-/* line 50, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 55, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 main {
   margin: 0 0; }
 
-/* line 53, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 main.admin {
   margin-left: 3.5em;
   box-sizing: border-box; }
 
-/* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 63, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 input[type='submit'] {
   background: #607d8b;
   font-size: 1em;
@@ -1037,11 +1057,11 @@ input[type='submit'] {
   box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.15);
   border: none; }
 
-/* line 67, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 72, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 .message.hide {
   opacity: 0; }
 
-/* line 71, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+/* line 76, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
 section.popup {
   display: none;
   background: white;
@@ -1057,24 +1077,46 @@ section.popup {
   margin-left: -15vw;
   padding: 0 0;
   box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.8); }
-  /* line 87, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+  /* line 92, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
   section.popup.active {
     display: block; }
-  /* line 90, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+  /* line 95, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
   section.popup header {
     background: #607d8b;
     width: 100%;
     padding: 0.7em;
     text-align: left;
     box-sizing: border-box; }
-    /* line 98, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+    /* line 103, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
     section.popup header h3 {
       margin: 0 0;
       color: white;
       display: inline-block;
       font-size: 1.2em; }
-    /* line 105, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+    /* line 110, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
     section.popup header img {
       max-height: 1em;
       display: inline-block;
       float: right; }
+
+/* line 118, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+input {
+  font-size: 1em; }
+
+/* line 122, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+.waiting-wrapper {
+  background: white;
+  z-index: 10;
+  opacity: 0.9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 134, /Users/Schuurmans/GitHub/CONtext/app/imports/template/layout */
+  .waiting-wrapper img {
+    opacity: 1;
+    padding: 1em; }

@@ -1,32 +1,4 @@
-ul.editList {
-	list-style:none;
-	padding: 0 0;
-	float:right;
-	margin:.5em;
-	z-index:2;
-	li {
-		display: inline-block;
 
-		 a {
-		 	display:block;
-		 	box-sizing:border-box;
-			padding:.5em 1em;
-			border-radius:20px;
-			background:#ca2140;
-			color:white;
-			transition:all .2s ease-in-out;
-			z-index:5;
-			border:1px solid rgba(0,0,0,.0);
-			text-decoration:none;
-
-			&.during {
-				background:#f5f5f5;
-				border:1px solid #EBEBEB;
-				color:grey;
-			}
-		}
-	}
-}
 .deleting article p *:hover{
 	 text-decoration: line-through;
 }
@@ -49,6 +21,11 @@ ul.editList {
 	position:relative;
 	background:#f5f5f5;
 	border-left:1px solid #EBEBEB;
+	 position: relative;
+  float:left;
+  width:170px; 
+  top: 0px;
+  bottom: 0px;
 	#storySettings {
 		background:#607d8b;
 		text-decoration: none;

@@ -6,6 +6,7 @@
 		<input type="text" id='title'>
 		<input type="submit">
 	</form> 
+	{{#if hasStories}}
 	
 	<ol class="storyListAdmin">
 		{{#each uniqueChapters}}
@@ -36,6 +37,9 @@
 			{{/if}}
 		{{/each}}
 	</ol>
+	{{else}}
+	<p>Het lijkt er op dat er nog niets geschreven is. Maak hierboven een nieuw hoofdstuk aan</p>
+	{{/if}}
 	
 </template>
 <!-- 
