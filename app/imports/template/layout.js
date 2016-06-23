@@ -11,7 +11,9 @@ Template.layout.onCreated(function () {
 	})
 })
 var watchTester = function () {
+	console.log('watchTester')
 	Tracker.autorun(function (c) {
+		console.log('tracker')
 		if(Meteor.user().profile.testActive === true) {
 			console.log('bezig')
 			var currentStory = Meteor.user().profile.currentStory;

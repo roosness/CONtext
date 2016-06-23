@@ -1,4 +1,4 @@
-import { Chapters, Dataset, Tests } from '../lib/collections.js';
+import { Chapters, Dataset, Tests, Users } from '../lib/collections.js';
 Template.admin.onCreated(function () {
 	var self = this;
 	Session.set('selectedTab', 'testSession');
@@ -13,7 +13,7 @@ Template.admin.onCreated(function () {
 			}
 		});
 		self.subscribe('Chapters');
-		self.subscribe('userList')
+		self.subscribe('userList');
 	})
 })
 
@@ -24,9 +24,7 @@ Template.admin.events({
 })
 Template.admin.helpers({
 	
-	isActiveTab() {
-		return Session.get('selectedTab')
-	},
+	
 	whichOne () {
 		return Session.get('selectedTab')
 
@@ -50,13 +48,18 @@ Template.testplan.helpers({
 	},
 	index(number) {
 		return number + 1;
-	}	
+	},
+		
 })
 
 Template.testConfig.helpers({
 	test() {
 
 		return Tests.find().fetch()[0]
+	},
+	nochapters() {
+		console.log('chap',Chapters.find().count())
+		return Chapters.find().count() === 0
 	},
 	user () {
 		
@@ -97,10 +100,10 @@ Template.testConfig.events({
 	},
 	'submit form': function (e) {
 		e.preventDefault();
-
+		var id = Tests.find().fetch()[0]._id
 
 		var number = document.querySelector('input[type="number"]').value;
-		var id = new Meteor.Collection.ObjectID('575805a3a16c63aebdcf8576');
+		
 		var inputs = document.querySelectorAll('.testConfig input[type="checkbox"]');
 		var names = document.querySelectorAll('.testConfig label.name');
 
@@ -149,6 +152,7 @@ Template.testSession.helpers({
 	isActiveButton(id) {
 		var test = Tests.find().fetch()[0];
 		var text;
+
 		for(var i = 0; i < test.testusers.length;i++) {
 			
 			if((test.testusers[i].userid === id) && (test.testusers[i].userTestActive === true)) {
@@ -163,6 +167,15 @@ Template.testSession.helpers({
 	test() {
 
 		return Tests.find().fetch()[0]
+	},
+	currentRead(index, userid) {
+		console.log(index, userid);
+		console.log(Meteor.users.find(userid).fetch()[0].profile.currentStory);
+		if(index === Meteor.users.find(userid).fetch()[0].profile.currentStory && Meteor.users.find(userid).fetch()[0].profile.testActive) {
+			return 'currentStory'
+		} else {
+			return false
+		}
 	},
 	index(number) {
 		return number + 1;
@@ -189,7 +202,7 @@ Template.testSession.events({
 				
 			}
 		}
-			var id = new Meteor.Collection.ObjectID('575805a3a16c63aebdcf8576');
+			var id = Tests.find().fetch()[0]._id
 		console.log(active)	
 		var number = 0;
 		if(active === false) {

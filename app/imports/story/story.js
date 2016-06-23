@@ -68,6 +68,7 @@ Template.registerHelper('formatDate', function(type){
 	}
 });
 var findValueInObj = function(value, obj, objParam) {
+	console.log(value, obj, objParam)
 	var result = false;
 	for(var i = 0; i < obj.length; i++) {
 		
@@ -75,7 +76,6 @@ var findValueInObj = function(value, obj, objParam) {
 			result = obj[i]
 		} 
 	}
-	console.log(result)
 	return result
 }
 var fallbackNeeded2 = function (obj, datablock, datablockParam, string, field) {
@@ -146,9 +146,9 @@ var source = {
 	},
 	user: function (obj) {
 		var datablock = source.datablock();
-		
+		console.log(obj.category)
 		var result;
-		switch(obj.subcategory) {
+		switch(obj.category) {
 			
 			case 'work':
 				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory][0].employer.name : getFallback(obj);
@@ -176,9 +176,12 @@ var source = {
 				
 				return b.getDate() + ' ' + months[b.getMonth()]
 				break;
-				
-			default:
+			case 'name':
 				return formatNameObj(datablock.first_name, datablock.last_name, obj.subcategory);
+				break;
+			case 'geslacht':
+				return geslacht(obj.subcategory)
+			
 				
 		}
 		return result
@@ -268,9 +271,40 @@ var checkUndefined = function(array) {
 		}
 	}
 }
-var getFallback = function(obj, result) {
-		console.log(obj)
-		var fallbacks = Fallbacks.find({subcategory: obj.subcategory}).fetch()[0];
+var getWordGeslacht = function (geslacht, format) {
+	var words = Fallbacks.find({category: 'geslacht'}).fetch();
+	var result;
+	for(var i = 0 ;i < words.length; i++) {
+		console.log(words[i])
+		var a = findValueInObj(format, words[i], geslacht);
+		console.log(a)
+	}
+	
+}
+var geslacht = function (format) {
+	var data = Fallbacks.find({category: 'geslacht'}).fetch();
+	var result ;
+	var selectedGeslacht = Userdata.find().fetch()[0].gender || getFallback('geslacht');
+	if(Chapters.find().fetch()[0].settings.genderReversed) {
+		if(selectedGeslacht === 'female') {
+			selectedGeslacht = 'male';
+			console.log('fae')
+		} else {
+			selectedGeslacht = 'female'
+		}
+	}
+
+	for(var i = 0; i < data.length;i++) {
+		if(data[i].female === format || data[i].male === format) {
+			return data[i][selectedGeslacht];
+		}
+
+	}
+	
+}
+var getFallback = function(cat, result) {
+		console.log(cat)
+		var fallbacks = Fallbacks.find({subcategory: cat}).fetch()[0];
 		
 		return fallbacks.fallback
 	

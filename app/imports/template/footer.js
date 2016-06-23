@@ -29,7 +29,7 @@ Template.testfooter.events({
 			// userTest_currentStory
 		}
 		else {
-			var id = new Meteor.Collection.ObjectID('575805a3a16c63aebdcf8576');
+			var id = Tests.find().fetch()[0]._id
 			var number = 0;
 				Meteor.call('startTest_user', Meteor.userId(), false, number)
 				Meteor.call('startTest_test', id, Meteor.userId(), false, number)

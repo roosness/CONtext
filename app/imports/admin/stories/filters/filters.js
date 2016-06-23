@@ -42,7 +42,12 @@ Template.person.helpers({
 		return format
 	},
 	words() {
-		var words = ['zijn','hij', 'man', 'mannen', 'jongen', 'jongens']
+		var words = [];
+		var data = Fallbacks.find({category: 'geslacht'}).fetch();
+		for(var i = 0; i < data.length;i++) {
+			words.push(data[i].female)
+		}
+		
 		return words
 	},
 	selectedFormat () {
@@ -129,15 +134,19 @@ Template.filters.events({
 	'submit form.user' : function (e) {
 		e.preventDefault();
 		var selected = e.currentTarget.user.value;
-		var format;
+		console.log(selected)
+		var format = null;
 		if(selected === 'name') {
 
-			format = document.querySelector(".selecter").value;
+			format = document.querySelector(".nameSelector").value;
+		} else if(selected === 'geslacht'){
+			format = document.querySelector(".geslachtSelector").value;
 		} else {
 			format = e.currentTarget[e.currentTarget.id].value
 		}
 		console.log(format)
-		submitFilter(e.currentTarget.classList[0], 'fallback', true, false, e.currentTarget.classList[0], format, null, false)
+		
+		submitFilter(e.currentTarget.classList[0], 'fallback', true, false, selected, format, null, false)
 		
 		e.currentTarget.reset();
 		

@@ -1,57 +1,42 @@
 import { Dataset, Chapters, Userdata } from '../lib/collections.js';
 
 BlazeLayout.setRoot('body');
-
-
 var exposed = FlowRouter.group({
   triggersEnter: [
-  function () {
-    console.log('exposed');
-    var route ;
-
-    console.log(Meteor.loggingIn())
-   if (!(Meteor.loggingIn() || Meteor.userId())) {
-
-        route = FlowRouter.current();
-        if (route.route.name !== 'login') {
-          Session.set('redirectAfterLogin', route.path);
-        }
-        return FlowRouter.go('login');
-      }
-      else {
-        FlowRouter.go('stories')
-      }
-
-  }]
-});
-var loggedIn = FlowRouter.group({
-  triggersEnter: [
-    function() {
-      
-      
-      
-      var route;
-      if (!(Meteor.loggingIn() || Meteor.userId())) {
-        route = FlowRouter.current();
-        if (route.route.name !== 'login') {
-          Session.set('redirectAfterLogin', route.path);
-        }
-        return FlowRouter.go('login');
+    function () {
+      if (!(Meteor.user() || Meteor.userId())) {
+        console.log('not logged in!')
+      } else {
+        FlowRouter.redirect('/stories')
       }
     }
   ]
 })
+var loggedIn = FlowRouter.group({
+    triggersEnter: [
+    function () {
+      if (!(Meteor.user() || Meteor.userId())) {
+        FlowRouter.redirect('/login')
+      } else {
+        console.log('logged in!')
+      }
+    }
+    ]
+});
 var admin = loggedIn.group({
   name:'admin',
   prefix:'/admin',
-    triggersEnter: [
-      function () {
-        
-        if(!(Roles.userIsInRole || Meteor.user() : ['admin']))
-          FlowRouter.go('/admin')
+  triggersEnter: [
+    function () {
+      if (!(Meteor.user() || Meteor.userId())) {
+        FlowRouter.redirect('/login')
+      } else {
+        console.log('logged in!')
       }
+    }
     ]
-})
+});
+
 
 var test = loggedIn.group({
   name: 'test',
@@ -78,7 +63,11 @@ var adminRouters = FlowRouter.group({
 exposed.route('/', {
   name: 'start',
   action() {
-    BlazeLayout.render( 'layout', {overlay: 'start'});
+    if(Meteor.user()) {
+      FlowRouter.go('stories')
+    } else {
+      BlazeLayout.render( 'layout', {overlay: 'start'});
+    }
   }
 });
 exposed.route('/login', {

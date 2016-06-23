@@ -69,11 +69,23 @@ Template.adminStories.events({
 			
 			var ownId= e.currentTarget.id.split(',')[0]
 			var parentId = e.currentTarget.id.split(',')[1];
-			Chapters.update(parentId, {
-				$pull: {
-					duplicatedStories: {id: ownId}
-				}
-			})
+			if((Chapters.find(parentId).fetch()[0].duplicatedStories.length -1) === 0) {
+				Chapters.update(parentId, {
+					$set: {
+						duplicated:false
+					},
+					$pull: {
+						duplicatedStories: {id: ownId}
+					}
+				})
+			} else {
+				Chapters.update(parentId, {
+					$pull: {
+						duplicatedStories: {id: ownId}
+					}
+				})
+			}
+			
 			Chapters.remove(ownId)
 		}
 		console.log(e.currentTarget.id);

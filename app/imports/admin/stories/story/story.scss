@@ -63,7 +63,21 @@ main.admin {
 .popup.confirm {
 	section {
 		padding:1em;
+		
+		height:70%;
+		position:relative
 	}
+	button {
+		position:absolute;
+		bottom:1em;
+		&:nth-of-type(odd){
+			right:1em;
+		}
+		&:nth-of-type(even){
+			right:5em;
+		}
+	}
+
 }
 ul.editList {
 	list-style:none;

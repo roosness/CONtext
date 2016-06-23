@@ -16,12 +16,16 @@ main.admin {
 
 ul.tabs {
 
-	margin: 0 1em;
+	margin: 0 auto;
 	padding: 0 0;
-	margin-top:3em;
+	max-width:60em;
 	list-style-type: none;
+	
 
 	li {
+		
+
+		margin: 3em auto;
 		display: inline-block;
 		background: #f5f5f5;
 		border-top:1px solid #EBEBEB;
@@ -45,12 +49,16 @@ ul.tabs {
 
 .templateSelected {
 	border-top:1px solid #EBEBEB;
-	margin:0 1em;
+	margin:0 auto;
 	background: #f5f5f5;
 	z-index:1;
-	padding:1em;
+	padding:2em;
 	text-align:left;
-
+	max-width:60em;
+	
+	h2 {
+		margin: 1em 0;
+	}
 	button {
 		padding:.5em 1em;
 		font-size: 1em;
@@ -62,31 +70,27 @@ ul.tabs {
 		margin: 0 0;
 	}
 	form {
-		margin: 1em 0;
-		display: block;
+		margin:1em 0;
 
-		label {
-			display: inline-block;
-		}
 		input[type='number'] {
-			width:3em;
-			margin:0 1em;
+			max-width: 5em;
 			text-align: center;
-			display: inline-block;
-		}
+		};
 		input[type='checkbox']:checked {
 			& ~ div {
 				
 				display: inline-block;
 			}
 		}
+
 		ul {
 			list-style: none;
 			padding: 0 0;
-			margin: 0 0;
+			margin: 1em 0;
 			li {
-	
+				
 				padding:.5em 1em;
+				display: block;
 				&:nth-of-type(odd) {
 					background:white;
 				}
@@ -100,6 +104,7 @@ ul.tabs {
 			}
 		}
 	}
+	
 
 }
 .testplan {
@@ -107,33 +112,39 @@ ul.tabs {
 	&>ul {
 		list-style: none;
 		padding: 0 0;
-		&>li {
-			padding:.5em;
-			box-sizing:border-box;
 
+		&>li {
+			// padding:.5em;
+			box-sizing:border-box;
+			& > * {
+				margin:1em ;
+				
+			}
+						
 			&:nth-of-type(odd){
 				background:white;
 			}
+			
 			ul {
 				
 				list-style: none;
+				float: right;
 				padding: 0 0;
-				margin: 0 0;
-				margin-top:-.2em;
-				float:right;
+				display: inline-block;
 				li {
 					
-					margin: 0 0;
+					margin: 0 .5em;
 					transition: .2s ease-in-out;
 					border-bottom:3px solid rgba(2,2,2,.0);
 					display: inline-block;
-					&.currentRead {
+
+					&.currentStory {
 							border-bottom: 3px solid #607d8b;
 							
 						}
 					span {
 						font-weight: 700;
-						padding:0 1em;
+						
 					}
 				}
 			}

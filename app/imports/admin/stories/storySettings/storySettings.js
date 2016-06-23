@@ -41,7 +41,7 @@ Template.storySettings.helpers({
 Template.storySettings.events({
 	'click #openDuplicate': function (e) {
 		e.preventDefault();
-		var popup = document.querySelector('.popup');
+		var popup = document.querySelector('.popup.duplicate');
 		if(popup.classList.contains('active') ){
 			popup.classList.remove('active');
 

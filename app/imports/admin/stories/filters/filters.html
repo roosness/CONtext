@@ -10,7 +10,21 @@
 	{{#if Template.subscriptionsReady}}
 
 <section class="filters active ">
-		
+		<form class='newParagraph'>
+		<header>
+			<label for="paragraph">Nieuwe tekst toevoegen</label>
+		</header>
+		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
+		<input type="submit">
+	</form>
+	<form class='newHeading'>
+		<header>
+			<label for="paragraph">Subkop toevoegen</label>
+		</header>
+		<textarea name="subkop" id="subkop" cols="30" rows="4"></textarea>
+		<input type="submit">
+	</form>
+	<button class='startNewPar'>Nieuwe paragraaf starten</button>
 			<ul>
 				
 				<li>
@@ -42,26 +56,9 @@
 					<span>Overig <img src="/icons/next.svg" alt=""></span>
 					{{> other}}
 				</li>
-				<li>
-					<span>Karakter<img src="/icons/next.svg" alt=""></span>
-					{{> character}}
-				</li>
+			
 			</ul>
-	<button class='startNewPar'>Nieuwe paragraaf starten</button>
-	<form class='newParagraph'>
-		<header>
-			<label for="paragraph">Nieuwe tekst toevoegen</label>
-		</header>
-		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
-		<input type="submit">
-	</form>
-	<form class='newHeading'>
-		<header>
-			<label for="paragraph">Subkop toevoegen</label>
-		</header>
-		<textarea name="subkop" id="subkop" cols="30" rows="4"></textarea>
-		<input type="submit">
-	</form>
+	
 	
 	</section>
 	{{else}}
@@ -83,8 +80,8 @@
 		<input type="radio" name='location' value='location' id='locationH'>
 		<label for="locationH">Woon locatie</label>
 
-		
 		<input type="submit">
+		
  	</form>
  </template>
  <template name='other'>
@@ -151,17 +148,18 @@
 		<label for="naam">Naam</label>
 		<section class="formatName">
 			<label class='forSelect' for="format">Formaat naam</label>
-		<select  id="format" class='selecter'>
+		<select  id="format" class='nameSelector'>
 				{{#each formatNames}}
 					<option value="{{this}}" {{isSelected this}} >{{this}}</option>
 				{{/each}}
 		</select>
 		
 		</section>
-
+		<input type="radio" name='user' value='geslacht' id='geslacht'>
+		<label for="geslacht">geslacht</label>
 		<section class="geslachtWord">
 			<label for="geslachtWord" class='forSelect'>geslacht woord</label>
-			<select id="geslachtWord">
+			<select id="geslachtWord" class='geslachtSelector'>
 				{{#each words}}
 					<option value="{{this}}">{{this}}</option>
 				{{/each}}

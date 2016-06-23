@@ -26,13 +26,22 @@
   width:170px; 
   top: 0px;
   bottom: 0px;
+  button {
+  	background:#ca2140;
+  	font-size: 1em;
+  	padding:.5em;
+  	border:none;
+  	color:white;
+  	margin:.5em auto;
+  }
 	#storySettings {
-		background:#607d8b;
+		background:#ca2140;
 		text-decoration: none;
 		color:white;
 		padding:.5em 1em;
 		display: block;
 		height:1em;
+
 		img {
 			width:1em;
 			margin-right:1em;
@@ -120,11 +129,14 @@
 					background:black;
 				}
 				input[type='submit'] {
-					margin: 0 0;
+					background:#ca2140;
+					width:100%;
+					clear:both;
+					margin: .5em auto;
 				}
 				input[type='radio'] {
 				display: none;
-					&#naam:checked ~ section:first-of-type {
+					&#naam:checked ~ section:first-of-type, &#geslacht:checked ~ section:first-of-type {
 						border:2px solid RGBA(138, 194, 73, 1.00) !important;
 					}
 					&:checked + label, .geslachtWord {
@@ -137,7 +149,7 @@
 		.newParagraph, .newHeading {
 			display: block;
 			background:white;
-			margin: 0 0;
+			margin: 1em 0;
 			box-sizing:border-box;
 			position:relative;
 			text-align: center;
