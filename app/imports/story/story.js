@@ -9,41 +9,7 @@ Template.story.onCreated(function () {
 
 	})
 
-Template.story.events({
-	'click  .story p': function (e) {
-		console.log('ckuc!')
-		if(Session.get('editing') === 'deleting') {
-			
-			
-			var array = Session.get('aboutToBeDeleted') || [];
-			
-			if(e.currentTarget.classList.contains('aboutToBeDeleted')) {
-				e.currentTarget.classList.remove('aboutToBeDeleted');
-				var index = array.indexOf(e.currentTarget.id);
-				array.splice(index, 1)
-			} else {
-				e.currentTarget.classList.add('aboutToBeDeleted');
-				array.push(e.currentTarget.id);
-			}
-			console.log(array)
-			Session.set('aboutToBeDeleted', array);
-		}  else if(Session.get('editing') === 'editing') {
 
-			e.currentTarget.classList.add('aboutToBeEdited');
-			var array = Session.get('aboutToBeEdited') || [];
-			
-			
-			if(array.indexOf(e.currentTarget.id) < 0) {
-				array.push(e.currentTarget.id);
-			}
-			e.currentTarget.contentEditable = true;
-			Session.set('aboutToBeEdited', array);
-
-		}
-		
-	},
-	
-})
 
 
 Template.registerHelper('formatDate', function(type){
@@ -58,7 +24,7 @@ Template.registerHelper('formatDate', function(type){
 			break;
 		case 'year':
 
-			return date.toLocaleDateString('nl-NL', { year: 'numeric'})
+			return date.getFullYear()
 			break;
 		case 'minute':
 			return date.getMinutes();
@@ -67,7 +33,8 @@ Template.registerHelper('formatDate', function(type){
 			return curHr;
 			break;
 		case 'month':
-			return date.toLocaleDateString('nl-NL', { month: 'long'});
+			var months = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'october', 'november', 'december'];
+			return months[date.getMonth()]
 			break;
 		case 'part':
 			if(curHr < 12) {
@@ -82,7 +49,8 @@ Template.registerHelper('formatDate', function(type){
 			return part
 			break;
 		case 'day':
-			return date.toLocaleDateString('nl-NL', { weekday: 'long'});
+			var dagen = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'];
+			return dagen[date.getDay()]
 			break;
 		case 'day_part':
 			if(curHr < 12) {
@@ -94,11 +62,13 @@ Template.registerHelper('formatDate', function(type){
 				} else {
 					part = "nacht"
 				}
-				return  date.toLocaleDateString('nl-NL', { weekday: 'long'}) + part
+				var dagen = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'];
+			return dagen[date.getDay()] + part
 			break;
 	}
 });
 var findValueInObj = function(value, obj, objParam) {
+	console.log(value, obj, objParam)
 	var result = false;
 	for(var i = 0; i < obj.length; i++) {
 		
@@ -106,14 +76,15 @@ var findValueInObj = function(value, obj, objParam) {
 			result = obj[i]
 		} 
 	}
-	console.log(result)
 	return result
 }
 var fallbackNeeded2 = function (obj, datablock, datablockParam, string, field) {
+	console.log(datablock, datablockParam)
 	if(datablock[datablockParam] === undefined) {
 		return getFallback(obj)
 	} else {
-		var result = findValueInObj(obj.subcategory, datablock[datablockParam].data, string)
+		var result = findValueInObj(obj.subcategory, datablock[datablockParam].data, string);
+		console.log(result)
 		if(result) {
 			return result[field]
 		} else {
@@ -147,7 +118,7 @@ var source = {
 		
 		switch(obj.category) {
 			case 'family':
-				return fallbackNeeded2(obj, datablock, obj.category, 'name', 'name');
+				return fallbackNeeded2(obj, datablock, obj.category, 'relationship', 'name');
 				
 				break;
 			case 'likes': 
@@ -175,15 +146,16 @@ var source = {
 	},
 	user: function (obj) {
 		var datablock = source.datablock();
-		
+		console.log(obj.category)
 		var result;
-		switch(obj.subcategory) {
+		switch(obj.category) {
 			
 			case 'work':
 				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory][0].employer.name : getFallback(obj);
 				break;
 			case 'education':
-				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory].slice(-1)[0].school.name : getFallback(obj);
+
+				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory].slice(-1)[0].concentration[0].name : getFallback(obj);
 				break;
 			case 'relationship_status':
 				return (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory] : getFallback(obj);
@@ -198,11 +170,18 @@ var source = {
 				break;
 			case 'birthday':
 				var a = (fallbackNeeded(obj, datablock)) ? datablock[obj.subcategory] : getFallback(obj);
-				return new Date(a).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long'});
-				break;
 				
-			default:
+				var b = new Date(a);
+				var months = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'october', 'november', 'december'];
+				
+				return b.getDate() + ' ' + months[b.getMonth()]
+				break;
+			case 'name':
 				return formatNameObj(datablock.first_name, datablock.last_name, obj.subcategory);
+				break;
+			case 'geslacht':
+				return geslacht(obj.subcategory)
+			
 				
 		}
 		return result
@@ -272,7 +251,7 @@ var source = {
 				   console.log("Oops! There was an error", err);
 				});
 				return Session.get('userLocation')
-			case 'houseLocation': 
+			case 'location':
 				return (fallbackNeeded(obj, datablock)) ? datablock.location.name.split(',')[0] : getFallback(obj);
 			
 				break;
@@ -292,9 +271,40 @@ var checkUndefined = function(array) {
 		}
 	}
 }
-var getFallback = function(obj, result) {
+var getWordGeslacht = function (geslacht, format) {
+	var words = Fallbacks.find({category: 'geslacht'}).fetch();
+	var result;
+	for(var i = 0 ;i < words.length; i++) {
+		console.log(words[i])
+		var a = findValueInObj(format, words[i], geslacht);
+		console.log(a)
+	}
 	
-		var fallbacks = Fallbacks.find({subcategory: obj.subcategory}).fetch()[0];
+}
+var geslacht = function (format) {
+	var data = Fallbacks.find({category: 'geslacht'}).fetch();
+	var result ;
+	var selectedGeslacht = Userdata.find().fetch()[0].gender || getFallback('geslacht');
+	if(Chapters.find().fetch()[0].settings.genderReversed) {
+		if(selectedGeslacht === 'female') {
+			selectedGeslacht = 'male';
+			console.log('fae')
+		} else {
+			selectedGeslacht = 'female'
+		}
+	}
+
+	for(var i = 0; i < data.length;i++) {
+		if(data[i].female === format || data[i].male === format) {
+			return data[i][selectedGeslacht];
+		}
+
+	}
+	
+}
+var getFallback = function(cat, result) {
+		console.log(cat)
+		var fallbacks = Fallbacks.find({subcategory: cat}).fetch()[0];
 		
 		return fallbacks.fallback
 	
@@ -310,15 +320,11 @@ var formatNameObj = function (first, last, format) {
 	return obj[format]
 };
 Template.story.helpers({
-	isAdmin() {
-		return window.location.pathname.indexOf('admin') > -1;
-	},
-	isBreak (source) {
-		if(source === 'break') {
-			return true;
-		} else {return false}
+	isBreak () {
+		return (this.source === 'break') ? true : false
 	},
 	istext () {
+		
 		return this.istext
 	},
 	chapter() {
@@ -327,7 +333,6 @@ Template.story.helpers({
  	chaptercontent() {
  		var contents = Chapters.findOne().content
  		var a =  _.sortBy(contents, function (content) { return content.order});
- 		console.log(a);
  		return a
  	},
  	isDate() {
@@ -335,28 +340,31 @@ Template.story.helpers({
  			return true 
  		}
  	},
- 	isMovingAround() {
- 		if(Session.get('editing') === 'move') {
+ 	isMovingAround(id) {
+ 		if(Session.get('movingBlock') === id) {
  			return true
  		} else {
- 			return true
+ 			return false
  		}
+ 	}, 
+ 	isHeading() {
+ 		return (this.category === 'newHeading') ? true : false
  	},
  	
- 	getVar(obj) {
+ 	getVar() {
  		var result
- 		switch(obj.source) {
+ 		switch(this.source) {
  			case 'facebook':
-	 			return source.facebook(obj);
+	 			return source.facebook(this);
 	 			break;
 	 		case 'user':
-	 			return source.user(obj);
+	 			return source.user(this);
 	 			break;
 	 		case 'weather':
-	 			return source.weather(obj);
+	 			return source.weather(this);
 	 			break;
 	 		case 'location':
-	 			return source.location(obj);
+	 			return source.location(this);
 	 			break;
 	 		default:
 	 			return false
@@ -365,42 +373,5 @@ Template.story.helpers({
  	
 })
 
-Template.movingAround.events({
-	'click  li a' : function (e) {
-		e.preventDefault();
-		console.log(e.currentTarget.id)
-		var id = FlowRouter.getParam('id');
-		var number = this.data.order;
-		var contents = Chapters.find().fetch()[0].content
-		var array = [];
-		if(e.currentTarget.classList.contains('up') && number > 1) {
-			console.log('up' );
-			for(var i = 0; i < contents.length; i++) {
-				console.log(contents[i].order, (number - 1))
 
-				if(contents[i].order === (number - 1)) {
-					Meteor.call('changeOrder', contents[i]._id._str, id, number);
-				}
-			}
-			number--
-
-		} else if(e.currentTarget.classList.contains('down') && number < contents.length) {
-			console.log('down');
-			for(var i = 0; i < contents.length; i++) {
-				console.log(contents[i].order, (number + 1))
-
-				if(contents[i].order === (number + 1)) {
-
-					Meteor.call('changeOrder', contents[i]._id._str, id, number);
-				}
-			}
-			number++
-		}
-		console.log(number)
-		Meteor.call('changeOrder', e.currentTarget.id, id, number);
-
-		
-		
-	}
-})
 

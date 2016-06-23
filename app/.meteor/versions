@@ -84,7 +84,7 @@ mongo-id@1.0.4
 mongo-livedata@1.0.12
 msavin:jetsetter@2.0.0
 msavin:mongol@2.0.1
-npm-bcrypt@0.8.5
+npm-bcrypt@0.8.6_1
 npm-mongo@1.4.43
 oauth@1.1.10
 oauth2@1.1.9

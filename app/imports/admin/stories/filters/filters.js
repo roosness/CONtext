@@ -2,7 +2,7 @@ import { Chapters, Dataset, Filters, Fallbacks } from '../../../lib/collections.
 Template.filters.onCreated(function () {
 	var self = this;
 	Session.clear();
-	// Session.set('editing', false)
+	Session.set('editing', false)
 	self.autorun(function () {
 		var id = FlowRouter.getParam('id');
 		self.subscribe('singleChapter', id);
@@ -11,17 +11,7 @@ Template.filters.onCreated(function () {
 	})
 })
 
-var removeCLass = function (classname) {
-	
-	for(var i = 0; i<classname.length;i++) {
-		var selected = document.querySelectorAll('.' + classname[i]);
-			for(var x = 0; x < selected.length; x++) {
-				console.log(selected[x]);
-				selected[x].classList.remove(classname[i])
-			 
-			}
-	}
-}
+
 var submitFilter = function (source, fallback, isstatic, istext, category, subcategory, content, inObject ) {
 	var chapterId = FlowRouter.getParam("id");
 	var number = document.querySelectorAll('article p').length + 1;
@@ -52,7 +42,12 @@ Template.person.helpers({
 		return format
 	},
 	words() {
-		var words = ['zijn','hij', 'man', 'mannen', 'jongen', 'jongens']
+		var words = [];
+		var data = Fallbacks.find({category: 'geslacht'}).fetch();
+		for(var i = 0; i < data.length;i++) {
+			words.push(data[i].female)
+		}
+		
 		return words
 	},
 	selectedFormat () {
@@ -65,6 +60,11 @@ Template.person.helpers({
 		if(select === Chapters.findOne({}).settings.nameFormat) {
 			return 'selected'
 		}
+	}
+})
+Template.filters.helpers({
+	isEditing() {
+		return Session.get('editing')
 	}
 })
 
@@ -117,6 +117,11 @@ Template.filters.events({
 		submitFilter('admin', 'fallback', true, true, e.currentTarget.classList[0], null, e.target.paragraph.value.trim(), false )
 		e.currentTarget.reset();
 	},
+	'submit .newHeading' : function (e) {
+		e.preventDefault();
+		submitFilter('admin', 'fallback', true, true, e.currentTarget.classList[0], null, e.target.subkop.value.trim(), false )
+		e.currentTarget.reset();
+	},
 	'submit form.facebook' : function (e) {
 		e.preventDefault();
 		var objArray = ['music', 'favorite_athletes', 'favorite_teams'];
@@ -129,15 +134,19 @@ Template.filters.events({
 	'submit form.user' : function (e) {
 		e.preventDefault();
 		var selected = e.currentTarget.user.value;
-		var format;
+		console.log(selected)
+		var format = null;
 		if(selected === 'name') {
 
-			format = document.querySelector(".selecter").value;
+			format = document.querySelector(".nameSelector").value;
+		} else if(selected === 'geslacht'){
+			format = document.querySelector(".geslachtSelector").value;
 		} else {
 			format = e.currentTarget[e.currentTarget.id].value
 		}
 		console.log(format)
-		submitFilter(e.currentTarget.classList[0], 'fallback', true, false, e.currentTarget.classList[0], format, null, false)
+		
+		submitFilter(e.currentTarget.classList[0], 'fallback', true, false, selected, format, null, false)
 		
 		e.currentTarget.reset();
 		
@@ -151,74 +160,9 @@ Template.filters.events({
 		submitFilter(e.currentTarget.classList[0], 'fallback', false, false, e.currentTarget[e.currentTarget.id].value , null, null, false)
 	},
 	'submit form.location' : function (e) {
-		e.preventDefault();console.log(e.currentTarget[e.currentTarget.id].value)
-		submitFilter(e.currentTarget.classList[0], 'fallback', false, false, e.currentTarget.classList[0] , e.currentTarget[e.currentTarget.id].value, null, false)
+		e.preventDefault();
+		console.log(e.currentTarget.location.value)
+		submitFilter(e.currentTarget.classList[0], 'fallback', false, false, e.currentTarget.classList[0] , e.currentTarget.location.value, null, false)
 	}
 });
 
-
-Template.editing.events({
-	'click #deleting, click #editing, click #move':function (e) {
-		e.preventDefault();
-		// document.querySelector('.admin-edit-story-wrapper').classList.add(e.currentTarget.id);
-		Session.set('editing', e.currentTarget.id);
-	},
-
-	'click #discard':function (e) {
-		e.preventDefault();
-		document.querySelector('.admin-edit-story-wrapper').classList.remove('editing', 'deleting');
-		Session.set('editing', false);
-		var allText  = document.querySelectorAll('article p p');
-		console.log(allText.length)
-		for(var i = 0; i < allText.length; i++) {
-			console.log(i)
-			console.log(allText[i]); 
-			allText[i].contentEditable = false
-		}
-
-		removeCLass(['editing', 'deleting', 'aboutToBeDeleted', 'aboutToBeEdited'])
-		Template.story.render.apply()
-		
-		delete Session.keys.aboutToBeDeleted
-
-	},
-	'click #save': function (e) {
-		e.preventDefault();
-		document.querySelector('.admin-edit-story-wrapper').classList.remove('editing', 'deleting');
-		;
-		var allText  = document.querySelectorAll('article p p');
-		console.log(allText)
-		for(var i = 0; i < allText.length; i++) {console.log(allText[i]); allText[i].contentEditable = false}
-
-		if(confirm("Zeker weten dat je dit wilt toepassen?") == true) {
-			if(Session.get('editing') === 'deleting') {
-				Meteor.call('removeContent', FlowRouter.getParam("id"), Session.get('aboutToBeDeleted'));
-
-			} else if(Session.get('editing') === 'editing') {
-				var newContent = [];
-				var session = Session.get('aboutToBeEdited');
-				for(var i = 0; i<session.length;i++) {
-					newContent.push(document.getElementById(session[i]).innerHTML)
-				}
-				Meteor.call('updateContent', FlowRouter.getParam("id"), Session.get('aboutToBeEdited'), newContent)
-			}
-			
-		}
-		else {
-		
-		}
-		removeCLass(['editing', 'deleting', 'aboutToBeDeleted', 'aboutToBeEdited'])
-		
-		
-		delete Session.keys.aboutToBeDeleted, delete Session.keys.aboutToBeEdited
-		Session.set('editing', false)
-	}
-	
-})
-
-
-Template.editing.helpers({
-	isEditing() {
-		return Session.get('editing')
-	}
-})

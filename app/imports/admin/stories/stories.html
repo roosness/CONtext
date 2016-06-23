@@ -1,17 +1,22 @@
 <template name='adminStories'>
+	{{#if Template.subscriptionsReady}}
+	<header>
+		<h2>Nieuw hoofdstuk toevoegen</h2>
+		<form class="newChapter">
+			
+			<input type="text" id='title' placeholder="Titel">
+			<input type="submit">
+		</form> 
+		</header>
 	
-	<h2>Nieuw hoofdstuk toevoegen</h2>
-	<form class="newChapter">
-		<label for="title">Titel</label>
-		<input type="text" id='title'>
-		<input type="submit">
-	</form> 
+	{{#if hasStories}}
 	
 	<ol class="storyListAdmin">
 		{{#each uniqueChapters}}
 			{{#if hasDuplicates}}
-			<li>
-				<h3>{{title}}</h3>
+			<li class='multi'>
+				<img src="/icons/book.svg" alt="">
+				<p>{{title}}</p>
 				
 					<ul>
 						<li><a href="/admin/stories/{{_id}}">{{title}} <span>{orginele}</span>
@@ -28,7 +33,8 @@
 				{{else}}
 				<li class='single'>
 					<a href="/admin/stories/{{_id}}">
-						<h3>{{title}}</h3>
+						<img src="/icons/book.svg" alt="">
+						<p>{{title}}</p>
 						
 					</a>
 				<a href="#" class='delete original' id={{_id}}><img src="/icons/garbage.svg" alt="delete"></a>
@@ -36,8 +42,31 @@
 			{{/if}}
 		{{/each}}
 	</ol>
-	
+	{{else}}
+	<p class='adminMessage'>Het lijkt er op dat er nog niets geschreven is. Maak hierboven een nieuw hoofdstuk aan</p>
+	{{/if}}
+	{{else}}
+		{{>waiting}}
+	{{/if}}
 </template>
+<template name='storiefawefawes'>
+
+	<ol class='storyList'>
+	<header><h2>Alle verhalen</h2></header>
+		{{#each chapters}}
+		<li>
+			<img src="/icons/book.svg" alt="">
+			<a href="stories/{{_id}}">
+			
+			<p>{{title}}</p>
+			<time>{{realTime date}}</time>
+			</a>
+		</li>
+		{{/each}}
+	</ol>
+</template>
+
+
 <!-- 
 <ol class='storyListAdmin'>
 		{{#each chapters}}

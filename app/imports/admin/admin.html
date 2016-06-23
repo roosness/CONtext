@@ -1,5 +1,7 @@
 <template name='admin'>
-<header><h1>welkom bij admin!</h1></header>
+<header><h1>Testsessies</h1>
+	<p>Welkom bij testsessies, druk hieronder bij de testpersoon op start, de test begint automatisch zodra hij of zij is ingelogd. </p>
+</header>
 	{{#if Template.subscriptionsReady}}
 
 
@@ -13,15 +15,19 @@
 <section class="templateSelected">
 	{{> UI.dynamic template=whichOne }}
 </section>
-
+{{else}}
+{{> waiting}}
 {{/if}}
 
 </template>
+
 <template name='testplan'>
 	<section class="testplan">
+	<h2>Testplan</h2>
 		{{#with test}}
 
 	<p>Aantal verhalen dat er gelezen gaan worden: {{numberOfChapters}}</p>
+	{
 	<p>De lezers en leesvolgorde:</p>
 
 	<ul>
@@ -41,14 +47,15 @@
 	</section>
 </template>
 <template name='testConfig'>
-<h2>testconfig</h2>
+<h2>Test instellingen</h2>
 	<form class='testConfig'>
 
 		{{#with test}}
 		
 		
 		<label for="amountOfChapters">Aantal verhalen dat elk testpersoon gaat lezen:</label>
-	<input type="number" id='amountOfChapters' value='{{numberOfChapters}}'>
+	<input type="number" min='0' max=6 id='amountOfChapters' value='{{numberOfChapters}}'>
+
 	<ul class='userlist'>
 		{{#each user}}
 			<li>
@@ -71,7 +78,12 @@
 		{{/each}}
 	</ul>	
 	{{/with}}
+	{{#if nochapters}}
+			<p>Schrijf eerst een aantal verhalen voordat je kunt testen</p>
+	{{else}}
 	<input type="submit">
+	{{/if}}
+	
 	</form>
 </template>
 
@@ -85,11 +97,11 @@
 	<ul>
 		{{#each testusers}}
 			<li>
-				<button id={{userid}}>{{isActiveButton userid}}</button> {{userName}}
+				<button id={{userid}}>{{isActiveButton userid}}</button> <span>{{userName}}</span>
 				<ul>
 					{{#each order}}
-						<li><span>{{index @index}}<sup>e</sup></span>
-						
+						<li class='{{currentRead @index ../userid}}'><span>{{index @index}}<sup>e</sup></span>
+						:
 						{{title}}</li>
 					{{/each}}
 				</ul>

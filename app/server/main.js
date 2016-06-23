@@ -47,8 +47,10 @@ Meteor.publish('Dataset', function() {
 Meteor.publish("getUserData", function () {
 	return Meteor.users.find({_id: this.userId});
 });
-
-
+console.log(Tests.find().count(), Fallbacks.find().count() )
+if(Tests.find().count() === 0) {
+    Tests.insert({numberOfChapters:3})
+}
 if(Fallbacks.find().count() === 0) {
 	
 var data = [{ 
@@ -129,6 +131,11 @@ var data = [{
 { 
     "category": "user",
     "fallback": "male",
+    "subcategory": "geslacht"
+},
+{ 
+    "category": "user",
+    "fallback": "male",
     "subcategory": "interested_in"
 },
 { 
@@ -145,6 +152,11 @@ var data = [{
     "category": "user",
     "fallback": "Frans Fransman",
     "subcategory": "significant_other"
+},
+{
+    "category": "geslacht",
+    "male": "zijn",
+    "female": "haar"
 }]
 for(var i = 0; i < data.length; i++) {
     Fallbacks.insert(data[i]);
@@ -152,3 +164,16 @@ for(var i = 0; i < data.length; i++) {
 } else {
 	
 }
+
+// ,
+// {
+//     "category": "geslacht",
+//     "words": [
+//         {"male": "zijn", "female": "haar", "id": new Meteor.Collection.ObjectID()},
+//         {"male": "hij", "female": "zij", "id": new Meteor.Collection.ObjectID()},
+//         {"male": "man", "female": "vrouw", "id": new Meteor.Collection.ObjectID()},
+//         {"male": "mannen", "female": "vrouwen", "id": new Meteor.Collection.ObjectID()},
+//         {"male": "jongen", "female": "meisjes", "id": new Meteor.Collection.ObjectID()},
+//         {"male": "jongens", "female": "meisjes", "id": new Meteor.Collection.ObjectID()},
+//     ]
+// }

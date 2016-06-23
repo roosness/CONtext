@@ -1,4 +1,7 @@
 <template name='filters'>
+	{{#if isEditing}}
+	<div class="editingOverlay"></div>
+	{{else}}
 	<a href="#" id='storySettings'><img src="/icons/gear_white.svg" alt="instellingen">Algemene instellingen</a>
 	
 		{{> storySettings}}
@@ -7,7 +10,21 @@
 	{{#if Template.subscriptionsReady}}
 
 <section class="filters active ">
-		
+		<form class='newParagraph'>
+		<header>
+			<label for="paragraph">Nieuwe tekst toevoegen</label>
+		</header>
+		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
+		<input type="submit">
+	</form>
+	<form class='newHeading'>
+		<header>
+			<label for="paragraph">Subkop toevoegen</label>
+		</header>
+		<textarea name="subkop" id="subkop" cols="30" rows="4"></textarea>
+		<input type="submit">
+	</form>
+	<button class='startNewPar'>Nieuwe paragraaf starten</button>
 			<ul>
 				
 				<li>
@@ -39,38 +56,15 @@
 					<span>Overig <img src="/icons/next.svg" alt=""></span>
 					{{> other}}
 				</li>
-
-				<li>
-					<span>Slaapgedrag <img src="/icons/next.svg" alt=""></span>
-					{{> sleep}}
-				</li>
-				
-				<li>
-					<span>Beweeg gedrag <img src="/icons/next.svg" alt=""></span>
-					{{> movement}}
-				</li>
-
-				<li>
-					<span>Computer gebruik <img src="/icons/next.svg" alt=""></span>
-					{{> computer}}
-				</li>
-				<li>
-					<span>Karakter<img src="/icons/next.svg" alt=""></span>
-					{{> character}}
-				</li>
+			
 			</ul>
-		
-		<form class='newParagraph'>
-		<header>
-			<label for="paragraph">Nieuwe tekst invoegen</label>
-		</header>
-		<textarea name="paragraph" id="paragraph" cols="30" rows="10"></textarea>
-		<input type="submit">
-	</form>
-	<button class='startNewPar'>Nieuwe paragraaf starten</button>
+	
+	
 	</section>
 	{{else}}
 	<img src="/loading.svg" alt="">
+	{{/if}}
+
 	{{/if}}
 </template>
  
@@ -83,11 +77,11 @@
 		<input type="radio" name='location' value='hometown' id='hometown'>
 		<label for="hometown">Geboorteplaats</label>
 
-		<input type="radio" name='location' value='houseLocation' id='houseLocation'>
-		<label for="houseLocation">Woon locatie</label>
+		<input type="radio" name='location' value='location' id='locationH'>
+		<label for="locationH">Woon locatie</label>
 
-		
 		<input type="submit">
+		
  	</form>
  </template>
  <template name='other'>
@@ -154,17 +148,18 @@
 		<label for="naam">Naam</label>
 		<section class="formatName">
 			<label class='forSelect' for="format">Formaat naam</label>
-		<select  id="format" class='selecter'>
+		<select  id="format" class='nameSelector'>
 				{{#each formatNames}}
-					<option value="{{this}}" >{{this}}</option>
+					<option value="{{this}}" {{isSelected this}} >{{this}}</option>
 				{{/each}}
 		</select>
 		
 		</section>
-
+		<input type="radio" name='user' value='geslacht' id='geslacht'>
+		<label for="geslacht">geslacht</label>
 		<section class="geslachtWord">
 			<label for="geslachtWord" class='forSelect'>geslacht woord</label>
-			<select id="geslachtWord">
+			<select id="geslachtWord" class='geslachtSelector'>
 				{{#each words}}
 					<option value="{{this}}">{{this}}</option>
 				{{/each}}
@@ -243,18 +238,4 @@
 		</form>
 </template>
 
-<template name='editing'>
-<ul class="editList">
-	{{#if isEditing}}
-	
-	<li><a href ="#"  id='save' class="editButton during">Wijzigingen opslaan</a></li>
-	<li><a href ="#" id='discard' class="editButton during">Wijzigingen ongedaanmaken</a></li>
-	{{else}}
-	<li><a href ="#" id='deleting' class="editButton">Start met verwijderen</a></li>
-	<li><a href ="#" id='editing' class="editButton">Start met bewerken</a></li>
-	<li><a href ="#" id='move' class="editButton">Variabelen verplaatsen</a></li>
-	{{/if}}
-</ul>
 
-	
-</template>

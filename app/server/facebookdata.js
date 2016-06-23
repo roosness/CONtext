@@ -25,7 +25,7 @@ Accounts.onLogin(function(user){
     	Userdata.update({_id:Meteor.userId()},data)
     }	
     else {
-    	console.log('nog niet!')
+    	
     	Userdata.insert(data);
     }
     

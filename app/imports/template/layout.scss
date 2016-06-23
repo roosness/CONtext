@@ -17,17 +17,24 @@ body, html {
   color:#333; 
   width:100%;
   
-  font-family: 'Istok Web', sans-serif;
+  font-family: 'PT Sans', sans-serif;
   box-sizing:border-box;
 }
 body {
   position:relative;
 }
-article p, article h1 {
-  font-family: 'Libre Baskerville', serif;
 
+article {
+  padding:1em;
+  max-width: 30em;
+  margin:0 auto;
+  p{
+    font-size: 1.1em;
+    font-family: 'Crimson Text', serif;
+  }
 }
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'PT Sans', sans-serif;
   font-weight: inherit;
   line-height: 1.2;
 }
@@ -47,15 +54,22 @@ nav ul {
   margin: 0 0;
 }
 
+
 main { 
   margin: 0 0;
 }
 main.admin {
   margin-left:3.5em;
   box-sizing:border-box;
-  
+  header {
+    max-width:60em;
+    margin: 0 auto;
+    padding:2em;
+
+
+  }
 }
-input[type='submit'] {
+input[type='submit'], button {
   background:#607d8b;
   font-size:1em;
   padding:.5em 1em;
@@ -107,5 +121,27 @@ section.popup {
       display: inline-block;
       float:right;
     }
+  }
+}
+
+input {
+  font-size: 1em;
+}
+
+.waiting-wrapper {
+  background:white;
+  z-index: 10;
+  opacity: .9;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  img {
+    opacity: 1;
+    padding:1em;
   }
 }
