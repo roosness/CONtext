@@ -1,4 +1,4 @@
-import { Chapters, Dataset, Tests, Users } from '../lib/collections.js';
+import { Chapters, Dataset, Tests, Users } from '../../lib/collections.js';
 Template.admin.onCreated(function () {
 	var self = this;
 	Session.set('selectedTab', 'testSession');

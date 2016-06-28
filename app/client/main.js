@@ -4,9 +4,9 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import '../imports/template/full.css'
-import '../imports/lib/router.js'
-import '../imports/lib/helpers.js'
-import '../imports/lib/methods.js'
+import '../lib/router.js'
+import '../lib/helpers.js'
+import '../lib/methods.js'
 import '../imports/template/header.html'
 import '../imports/template/header.js'
 import '../imports/template/layout.html'

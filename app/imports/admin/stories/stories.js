@@ -1,4 +1,4 @@
-import { Chapters, Dataset } from '../../lib/collections.js';
+import { Chapters, Dataset } from '../../../lib/collections.js';
 Template.adminStories.onCreated (function(){
 	var self = this;
 

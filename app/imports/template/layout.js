@@ -1,4 +1,4 @@
-import { Tests } from '../lib/collections.js';
+import { Tests } from '../../lib/collections.js';
 Template.layout.onCreated(function () {
 	var self = this;
 	

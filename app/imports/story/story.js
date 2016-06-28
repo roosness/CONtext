@@ -1,4 +1,4 @@
-import { Dataset, Chapters, Userdata, Fallbacks } from '../lib/collections.js';
+import { Dataset, Chapters, Userdata, Fallbacks } from '../../lib/collections.js';
 Template.story.onCreated(function () {
 	var self = this;
 	self.autorun(function () {
