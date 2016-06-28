@@ -1,4 +1,4 @@
-import { Chapters, Dataset, Filters, Fallbacks } from '../../../../lib/collections.js';
+import { Chapters, Dataset, Filters, Fallbacks } from '../../../lib/collections.js';
 Template.filters.onCreated(function () {
 	var self = this;
 	Session.clear();

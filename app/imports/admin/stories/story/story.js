@@ -1,4 +1,4 @@
-import { Chapters } from '../../../../lib/collections.js';
+import { Chapters } from '../../../lib/collections.js';
 
 Template.adminStory.events({
 	

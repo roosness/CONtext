@@ -1,4 +1,4 @@
-import {  Fallbacks } from '../../../lib/collections.js';
+import {  Fallbacks } from '../../lib/collections.js';
 Template.adminSettings.onCreated(function () {
 	var self = this;
 	Session.clear();

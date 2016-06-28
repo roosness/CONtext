@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 
-import { Chapters, Tests, Filters, Userdata, Fallbacks } from '../lib/collections.js'
+import { Chapters, Tests, Filters, Userdata, Fallbacks } from '../imports/lib/collections.js'
 
-import '../lib/methods.js'
+import '../imports/lib/methods.js'
 
 ServiceConfiguration.configurations.remove({
     service: 'facebook'

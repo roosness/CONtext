@@ -1,4 +1,4 @@
-import { Chapters, Dataset, Tests } from '../../lib/collections.js';
+import { Chapters, Dataset, Tests } from '../lib/collections.js';
 
 Template.testfooter.helpers({
 	usercurrent() {

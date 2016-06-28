@@ -1,4 +1,4 @@
-import { Userdata } from '../lib/collections.js';
+import { Userdata } from '../imports/lib/collections.js';
 //  brother, sister, mother father, 
 // friendlists
 // likes,
