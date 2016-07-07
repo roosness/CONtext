@@ -39,6 +39,10 @@ Template.testSession.helpers({
 	},
 	testusers() {
 		console.log(this)
+
+		if(this.testusers === undefined || this.testusers.length === 0) {
+			Session.set('selectedTab', 'testConfig')
+		}
 		return this.testusers
 	},
 	isActiveButton(id) {
