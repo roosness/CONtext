@@ -30,7 +30,13 @@ if(Tests.find().count() === 0) {
 console.log(Fallbacks.find().count())
 if(Fallbacks.find().count() === 0) {
 	
-var data = [{ 
+var data = [
+{
+    "category": "geslacht",
+    "male": "zijn",
+    "female": "haar"
+},
+{ 
     "category": "Family",
     "fallback": "Dirk Deloreis",
     "subcategory": "brother"
@@ -129,11 +135,7 @@ var data = [{
     "category": "user",
     "fallback": "Frans Fransman",
     "subcategory": "significant_other"
-},
-{
-    "category": "geslacht",
-    "male": "zijn",
-    "female": "haar"
-}];
+}
+];
 for(var i in data) { Fallbacks.insert(data[i])}
 }

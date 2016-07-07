@@ -67,13 +67,28 @@ form.fallbacks h3 {
 		font-size: 1.3em;
 		margin:.5em 0;
 	}
-	
 
-form.addGenderWords, .geslacht {
+form.addGenderWords {
+	display:flex;
+	flex-wrap:wrap;
+	label {
+		flex:40%;
+		margin:.5em 0;
+
+	}
+	input[type='text'] {
+		margin:.5em 0;
+		flex:60%;
+	}
+	input[type='submit'] {
+		flex:100%;
+	}
+}
+form.geslacht {
 	input[type='text'] {
 		width:40%;
 		margin:1em 0;
-		&:nth-of-type(odd) {
+		&:nth-of-type(even) {
 			float:right;
 
 		}

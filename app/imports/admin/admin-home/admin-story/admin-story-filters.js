@@ -99,10 +99,17 @@ Template.person.helpers({
 		var words = [];
 		var data = Fallbacks.find({category: 'geslacht'}).fetch()
 		for(var i = 0; i < data.length;i++) {
-			words.push(data[i].female)
+
+			words.push({
+				female: data[i].female,
+				male: data[i].male
+			})
 		}
-		
+		console.log(words);
 		return words
+	},
+	other(a) {
+		console.log(a);
 	},
 	selectedFormat () {
 		console.log(this.settings.name.format)

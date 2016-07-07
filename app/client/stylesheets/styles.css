@@ -875,12 +875,28 @@ form.fallbacks h3 {
   font-size: 1.3em;
   margin: 0.5em 0; }
 
-/* line 73, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
-form.addGenderWords input[type='text'], .geslacht input[type='text'] {
+/* line 71, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+form.addGenderWords {
+  display: flex;
+  flex-wrap: wrap; }
+  /* line 74, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  form.addGenderWords label {
+    flex: 40%;
+    margin: 0.5em 0; }
+  /* line 79, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  form.addGenderWords input[type='text'] {
+    margin: 0.5em 0;
+    flex: 60%; }
+  /* line 83, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  form.addGenderWords input[type='submit'] {
+    flex: 100%; }
+
+/* line 88, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+form.geslacht input[type='text'] {
   width: 40%;
   margin: 1em 0; }
-  /* line 76, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
-  form.addGenderWords input[type='text']:nth-of-type(odd), .geslacht input[type='text']:nth-of-type(odd) {
+  /* line 91, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  form.geslacht input[type='text']:nth-of-type(even) {
     float: right; }
 
 /* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
