@@ -104,20 +104,19 @@ input[type='text'] {
 
 form {
   margin: 0 0;
-  input[type='text'] {
-    padding:.2em .5em;
-  }
-
-  input[type='submit'] {
-    width:100%;
-    clear:both;
-    margin: .5em auto;
-    font-size: 1em;
-    border:none;
-    padding:.5em;
-    background:$green;
-    color:white;
-  }
+}
+input[type='submit'] {
+  width:100%;
+  clear:both;
+  margin: .5em auto;
+  font-size: 1em;
+  border:none;
+  padding:.5em;
+  background:$green;
+  color:white;
+}
+input[type='text'] {
+  padding:.2em .5em;
 }
 @import '../../imports/login/login';
 @import '../../imports/user/user';

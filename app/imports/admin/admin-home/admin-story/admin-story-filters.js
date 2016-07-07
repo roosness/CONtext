@@ -3,6 +3,9 @@ import { Stories, Fallbacks, userData } from '../../../../lib/collections.js';
 import './admin-story-filters.html'
 
 Template.filters.events({
+	'click label[for="naam"]' : function (e) {
+		document.querySelector('div.naam').classList.toggle('active')
+	},
 	'click .filter-list li span' : function (e) {
 		console.log('click')
 		var links = document.querySelectorAll('.filters li');

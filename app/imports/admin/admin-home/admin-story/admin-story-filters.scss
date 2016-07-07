@@ -27,7 +27,7 @@ form.insert {
 		border:1px solid $grey2;
 	}
 }
-ul.filter-list {
+.filter-list {
 	list-style:none;
 	padding: 0 0;
 	margin: 0 0;
@@ -90,7 +90,7 @@ form.filter {
 					font-size:1em;
 				}
 				&.active {
-					border:2px solid $green !important;
+					border:2px solid $green;
 				}
 			}
 		& > label:last-of-type:nth-of-type(odd){

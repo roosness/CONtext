@@ -1,1 +1,946 @@
-*{box-sizing:border-box}body,html{background:white;padding:0 0;margin:0 0;font-size:1em;height:100%;font-weight:400;line-height:1.45;color:#333;width:100%;position:relative;font-family:'PT Sans',sans-serif}body{position:relative}button{background:#40ca21;font-size:1em;padding:0.5em 1em;color:white;border-radius:3px;box-shadow:4px 4px 14px 0 rgba(50,50,50,0.15);border:none}article{padding:1em;max-width:40em;margin:0 auto}article p{font-size:1.2em;line-height:1.7em;font-family:'Crimson Text',serif}h1,h2,h3,h4,h5,h6{font-family:'PT Sans',sans-serif;font-weight:inherit;line-height:1.2}h1,h2,h3,h4{margin:1.414em 0 0.5em}h1{margin-top:0;font-size:3.157em}h2{font-size:2.369em}h3{font-size:1.777em}h4{font-size:1.333em}nav ul{margin:0 0}ul,ol{list-style:none}main{margin:0 0}main.admin{height:100%}main.admin header{margin:4em auto 2em;min-height:10em;max-width:60em}input[type='text']{font-size:1em}.adminMessage{max-width:60em;margin:0 auto}.vert-center{height:80%;width:100%;position:absolute;display:flex;flex-wrap:nowrap;flex-direction:column;justify-content:center;align-items:center}form{margin:0 0}form input[type='text']{padding:0.2em 0.5em}form input[type='submit']{width:100%;clear:both;margin:0.5em auto;font-size:1em;border:none;padding:0.5em;background:#40ca21;color:white}main.login{position:relative;min-height:100%}main.login .start{background:#607d8b;height:100%;padding:0 0;color:white;box-sizing:border-box;position:absolute;width:100%;text-align:left;display:flex;flex-wrap:nowrap;flex-direction:column;justify-content:space-between;transition:all 0.05s ease-in-out;transition-delay:1s}main.login .start p{flex:5%;margin:0 0;text-align:center;color:white}main.login .start h1{flex:50%;text-align:left;padding:0.5em;max-width:10em;display:inline;margin:0 auto}main.login .start a{flex:30%;display:flex;justify-content:center;align-items:center;flex-direction:column;text-decoration:none;color:white;padding:0 0}main.login .start a img{width:30vw;height:30vw;transform:scale(0.3);margin:-4em auto -4em;border:3px solid white;border-radius:100%;animation-name:fingerprint;padding:0;animation-duration:1s;animation-iteration-count:infinite;background:#607d8b;animation-direction:alternate;transition:background 0.05s}main.login .start a span{margin:0 0;flex:100%}main.login .login-buttons{height:0;overflow:hidden;opacity:0}main.login.showLogin .start{height:0;overflow:hidden;padding:0}main.login.showLogin .start img{animation-name:resize;background:white;border:none;animation-duration:1.5s;animation-iteration-count:1}main.login.showLogin .login-buttons{opacity:1;transition:opacity 0.7s ease-in-out;transition-delay:0.5s;padding:2em;color:#00356B;height:100%}main.login.showLogin .login-buttons h2{margin:0 0}button.social-login{font-size:1em;border:none;color:white;background:#607d8b;padding:0.7em}button.social-login img{max-height:1em;vertical-align:text-top;padding:0 0;float:left;margin:0 0.7em}@keyframes resize{0%{transform:scale(1)}100%{transform:scale(30)}}@keyframes fingerprint{0%{transform:scale(0.3)}10%{transform:scale(0.35)}30%{transform:scale(0.3)}100%{transform:scale(0.3)}}.storyList{list-style:none;padding:0 0}.storyList header{background:#607d8b;color:white;margin:0 0;margin-top:-1em;text-align:center;padding:1em;box-shadow:inset 0 -3px 10 0 rgba(50,50,50,0.4)}.storyList header h2{margin:0 0;font-size:1.2em}.storyList li{position:relative;height:4em;padding:1em 4em;box-sizing:border-box;border-bottom:1px solid #f5f5f5;transition:all 0.2s ease-in-out}.storyList li:hover{background:#f5f5f5}.storyList li img{height:100%;vertical-align:middle;display:inline-block}.storyList li a{padding:0 1em;display:inline-block;text-decoration:none;color:black}.story header{margin:3em 0 4em}.story>p:first-letter{transition:all 0.2s ease-in-out;float:left;color:#607d8b;font-size:4em;text-transform:uppercase;line-height:0.8em;padding-right:8px;padding-bottom:0}footer{width:100%;text-align:center}footer a{background:#607d8b;margin:1em;padding:1em 3em;color:white;text-decoration:none;box-shadow:5px 5px 14px 0 rgba(50,50,50,0.25)}.admin img{max-width:2em}.admin header{margin-top:5em}.newChapter{width:100%;max-width:60em;margin:1em auto;box-sizing:border-box;justify-content:space-between;display:flex;flex-wrap:wrap;justify-content:space-between}.newChapter label{clear:both;flex:100%;margin:0.5em 0}.newChapter input[type='text']{padding:0.5em;flex:70%;margin-right:2em;font-size:1em}.newChapter input[type='submit']{flex:20%;max-width:10em;margin:0 0}.adminMessage{margin:0 auto;max-width:30em}.storyListAdmin{max-width:60em;margin:0 auto;list-style:none;padding:0 0}.storyListAdmin>li{position:relative;border-bottom:1px solid #f5f5f5;transition:all 0.2s ease-in-out;padding:0.5em;list-style-type:none}.storyListAdmin>li span,.storyListAdmin>li a>span{padding:0 2em;text-align:left}.storyListAdmin>li a{display:inline-block}.storyListAdmin>li img{padding:0.3em;box-sizing:border-box;height:2em;vertical-align:middle}.storyListAdmin>li ol{list-style-type:none;padding:0 0;padding-left:4em}.storyListAdmin>li ol li>a{padding:0.5em;display:block;width:100%;transition:all 0.2s ease-in-out;border-top:1px solid #f5f5f5}.storyListAdmin>li ol li>a:hover{background:white}.storyListAdmin>li ol li>a em{color:#939393;font-style:normal;font-size:0.8em}.storyListAdmin>li a:not(.delete),.storyListAdmin>li span{display:inline-block;position:relative;text-decoration:none;color:black}.storyListAdmin>li a:not(.delete) img,.storyListAdmin>li span img{display:inline-block;margin-right:0.5em}.storyListAdmin>li a:not(.delete) span,.storyListAdmin>li span span{display:inline-block;margin:0 0}.storyListAdmin>li a.delete{float:right;height:100%;display:inline-block}.storyListAdmin>li a.delete img{transition:all 0.2s ease-in-out}.storyListAdmin>li a.delete:hover img{transform:scale(1.2)}.storyListAdmin>li:hover{background:#f5f5f5}.edit-story{width:100%;height:100%}.edit-story aside{width:30vw;position:fixed;top:0;right:0;height:100%;text-align:center}.edit-story aside #switch{background:#939393;text-decoration:none;font-size:1.1em;display:block;color:white;margin:0 0 1em;padding:0.5em}.edit-story>.story{margin-right:30vw}.edit-story .editStoryButtons{position:fixed;background:white;box-shadow:0px 10px 5px 0px white;top:0;width:calc(100% - 32vw);right:30vw;text-align:right}.filters{background:#f5f5f5;border-left:1px solid #ebebeb;position:relative}aside button{margin:1em}form.insert{display:block;background:white;position:relative;text-align:center}form.insert label{background:#607d8b;color:white;width:100%;margin:0 0;padding:0.5em 1em;display:block;text-align:center}form.insert textarea{width:95%;margin:1em 0;border:1px solid #ebebeb}ul.filter-list{list-style:none;padding:0 0;margin:0 0;text-align:center}ul.filter-list li span{display:block;background:white;border-top:1px solid #ebebeb;padding:0.5em 2em;color:#939393;position:relative}ul.filter-list li img{width:1em;transition:all 0.2s ease-in-out;float:right;margin-top:0.5em}ul.filter-list li.showFilter form{max-height:800px;height:100%;padding:0.5em 0.7em}ul.filter-list li.showFilter img{transform:rotate(180deg)}form.filter{display:flex;max-height:0;overflow:hidden;transition:all 0.2s ease-in-out;justify-content:space-between;flex-wrap:wrap;text-align:left}form.filter label:not(.forSelect),form.filter .format{flex:0 0 48%;padding:10px;margin:0.5em 0;background:white;height:7em;display:flex;justify-content:center;align-items:center;border:1px solid #ebebeb;transition:all 0.2s ease-in-out}form.filter .format{display:block;padding:0.7em}form.filter .format label,form.filter .format select{text-align:center;margin:1em 0;display:block;width:100%;font-size:1em}form.filter .format.active{border:2px solid #40ca21 !important}form.filter>label:last-of-type:nth-of-type(odd){align-self:flex-start}form.filter input[type='submit']{margin:0.5em}form.filter input[type='radio']{display:none}form.filter input[type='radio']#naam:checked ~ section:first-of-type,form.filter input[type='radio']#geslacht:checked ~ section:first-of-type{border:2px solid RGBA(138, 194, 73, 1) !important}form.filter input[type='radio']:checked+label,form.filter input[type='radio'] .geslachtWord{color:white;background:#40ca21}.storySettings{margin:0.5em 0;background:white;border:1px solid #ebebeb;padding:1.5em;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;text-align:left}.storySettings button{background:#607d8b;width:100%;margin:0 0 1em}.storySettings p{flex:100%;margin:2.5em 0 0.5em}.storySettings label{flex:92%}.storySettings select{flex:30%;margin:0.3em;font-size:1em}.storySettings label[for='format']{flex:10%;margin:0.3em 0;text-align:left}.storySettings input[type='checkbox']{flex:5%;margin-bottom:2em}.storySettings input[type='text']{flex:100%;margin:0.5em 0 1.5em}.storySettings input[type='text']::-webkit-input-placeholder{text-transform:none}.storySettings input[type='radio']{display:none}.storySettings input[type='radio']+label{background:white;display:inline-block;flex:40%;margin:0.7em 0 1.5em;height:7em;display:flex;justify-content:center;align-items:center;text-align:center;border:1px solid #ebebeb;transition:all 0.2s ease-in-out}.storySettings input[type='radio']:checked+label{color:white;background:#40ca21}.storySettings select{font-size:1em}div.popup{display:none;background:white;position:fixed;width:50vw;border:none;height:20vw;z-index:9;top:50%;left:45%;margin-top:-15vw;margin-left:-15vw;padding:0 0;box-shadow:0 0 0 50vmax rgba(0,0,0,0.8)}div.popup.active{display:block}div.popup header{background:#607d8b;width:100%;min-height:0;margin:0 0;padding:0.7em;text-align:left}div.popup header h3{margin:0 0;color:white;display:inline-block;font-size:1.2em}div.popup header img{max-height:1em;display:inline-block;float:right}div.popup form{position:relative;height:80%;width:100%;text-align:left;padding:1em}div.popup form label{display:block;margin:0.5em 0;text-align:left}div.popup form input[type='text']{font-size:1em;width:80%;padding:0.2em 0.5em;margin:0 0;text-align:left;margin-left:0}div.popup form input[type='submit']{position:absolute;width:auto;padding:0.5em 2em;right:1em;bottom:0}ul.editList{list-style:none;padding:0 0;margin:0.8em}ul.editList li{display:inline-block;margin:0.2em}ul.editList a{display:block;box-sizing:border-box;padding:0.5em 1em;border-radius:3px;background:#40ca21;color:white;transition:all 0.2s ease-in-out;z-index:5;margin:0 0.3em;border:1px solid rgba(0,0,0,0);text-decoration:none;box-shadow:7px 7px 37px -5px rgba(0,0,0,0.1)}ul.editList a.commit{background:#ca2140;border:1px solid #ebebeb;color:#f5f5f5}.sortable-ghost{opacity:0.3;background:#f60}#listC{border:2px dashed #f60;min-height:100px}.verwijderen{text-decoration:line-through}.bewerken{background:#f5f5f5;color:#7f7f7f}form.addGenderWords,form.fallbacks{background:#f5f5f5;max-width:35em;margin:1em auto;padding:1em 2em 3em}form.addGenderWords h3,form.fallbacks h3{margin-top:0;font-size:1.3em}form.addGenderWords input[type='text'],form.fallbacks input[type='text']{font-size:0.8em}form.addGenderWords input[type='submit'],form.fallbacks input[type='submit']{background:#607d8b}form.addGenderWords>div,form.fallbacks>div{margin:1em 0;box-sizing:border-box;text-align:right}form.addGenderWords>div a,form.fallbacks>div a{margin:0 1em;display:inline-block}form.addGenderWords>div a img,form.fallbacks>div a img{max-width:0.8em;transition:all 0.2s ease-in-out;vertical-align:middle}form.addGenderWords>div a:hover,form.fallbacks>div a:hover{transform:scale(1.2)}form.addGenderWords>div a:hover+div,form.fallbacks>div a:hover+div{opacity:0.5}form.addGenderWords>div .geslacht,form.fallbacks>div .geslacht{display:inline-block;width:85%;transition:all 0.2s ease-in-out;padding:0.3em 1em}form.addGenderWords>div div,form.fallbacks>div div{text-align:left;padding:0.7em 1em;background:white;border-bottom:1px solid #EBEBEB}form.addGenderWords>div div:not(.geslacht) input,form.fallbacks>div div:not(.geslacht) input{float:right}form.fallbacks h3{color:#4e7789;font-size:1.3em;margin:0.5em 0}form.addGenderWords input[type='text'],.geslacht input[type='text']{width:40%;margin:1em 0}form.addGenderWords input[type='text']:nth-of-type(odd),.geslacht input[type='text']:nth-of-type(odd){float:right}ul.tabs{margin:0 auto;padding:0 0;max-width:60em;list-style-type:none}ul.tabs li{display:inline-block}ul.tabs li a{margin:3em auto;display:block;text-decoration:none;color:black;background:#f5f5f5;border-top:1px solid #ebebeb;border-right:1px solid #ebebeb;border-left:1px solid #ebebeb;padding:0.5em 2em;margin:0 0;margin-right:-0.5em;transition:all 0.2s ease-in-out}ul.tabs li a.active{background:#607d8b;color:white;border-color:#607d8b;box-shadow:4px 4px 14px 0 rgba(50,50,50,0.15)}.templateSelected{border-top:1px solid #ebebeb;margin:0 auto;background:#f5f5f5;padding:2em;max-width:60em}.templateSelected .numberOf{border-bottom:1px solid #ebebeb;padding-bottom:1em}.templateSelected form input[type='number']{font-size:1em;text-align:center}.templateSelected form input[type='checkbox']:checked ~ div{opacity:1}.userList.testplan{padding:0 0}.userList.testplan>li{background:white;border-bottom:1px solid #f5f5f5;padding:0.5em 2em;display:block;width:100%}.userList.testplan ul{display:inline-block;float:right}.userList.testplan ul span{font-weight:700}.userList.testplan ul li{display:inline-block;border-bottom:3px solid white;transition:0.2s ease-in-out;margin:0 0.5em}.userList.testplan button{margin:0 0;transition:0.5s ease-in-out;margin-right:2em}.userList.testplan button.stop{background:#ca2140}.userList.testplan .currentStory{border-color:#607d8b}.testplan{padding:1em}footer{width:100%;text-align:center}footer a{background:#607d8b;margin:1em;padding:1em 3em;color:white;text-decoration:none;box-shadow:5px 5px 14px 0 rgba(50,50,50,0.25)}
+/* line 5, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+* {
+  box-sizing: border-box; }
+
+/* line 9, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+body, html {
+  background: white;
+  padding: 0 0;
+  margin: 0 0;
+  font-size: 1em;
+  height: 100%;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
+  width: 100%;
+  position: relative;
+  font-family: 'PT Sans', sans-serif; }
+
+/* line 23, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+body {
+  position: relative; }
+
+/* line 26, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+button {
+  background: #40ca21;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 4px 4px 14px 0 rgba(50, 50, 50, 0.15);
+  border: none; }
+
+/* line 36, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+article {
+  padding: 1em;
+  max-width: 40em;
+  margin: 0 auto; }
+  /* line 40, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+  article p {
+    font-size: 1.2em;
+    line-height: 1.7em;
+    font-family: 'Crimson Text', serif; }
+
+/* line 47, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: inherit;
+  line-height: 1.2; }
+
+/* line 52, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em; }
+
+/* line 55, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+h1 {
+  margin-top: 0;
+  font-size: 3.157em; }
+
+/* line 59, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+h2 {
+  font-size: 2.369em; }
+
+/* line 60, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+h3 {
+  font-size: 1.777em; }
+
+/* line 61, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+h4 {
+  font-size: 1.333em; }
+
+/* line 62, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+nav ul {
+  margin: 0 0; }
+
+/* line 66, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+ul, ol {
+  list-style: none; }
+
+/* line 69, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+main {
+  margin: 0 0; }
+
+/* line 72, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+main.admin {
+  height: 100%; }
+  /* line 75, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+  main.admin header {
+    margin: 4em auto 2em;
+    min-height: 10em;
+    max-width: 60em; }
+
+/* line 85, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+input[type='text'] {
+  font-size: 1em; }
+
+/* line 88, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+.adminMessage {
+  max-width: 60em;
+  margin: 0 auto; }
+
+/* line 93, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+.vert-center {
+  height: 80%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+/* line 105, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+form {
+  margin: 0 0; }
+
+/* line 108, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+input[type='submit'] {
+  width: 100%;
+  clear: both;
+  margin: 0.5em auto;
+  font-size: 1em;
+  border: none;
+  padding: 0.5em;
+  background: #40ca21;
+  color: white; }
+
+/* line 118, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+input[type='text'] {
+  padding: 0.2em 0.5em; }
+
+/* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+main.login {
+  position: relative;
+  min-height: 100%; }
+
+/* line 9, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+.showLogin .start {
+  height: 0;
+  overflow: hidden;
+  padding: 0; }
+  /* line 13, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  .showLogin .start img {
+    animation-name: resize;
+    background: white;
+    border: none;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1; }
+/* line 21, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+.showLogin .login-buttons {
+  opacity: 1;
+  transition: opacity 0.7s ease-in-out;
+  transition-delay: 0.5s;
+  padding: 2em;
+  color: #00356B;
+  height: 100%; }
+
+/* line 32, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+.login-buttons {
+  height: 0;
+  overflow: hidden;
+  opacity: 0; }
+
+/* line 37, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+.start {
+  background: #607d8b;
+  height: 100%;
+  padding: 0 0;
+  color: white;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.05s ease-in-out;
+  transition-delay: 1s; }
+  /* line 52, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  .start p {
+    flex: 5%;
+    margin: 0 0;
+    text-align: center;
+    color: white; }
+  /* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  .start h1 {
+    flex: 50%;
+    text-align: left;
+    padding: 0.5em;
+    max-width: 10em;
+    display: inline;
+    margin: 0 auto; }
+  /* line 66, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  .start a {
+    flex: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    padding: 0 0; }
+    /* line 76, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+    .start a span {
+      margin: 0 0;
+      flex: 100%; }
+  /* line 81, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  .start img {
+    width: 30vw;
+    height: 30vw;
+    transform: scale(0.3);
+    margin: -4em auto -4em;
+    border: 3px solid white;
+    border-radius: 100%;
+    animation-name: fingerprint;
+    padding: 0;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    background: #607d8b;
+    animation-direction: alternate;
+    transition: background 0.05s; }
+
+/* line 97, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+button.social-login {
+  font-size: 1em;
+  border: none;
+  color: white;
+  background: #607d8b;
+  padding: 0.7em; }
+  /* line 103, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  button.social-login img {
+    max-height: 1em;
+    vertical-align: text-top;
+    padding: 0 0;
+    float: left;
+    margin: 0 0.7em; }
+
+@keyframes resize {
+  /* line 112, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  0% {
+    transform: scale(1); }
+
+  /* line 113, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  100% {
+    transform: scale(30); } }
+
+@keyframes fingerprint {
+  /* line 116, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  0% {
+    transform: scale(0.3); }
+
+  /* line 117, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  10% {
+    transform: scale(0.35); }
+
+  /* line 118, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  30% {
+    transform: scale(0.3); }
+
+  /* line 119, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
+  100% {
+    transform: scale(0.3); } }
+
+/* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/stories */
+.storyList {
+  list-style: none;
+  padding: 0 0; }
+  /* line 5, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/stories */
+  .storyList header {
+    background: #607d8b;
+    color: white;
+    margin: 0 0;
+    margin-top: -1em;
+    text-align: center;
+    padding: 1em;
+    box-shadow: inset 0 -3px 10 0 rgba(50, 50, 50, 0.4); }
+  /* line 14, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/stories */
+  .storyList h2 {
+    margin: 0 0;
+    font-size: 1.2em; }
+  /* line 18, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/stories */
+  .storyList li {
+    position: relative;
+    height: 4em;
+    padding: 1em 4em;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.2s ease-in-out; }
+    /* line 25, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/stories */
+    .storyList li:hover {
+      background: #f5f5f5; }
+  /* line 29, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/stories */
+  .storyList img {
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block; }
+  /* line 34, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/stories */
+  .storyList a {
+    padding: 0 1em;
+    display: inline-block;
+    text-decoration: none;
+    color: black; }
+
+/* line 4, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/story */
+.story header {
+  margin: 3em 0 4em; }
+/* line 8, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/story */
+.story > p:first-letter {
+  transition: all 0.2s ease-in-out;
+  float: left;
+  color: #607d8b;
+  font-size: 4em;
+  text-transform: uppercase;
+  line-height: 0.8em;
+  padding-right: 8px;
+  padding-bottom: 0; }
+
+/* line 3, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/testStory */
+footer {
+  width: 100%;
+  text-align: center; }
+  /* line 8, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/testStory */
+  footer a {
+    background: #607d8b;
+    margin: 1em;
+    padding: 1em 3em;
+    color: white;
+    text-decoration: none;
+    box-shadow: 5px 5px 14px 0 rgba(50, 50, 50, 0.25); }
+
+/* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+.admin img {
+  max-width: 2em; }
+
+/* line 5, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+.admin header {
+  margin-top: 5em; }
+
+/* line 8, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+.newChapter {
+  width: 100%;
+  max-width: 60em;
+  margin: 1em auto;
+  box-sizing: border-box;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  /* line 17, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+  .newChapter label {
+    clear: both;
+    flex: 100%;
+    margin: 0.5em 0; }
+  /* line 22, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+  .newChapter input[type='text'] {
+    padding: 0.5em;
+    flex: 70%;
+    margin-right: 2em;
+    font-size: 1em; }
+  /* line 28, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+  .newChapter input[type='submit'] {
+    flex: 20%;
+    max-width: 10em;
+    margin: 0 0; }
+
+/* line 35, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+.adminMessage {
+  margin: 0 auto;
+  max-width: 30em; }
+
+/* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+.storyListAdmin {
+  max-width: 60em;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0 0; }
+  /* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+  .storyListAdmin > li {
+    position: relative;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.2s ease-in-out;
+    padding: 0.5em;
+    list-style-type: none; }
+    /* line 50, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+    .storyListAdmin > li span {
+      padding: 0 2em;
+      text-align: left; }
+    /* line 54, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+    .storyListAdmin > li a {
+      display: inline-block; }
+    /* line 57, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+    .storyListAdmin > li img {
+      padding: 0.3em;
+      box-sizing: border-box;
+      height: 2em;
+      vertical-align: middle; }
+    /* line 63, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+    .storyListAdmin > li:hover {
+      background: #f5f5f5; }
+  /* line 69, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+  .storyListAdmin a:not(.delete), .storyListAdmin span {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: black; }
+    /* line 74, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+    .storyListAdmin a:not(.delete) img, .storyListAdmin span img {
+      display: inline-block;
+      margin-right: 0.5em; }
+    /* line 78, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+    .storyListAdmin a:not(.delete) span, .storyListAdmin span span {
+      display: inline-block;
+      margin: 0 0; }
+
+/* line 84, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+li.single .delete {
+  padding-right: 1em; }
+
+/* line 87, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+a.delete {
+  float: right;
+  height: 100%;
+  display: inline-block; }
+  /* line 91, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+  a.delete img {
+    transition: all 0.2s ease-in-out; }
+  /* line 94, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+  a.delete:hover img {
+    transform: scale(1.2); }
+
+/* line 98, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+.duplicatesList {
+  list-style-type: none;
+  padding: 0 0;
+  padding-left: 4em; }
+  /* line 102, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+  .duplicatesList li > a {
+    padding: 0.5em;
+    display: block;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+    border-top: 1px solid #f5f5f5; }
+    /* line 108, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+    .duplicatesList li > a:hover {
+      background: white; }
+  /* line 112, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin */
+  .duplicatesList em {
+    color: #939393;
+    font-style: normal;
+    font-size: 0.8em; }
+
+/* line 3, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+.edit-story {
+  width: 100%;
+  height: 100%; }
+  /* line 8, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+  .edit-story aside {
+    width: 30vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    text-align: center; }
+    /* line 17, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+    .edit-story aside #switch {
+      background: #939393;
+      text-decoration: none;
+      font-size: 1.1em;
+      display: block;
+      color: white;
+      margin: 0 0 1em;
+      padding: 0.5em; }
+  /* line 27, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+  .edit-story > .story {
+    margin-right: 30vw; }
+  /* line 31, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+  .edit-story .editStoryButtons {
+    position: fixed;
+    background: white;
+    box-shadow: 0px 10px 5px 0px white;
+    top: 0;
+    width: calc(100% - 32vw);
+    right: 30vw;
+    text-align: right; }
+
+/* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+.filters {
+  background: #f5f5f5;
+  border-left: 1px solid #ebebeb;
+  position: relative; }
+
+/* line 7, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+aside button {
+  margin: 1em; }
+
+/* line 10, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+form.insert {
+  display: block;
+  background: white;
+  position: relative;
+  text-align: center; }
+  /* line 15, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  form.insert label {
+    background: #607d8b;
+    color: white;
+    width: 100%;
+    margin: 0 0;
+    padding: 0.5em 1em;
+    display: block;
+    text-align: center; }
+  /* line 24, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  form.insert textarea {
+    width: 95%;
+    margin: 1em 0;
+    border: 1px solid #ebebeb; }
+
+/* line 30, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+.filter-list {
+  list-style: none;
+  padding: 0 0;
+  margin: 0 0;
+  text-align: center; }
+  /* line 36, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  .filter-list li span {
+    display: block;
+    background: white;
+    border-top: 1px solid #ebebeb;
+    padding: 0.5em 2em;
+    color: #939393;
+    position: relative; }
+  /* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  .filter-list li img {
+    width: 1em;
+    transition: all 0.2s ease-in-out;
+    float: right;
+    margin-top: 0.5em; }
+  /* line 51, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  .filter-list li.showFilter form {
+    max-height: 800px;
+    height: 100%;
+    padding: 0.5em 0.7em; }
+  /* line 56, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  .filter-list li.showFilter img {
+    transform: rotate(180deg); }
+
+/* line 62, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+form.filter {
+  display: flex;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: left; }
+  /* line 70, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  form.filter label:not(.forSelect), form.filter .format {
+    flex: 0 0 48%;
+    padding: 10px;
+    margin: 0.5em 0;
+    background: white;
+    height: 7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ebebeb;
+    transition: all 0.2s ease-in-out; }
+  /* line 82, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  form.filter .format {
+    display: block;
+    padding: 0.7em; }
+    /* line 85, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+    form.filter .format label, form.filter .format select {
+      text-align: center;
+      margin: 1em 0;
+      display: block;
+      width: 100%;
+      font-size: 1em; }
+    /* line 92, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+    form.filter .format.active {
+      border: 2px solid #40ca21; }
+  /* line 96, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  form.filter > label:last-of-type:nth-of-type(odd) {
+    align-self: flex-start; }
+  /* line 99, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  form.filter input[type='submit'] {
+    margin: 0.5em; }
+  /* line 102, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+  form.filter input[type='radio'] {
+    display: none; }
+    /* line 104, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+    form.filter input[type='radio']#naam:checked ~ section:first-of-type, form.filter input[type='radio']#geslacht:checked ~ section:first-of-type {
+      border: 2px solid RGBA(138, 194, 73, 1) !important; }
+    /* line 107, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-filters */
+    form.filter input[type='radio']:checked + label, form.filter input[type='radio'] .geslachtWord {
+      color: white;
+      background: #40ca21; }
+
+/* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+.storySettings {
+  margin: 0.5em 0;
+  background: white;
+  border: 1px solid #ebebeb;
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  text-align: left; }
+  /* line 12, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  .storySettings button {
+    background: #607d8b;
+    width: 100%;
+    margin: 0 0 1em; }
+  /* line 17, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  .storySettings p {
+    flex: 100%;
+    margin: 2.5em 0 0.5em; }
+  /* line 21, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  .storySettings label {
+    flex: 92%; }
+  /* line 24, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  .storySettings select {
+    flex: 30%;
+    margin: 0.3em;
+    font-size: 1em; }
+  /* line 29, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  .storySettings label[for='format'] {
+    flex: 10%;
+    margin: 0.3em 0;
+    text-align: left; }
+  /* line 34, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  .storySettings input[type='checkbox'] {
+    flex: 5%;
+    margin-bottom: 2em; }
+  /* line 38, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  .storySettings input[type='text'] {
+    flex: 100%;
+    margin: 0.5em 0 1.5em; }
+    /* line 41, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+    .storySettings input[type='text']::-webkit-input-placeholder {
+      text-transform: none; }
+  /* line 45, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  .storySettings input[type='radio'] {
+    display: none; }
+    /* line 47, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+    .storySettings input[type='radio'] + label {
+      background: white;
+      display: inline-block;
+      flex: 40%;
+      margin: 0.7em 0 1.5em;
+      height: 7em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px solid #ebebeb;
+      transition: all 0.2s ease-in-out; }
+    /* line 60, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+    .storySettings input[type='radio']:checked + label {
+      color: white;
+      background: #40ca21; }
+  /* line 65, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  .storySettings select {
+    font-size: 1em; }
+
+/* line 69, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+div.popup {
+  display: none;
+  background: white;
+  position: fixed;
+  width: 50vw;
+  border: none;
+  height: 20vw;
+  z-index: 9;
+  top: 50%;
+  left: 45%;
+  margin-top: -15vw;
+  margin-left: -15vw;
+  padding: 0 0;
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.8); }
+  /* line 83, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  div.popup.active {
+    display: block; }
+  /* line 86, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  div.popup header {
+    background: #607d8b;
+    width: 100%;
+    min-height: 0;
+    margin: 0 0;
+    padding: 0.7em;
+    text-align: left; }
+  /* line 95, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  div.popup h3 {
+    margin: 0 0;
+    color: white;
+    display: inline-block;
+    font-size: 1.2em; }
+  /* line 101, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+  div.popup img {
+    max-height: 1em;
+    display: inline-block;
+    float: right; }
+
+/* line 108, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+div.popup form {
+  position: relative;
+  height: 80%;
+  width: 100%;
+  text-align: left;
+  padding: 1em; }
+/* line 116, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+div.popup label {
+  display: block;
+  margin: 0.5em 0;
+  text-align: left; }
+/* line 121, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+div.popup input[type='text'] {
+  font-size: 1em;
+  width: 80%;
+  padding: 0.2em 0.5em;
+  margin: 0 0;
+  text-align: left;
+  margin-left: 0; }
+/* line 129, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-settings */
+div.popup input[type='submit'] {
+  position: absolute;
+  width: auto;
+  padding: 0.5em 2em;
+  right: 1em;
+  bottom: 0; }
+
+/* line 3, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+ul.editList {
+  list-style: none;
+  padding: 0 0;
+  margin: 0.8em; }
+  /* line 8, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  ul.editList li {
+    display: inline-block;
+    margin: 0.2em; }
+  /* line 14, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  ul.editList a {
+    display: block;
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    background: #40ca21;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    z-index: 5;
+    margin: 0 0.3em;
+    border: 1px solid rgba(0, 0, 0, 0);
+    text-decoration: none;
+    box-shadow: 7px 7px 37px -5px rgba(0, 0, 0, 0.1); }
+  /* line 28, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  ul.editList a.commit {
+    background: #ca2140;
+    border: 1px solid #ebebeb;
+    color: #f5f5f5; }
+
+/* line 37, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+.sortable-ghost {
+  opacity: 0.3;
+  background: #f60; }
+
+/* line 42, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+#listC {
+  border: 2px dashed #f60;
+  min-height: 100px; }
+
+/* line 47, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+.verwijderen {
+  text-decoration: line-through; }
+
+/* line 50, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+.bewerken {
+  background: #f5f5f5;
+  color: #7f7f7f; }
+
+/* line 4, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+form.addGenderWords, form.fallbacks {
+  background: #f5f5f5;
+  max-width: 35em;
+  margin: 1em auto;
+  padding: 1em 2em 3em; }
+  /* line 9, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  form.addGenderWords h3, form.fallbacks h3 {
+    margin-top: 0;
+    font-size: 1.3em; }
+  /* line 14, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  form.addGenderWords input[type='text'], form.fallbacks input[type='text'] {
+    font-size: 0.8em; }
+  /* line 17, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  form.addGenderWords input[type='submit'], form.fallbacks input[type='submit'] {
+    background: #607d8b; }
+
+/* line 24, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+.category {
+  margin: 1em 0;
+  box-sizing: border-box;
+  text-align: right; }
+  /* line 28, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  .category a {
+    margin: 0 1em;
+    display: inline-block; }
+    /* line 32, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+    .category a:hover {
+      transform: scale(1.2); }
+      /* line 34, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+      .category a:hover + div {
+        opacity: 0.5; }
+  /* line 39, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  .category img {
+    max-width: 0.8em;
+    transition: all 0.2s ease-in-out;
+    vertical-align: middle; }
+  /* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  .category .geslacht {
+    display: inline-block;
+    width: 85%;
+    transition: all 0.2s ease-in-out;
+    padding: 0.3em 1em; }
+  /* line 51, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  .category div {
+    text-align: left;
+    padding: 0.7em 1em;
+    background: white;
+    border-bottom: 1px solid #EBEBEB; }
+    /* line 59, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+    .category div:not(.geslacht) input {
+      float: right; }
+
+/* line 65, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+form.fallbacks h3 {
+  color: #4e7789;
+  font-size: 1.3em;
+  margin: 0.5em 0; }
+
+/* line 73, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+form.addGenderWords input[type='text'], .geslacht input[type='text'] {
+  width: 40%;
+  margin: 1em 0; }
+  /* line 76, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  form.addGenderWords input[type='text']:nth-of-type(odd), .geslacht input[type='text']:nth-of-type(odd) {
+    float: right; }
+
+/* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+ul.tabs {
+  margin: 0 auto;
+  padding: 0 0;
+  max-width: 60em;
+  list-style-type: none; }
+  /* line 7, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  ul.tabs li {
+    display: inline-block; }
+  /* line 10, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  ul.tabs a {
+    margin: 3em auto;
+    display: block;
+    text-decoration: none;
+    color: black;
+    background: #f5f5f5;
+    border-top: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+    border-left: 1px solid #ebebeb;
+    padding: 0.5em 2em;
+    margin: 0 0;
+    margin-right: -0.5em;
+    transition: all 0.2s ease-in-out; }
+  /* line 24, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  ul.tabs a.active {
+    background: #607d8b;
+    color: white;
+    border-color: #607d8b;
+    box-shadow: 4px 4px 14px 0 rgba(50, 50, 50, 0.15); }
+
+/* line 31, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+.templateSelected {
+  border-top: 1px solid #ebebeb;
+  margin: 0 auto;
+  background: #f5f5f5;
+  padding: 2em;
+  max-width: 60em; }
+  /* line 37, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  .templateSelected .numberOf {
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 1em; }
+  /* line 42, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  .templateSelected input[type='number'] {
+    font-size: 1em;
+    text-align: center; }
+  /* line 47, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  .templateSelected input[type='checkbox']:checked ~ div {
+    opacity: 1; }
+
+/* line 54, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+.userList.testplan {
+  padding: 0 0; }
+  /* line 56, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  .userList.testplan > li {
+    background: white;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 0.5em 2em;
+    display: block;
+    width: 100%; }
+  /* line 63, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  .userList.testplan ul {
+    display: inline-block;
+    float: right; }
+    /* line 66, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+    .userList.testplan ul span {
+      font-weight: 700; }
+    /* line 69, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+    .userList.testplan ul li {
+      display: inline-block;
+      border-bottom: 3px solid white;
+      transition: 0.2s ease-in-out;
+      margin: 0 0.5em; }
+  /* line 76, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  .userList.testplan button {
+    margin: 0 0;
+    transition: 0.5s ease-in-out;
+    margin-right: 2em; }
+    /* line 81, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+    .userList.testplan button.stop {
+      background: #ca2140; }
+  /* line 85, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  .userList.testplan .currentStory {
+    border-color: #607d8b; }
+
+/* line 89, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+.testplan {
+  padding: 1em; }
+
+/* line 3, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/testStory */
+footer {
+  width: 100%;
+  text-align: center; }
+  /* line 8, /Users/Schuurmans/GitHub/CONtext/app/imports/stories/testStory */
+  footer a {
+    background: #607d8b;
+    margin: 1em;
+    padding: 1em 3em;
+    color: white;
+    text-decoration: none;
+    box-shadow: 5px 5px 14px 0 rgba(50, 50, 50, 0.25); }

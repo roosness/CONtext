@@ -1,109 +1,98 @@
 @import '../../client/stylesheets/vars';
-
 main.login {
 	position:relative;
-
 	min-height:100%;
+	
+	
+}
+.showLogin {
 	.start {
-		background:$blue;
-		height:100%;
-		padding: 0 0;
-		color:white;
-		box-sizing:border-box;
-		position: absolute;
-		width:100%;
-		text-align:left;
-		display:flex;
-		flex-wrap:nowrap;
-		flex-direction:column;
-		justify-content:space-between;
-		transition:all .05s ease-in-out;
-		transition-delay: 1s;
-		p {
-			flex:5%;
-			margin: 0 0;
-			text-align: center;
-			color:white;
-		}
-		h1 {
-			flex:50%;
-			text-align:left;
-				
-				padding:.5em;
-				max-width: 10em;
-				display:inline;
-				margin: 0 auto;
-		}
-		
-		a {
-			flex:30%;
-			display: flex;
-			justify-content: center;
-			align-items:center;
-			flex-direction: column;
-			text-decoration: none;
-			color:white;
-			padding: 0 0;
-		
-			img {
-				width:30vw;
-				height:30vw;
-				transform:scale(0.3);
-				margin: -4em auto -4em;
-				border:3px solid white;
-				border-radius:100%;
-				animation-name:fingerprint;
-				padding:0;
-				animation-duration:1s;
-				animation-iteration-count: infinite;
-				background:#607d8b;
-				animation-direction: alternate;
-				transition:background .05s ;
-			
-				
-			}
-			span {
-				margin: 0 0;
-				flex:100%;
-			}
-			
+		height:0;
+		overflow:hidden;
+		padding: 0;
+		img {
+			animation-name:resize;
+			background:white;
+			border:none;
+			animation-duration:1.5s;
+			animation-iteration-count: 1;
 		}
 	}
 	.login-buttons {
-		height:0 ;
-		overflow: hidden;
-		opacity:0;
-	}
-	&.showLogin {
-		.start {
-			height:0;
-			overflow:hidden;
-			padding: 0;
-			img {
-				animation-name:resize;
-				background:white;
-				border:none;
-				animation-duration:1.5s;
-				animation-iteration-count: 1;
-			}
-		}
-
-		.login-buttons {
-			opacity:1;
-			transition:opacity .7s ease-in-out;
-			transition-delay: .5s;
-			padding:2em;
-			color:#00356B;
-			height:100%;
-			
-			
-			
-			h2 {
-				margin: 0 0;
-			}
-		}
+		opacity:1;
+		transition:opacity .7s ease-in-out;
+		transition-delay: .5s;
+		padding:2em;
+		color:#00356B;
+		height:100%;
+		
 	}
 
+}
+.login-buttons {
+	height:0 ;
+	overflow: hidden;
+	opacity:0;
+}
+.start {
+	background:$blue;
+	height:100%;
+	padding: 0 0;
+	color:white;
+	box-sizing:border-box;
+	position: absolute;
+	width:100%;
+	text-align:left;
+	display:flex;
+	flex-wrap:nowrap;
+	flex-direction:column;
+	justify-content:space-between;
+	transition:all .05s ease-in-out;
+	transition-delay: 1s;
+	p {
+		flex:5%;
+		margin: 0 0;
+		text-align: center;
+		color:white;
+	}
+	h1 {
+		flex:50%;
+		text-align:left;
+		padding:.5em;
+		max-width: 10em;
+		display:inline;
+		margin: 0 auto;
+	}
+	a {
+		flex:30%;
+		display: flex;
+		justify-content: center;
+		align-items:center;
+		flex-direction: column;
+		text-decoration: none;
+		color:white;
+		padding: 0 0;
+		
+		span {
+			margin: 0 0;
+			flex:100%;
+		}
+	}
+	img {
+		width:30vw;
+		height:30vw;
+		transform:scale(0.3);
+		margin: -4em auto -4em;
+		border:3px solid white;
+		border-radius:100%;
+		animation-name:fingerprint;
+		padding:0;
+		animation-duration:1s;
+		animation-iteration-count: infinite;
+		background:#607d8b;
+		animation-direction: alternate;
+		transition:background .05s ;
+	}
 }
 button.social-login {
 	font-size:1em;
@@ -111,7 +100,6 @@ button.social-login {
 	color:white;
 	background:$blue;
 	padding:.7em;
-
 	img {
 		max-height: 1em;
 		vertical-align: text-top;

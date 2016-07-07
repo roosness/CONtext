@@ -47,72 +47,71 @@
 		transition: all .2s ease-in-out;
 		padding:.5em;
 		list-style-type: none;
-			span , a > span {
-				padding:0 2em ;
-				text-align: left;
-			}
-			a {
-				display: inline-block;
-			}
-			img {
-				padding:.3em;
-				box-sizing:border-box;
-				height:2em;
-				vertical-align: middle;
-			}
-			ol {
-				list-style-type: none;
-				padding:  0 0;
-				padding-left:4em;
-				li > a {
-					padding:.5em;
-					display: block;
-					width:100%;
-					transition: all .2s ease-in-out;
-					border-top:1px solid $grey1;
-					&:hover {
-						background:white;
-					}
-					
-					em {
-						color:$grey7;
-						font-style:normal;
-						font-size: .8em;
-					}
-				}
-			}
-			a:not(.delete), span {
-				display: inline-block;
-				position: relative;
-				text-decoration: none;
-				color:black;
-				img {
-					display: inline-block;
-					margin-right:.5em;
-				}
-				span {
-					display: inline-block;
-					margin: 0 0;
-				}
+		span {
+			padding:0 2em ;
+			text-align: left;
 		}
-		a.delete {
-			float:right;
-			height:100%;
-			
+		a {
 			display: inline-block;
-			img {
-				transition:all .2s ease-in-out;
-			}
-			&:hover img {
-				  transform: scale(1.2);
-			}
+		}
+		img {
+			padding:.3em;
+			box-sizing:border-box;
+			height:2em;
+			vertical-align: middle;
 		}
 		&:hover {
 			background:$grey1;
 		}
-		&.single {
-		}
 		&.multi {
 		}
+	}
+	a:not(.delete), span {
+		display: inline-block;
+		position: relative;
+		text-decoration: none;
+		color:black;
+		img {
+			display: inline-block;
+			margin-right:.5em;
+		}
+		span {
+			display: inline-block;
+			margin: 0 0;
+		}
+	}
+}
+li.single .delete {
+	padding-right:1em;
+}
+a.delete {
+	float:right;
+	height:100%;
+	display: inline-block;
+	img {
+		transition:all .2s ease-in-out;
+	}
+	&:hover img {
+		  transform: scale(1.2);
+	}
+}
+.duplicatesList {
+	list-style-type: none;
+	padding:  0 0;
+	padding-left:4em;
+	li > a {
+		padding:.5em;
+		display: block;
+		width:100%;
+		transition: all .2s ease-in-out;
+		border-top:1px solid $grey1;
+		&:hover {
+			background:white;
+		}
+	}
+	em {
+		color:$grey7;
+		font-style:normal;
+		font-size: .8em;
 	}
 }

@@ -9,18 +9,18 @@
 	align-items:flex-start;
 	flex-wrap: wrap;
 	text-align: left;
-	button {
-		background:$blue;
-		width:100%;
-		margin: 0 0 1em;
-	}
+		button {
+			background:$blue;
+			width:100%;
+			margin: 0 0 1em;
+		}
 		p {
 			flex:100%;
 			margin:2.5em 0 .5em;
 		}
 		label {
-				flex: 92%;
-			}
+			flex: 92%;
+		}
 		select {
 			flex:30%;
 			margin:.3em;
@@ -28,21 +28,21 @@
 		}
 		label[for='format'] {
 			flex:10%;
-				margin:.3em 0;
-				text-align: left;
+			margin:.3em 0;
+			text-align: left;
 		}
 		input[type='checkbox'] {
-				flex:5%;
-				margin-bottom:2em;
+			flex:5%;
+			margin-bottom:2em;
+		}
+		input[type='text'] {
+			flex:100%;
+			margin:.5em 0 1.5em;
+			&::-webkit-input-placeholder {
+				text-transform: none;
 			}
-			input[type='text'] {
-				flex:100%;
-				margin:.5em 0 1.5em;
-				&::-webkit-input-placeholder {
-					text-transform: none;
-				}
-			}
-			input[type='radio'] {
+		}
+		input[type='radio'] {
 			display: none;
 			& + label  {
 				background:white;
@@ -90,18 +90,19 @@ div.popup {
     margin: 0 0;
     padding:.7em;
     text-align: left;
-    h3 {
-      margin: 0 0;
-      color:white;
-      display: inline-block;
-      font-size: 1.2em;
-    }
-    img {
-      max-height: 1em;
-      display: inline-block;
-      float:right;
-    }
+   
   }
+   h3 {
+  margin: 0 0;
+  color:white;
+  display: inline-block;
+  font-size: 1.2em;
+}
+img {
+  max-height: 1em;
+  display: inline-block;
+  float:right;
+}
 }
 div.popup {
 	form {
@@ -110,25 +111,26 @@ div.popup {
 		width:100%;
 		text-align: left;
 		padding:1em;
-		label {
-			display: block;
-			margin:.5em 0;
-			text-align: left;
-		}
-		input[type='text'] {
-			font-size:1em;
-			width:80%;
-			padding:.2em .5em;
-			margin: 0 0;
-			text-align: left;
-			margin-left:0;
-		}
-		input[type='submit'] {
-			position:absolute;
-			width:auto;
-			padding:.5em 2em;
-			right:1em;
-			bottom:0;
-		}
+		
+	}
+	label {
+		display: block;
+		margin:.5em 0;
+		text-align: left;
+	}
+	input[type='text'] {
+		font-size:1em;
+		width:80%;
+		padding:.2em .5em;
+		margin: 0 0;
+		text-align: left;
+		margin-left:0;
+	}
+	input[type='submit'] {
+		position:absolute;
+		width:auto;
+		padding:.5em 2em;
+		right:1em;
+		bottom:0;
 	}
 }

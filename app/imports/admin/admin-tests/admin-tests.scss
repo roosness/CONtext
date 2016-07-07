@@ -1,5 +1,4 @@
 @import '../../../client/stylesheets/vars';
-
 ul.tabs {
 	margin: 0 auto;
 	padding: 0 0;
@@ -7,113 +6,52 @@ ul.tabs {
 	list-style-type: none;
 	li {
 		display: inline-block;
-		a {
-			margin: 3em auto;
-			display: block;
-			text-decoration: none;
-			color:black;
-			background: $grey1;
-			border-top:1px solid $grey2;
-			border-right:1px solid $grey2;
-			border-left:1px solid $grey2;
-			padding:.5em 2em;
-			margin: 0 0;
-			margin-right:-.5em;
-			transition: all .2s ease-in-out;
-		}
-
-		a.active {
-		    background: $blue;
-		    color:white;
-		    border-color: $blue;
-		    box-shadow: 4px 4px 14px 0 rgba(50, 50, 50, 0.15);
-		}
+	}
+	a {
+		margin: 3em auto;
+		display: block;
+		text-decoration: none;
+		color:black;
+		background: $grey1;
+		border-top:1px solid $grey2;
+		border-right:1px solid $grey2;
+		border-left:1px solid $grey2;
+		padding:.5em 2em;
+		margin: 0 0;
+		margin-right:-.5em;
+		transition: all .2s ease-in-out;
+	}
+	a.active {
+	    background: $blue;
+	    color:white;
+	    border-color: $blue;
+	    box-shadow: 4px 4px 14px 0 rgba(50, 50, 50, 0.15);
 	}
 }
-
 .templateSelected {
 	border-top:1px solid $grey2;
 	margin:0 auto;
 	background: $grey1;
-	// z-index:1;
 	padding:2em;
-	// text-align:left;
 	max-width:60em;
-	
-	
-	// button {
-	// 	padding:.5em 1em;
-	// 	font-size: 1em;
-	// 	margin:.5em;
-		
-	// }
-	// h2 {
-	// 	margin: 0 0;
-	// }
 	.numberOf {
 		border-bottom:1px solid $grey2;
 		padding-bottom:1em;
 	}
-	form {
-		
-
+	
 		input[type='number'] {
-			
 			font-size:1em;
-
 			text-align: center;
 		};
 		input[type='checkbox']:checked {
 			& ~ div {
-				
 				opacity:1;
 			}
 		}
 	
-	// 	ul {
-	// 		list-style: none;
-	// 		padding: 0 0;
-	// 		margin: 1em 0;
-	// 		li {
-				
-	// 			padding:.5em 1em;
-	// 			display: block;
-	// 			&:nth-of-type(odd) {
-	// 				background:white;
-	// 			}
-	// 			.selects {
-	// 				display: none;
-	// 				float:right;
-	// 				select{
-	// 					font-size: 1em;
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	}
 }
-// ul.userList {
-// 	list-style:none;
-// 	padding: 0 0;
-// 	margin:1em 0;
-// 	li {
-// 		padding:.5em 2em;
-// 		border-bottom:1px solid $grey2;
-// 		overflow-y:hidden;
-// 		&:nth-of-type(odd) {
-// 			background: white;
-// 		}
-// 	}
-// 	.stories {
-// 		opacity: 0;
-// 		transition: all .2s ease-in-out;
-// 		float:right;
-// 		display: inline-block;
-// 	}
-// }
 
 .userList.testplan {
-	
 	padding: 0 0;
 	& > li {
 		background:white; 
@@ -140,7 +78,6 @@ ul.tabs {
 		margin: 0 0;
 		transition:.5s ease-in-out;
 		margin-right: 2em;
-
 		&.stop {
 			background:$red;
 		}
@@ -154,39 +91,30 @@ ul.tabs {
 	// &>ul {
 	// 	list-style: none;
 	// 	padding: 0 0;
-
 	// 	&>li {
 	// 		// padding:.5em;
 	// 		box-sizing:border-box;
 	// 		& > * {
 	// 			margin:1em ;
-				
 	// 		}
-						
 	// 		&:nth-of-type(odd){
 	// 			background:white;
 	// 		}
-			
 	// 		ul {
-				
 	// 			list-style: none;
 	// 			float: right;
 	// 			padding: 0 0;
 	// 			display: inline-block;
 	// 			li {
-					
 	// 				margin: 0 .5em;
 	// 				transition: .2s ease-in-out;
 	// 				border-bottom:3px solid rgba(2,2,2,.0);
 	// 				display: inline-block;
-
 	// 				&.currentStory {
 	// 						border-bottom: 3px solid #607d8b;
-							
 	// 					}
 	// 				span {
 	// 					font-weight: 700;
-						
 	// 				}
 	// 			}
 	// 		}
