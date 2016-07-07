@@ -20,10 +20,19 @@ Template.editStory.helpers({
 		
 		if(Session.get('editing') || Session.get('verplaatsen')) {
 			return true
-			} else {
-				return false
-			}
+		} else {
+			return false
 		}
+	},
+	editing() {
+		return (Session.get('editing') === 'bewerken') ? true : false
+	},
+	deleting() {
+		return (Session.get('editing') === 'verwijderen') ? true : false
+	},
+	moving() {
+		return (Session.get('editing') === 'verplaatsen') ? true : false
+	}
 })
 
 Template.adminStory.helpers({
@@ -37,7 +46,7 @@ Template.adminStory.helpers({
 	}
 })
 Template.adminStory.events({
-	'click .story p span, click .story p h4' : function (e) {
+	'click .story p span, click .story p h4, click .story p br' : function (e) {
 		var modus = Session.get('editing');
 		if(modus === 'verwijderen') {
 			var arr = Session.get('array') || [];

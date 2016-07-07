@@ -1,4 +1,20 @@
 @import '../../../../client/stylesheets/vars';
+p.editInfo {
+	background:$grey1;
+	border:1px solid $grey2;
+	padding:.5em 2em;
+	display:inline-block;
+	margin:1em;
+	overflow:hidden;
+	 animation-name: moveIn;
+    animation-duration: .5s;
+
+}
+
+@keyframes moveIn {
+    from {max-height:0; opacity:0;}
+    to {max-height:10em;opacity:1;}
+}
 
 ul.editList {
 	list-style:none;
@@ -46,6 +62,10 @@ ul.editList {
 
 .verwijderen {
 	text-decoration:line-through;
+}
+br.verwijderen {
+	background:$red;
+	opacity:1;
 }
 .bewerken {
 	background: #f5f5f5;

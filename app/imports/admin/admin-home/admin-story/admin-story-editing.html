@@ -10,5 +10,13 @@
 		<li><a href ="#" id='verplaatsen' class="editButton action">Variabelen verplaatsen</a></li>
 		{{/if}}
 	</ul>
-
+	{{#if editing}}
+	<p class='editInfo'>klik op de geschreven paragraven om de tekst te kunnen aanpassen.</p>
+	{{/if}}
+	{{#if deleting}}
+	<p class='editInfo'>Klik op de teksten, variabelen, subkoppen of witruimtes om ze te verwijderen.</p>
+	{{/if}}
+	{{#if moving}}
+	<p class='editInfo'>klik en sleep met de teksten, variabelen, subkoppen of witruimtes om ze te verplaatsen</p>
+	{{/if}}
 </template>

@@ -453,7 +453,16 @@ a.delete {
 .edit-story {
   width: 100%;
   height: 100%; }
-  /* line 8, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+  /* line 7, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+  .edit-story br {
+    display: block;
+    background: #666666;
+    opacity: 0.3;
+    transition: 0.2s ease-in-out;
+    content: ' ';
+    height: 1em;
+    margin: 0.5em 0; }
+  /* line 16, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
   .edit-story aside {
     width: 30vw;
     position: fixed;
@@ -461,7 +470,7 @@ a.delete {
     right: 0;
     height: 100%;
     text-align: center; }
-    /* line 17, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+    /* line 25, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
     .edit-story aside #switch {
       background: #939393;
       text-decoration: none;
@@ -470,10 +479,13 @@ a.delete {
       color: white;
       margin: 0 0 1em;
       padding: 0.5em; }
-  /* line 27, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+  /* line 35, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
   .edit-story > .story {
     margin-right: 30vw; }
-  /* line 31, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+    /* line 38, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
+    .edit-story > .story header {
+      padding: 3em 0; }
+  /* line 43, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
   .edit-story .editStoryButtons {
     position: fixed;
     background: white;
@@ -729,16 +741,38 @@ div.popup input[type='submit'] {
   right: 1em;
   bottom: 0; }
 
-/* line 3, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+p.editInfo {
+  background: #f5f5f5;
+  border: 1px solid #ebebeb;
+  padding: 0.5em 2em;
+  display: inline-block;
+  margin: 1em;
+  overflow: hidden;
+  animation-name: moveIn;
+  animation-duration: 0.5s; }
+
+@keyframes moveIn {
+  /* line 15, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  from {
+    max-height: 0;
+    opacity: 0; }
+
+  /* line 16, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  to {
+    max-height: 10em;
+    opacity: 1; } }
+
+/* line 19, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 ul.editList {
   list-style: none;
   padding: 0 0;
   margin: 0.8em; }
-  /* line 8, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  /* line 24, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
   ul.editList li {
     display: inline-block;
     margin: 0.2em; }
-  /* line 14, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  /* line 30, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
   ul.editList a {
     display: block;
     box-sizing: border-box;
@@ -752,27 +786,32 @@ ul.editList {
     border: 1px solid rgba(0, 0, 0, 0);
     text-decoration: none;
     box-shadow: 7px 7px 37px -5px rgba(0, 0, 0, 0.1); }
-  /* line 28, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  /* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
   ul.editList a.commit {
     background: #ca2140;
     border: 1px solid #ebebeb;
     color: #f5f5f5; }
 
-/* line 37, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 53, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 .sortable-ghost {
   opacity: 0.3;
   background: #f60; }
 
-/* line 42, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 #listC {
   border: 2px dashed #f60;
   min-height: 100px; }
 
-/* line 47, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 63, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 .verwijderen {
   text-decoration: line-through; }
 
-/* line 50, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 66, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+br.verwijderen {
+  background: #ca2140;
+  opacity: 1; }
+
+/* line 70, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 .bewerken {
   background: #f5f5f5;
   color: #7f7f7f; }
