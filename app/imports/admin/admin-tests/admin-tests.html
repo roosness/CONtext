@@ -46,6 +46,7 @@
 <template name='testConfig'>
 	<form class='testConfig'>
 		<div class="numberOf">
+			<p>Voordat je naar testsessies kunt gaan zul je eerst een testpersoon moeten activeren. Doe dat hier onder door een aantal verhalen te selecteren bij het gewenste testpersoon. Staan er geen verhalen in de lijst? Schrijf er dan een paar bij.</p>
 			<label for="amountOfChapters">Aantal verhalen dat elk testpersoon gaat lezen:</label>
 			<input type="number" min='0' max='4' id='amountOfChapters' value='{{numberNumberOfChapters}}'>
 		</div>
@@ -56,7 +57,7 @@
 					<input type="checkbox" id='{{_id}}' class='name' >
 					<label for="{{_id}}" class='name'>{{profile.name}}</label>
 
-					<div class="stories">
+					<div class="testerStories">
 						{{#each numberOfChapters}}
 							<label for="storySelect">{{this}}<sup>e</sup> verhaal</label>
 							<select  id='storySelect' class='{{../_id}}'>

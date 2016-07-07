@@ -469,7 +469,8 @@ a.delete {
     top: 0;
     right: 0;
     height: 100%;
-    text-align: center; }
+    text-align: center;
+    overflow-x: scroll; }
     /* line 25, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story */
     .edit-story aside #switch {
       background: #939393;
@@ -840,7 +841,7 @@ form.addGenderWords, form.fallbacks {
   text-align: right; }
   /* line 28, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
   .category a {
-    margin: 0 1em;
+    margin: 1em;
     display: inline-block; }
     /* line 32, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
     .category a:hover {
@@ -891,12 +892,12 @@ form.addGenderWords {
   form.addGenderWords input[type='submit'] {
     flex: 100%; }
 
-/* line 88, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
-form.geslacht input[type='text'] {
+/* line 90, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+.geslacht input[type='text'] {
   width: 40%;
   margin: 1em 0; }
-  /* line 91, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
-  form.geslacht input[type='text']:nth-of-type(even) {
+  /* line 93, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-settings/admin-settings */
+  .geslacht input[type='text']:nth-of-type(even) {
     float: right; }
 
 /* line 2, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
@@ -983,7 +984,29 @@ ul.tabs {
   .userList.testplan .currentStory {
     border-color: #607d8b; }
 
-/* line 89, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+/* line 90, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+.testConfig .userList {
+  padding: 0 0;
+  border: 1px solid #ebebeb; }
+  /* line 94, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+  .testConfig .userList li {
+    padding: 0.5em;
+    border-bottom: 1px solid #ebebeb; }
+    /* line 98, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+    .testConfig .userList li:nth-of-type(odd) {
+      background: white; }
+/* line 105, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+.testConfig input[type='checkbox']:checked + .testerStories {
+  opacity: 1; }
+
+/* line 109, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
+.testerStories {
+  display: inline-block;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  float: right; }
+
+/* line 116, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-tests/admin-tests */
 .testplan {
   padding: 1em; }
 

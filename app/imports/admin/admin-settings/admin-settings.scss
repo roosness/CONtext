@@ -26,7 +26,7 @@ form.addGenderWords, form.fallbacks {
 	box-sizing: border-box;
 	text-align: right;
 	a {
-		margin: 0 1em;
+		margin:  1em;
 		display: inline-block;
 		
 		&:hover {
@@ -84,7 +84,9 @@ form.addGenderWords {
 		flex:100%;
 	}
 }
-form.geslacht {
+
+.geslacht {
+	
 	input[type='text'] {
 		width:40%;
 		margin:1em 0;

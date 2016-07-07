@@ -86,6 +86,33 @@ ul.tabs {
 		border-color:$blue;
 	}
 }
+.testConfig {
+	.userList {
+		padding: 0 0;
+		border:1px solid $grey2;
+
+		li {
+			
+			padding:.5em;
+			border-bottom:1px solid $grey2;
+			&:nth-of-type(odd){
+				background:white;
+			}
+		}
+
+
+	}
+	input[type='checkbox']:checked + .testerStories {
+		opacity: 1;
+	}
+}
+.testerStories {
+		display: inline-block;
+		opacity: 0;
+		transition:all .2s ease-in-out;
+		float:right;
+	
+	}
 .testplan {
 	padding:1em;
 	// &>ul {

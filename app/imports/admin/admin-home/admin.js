@@ -12,7 +12,8 @@ Template.admin.onCreated(function () {
 
 Template.admin.helpers({
 	hasStories() {
-		return Stories.find().count() > 0
+
+		return (Stories.find().count() > 0) ? true : false
 	},
 	username() {
 		return Meteor.user().profile.name

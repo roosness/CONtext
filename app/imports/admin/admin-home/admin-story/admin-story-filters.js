@@ -6,6 +6,9 @@ Template.filters.events({
 	'click label[for="naam"]' : function (e) {
 		document.querySelector('div.naam').classList.toggle('active')
 	},
+	'click label[for="geslacht"]' : function (e) {
+		document.querySelector('div.geslacht').classList.toggle('active')
+	},
 	'click .filter-list li span' : function (e) {
 		console.log('click')
 		var links = document.querySelectorAll('.filters li');
@@ -67,6 +70,7 @@ Template.filters.events({
 			'geslacht' : document.querySelector(".geslachtSelector").value,
 			'default': null
 		}
+		console.log(formats['geslacht']);
 		var obj = {
 				
 				source: e.currentTarget.classList[0],
@@ -82,6 +86,7 @@ Template.filters.events({
 		
 		console.log(obj)
 		submitFilter(obj)
+		e.currentTarget.reset();
 	},
 })
 function submitFilter(obj) {
