@@ -1,18 +1,20 @@
-<template name='loginRegister'>
-    <section class="login-wrapper active">
-        {{> login}}
-    </section>
-  
+<template name='login'>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href='https://fonts.googleapis.com/css?family=PT+Sans|Crimson+Text' rel='stylesheet' type='text/css'>
+	</head>
+	<main class='login'>
+		<div class="start">
+			<p class='writer'>Marjolijn Ruyg</p>
+			<h1>CONtext</h1>
+			<a href="#" id='fingerPrintLink'>
+				<img src="/icons/fingerprint.svg" alt="">
+				<span class='info'>Tap to login</span>
+			</a>
+			
+		</div>
+ 		<div class="login-buttons vert-center">
+ 			<button id="facebook-login" class="social-login"><img src="/icons/facebook-logo.svg" alt=""> Login with Facebook</button> 
+ 		</div>
+	</main>
 </template>
-
-
-
-<template name="login">
-    
-        
-
-        <button id="facebook-login" class="social-login"><img src="/icons/facebook-logo.svg" alt=""> Login with Facebook</button>
-    
-</template>
-
-

@@ -1,0 +1,65 @@
+/* line 4, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+form.addGenderWords, form.fallbacks {
+  background: #f5f5f5;
+  max-width: 35em;
+  margin: 1em auto;
+  padding: 1em 2em 3em; }
+  /* line 9, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+  form.addGenderWords h3, form.fallbacks h3 {
+    margin-top: 0;
+    font-size: 1.3em; }
+  /* line 14, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+  form.addGenderWords input[type='text'], form.fallbacks input[type='text'] {
+    font-size: 0.8em; }
+  /* line 17, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+  form.addGenderWords input[type='submit'], form.fallbacks input[type='submit'] {
+    background: #607d8b; }
+  /* line 20, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+  form.addGenderWords > div, form.fallbacks > div {
+    margin: 1em 0;
+    box-sizing: border-box;
+    text-align: right; }
+    /* line 24, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+    form.addGenderWords > div a, form.fallbacks > div a {
+      margin: 0 1em;
+      display: inline-block; }
+      /* line 28, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+      form.addGenderWords > div a img, form.fallbacks > div a img {
+        max-width: 0.8em;
+        transition: all 0.2s ease-in-out;
+        vertical-align: middle; }
+      /* line 33, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+      form.addGenderWords > div a:hover, form.fallbacks > div a:hover {
+        transform: scale(1.2); }
+        /* line 35, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+        form.addGenderWords > div a:hover + div, form.fallbacks > div a:hover + div {
+          opacity: 0.5; }
+    /* line 40, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+    form.addGenderWords > div .geslacht, form.fallbacks > div .geslacht {
+      display: inline-block;
+      width: 85%;
+      transition: all 0.2s ease-in-out;
+      padding: 0.3em 1em; }
+    /* line 47, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+    form.addGenderWords > div div, form.fallbacks > div div {
+      text-align: left;
+      padding: 0.7em 1em;
+      background: white;
+      border-bottom: 1px solid #EBEBEB; }
+      /* line 55, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+      form.addGenderWords > div div:not(.geslacht) input, form.fallbacks > div div:not(.geslacht) input {
+        float: right; }
+
+/* line 63, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+form.fallbacks h3 {
+  color: #4e7789;
+  font-size: 1.3em;
+  margin: 0.5em 0; }
+
+/* line 71, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+form.addGenderWords input[type='text'], .geslacht input[type='text'] {
+  width: 40%;
+  margin: 1em 0; }
+  /* line 74, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-settings/admin-settings.scss */
+  form.addGenderWords input[type='text']:nth-of-type(odd), .geslacht input[type='text']:nth-of-type(odd) {
+    float: right; }

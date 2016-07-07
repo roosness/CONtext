@@ -1,0 +1,114 @@
+/* line 2, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+.admin img {
+  max-width: 2em; }
+
+/* line 5, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+.newChapter {
+  width: 100%;
+  max-width: 60em;
+  margin: 1em auto;
+  box-sizing: border-box;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  /* line 14, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+  .newChapter label {
+    clear: both;
+    flex: 100%;
+    margin: 0.5em 0; }
+  /* line 19, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+  .newChapter input[type='text'] {
+    padding: 0.5em;
+    flex: 70%;
+    margin-right: 2em;
+    font-size: 1em; }
+  /* line 25, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+  .newChapter input[type='submit'] {
+    flex: 20%;
+    max-width: 10em;
+    margin: 0 0; }
+
+/* line 32, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+.adminMessage {
+  margin: 0 auto;
+  max-width: 30em; }
+
+/* line 36, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+.storyListAdmin {
+  max-width: 60em;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0 0; }
+  /* line 41, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+  .storyListAdmin > li {
+    position: relative;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.2s ease-in-out;
+    padding: 0.5em;
+    list-style-type: none; }
+    /* line 47, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+    .storyListAdmin > li span, .storyListAdmin > li a > span {
+      padding: 0 2em;
+      text-align: left; }
+    /* line 51, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+    .storyListAdmin > li a {
+      display: inline-block; }
+    /* line 54, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+    .storyListAdmin > li img {
+      padding: 0.3em;
+      box-sizing: border-box;
+      height: 2em;
+      vertical-align: middle; }
+    /* line 60, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+    .storyListAdmin > li ol {
+      list-style-type: none;
+      padding: 0 0;
+      padding-left: 4em; }
+      /* line 64, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+      .storyListAdmin > li ol li > a {
+        padding: 0.5em;
+        display: block;
+        width: 100%;
+        transition: all 0.2s ease-in-out;
+        border-top: 1px solid #f5f5f5; }
+        /* line 70, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+        .storyListAdmin > li ol li > a:hover {
+          background: white; }
+        /* line 73, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+        .storyListAdmin > li ol li > a > * {
+          margin: 0 0;
+          vertical-align: middle; }
+        /* line 77, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+        .storyListAdmin > li ol li > a em {
+          color: #939393;
+          font-style: normal;
+          font-size: 0.8em; }
+    /* line 84, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+    .storyListAdmin > li a:not(.delete), .storyListAdmin > li span {
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      color: black; }
+      /* line 89, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+      .storyListAdmin > li a:not(.delete) img, .storyListAdmin > li span img {
+        display: inline-block;
+        margin-right: 0.5em; }
+      /* line 93, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+      .storyListAdmin > li a:not(.delete) span, .storyListAdmin > li span span {
+        display: inline-block;
+        margin: 0 0; }
+    /* line 98, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+    .storyListAdmin > li a.delete {
+      float: right;
+      height: 100%;
+      display: inline-block; }
+      /* line 103, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+      .storyListAdmin > li a.delete img {
+        transition: all 0.2s ease-in-out; }
+      /* line 106, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+      .storyListAdmin > li a.delete:hover img {
+        transform: scale(1.2); }
+    /* line 110, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin.scss */
+    .storyListAdmin > li:hover {
+      background: #f5f5f5; }

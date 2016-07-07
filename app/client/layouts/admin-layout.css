@@ -1,0 +1,59 @@
+/* line 3, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+nav.admin {
+  background: #1c1c1c;
+  position: fixed;
+  top: 0;
+  left: -9em;
+  font-size: 1em;
+  z-index: 10;
+  height: 100%;
+  box-shadow: 5px 0 14px 0 rgba(50, 50, 50, 0.24);
+  transition: left 0.2s ease-in-out; }
+  /* line 13, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+  nav.admin:hover {
+    left: 0em; }
+  /* line 16, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+  nav.admin ul {
+    padding: 0 0;
+    list-style-type: none; }
+    /* line 20, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+    nav.admin ul li:not(:first-of-type) a {
+      border-top: 1px solid #262626; }
+    /* line 23, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+    nav.admin ul li.active a {
+      background: #607d8b; }
+      /* line 25, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+      nav.admin ul li.active a:hover {
+        background: #6b8a99;
+        border-color: #6b8a99; }
+    /* line 30, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+    nav.admin ul li a {
+      display: block;
+      text-align: right;
+      position: relative;
+      box-sizing: border-box;
+      transition: all 0.3s ease-in-out;
+      text-decoration: none;
+      width: 12em;
+      padding: 1em; }
+      /* line 39, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+      nav.admin ul li a img {
+        width: 1.2em;
+        transition: transform 0.2s ease-in-out;
+        float: right;
+        margin-left: 2em; }
+      /* line 45, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+      nav.admin ul li a span {
+        font-size: 0.9em;
+        color: #ebebeb; }
+      /* line 49, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+      nav.admin ul li a:hover {
+        background: #607d8b;
+        border-color: #607d8b; }
+        /* line 52, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+        nav.admin ul li a:hover img {
+          transform: scale(1.2); }
+
+/* line 63, /Users/Schuurmans/Desktop/context-redo/client/layouts/admin-layout.scss */
+main.admin {
+  margin-left: 3.5em; }

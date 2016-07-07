@@ -1,0 +1,14 @@
+<template name='editStory'>
+	<ul class="editList">
+		{{#if isEditing}}
+		
+		<li><a href ="#"  id='save' class="editButton commit">Wijzigingen opslaan</a></li>
+		<li><a href ="#" id='discard' class="editButton commit">Wijzigingen ongedaanmaken</a></li>
+		{{else}}
+		<li><a href ="#" id='verwijderen' class="editButton action">Start met verwijderen</a></li>
+		<li><a href ="#" id='bewerken' class="editButton action">Start met bewerken</a></li>
+		<li><a href ="#" id='verplaatsen' class="editButton action">Variabelen verplaatsen</a></li>
+		{{/if}}
+	</ul>
+
+</template>

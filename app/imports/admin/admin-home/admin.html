@@ -1,0 +1,64 @@
+<template name='admin'>
+	<header>
+		<h2>Welkom, {{username}}</h2>
+		<p>Dit is de adminsuite. Hieronder kun je verhalen toevoegen, wijzigen of verwijderen. Via de navigatiebalk aan de linkerkant van het scherm kun je bij de testsuite komen, en bij de instellingen, waar je bijvoorbeeld de data fallbacks aan kunt passen.</p>
+	</header>
+	<div class="stories">
+		<form class="newChapter">
+			<label for="title">Nieuw hoofdstuk:</label>
+			<input type="text" id='title' placeholder="Titel">
+			<input type="submit">
+		</form>
+
+		{{#if hasStories}}
+		
+		<ol class="storyListAdmin">
+			{{#each uniqueStories}}
+				{{#if hasDuplicates}}
+					<li class="multi">
+						<img src="/icons/book.svg" alt="">
+						<span>{{title}}</span>
+
+						<ol>
+							<li>
+								<a href="/admin/{{_id}}">
+									<span>{{title}}</span>
+									<em>orginele </em>
+									<a href="#" class='delete original' id={{_id}}>
+										<img src="/icons/garbage.svg" alt="delete">
+									</a>
+								</a>
+							</li>
+							{{#each duplicate}}
+								<li>
+									<a href="/admin/{{id}}">
+										<span>{{title}}</span>
+										<a href="#" class='delete' id={{id}},{{../_id}} alt='delete'>
+											<img src="/icons/garbage.svg" alt="delete">
+										</a>
+									</a>
+								</li>
+							{{/each}} <!-- end duplicate -->
+						</ol>
+					</li>
+				{{else}}  <!-- else hasDuplicates -->
+					{{#if isSingle}}
+					<li class="single">
+						<a href="/admin/{{_id}}">
+							<img src="/icons/book.svg" alt="">
+							<span>{{title}}</span>
+						</a>
+						<a href="#" class='delete original' id='{{_id}}'>
+							<img src="/icons/garbage.svg" alt="delete">
+						</a>
+					</li>
+					{{/if}} <!-- end Issingle-->
+				{{/if}} <!-- end hasDuplicates -->
+			{{/each}} <!-- end uniquechapters -->
+		</ol>
+
+		{{else}}
+			<p class='adminMessage'>Het lijkt er op dat er nog niets geschreven is. Maak hierboven een nieuw hoofdstuk aan</p>
+		{{/if}}
+	</div>
+</template>

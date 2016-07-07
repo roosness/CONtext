@@ -1,0 +1,53 @@
+@import '../../../../client/stylesheets/vars';
+
+ul.editList {
+	list-style:none;
+	padding: 0 0;
+	margin: .8em;
+	
+	li {
+		display: inline-block;
+		margin:.2em;
+
+		 
+	}
+	a {
+	 	display:block;
+	 	box-sizing:border-box;
+		padding:.5em 1em;
+		border-radius:3px;
+		background:$green;
+		color:white;
+		transition:all .2s ease-in-out;
+		z-index:5;
+		margin:0 .3em;
+		border:1px solid rgba(0,0,0,.0);
+		text-decoration:none;
+		box-shadow: $light-shadow;
+	}
+	a.commit {
+		background:$red;
+		border:1px solid $grey2;
+		color:$grey1;
+	}
+}
+
+
+
+.sortable-ghost {
+  opacity: .3;
+  background: #f60;
+}
+
+#listC {
+  border: 2px dashed #f60;
+  min-height: 100px
+}
+
+.verwijderen {
+	text-decoration:line-through;
+}
+.bewerken {
+	background: #f5f5f5;
+	color:#7f7f7f
+}

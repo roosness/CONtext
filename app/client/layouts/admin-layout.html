@@ -1,0 +1,37 @@
+<template name='adminLayout'>
+	{{#if Template.subscriptionsReady}}
+		{{#if isAdmin}}
+			<nav class='admin'>
+				<ul>
+					<li class='{{isActiveRoute "admin-home"}}'>
+						<a href="/admin">
+							<span>Admin</span>
+							<img src="/icons/home_white.svg" alt="Home">
+						</a>
+					</li>
+					<li class='{{isActiveRoute "admin-tests" }}'>
+						<a href="/admin/tests">
+							<span>Testsuite</span>
+							<img src="/icons/flask.svg" alt="overzicht">
+						</a>
+					</li>
+					
+					<li class='{{isActiveRoute "admin-settings"}}'>
+						<a href="/admin/settings">
+							<span>instellingen</span>
+							<img src="/icons/gear_white.svg" alt="instellingen">
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+			<main class='admin'>
+				{{> Template.dynamic template=main}}
+			</main>
+			{{else}}
+			<p class='adminMessage'>Je hebt met jou account geen toestemming om deze pagina te bekijken. Ga terug naar <a href="/">home</a></p>
+		{{/if}}
+		{{else}}
+		<p>loading</p>
+		{{/if}}
+</template>

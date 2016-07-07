@@ -1,0 +1,11 @@
+<template name='readerLayout'>
+
+	<nav class='user'>
+		<a id='menu' href="/"><img src="/icons/menu_blue.svg" alt=""></a>
+		<p>Overzicht</p>
+		<a id='user' href="/user"><img src="/icons/avatar_blue.svg" alt=""></a>
+	</nav>
+	<main>
+		{{> Template.dynamic template=main}}
+	</main>
+</template>

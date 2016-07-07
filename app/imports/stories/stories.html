@@ -1,0 +1,22 @@
+<template name='stories'>
+
+	<ol class='storyList'>
+	
+		<header>
+			<h2>Alle verhalen</h2>
+		</header>
+	{{#if Template.subscriptionsReady}}
+		{{#each stories}}
+		<li>
+			<img src="/icons/book.svg" alt="">
+			<a href="stories/{{_id}}">
+			
+			<span>{{title}}</span>
+			</a>
+		</li>
+		{{/each}}
+	{{else}}
+	<!-- {{> waiting}} -->
+	{{/if}}
+	</ol>
+</template>

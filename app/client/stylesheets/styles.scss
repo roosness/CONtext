@@ -1,0 +1,137 @@
+@import './vars';
+
+
+
+* { 
+  box-sizing:border-box;
+}
+
+body, html {
+  background:white;
+  padding: 0 0;
+  margin: 0 0;
+  font-size:1em;
+  height:100%;
+  font-weight:400;
+  line-height:1.45;
+  color:#333; 
+  width:100%;
+  position: relative;
+  font-family: 'PT Sans', sans-serif;
+ 
+}
+body {
+  position:relative;
+}
+button {
+  background:$green;
+  font-size:1em;
+  padding:.5em 1em;
+  color:white;
+  border-radius:3px;
+  box-shadow: 4px 4px 14px 0 rgba(50, 50, 50, 0.15);
+  border:none;
+
+}
+article {
+  padding:1em;
+  max-width: 40em;
+  margin:0 auto;
+  p{
+    font-size: 1.2em;
+    line-height: 1.7em;
+    font-family: 'Crimson Text', serif;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+}
+h1 {
+  margin-top: 0;
+  font-size: 3.157em;
+}
+h2 {font-size: 2.369em;}
+h3 {font-size: 1.777em;}
+h4 {font-size: 1.333em;}
+nav ul {
+  margin: 0 0;
+}
+
+ul, ol {
+  list-style: none
+}
+main { 
+  margin: 0 0;
+}
+main.admin {
+  height:100%;
+  
+  header {
+    margin:4em auto 2em;
+    min-height: 10em;
+    max-width:60em;
+    
+  }
+}
+main.admin header {
+
+}
+input[type='text'] {
+  font-size:1em;
+}
+.adminMessage {
+  max-width: 60em;
+  margin: 0 auto;
+}
+
+.vert-center {
+	height:80%;
+	width:100%;
+	position: absolute;
+	display:flex;
+	flex-wrap:nowrap;
+	flex-direction:column;
+	justify-content:center;
+	
+	align-items:center;
+}
+
+form {
+  margin: 0 0;
+  input[type='text'] {
+    padding:.2em .5em;
+  }
+
+  input[type='submit'] {
+    width:100%;
+    clear:both;
+    margin: .5em auto;
+    font-size: 1em;
+    border:none;
+    padding:.5em;
+    background:$green;
+    color:white;
+  }
+}
+@import '../../imports/login/login';
+@import '../../imports/user/user';
+@import '../../imports/stories/stories';
+@import '../../imports/stories/story';
+@import '../../imports/stories/testStory';
+@import '../../imports/admin/admin-home/admin';
+@import '../../imports/admin/admin-home/admin-story/admin-story';
+@import '../../imports/admin/admin-home/admin-story/admin-story-filters';
+@import '../../imports/admin/admin-home/admin-story/admin-story-settings';
+@import '../../imports/admin/admin-home/admin-story/admin-story-editing';
+@import '../../imports/admin/admin-settings/admin-settings';
+@import '../../imports/admin/admin-tests/admin-tests';
+@import '../../imports/stories/testStory';
+
+
+

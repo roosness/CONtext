@@ -1,0 +1,28 @@
+@import '../stylesheets/vars';
+
+nav.user {
+	box-shadow: $light-shadow-down;
+	display:flex;
+	flex-wrap:nowrap;
+	position:relative;
+	padding:.7em;
+	justify-content:space-between;
+	color:$grey8;
+	& > a {
+		display:inline-block;
+		position:relative; 
+		height:1.5em;
+		width:1.5em;
+		img {
+			height:100%;
+			top:0;
+			left:0;
+			position:absolute;
+		}
+	}
+	p {
+		display: block;
+		height:1.5em;
+		margin: 0 0;
+	}
+}

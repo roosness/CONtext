@@ -1,0 +1,133 @@
+/* line 2, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+.storySettings {
+  margin: 0.5em 0;
+  background: white;
+  border: 1px solid #ebebeb;
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  text-align: left; }
+  /* line 12, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  .storySettings button {
+    background: #607d8b;
+    width: 100%;
+    margin: 0 0 1em; }
+  /* line 17, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  .storySettings p {
+    flex: 100%;
+    margin: 2.5em 0 0.5em; }
+  /* line 21, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  .storySettings label {
+    flex: 92%; }
+  /* line 24, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  .storySettings select {
+    flex: 30%;
+    margin: 0.3em;
+    font-size: 1em; }
+  /* line 29, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  .storySettings label[for='format'] {
+    flex: 10%;
+    margin: 0.3em 0;
+    text-align: left; }
+  /* line 34, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  .storySettings input[type='checkbox'] {
+    flex: 5%;
+    margin-bottom: 2em; }
+  /* line 38, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  .storySettings input[type='text'] {
+    flex: 100%;
+    margin: 0.5em 0 1.5em; }
+    /* line 41, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+    .storySettings input[type='text']::-webkit-input-placeholder {
+      text-transform: none; }
+  /* line 45, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  .storySettings input[type='radio'] {
+    display: none; }
+    /* line 47, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+    .storySettings input[type='radio'] + label {
+      background: white;
+      display: inline-block;
+      flex: 40%;
+      margin: 0.7em 0 1.5em;
+      height: 7em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px solid #ebebeb;
+      transition: all 0.2s ease-in-out; }
+    /* line 60, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+    .storySettings input[type='radio']:checked + label {
+      color: white;
+      background: #40ca21; }
+  /* line 65, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  .storySettings select {
+    font-size: 1em; }
+
+/* line 69, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+div.popup {
+  display: none;
+  background: white;
+  position: fixed;
+  width: 50vw;
+  border: none;
+  height: 20vw;
+  z-index: 9;
+  top: 50%;
+  left: 45%;
+  margin-top: -15vw;
+  margin-left: -15vw;
+  padding: 0 0;
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.8); }
+  /* line 83, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  div.popup.active {
+    display: block; }
+  /* line 86, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  div.popup header {
+    background: #607d8b;
+    width: 100%;
+    min-height: 0;
+    margin: 0 0;
+    padding: 0.7em;
+    text-align: left; }
+    /* line 93, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+    div.popup header h3 {
+      margin: 0 0;
+      color: white;
+      display: inline-block;
+      font-size: 1.2em; }
+    /* line 99, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+    div.popup header img {
+      max-height: 1em;
+      display: inline-block;
+      float: right; }
+
+/* line 107, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+div.popup form {
+  position: relative;
+  height: 80%;
+  width: 100%;
+  text-align: left;
+  padding: 1em; }
+  /* line 113, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  div.popup form label {
+    display: block;
+    margin: 0.5em 0;
+    text-align: left; }
+  /* line 118, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  div.popup form input[type='text'] {
+    font-size: 1em;
+    width: 80%;
+    padding: 0.2em 0.5em;
+    margin: 0 0;
+    text-align: left;
+    margin-left: 0; }
+  /* line 126, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-settings.scss */
+  div.popup form input[type='submit'] {
+    position: absolute;
+    width: auto;
+    padding: 0.5em 2em;
+    right: 1em;
+    bottom: 0; }

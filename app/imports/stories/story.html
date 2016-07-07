@@ -1,0 +1,33 @@
+<template name='story'>
+	{{#if Template.subscriptionsReady}}
+		{{#with story}}
+			<article class="story">
+				<header>
+					<h2>{{title}}</h2>
+				</header>
+				<p>
+				{{#each chaptercontent}}
+				{{#if istext}}
+					{{#if isHeading}}
+							<h4 id='{{_id._str}}' class='static'>{{content}} 
+						</h4>
+					{{else}} <!-- else isheading -->
+						<span id='{{_id._str}}' class='static' >{{content}}
+						</span>
+					{{/if}} <!-- end isheading -->
+				{{else}} <!-- else istext -->
+					{{#if isBreak}}
+						<br id='{{_id._str}}'/>
+					{{/if}} <!-- end isbreak -->
+						{{#if getVar}}
+							<span id='{{_id._str}}'>{{getVar this}}</span>
+						{{/if}} <!-- end getVar -->
+				{{/if}} <!-- end istext -->
+				{{/each}}
+				</p>
+			</article>
+		{{/with}}
+	{{else}}
+	<p>loading</p>
+	{{/if}}
+</template>

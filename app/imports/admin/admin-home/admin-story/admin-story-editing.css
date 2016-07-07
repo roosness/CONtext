@@ -1,0 +1,48 @@
+/* line 3, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-editing.scss */
+ul.editList {
+  list-style: none;
+  padding: 0 0;
+  margin: 0.8em;
+  float: right; }
+  /* line 8, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-editing.scss */
+  ul.editList li {
+    display: inline-block; }
+    /* line 11, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-editing.scss */
+    ul.editList li a {
+      display: block;
+      box-sizing: border-box;
+      padding: 0.5em 1em;
+      border-radius: 3px;
+      background: #40ca21;
+      color: white;
+      transition: all 0.2s ease-in-out;
+      z-index: 5;
+      margin: 0 0.3em;
+      border: 1px solid rgba(0, 0, 0, 0);
+      text-decoration: none;
+      box-shadow: 7px 7px 37px -5px rgba(0, 0, 0, 0.1); }
+
+/* line 27, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-editing.scss */
+a.commit {
+  background: #f5f5f5;
+  border: 1px solid #ebebeb;
+  color: #939393; }
+
+/* line 33, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-editing.scss */
+.sortable-ghost {
+  opacity: 0.3;
+  background: #f60; }
+
+/* line 38, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-editing.scss */
+#listC {
+  border: 2px dashed #f60;
+  min-height: 100px; }
+
+/* line 43, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-editing.scss */
+.verwijderen {
+  text-decoration: line-through; }
+
+/* line 46, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story-editing.scss */
+.bewerken {
+  background: #f5f5f5;
+  color: #7f7f7f; }

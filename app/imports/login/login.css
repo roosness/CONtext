@@ -1,96 +1,203 @@
-.loginRegister-wrapper {
+/* line 3, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+main.login {
   position: relative;
-  overflow-x: hidden;
-}
-.loginRegister-wrapper .login-wrapper {
-  left: -100%;
-}
-.loginRegister-wrapper .register-wrapper {
-  left: 100%;
-}
-.loginRegister-wrapper .login-wrapper, .loginRegister-wrapper .register-wrapper {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  transition: left .3s ease-in-out;
-  padding: 2em;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.loginRegister-wrapper .login-wrapper.active, .loginRegister-wrapper .register-wrapper.active {
-  left: 0;
-}
+  min-height: 100%; }
+  /* line 7, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  main.login .start {
+    background: #607d8b;
+    height: 100%;
+    padding: 0 0;
+    color: white;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    transition: all 0.05s ease-in-out;
+    transition-delay: 1s; }
+    /* line 22, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+    main.login .start p {
+      -webkit-flex: 5%;
+          -ms-flex: 5%;
+              flex: 5%;
+      margin: 0 0;
+      text-align: center;
+      color: white; }
+    /* line 28, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+    main.login .start h1 {
+      -webkit-flex: 50%;
+          -ms-flex: 50%;
+              flex: 50%;
+      text-align: left;
+      padding: 0.5em;
+      max-width: 10em;
+      display: inline;
+      margin: 0 auto; }
+    /* line 38, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+    main.login .start a {
+      -webkit-flex: 30%;
+          -ms-flex: 30%;
+              flex: 30%;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      text-decoration: none;
+      color: white;
+      padding: 0 0; }
+      /* line 48, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+      main.login .start a img {
+        width: 15em;
+        height: 15em;
+        -webkit-transform: scale(0.3);
+            -ms-transform: scale(0.3);
+                transform: scale(0.3);
+        margin: -4em auto -4em;
+        border: 3px solid white;
+        border-radius: 100%;
+        -webkit-animation-name: fingerprint;
+                animation-name: fingerprint;
+        padding: 0;
+        -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+        background: #607d8b;
+        -webkit-animation-direction: alternate;
+                animation-direction: alternate;
+        transition: background 0.05s; }
+      /* line 65, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+      main.login .start a span {
+        margin: 0 0;
+        -webkit-flex: 100%;
+            -ms-flex: 100%;
+                flex: 100%; }
+  /* line 72, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  main.login .login-buttons {
+    height: 0;
+    overflow: hidden;
+    opacity: 0; }
+  /* line 78, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  main.login.showLogin .start {
+    height: 0;
+    overflow: hidden;
+    padding: 0; }
+    /* line 82, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+    main.login.showLogin .start img {
+      -webkit-animation-name: resize;
+              animation-name: resize;
+      background: white;
+      border: none;
+      -webkit-animation-duration: 1.5s;
+              animation-duration: 1.5s;
+      -webkit-animation-iteration-count: 1;
+              animation-iteration-count: 1; }
+  /* line 91, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  main.login.showLogin .login-buttons {
+    opacity: 1;
+    transition: opacity 0.7s ease-in-out;
+    transition-delay: 0.5s;
+    padding: 2em;
+    color: #00356B;
+    height: 100%; }
+    /* line 101, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+    main.login.showLogin .login-buttons h2 {
+      margin: 0 0; }
 
-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1em auto;
-  max-width: 80vw;
-  text-align: left;
-}
-form input {
-  font-size: 1em;
-}
-form input::-webkit-input-placeholder {
-  text-transform: uppercase;
-  margin: 0 0;
-}
-form input[type='email'], form input[type='password'] {
-  border: none;
-  flex: 65%;
-  padding: .7em;
-  max-width: 80vw;
-  margin-top: .5em;
-  box-sizing: border-box;
-  border-bottom: 1px solid rgba(96, 125, 139, 0.2);
-}
-form input[type='submit'] {
-  flex: 100%;
-  margin: 1em auto;
-  padding: .5em;
-  background: #607d8b;
-  color: white;
-  border: none;
-}
-
+/* line 108, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
 button.social-login {
   font-size: 1em;
   border: 1px solid #607d8b;
   color: #607d8b;
   background: white;
-  padding: .4em;
-}
-button.social-login img {
-  max-height: 1em;
-  vertical-align: text-top;
-  padding: 0 0;
-  float: left;
-  margin: 0 0 0 1em;
-}
+  padding: 0.7em; }
+  /* line 115, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  button.social-login img {
+    max-height: 1em;
+    vertical-align: text-top;
+    padding: 0 0;
+    float: left;
+    margin: 0 0.7em; }
 
-a#register, a#login {
-  color: #607d8b;
-  text-decoration: none;
-  text-align: center;
-  display: inline-block;
-}
+@-webkit-keyframes resize {
+  /* line 124, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
 
-.message {
-  background: rgba(96, 125, 139, 0.2);
-  padding: .5em;
-  opacity: 1;
-  font-size: .8em;
-  text-align: center;
-  margin-bottom: 1em;
-  max-height: 1em;
-  display: block;
-  transition: opacity .3s ease-in-out;
-}
+  /* line 125, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  100% {
+    -webkit-transform: scale(30);
+            transform: scale(30); } }
 
-/*# sourceMappingURL=login.css.map */
+@keyframes resize {
+  /* line 124, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+
+  /* line 125, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  100% {
+    -webkit-transform: scale(30);
+            transform: scale(30); } }
+
+@-webkit-keyframes fingerprint {
+  /* line 128, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  0% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+
+  /* line 129, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  10% {
+    -webkit-transform: scale(0.35);
+            transform: scale(0.35); }
+
+  /* line 130, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  30% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+
+  /* line 131, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  100% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); } }
+
+@keyframes fingerprint {
+  /* line 128, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  0% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+
+  /* line 129, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  10% {
+    -webkit-transform: scale(0.35);
+            transform: scale(0.35); }
+
+  /* line 130, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  30% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); }
+
+  /* line 131, /Users/Schuurmans/Desktop/context-redo/imports/login/login.scss */
+  100% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3); } }

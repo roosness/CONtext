@@ -1,0 +1,75 @@
+<template name='adminTests'>
+	<header>
+		<h2>Testsessies</h2>
+		<p>Welkom bij testsessies, druk hieronder bij de testpersoon op start, de test begint automatisch zodra hij of zij is ingelogd. </p>
+	</header>
+
+	{{#if Template.subscriptionsReady}}
+		<ul class='tabs'>
+			<li><a href="#" id='testSession' class='{{isActiveTab "testSession"}}'>Test sessies</a></li>
+			<li><a href="#" id='testConfig' class='{{isActiveTab "testConfig"}}'>Test configureren</a></li>
+		</ul>
+	{{/if}}
+	<div class="templateSelected">
+		{{#with test}}
+			{{> UI.dynamic template=whichOne }}
+		{{/with}}
+	</div>
+</template>
+
+<template name='testSession'>
+	
+	
+		<div class="numberOf">
+			<p>Aantal verhalen dat er gelezen gaan worden: {{numberOfChapters}}</p>
+		</div>
+		<p>De lezers en leesvolgorde:</p>
+		<ul class='userList testplan'>
+		{{#each testusers}}
+			<li>
+				<button id={{userid}} class='{{isActiveButton userid}}'>{{isActiveButton userid}}</button> 
+				<span>{{userName}}</span>
+				<ul>
+					{{#each order}}
+						<li class='{{currentRead @index ../userid}}'><span>{{index @index}}<sup>e</sup></span>
+						:
+						{{title}}</li>
+					{{/each}}
+				</ul>
+			</li>
+		{{/each}}
+	</ul>
+	
+</template>
+<template name='testConfig'>
+	<form class='testConfig'>
+		<div class="numberOf">
+			<label for="amountOfChapters">Aantal verhalen dat elk testpersoon gaat lezen:</label>
+			<input type="number" min='0' max='4' id='amountOfChapters' value='{{numberNumberOfChapters}}'>
+		</div>
+		<p>De verhalen die gelezen gaan worden</p>
+		<ul class="userList">
+			{{#each user}}
+				<li>
+					<input type="checkbox" id='{{_id}}' class='name' >
+					<label for="{{_id}}" class='name'>{{profile.name}}</label>
+
+					<div class="stories">
+						{{#each numberOfChapters}}
+							<label for="storySelect">{{this}}<sup>e</sup> verhaal</label>
+							<select  id='storySelect' class='{{../_id}}'>
+							{{#let rowIndex=@index}}
+								{{#each stories}}
+								<option value="{{_id}}-{{title}}" id='{{title}}'>{{title}}</option>
+							{{/each}}
+							{{/let}}
+						</select>
+						{{/each}}
+					</div>
+				</li>
+			{{/each}}
+		</ul>
+
+		<input type="submit">
+	</form>
+</template>

@@ -1,0 +1,18 @@
+<template name='adminStory'>
+	<div class="edit-story">
+	<aside class='filters'>
+		<a href='' id="switch">ga naar {{tabname}}</a>
+		{{> UI.dynamic template=whichOne }}
+	</aside>
+	<div class="story">
+		<div class="editStoryButtons">
+			{{> editStory }}
+		</div>
+		{{#if recreate}}
+			{{> story}}
+		{{else}}
+			{{> story}}
+		{{/if}}
+	</div>
+	</div>
+</template>

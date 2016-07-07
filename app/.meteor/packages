@@ -16,22 +16,16 @@ standard-minifier-css   # CSS minifier run for production mode
 standard-minifier-js    # JS minifier run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
-
-
-insecure                # Allow all DB writes from clients (for prototyping)
+insecure
 
 kadira:flow-router
 kadira:blaze-layout
-http
-easy:search
-session
 meteortoys:allthings
-mizzao:timesync
-accounts-password
-gwendall:template-animations
-zimme:active-route
 accounts-facebook
 service-configuration
+session
+http
 alanning:roles
+mizzao:timesync
+rubaxa:sortable
 mirrorcell:geolocation-plus
-matteodem:server-session

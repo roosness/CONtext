@@ -1,0 +1,61 @@
+/* line 2, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story.scss */
+.edit-story {
+  width: 100%;
+  height: 100%; }
+  /* line 5, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story.scss */
+  .edit-story aside {
+    text-align: center;
+    float: right;
+    width: 30vw;
+    display: inline-block;
+    box-sizing: border-box;
+    overflow: auto;
+    max-width: 30em;
+    height: 100%; }
+    /* line 14, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story.scss */
+    .edit-story aside #switch {
+      background: #939393;
+      text-decoration: none;
+      font-size: 1.1em;
+      display: block;
+      color: white;
+      margin: 0 0 1em;
+      padding: 0.5em; }
+  /* line 24, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story.scss */
+  .edit-story > div {
+    display: inline-block;
+    float: right; }
+  /* line 28, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story.scss */
+  .edit-story div > div {
+    text-align: left; }
+    /* line 30, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story.scss */
+    .edit-story div > div br {
+      border: 2px solid #bababa;
+      margin: 0 auto;
+      padding-top: 0.5em;
+      display: block;
+      height: 1em;
+      content: ' '; }
+  /* line 40, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story.scss */
+  .edit-story div > div {
+    height: 5em;
+    display: block;
+    padding: 0 0; }
+
+/* line 46, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story.scss */
+br.deleting {
+  background: #bababa; }
+
+/* line 49, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story.scss */
+article p:first-letter {
+  transition: all 0.2s ease-in-out; }
+
+/* line 54, /Users/Schuurmans/Desktop/context-redo/imports/admin/admin-home/admin-story/admin-story.scss */
+article:not(.editing) p:first-letter {
+  float: left;
+  color: #607d8b;
+  font-size: 5em;
+  text-transform: uppercase;
+  line-height: 0.8em;
+  padding-right: 8px;
+  padding-bottom: 0; }

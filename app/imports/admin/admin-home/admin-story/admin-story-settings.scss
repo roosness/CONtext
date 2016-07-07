@@ -1,0 +1,134 @@
+@import '../../../../client/stylesheets/vars';
+.storySettings {
+	margin:.5em 0;
+	background:white;
+	border:1px solid $grey2;
+	padding:1.5em;
+	display:flex;
+	justify-content: space-between;
+	align-items:flex-start;
+	flex-wrap: wrap;
+	text-align: left;
+	button {
+		background:$blue;
+		width:100%;
+		margin: 0 0 1em;
+	}
+		p {
+			flex:100%;
+			margin:2.5em 0 .5em;
+		}
+		label {
+				flex: 92%;
+			}
+		select {
+			flex:30%;
+			margin:.3em;
+			font-size:1em;
+		}
+		label[for='format'] {
+			flex:10%;
+				margin:.3em 0;
+				text-align: left;
+		}
+		input[type='checkbox'] {
+				flex:5%;
+				margin-bottom:2em;
+			}
+			input[type='text'] {
+				flex:100%;
+				margin:.5em 0 1.5em;
+				&::-webkit-input-placeholder {
+					text-transform: none;
+				}
+			}
+			input[type='radio'] {
+			display: none;
+			& + label  {
+				background:white;
+				display:inline-block;
+				flex:40%;
+				margin:.7em 0 1.5em;
+				height: 7em;
+				display: flex;
+				justify-content: center;
+				align-items:center;
+				text-align:center;
+				border:1px solid $grey2;
+				transition:all .2s ease-in-out;
+			}
+			&:checked + label {
+				color:white;
+				background:$green;
+			}
+		}
+		select{ 
+			font-size:1em;
+		}
+}
+div.popup {
+  display: none;
+  background:white;
+  position: fixed;
+  width:50vw;
+  border:none;
+  height:20vw;
+  z-index:9;
+  top: 50%;
+  left: 45%;
+  margin-top: -15vw; 
+  margin-left: -15vw;
+  padding: 0 0;
+  box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
+  &.active {
+    display: block;
+  }
+  header {
+    background: $blue;
+    width:100%;
+    min-height: 0;
+    margin: 0 0;
+    padding:.7em;
+    text-align: left;
+    h3 {
+      margin: 0 0;
+      color:white;
+      display: inline-block;
+      font-size: 1.2em;
+    }
+    img {
+      max-height: 1em;
+      display: inline-block;
+      float:right;
+    }
+  }
+}
+div.popup {
+	form {
+		position: relative;
+		height:80%;
+		width:100%;
+		text-align: left;
+		padding:1em;
+		label {
+			display: block;
+			margin:.5em 0;
+			text-align: left;
+		}
+		input[type='text'] {
+			font-size:1em;
+			width:80%;
+			padding:.2em .5em;
+			margin: 0 0;
+			text-align: left;
+			margin-left:0;
+		}
+		input[type='submit'] {
+			position:absolute;
+			width:auto;
+			padding:.5em 2em;
+			right:1em;
+			bottom:0;
+		}
+	}
+}

@@ -1,0 +1,39 @@
+/* line 3, /Users/Schuurmans/Desktop/context-redo/imports/stories/stories.scss */
+.storyList {
+  list-style: none;
+  padding: 0 0; }
+  /* line 6, /Users/Schuurmans/Desktop/context-redo/imports/stories/stories.scss */
+  .storyList header {
+    background: #607d8b;
+    color: white;
+    margin: 0 0;
+    margin-top: -1em;
+    text-align: center;
+    padding: 1em;
+    box-shadow: inset 0 -3px 10 0 rgba(50, 50, 50, 0.4); }
+    /* line 15, /Users/Schuurmans/Desktop/context-redo/imports/stories/stories.scss */
+    .storyList header h2 {
+      margin: 0 0;
+      font-size: 1.2em; }
+  /* line 20, /Users/Schuurmans/Desktop/context-redo/imports/stories/stories.scss */
+  .storyList li {
+    position: relative;
+    height: 4em;
+    padding: 1em 4em;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.2s ease-in-out; }
+    /* line 28, /Users/Schuurmans/Desktop/context-redo/imports/stories/stories.scss */
+    .storyList li:hover {
+      background: #f5f5f5; }
+    /* line 31, /Users/Schuurmans/Desktop/context-redo/imports/stories/stories.scss */
+    .storyList li img {
+      height: 100%;
+      vertical-align: middle;
+      display: inline-block; }
+    /* line 36, /Users/Schuurmans/Desktop/context-redo/imports/stories/stories.scss */
+    .storyList li a {
+      padding: 0 1em;
+      display: inline-block;
+      text-decoration: none;
+      color: black; }
