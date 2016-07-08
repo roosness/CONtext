@@ -5,7 +5,6 @@
 		<p>Zodra een test gestart is, wordt de testpersoon automatisch in de test geplaatst. Hij kan zich dus gewoon al inloggen voordat er op start wordt gedrukt. </p>
 		<p>Wil je de test halverwegen stopzetten? Druk dan op stop. </p>
 	</header>
-
 	{{#if Template.subscriptionsReady}}
 		<ul class='tabs'>
 			<li><a href="#" id='testSession' class='{{isActiveTab "testSession"}}'>Test sessies</a></li>
@@ -18,10 +17,7 @@
 		{{/with}}
 	</div>
 </template>
-
 <template name='testSession'>
-	
-	
 		<div class="numberOf">
 			<p>Aantal verhalen dat er gelezen gaan worden: {{numberOfChapters}}</p>
 		</div>
@@ -41,7 +37,6 @@
 			</li>
 		{{/each}}
 	</ul>
-	
 </template>
 <template name='testConfig'>
 	<form class='testConfig'>
@@ -56,7 +51,6 @@
 				<li>
 					<input type="checkbox" id='{{_id}}' class='name' >
 					<label for="{{_id}}" class='name'>{{profile.name}}</label>
-
 					<div class="testerStories">
 						{{#each numberOfChapters}}
 							<label for="storySelect">{{this}}<sup>e</sup> verhaal</label>
@@ -72,7 +66,6 @@
 				</li>
 			{{/each}}
 		</ul>
-
 		<input type="submit">
 	</form>
 </template>

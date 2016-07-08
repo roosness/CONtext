@@ -25,7 +25,6 @@ Template.adminTests.helpers({
 	test () {
 		return Tests.find().fetch()[0]
 	},
-
 })
 Template.adminTests.events({
 	'click a': function (e) {
@@ -39,7 +38,6 @@ Template.testSession.helpers({
 	},
 	testusers() {
 		console.log(this)
-
 		if(this.testusers === undefined || this.testusers.length === 0) {
 			Session.set('selectedTab', 'testConfig')
 		}
@@ -86,11 +84,9 @@ Template.testConfig.helpers({
 		return Stories.find().fetch()
 	}
 })
-
 Template.testSession.events({
 	'click button': function (e) {
 		e.preventDefault();
-
 		var testUsersObj = Tests.find().fetch()[0].testusers;
 		var userid = e.currentTarget.id;
 		var id = Tests.find().fetch()[0]._id
@@ -102,7 +98,6 @@ Template.testSession.events({
 		}
 	}
 })
-
 Template.testConfig.events({
 	'change input[type="number"]': function (e){
 		Session.set('numberOfChapters', e.currentTarget.value)
@@ -118,9 +113,7 @@ Template.testConfig.events({
 			if(inputs[i].checked) {
 				var selectedStories = [];
 				var selectBox = document.querySelectorAll('select[class="'+inputs[i].id+'"]');
-
 				for(var h = 0; h<selectBox.length;h++) {
-					
 					var value = selectBox[h].value.split('-');
 					selectedStories.push({
 						id: value[0],
@@ -128,7 +121,6 @@ Template.testConfig.events({
 						order: (h + 1)
 					})
 				}
-				
 				testusers.push({
 					userName: names[i].innerHTML,
 					userTestActive: false,

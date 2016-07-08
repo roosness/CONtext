@@ -1,4 +1,3 @@
-
 Template.adminLayout.helpers({
 	isAdmin() {
 		console.log(Roles.userIsInRole( Meteor.userId(), 'admin' ))

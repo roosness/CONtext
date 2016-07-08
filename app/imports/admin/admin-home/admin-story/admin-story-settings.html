@@ -6,42 +6,26 @@
 	<form class="storySettings">
 	{{#if canDuplicate}}
 		<button id='openDuplicate'>dupliceer artikel</button>
-		
 	{{else}}
 	<p>Wil je dit verhaal kopieren? Ga dan terug naar het orginele verhaal.</p>
 	{{/if}}
-		
 			<label for  ="newTitle" >Nieuwe titel</label>
 			<input type ="text" id='newTitle' value='{{title}}'>
-			
-
-
 			<label for="format">Formaat naam</label>
 			<select  id="format">
 				{{#each formatNames}}
 					<option value="{{this}}" {{isSelected this}}>{{this}}</option>
 				{{/each}}
 			</select>
-
 			<p>Welk geslacht?</p>
-			
 			<input type ="radio" name='genderFormat' id='normal' value='false' {{checked 'genderReversed' false}}>
 			<label for  ="normal">Geslacht van Gebruiker</label>
-
 			<input type ="radio" name='genderFormat' id='Tegengesteld' value='true' {{checked 'genderReversed' true}}>	
-
 			<label for  ="Tegengesteld">Tegengesteld</label>
 			<input type="submit">
-
-		
-		
-		
-	
-		
 	</form>
 	{{/with}}
 </template>
-
 <template name='popupDuplicate'>
 	<header>
 		<h3>Creeer een duplicaat</h3>

@@ -8,24 +8,18 @@ p.editInfo {
 	overflow:hidden;
 	 animation-name: moveIn;
     animation-duration: .5s;
-
 }
-
 @keyframes moveIn {
     from {max-height:0; opacity:0;}
     to {max-height:10em;opacity:1;}
 }
-
 ul.editList {
 	list-style:none;
 	padding: 0 0;
 	margin: .8em;
-	
 	li {
 		display: inline-block;
 		margin:.2em;
-
-		 
 	}
 	a {
 	 	display:block;
@@ -47,19 +41,14 @@ ul.editList {
 		color:$grey1;
 	}
 }
-
-
-
 .sortable-ghost {
   opacity: .3;
   background: #f60;
 }
-
 #listC {
   border: 2px dashed #f60;
   min-height: 100px
 }
-
 .verwijderen {
 	text-decoration:line-through;
 }

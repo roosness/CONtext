@@ -1,10 +1,9 @@
 import { Tests } from '../../lib/collections.js';
-import {watcher} from '../../client/layouts/reader-layout.js'
+import { watcher } from '../../client/layouts/reader-layout.js'
 import './testStory.html'
 
 Template.testStory.onCreated(function () {
 	var self = this;
-	
 	self.autorun(function () {
 		self.subscribe('Tests', {
 			onReady: function () {
@@ -13,7 +12,6 @@ Template.testStory.onCreated(function () {
 		});
 	})
 })
-
 Template.testStory.events({
 	'click a': function (e) {
 		e.preventDefault();
@@ -25,14 +23,8 @@ Template.testStory.events({
 				Meteor.call('finish_test', Meteor.userId(), test._id)
 				FlowRouter.go('/tests/done');
 			} else {
-
 					Meteor.call('current_story_update', number, user._id, test._id);
 			}
 		}
-		
-		
-		
-		
 	}
 })
-

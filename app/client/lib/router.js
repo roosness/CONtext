@@ -1,4 +1,3 @@
-
 import '../../imports/stories/stories.js'
 import '../../imports/stories/story.js'
 import '../../imports/stories/testStory.js'
@@ -14,7 +13,6 @@ import '../../imports/admin/admin-tests/admin-tests.js'
 
 
 BlazeLayout.setRoot('body');
-
 
 FlowRouter.notFound = {
     action: function() {

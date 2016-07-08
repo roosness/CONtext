@@ -4,10 +4,7 @@ import './admin-story-editing.html'
 
 Template.editStory.onRendered(function () {
 		Session.set('editing', false);
-		Session.set('verplaatsen', false);
-		
-	
-	
+		Session.set('verplaatsen', false);	
 })
 Template.story.helpers({
 	editable() {

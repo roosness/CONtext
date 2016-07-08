@@ -10,14 +10,9 @@ if(Meteor.isServer) {
 		},
 		getLocation: function (ll) {
 		var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + ll.latitude + ',' + ll.longitude + '&key=AIzaSyDGUP3zJPdET5sFcnCliWZjFTS0hsX2zYw';
-		
 		var result = HTTP.call('GET', url, {})
 		var data = JSON.parse(result.content)
 		return data
 	},
 	})
-
-
-
-
 }

@@ -1,7 +1,5 @@
 import { Stories, Fallbacks, userData } from '../../../../lib/collections.js';
-
 import './admin-story-filters.html'
-
 Template.filters.events({
 	'click label[for="naam"]' : function (e) {
 		document.querySelector('div.naam').classList.toggle('active')
@@ -13,7 +11,6 @@ Template.filters.events({
 		console.log('click')
 		var links = document.querySelectorAll('.filters li');
 		for(var i = 0; i< links.length; i++) {
-			
 			if(links[i]== e.currentTarget.parentNode) {
 				links[i].classList.toggle('showFilter');
 			}
@@ -26,7 +23,6 @@ Template.filters.events({
 		e.preventDefault();
 		var chapterId = FlowRouter.getParam("id");
 		var obj = {
-			
 			source: 'break',
 			isstatic: null,
 			istext: null,
@@ -34,7 +30,6 @@ Template.filters.events({
 			subcategory: null,
 			content: null,
 			 _id: new Meteor.Collection.ObjectID(),
-			
 		}
 		submitFilter(obj)
 	},
@@ -43,7 +38,6 @@ Template.filters.events({
 		console.log('ja')
 		if(!(e.target.text.value === '')) {
 			var obj = {
-				
 				source: 'admin',
 				isstatic: true,
 				istext: true,
@@ -52,7 +46,6 @@ Template.filters.events({
 				content: e.target.text.value.trim(),
 				inObject: false,
 				_id: new Meteor.Collection.ObjectID()
-
 			}
 		}
 		submitFilter(obj)
@@ -60,7 +53,6 @@ Template.filters.events({
 	},
 	'submit form.filter': function (e) {
 		e.preventDefault();
-		
 		console.log(e.currentTarget.id)
 		if(e.currentTarget.id === 'user') {
 			 var selected = e.currentTarget.user.value;
@@ -72,18 +64,13 @@ Template.filters.events({
 		}
 		console.log(formats['geslacht']);
 		var obj = {
-				
 				source: e.currentTarget.classList[0],
 				category: e.currentTarget.id,
 				subcategory: e.currentTarget[e.currentTarget.id].value,
 				content: null,
 				_id: new Meteor.Collection.ObjectID(),
 				format: formats[selected || 'default']
-
 			}
-
-		
-		
 		console.log(obj)
 		submitFilter(obj)
 		e.currentTarget.reset();
@@ -94,7 +81,6 @@ function submitFilter(obj) {
 	obj.order = items.length + 1;
 	Meteor.call('stories_content_update', FlowRouter.getParam('id'), obj)
 }
-
 Template.person.helpers({
 	formatNames() {
 		var format = [, "v", "a", "v+a", "vl+a", "vl"];
@@ -104,7 +90,6 @@ Template.person.helpers({
 		var words = [];
 		var data = Fallbacks.find({category: 'geslacht'}).fetch()
 		for(var i = 0; i < data.length;i++) {
-
 			words.push({
 				female: data[i].female,
 				male: data[i].male

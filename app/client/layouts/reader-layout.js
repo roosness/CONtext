@@ -10,45 +10,6 @@ Template.readerLayout.onRendered(function () {
 			}
 		});
 	})
-	// console.log(Meteor.user().profile.testActive);
-	
-	// console.log(user.profile);
-	// Tracker.autorun(function () {
-	// 	var user = Meteor.user();
-	// 	if(user && user.profile) {
-	// 		console.log(user.profile.testActive);
-	// 		if(user.profile.testActive) {
-	// 			var currentStory = user.profile.currentStory;
-	// 			var test = Tests.find().fetch()[0];
-	// 			if(test.testusers) {
-	// 				var order;
-	// 				for(var i in test.testusers) {
-	// 					if(test.testusers[i].id === user.id) {
-	// 						var order = test.testusers[i].order
-	// 					}
-	// 				}
-	// 				var storyId = order[currentStory].id
-	// 				FlowRouter.go('/tests/' + storyId)
-	// 			}
-	// 				// console.log(Meteor.user().profile.orderChapter[currentStory].id)
-	// 				// var currentStoryId = Meteor.user().profile.orderChapter[Meteor.user().profile.currentStory].id;
-					
-					
-	// 				// if(!(window.location.href.indexOf('test/done'))) {
-	// 				// console.log('doe dit')
-					
-	// 				// }
-	// 				// else {
-	// 				// console.log('dat');
-					
-	// 				// FlowRouter.go('/test/' + currentStoryId)
-					
-					
-					
-	// 				// } 
-	// 		}
-	// 	}
-	// })
 })
 
 export var watcher = function () {

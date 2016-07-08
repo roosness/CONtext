@@ -1,8 +1,8 @@
-/* line 5, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 3, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 * {
   box-sizing: border-box; }
 
-/* line 9, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 7, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 body, html {
   background: white;
   padding: 0 0;
@@ -16,11 +16,11 @@ body, html {
   position: relative;
   font-family: 'PT Sans', sans-serif; }
 
-/* line 23, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 21, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 body {
   position: relative; }
 
-/* line 26, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 24, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 button {
   background: #40ca21;
   font-size: 1em;
@@ -30,75 +30,75 @@ button {
   box-shadow: 4px 4px 14px 0 rgba(50, 50, 50, 0.15);
   border: none; }
 
-/* line 36, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 34, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 article {
   padding: 1em;
   max-width: 40em;
   margin: 0 auto; }
-  /* line 40, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+  /* line 38, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
   article p {
     font-size: 1.2em;
     line-height: 1.7em;
     font-family: 'Crimson Text', serif; }
 
-/* line 47, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 45, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'PT Sans', sans-serif;
   font-weight: inherit;
   line-height: 1.2; }
 
-/* line 52, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 50, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 h1, h2, h3, h4 {
   margin: 1.414em 0 0.5em; }
 
-/* line 55, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 53, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 h1 {
   margin-top: 0;
   font-size: 3.157em; }
 
-/* line 59, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 57, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 h2 {
   font-size: 2.369em; }
 
-/* line 60, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 58, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 h3 {
   font-size: 1.777em; }
 
-/* line 61, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 59, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 h4 {
   font-size: 1.333em; }
 
-/* line 62, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 60, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 nav ul {
   margin: 0 0; }
 
-/* line 66, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 64, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 ul, ol {
   list-style: none; }
 
-/* line 69, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 67, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 main {
   margin: 0 0; }
 
-/* line 72, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 70, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 main.admin {
   height: 100%; }
-  /* line 75, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+  /* line 73, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
   main.admin header {
     margin: 4em auto 2em;
     min-height: 10em;
     max-width: 60em; }
 
-/* line 85, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 83, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 input[type='text'] {
   font-size: 1em; }
 
-/* line 88, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 86, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 .adminMessage {
   max-width: 60em;
   margin: 0 auto; }
 
-/* line 93, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 91, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 .vert-center {
   height: 80%;
   width: 100%;
@@ -109,11 +109,11 @@ input[type='text'] {
   justify-content: center;
   align-items: center; }
 
-/* line 105, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 103, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 form {
   margin: 0 0; }
 
-/* line 108, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 106, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 input[type='submit'] {
   width: 100%;
   clear: both;
@@ -124,7 +124,7 @@ input[type='submit'] {
   background: #40ca21;
   color: white; }
 
-/* line 118, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
+/* line 116, /Users/Schuurmans/GitHub/CONtext/app/client/stylesheets/styles.scss */
 input[type='text'] {
   padding: 0.2em 0.5em; }
 
@@ -161,7 +161,7 @@ main.login {
   opacity: 0; }
 
 /* line 37, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
-.start {
+.login.start {
   background: #607d8b;
   height: 100%;
   padding: 0 0;
@@ -177,13 +177,13 @@ main.login {
   transition: all 0.05s ease-in-out;
   transition-delay: 1s; }
   /* line 52, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
-  .start p {
+  .login.start p {
     flex: 5%;
     margin: 0 0;
     text-align: center;
     color: white; }
   /* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
-  .start h1 {
+  .login.start h1 {
     flex: 50%;
     text-align: left;
     padding: 0.5em;
@@ -191,7 +191,7 @@ main.login {
     display: inline;
     margin: 0 auto; }
   /* line 66, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
-  .start a {
+  .login.start a {
     flex: 30%;
     display: flex;
     justify-content: center;
@@ -201,11 +201,11 @@ main.login {
     color: white;
     padding: 0 0; }
     /* line 76, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
-    .start a span {
+    .login.start a span {
       margin: 0 0;
       flex: 100%; }
   /* line 81, /Users/Schuurmans/GitHub/CONtext/app/imports/login/login */
-  .start img {
+  .login.start img {
     width: 30vw;
     height: 30vw;
     transform: scale(0.3);
@@ -754,26 +754,26 @@ p.editInfo {
   animation-duration: 0.5s; }
 
 @keyframes moveIn {
-  /* line 15, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  /* line 13, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
   from {
     max-height: 0;
     opacity: 0; }
 
-  /* line 16, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  /* line 14, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
   to {
     max-height: 10em;
     opacity: 1; } }
 
-/* line 19, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 16, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 ul.editList {
   list-style: none;
   padding: 0 0;
   margin: 0.8em; }
-  /* line 24, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  /* line 20, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
   ul.editList li {
     display: inline-block;
     margin: 0.2em; }
-  /* line 30, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  /* line 24, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
   ul.editList a {
     display: block;
     box-sizing: border-box;
@@ -787,32 +787,32 @@ ul.editList {
     border: 1px solid rgba(0, 0, 0, 0);
     text-decoration: none;
     box-shadow: 7px 7px 37px -5px rgba(0, 0, 0, 0.1); }
-  /* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+  /* line 38, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
   ul.editList a.commit {
     background: #ca2140;
     border: 1px solid #ebebeb;
     color: #f5f5f5; }
 
-/* line 53, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 44, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 .sortable-ghost {
   opacity: 0.3;
   background: #f60; }
 
-/* line 58, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 48, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 #listC {
   border: 2px dashed #f60;
   min-height: 100px; }
 
-/* line 63, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 52, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 .verwijderen {
   text-decoration: line-through; }
 
-/* line 66, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 55, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 br.verwijderen {
   background: #ca2140;
   opacity: 1; }
 
-/* line 70, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
+/* line 59, /Users/Schuurmans/GitHub/CONtext/app/imports/admin/admin-home/admin-story/admin-story-editing */
 .bewerken {
   background: #f5f5f5;
   color: #7f7f7f; }
